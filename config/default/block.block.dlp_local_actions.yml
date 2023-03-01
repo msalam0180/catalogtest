@@ -1,0 +1,20 @@
+uuid: b2e72b11-ee25-425b-bcab-bbce96c70544
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dlp
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: dlp_local_actions
+theme: dlp
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

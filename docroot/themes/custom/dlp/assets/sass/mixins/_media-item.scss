@@ -1,0 +1,89 @@
+@mixin media-item($media-figure, $media-body, $media-title, $color: $border-color, $bdcolor: $panel-default-border){
+	display: flex;
+	align-items: flex-start;
+	margin-top: 5px;
+
+	.#{$media-figure} {
+		margin-right: 10px;
+		font-size: 216%;
+		padding: 0;
+		
+		.icon.glyphicon {
+			color: $primary-color;
+			padding: 0;
+		}
+	}
+
+	.#{$media-body} {
+	  flex: 1;
+	  width: auto;
+	  .field{
+		    margin-bottom: 5px;
+	    	padding-bottom: 5px;
+	    	&.field--label-inline{
+	    		font-size: .9em;
+	    	}
+		}
+	}
+
+	.#{$media-title} {
+		font-weight: bold;
+		.unbold{
+			font-weight: normal;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+
+	& + & {
+		margin-bottom: 5px;
+	}
+
+	&.bordered {
+		border: 1px solid $bdcolor;
+		padding: 13px 14px;
+	}
+
+	&.bordered-left {
+		border-left: 3px solid $bdcolor;
+		padding: 13px 14px;
+	}
+
+	&.bgcolor-lt {
+		background: #fefefe;
+		.#{$media-body} {
+		  .field{
+		    	&.field--label-inline{
+		    		color: #797676;
+		    	}
+			}
+		}
+	}
+
+	&.bgcolor-md {
+		background: #f5f5f5;
+		.#{$media-body} {
+		  .field{
+		    	&.field--label-inline{
+		    		color: #797676;
+		    	}
+			}
+		}
+		&.bordered-left, &.bordered{
+			border-color: #8e8e8e;
+		}
+	}
+
+
+
+	&.bgcolor {
+		background: $color;
+	}
+}
+
+.media-item{
+	@include media-item(media-figure, media-body, media-title);
+}
+
+

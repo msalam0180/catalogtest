@@ -1,0 +1,6 @@
+log_ignored_config: {  }
+log_destination:
+  default: default
+  custom: '0'
+  mail: '0'
+log_email_address: ''

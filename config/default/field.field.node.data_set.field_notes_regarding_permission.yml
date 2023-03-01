@@ -1,0 +1,21 @@
+uuid: 7df14621-5f1c-4504-bcc2-75a0f1086e5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes_regarding_permission
+    - node.type.data_set
+  module:
+    - text
+id: node.data_set.field_notes_regarding_permission
+field_name: field_notes_regarding_permission
+entity_type: node
+bundle: data_set
+label: 'Permissions and Usage'
+description: 'Detail what type of permissions are needed under the licensing agreement for publication and usage of this dataset.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

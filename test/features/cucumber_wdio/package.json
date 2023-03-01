@@ -1,0 +1,10 @@
+{
+  "name": "catalog-ui-test-with-cucumber",
+  "version": "1.0.0",
+  "description": "The Catalog UI Test With Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ../../node_modules/.bin/wdio wdio.conf.js --spec",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

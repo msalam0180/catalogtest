@@ -1,0 +1,48 @@
+uuid: 9e90204e-0eec-43ee-9ba4-2e356b098696
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 0SSaYMM3rvF8WuoY2yG1mY8O_b5Z7kPhMo20-vxvszQ
+label: 'Content (Limited)'
+id: content_limited_
+description: ''
+matchers:
+  ad14d9dc-9f62-452f-8458-2e769b71ff40:
+    id: 'entity:node'
+    uuid: ad14d9dc-9f62-452f-8458-2e769b71ff40
+    settings:
+      metadata: Dataset
+      bundles:
+        data_set: data_set
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: false
+    weight: 0
+  ca90f313-c82e-486d-9953-8b119a050031:
+    id: 'entity:node'
+    uuid: ca90f313-c82e-486d-9953-8b119a050031
+    settings:
+      metadata: Documentation
+      bundles:
+        publications: publications
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: false
+    weight: 0
+  196478fc-f5e1-4e7b-a18f-dd4990d81018:
+    id: 'entity:node'
+    uuid: 196478fc-f5e1-4e7b-a18f-dd4990d81018
+    settings:
+      metadata: Pages
+      bundles:
+        page: page
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: false
+    weight: 0

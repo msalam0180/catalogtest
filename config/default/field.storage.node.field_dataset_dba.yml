@@ -1,0 +1,23 @@
+uuid: e32b18f0-2db4-4911-a80e-f8a3496cc38a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: NwLdWRvR8BIPdMYgSm0hzMWtjLZolEHDGY5gKFa6x-o
+id: node.field_dataset_dba
+field_name: field_dataset_dba
+entity_type: node
+type: string
+settings:
+  max_length: 455
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

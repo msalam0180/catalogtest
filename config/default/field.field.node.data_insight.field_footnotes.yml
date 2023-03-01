@@ -1,0 +1,25 @@
+uuid: 9b31231c-061b-483b-873a-db48e259be6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_footnotes
+    - node.type.data_insight
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.data_insight.field_footnotes
+field_name: field_footnotes
+entity_type: node
+bundle: data_insight
+label: Footnotes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

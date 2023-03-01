@@ -1,0 +1,19 @@
+uuid: 261e288d-ae05-4b11-baed-f5111c859bb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sync_description
+    - node.type.component
+id: node.component.field_sync_description
+field_name: field_sync_description
+entity_type: node
+bundle: component
+label: 'Sync Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

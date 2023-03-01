@@ -1,0 +1,37 @@
+uuid: 4bdf9ed2-bf2f-4d75-8093-bb53d51f3a0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.components
+    - views.view.software_search
+  module:
+    - views
+    - search_api_autocomplete
+id: software_search
+label: 'Software Search'
+index_id: components
+suggester_settings:
+  live_results:
+    fields: {  }
+    highlight:
+      enabled: false
+      field: ''
+    view_modes:
+      'entity:node':
+        component: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:software_search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

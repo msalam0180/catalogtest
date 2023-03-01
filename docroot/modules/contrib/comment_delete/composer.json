@@ -1,0 +1,16 @@
+{
+    "name": "drupal/comment_delete",
+    "description": "Enhanced comment deletion rules and threaded replies handler.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Robert Phillips",
+            "email": "rob@imagexmedia.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "drupal/core": "^8.8 || ^9 || ^10"
+    }
+}

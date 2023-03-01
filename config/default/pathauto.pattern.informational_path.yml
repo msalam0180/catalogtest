@@ -1,0 +1,22 @@
+uuid: 21211662-31e5-4eb0-a572-0e291d278b5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: informational_path
+label: 'Informational path'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  758d8400-5f7c-4b70-857b-b663a31e50e1:
+    id: node_type
+    negate: false
+    uuid: 758d8400-5f7c-4b70-857b-b663a31e50e1
+    context_mapping:
+      node: node
+    bundles:
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }

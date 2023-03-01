@@ -1,0 +1,10 @@
+uuid: 542b3617-5804-4cc1-9504-35dfa735d934
+langcode: en
+status: true
+dependencies: {  }
+id: applications_to_datasets
+label: 'Related Dataset'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

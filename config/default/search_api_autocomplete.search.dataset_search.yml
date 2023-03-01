@@ -1,0 +1,35 @@
+uuid: ead7eb0b-56c4-4177-92e6-889b43f8ea08
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.data_search
+    - views.view.dataset_search
+  module:
+    - views
+    - search_api_autocomplete
+id: dataset_search
+label: 'Dataset Search'
+index_id: data_search
+suggester_settings:
+  live_results:
+    fields:
+      - title
+    view_modes:
+      'entity:node':
+        data_set: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:dataset_search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: false

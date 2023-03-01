@@ -1,0 +1,14 @@
+uuid: 929ab1ae-b02a-4b96-b3c4-9be362975cb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.migration_admin
+  module:
+    - user
+id: user_remove_role_action.migration_admin
+label: 'Remove the Migration Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: migration_admin

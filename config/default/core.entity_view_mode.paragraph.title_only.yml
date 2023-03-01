@@ -1,0 +1,10 @@
+uuid: d20b265f-4d0f-4856-9344-e0239014c2d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.title_only
+label: 'Title Only'
+targetEntityType: paragraph
+cache: true

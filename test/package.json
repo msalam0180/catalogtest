@@ -1,0 +1,28 @@
+{
+  "name": "wdio-ui-test-cucumber",
+  "version": "1.0.0",
+  "description": "WDIO UI Test Using Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "@wdio/cli": "^6.3.5",
+    "@wdio/cucumber-framework": "^6.3.0",
+    "@wdio/dot-reporter": "^6.3.0",
+    "@wdio/local-runner": "^6.3.5",
+    "@wdio/selenium-standalone-service": "^6.1.14",
+    "@wdio/spec-reporter": "^6.3.0",
+    "@wdio/sync": "^6.3.3",
+    "wdio-image-comparison-service": "^1.13.6",
+    "wdio-timeline-reporter": "^5.1.3"
+  }
+}

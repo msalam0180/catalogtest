@@ -1,0 +1,25 @@
+uuid: 4601b25f-f486-4c65-ae1d-5f20246648d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_footnotes
+    - node.type.statistics
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.statistics.field_footnotes
+field_name: field_footnotes
+entity_type: node
+bundle: statistics
+label: Footnotes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

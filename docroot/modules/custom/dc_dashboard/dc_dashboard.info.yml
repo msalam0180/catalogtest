@@ -1,0 +1,5 @@
+name: Data Catalog Dashboard
+type: module
+description: Dashboard module
+package: Custom
+core_version_requirement: ^8 || ^9

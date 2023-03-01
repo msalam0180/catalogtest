@@ -1,0 +1,32 @@
+dlp.xsmall:
+  label: x-small
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+
+dlp.small:
+  label: small
+  mediaQuery: '(min-width: 768px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+
+dlp.medium:
+  label: medium
+  mediaQuery: '(min-width: 992px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+    
+
+dlp.large:
+  label: large
+  mediaQuery: '(min-width: 1200px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x

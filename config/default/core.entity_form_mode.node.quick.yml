@@ -1,0 +1,12 @@
+uuid: 725ba79a-1827-446e-826e-5b6bb0ad6b92
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: _KP8TxBJgcoDVeOQR6tvpMqm8xclJnRj7PJcWA4RLxE
+id: node.quick
+label: Quick
+targetEntityType: node
+cache: true

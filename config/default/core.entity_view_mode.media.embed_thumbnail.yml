@@ -1,0 +1,10 @@
+uuid: ccab635d-b295-4c32-b041-bf3c9178349f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.embed_thumbnail
+label: 'Embed Thumbnail'
+targetEntityType: media
+cache: true

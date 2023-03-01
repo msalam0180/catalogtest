@@ -1,0 +1,12 @@
+uuid: 25841b2b-fac3-4f2e-a3b5-6cd4e1b1064a
+langcode: en
+status: true
+dependencies: {  }
+id: associated_related_datasets
+label: 'Associated Related Datasets'
+enabled: false
+first_field: field_associated_related_dataset
+second_field: field_associated_related_dataset
+bundles:
+  node:
+    - data_set

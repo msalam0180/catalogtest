@@ -1,0 +1,41 @@
+uuid: ae97af5f-715a-4747-9362-16dc8541a6f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_division_office
+    - field.field.user.user.field_employment_type
+    - field.field.user.user.user_picture
+  module:
+    - options
+    - user
+_core:
+  default_config_hash: L2mtwGWH_7wDRCMIR4r_Iu_jmvQ10DV1L8ht8iNZ5qY
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_division_office:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_employment_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
+  user_picture: true

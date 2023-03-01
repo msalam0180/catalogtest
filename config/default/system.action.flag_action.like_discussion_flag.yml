@@ -1,0 +1,15 @@
+uuid: 82c0a153-9567-49fa-afd1-10b69b0e8f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.like_discussion
+  module:
+    - flag
+id: flag_action.like_discussion_flag
+label: Like
+type: node
+plugin: 'flag_action:like_discussion_flag'
+configuration:
+  flag_id: like_discussion
+  flag_action: flag

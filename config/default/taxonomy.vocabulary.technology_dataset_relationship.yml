@@ -1,0 +1,8 @@
+uuid: a7ef207d-0b18-4e1d-b6af-59b068e98bd1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Technology & Dataset Relationship'
+vid: technology_dataset_relationship
+description: ''
+weight: 0

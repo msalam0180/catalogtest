@@ -1,0 +1,37 @@
+uuid: d296c059-6d96-41bc-9ab3-455da1da5b6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.button_display
+    - field.field.paragraph.related_application.field_application
+    - field.field.paragraph.related_application.field_desc_of_relationship
+    - paragraphs.paragraphs_type.related_application
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.related_application.button_display
+targetEntityType: paragraph
+bundle: related_application
+mode: button_display
+content:
+  field_application:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_desc_of_relationship:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

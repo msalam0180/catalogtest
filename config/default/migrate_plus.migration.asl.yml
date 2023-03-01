@@ -1,0 +1,147 @@
+uuid: 8f0b5e5c-2621-42ec-9e39-6d0cf1096f3c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Exux_aRewhVEIJQQ7map7dUXDaFvAQlfweISi6xIO7k
+id: asl
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - asl
+migration_group: null
+label: 'JSON import of ASL content'
+source:
+  plugin: url
+  data_parser_plugin: json
+  item_selector: 1
+  data_fetcher_plugin: file
+  urls: 'public://migration/asl.json'
+  fields:
+    -
+      name: id
+      selector: sys_id
+    -
+      name: name
+      selector: name
+    -
+      name: manufacturer
+      selector: manufacturer
+    -
+      name: short_description
+      selector: short_description
+    -
+      name: description
+      selector: description
+    -
+      name: version
+      selector: version
+    -
+      name: status
+      selector: status
+    -
+      name: u_software_restriction
+      selector: u_software_restriction
+    -
+      name: sys_updated_on
+      selector: sys_updated_on
+    -
+      name: sys_created_on
+      selector: sys_created_on
+  constants:
+    reviewer: TechCatalog@sec.gov
+    division_office: Enterprise
+    request_installation_uri: 'https://seceamsprod.servicenowservices.com/secsp?id=sc_cat_item&sys_id=f10eada7dbb73200c1b474131f961985'
+    request_installation_title: 'Request Installation'
+  ids:
+    id:
+      type: string
+process:
+  status:
+    plugin: default_value
+    default_value: 1
+  moderation_state: published
+  type:
+    plugin: default_value
+    default_value: component
+  title:
+    plugin: concat
+    source:
+      - name
+      - version
+    delimiter: ' '
+  body/value: description
+  body/format:
+    plugin: default_value
+    default_value: restricted_html
+  field_approved_version: version
+  field_status_usage:
+    plugin: entity_lookup
+    source: status
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: status
+  field_request_installation/uri: constants/request_installation_uri
+  field_request_installation/title: 'constants/request_installation_title"Request Installation"'
+  field_manufacturer:
+    plugin: entity_generate
+    source: manufacturer
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: manufacturer
+  field_division_office_multi:
+    plugin: entity_lookup
+    source: constants/division_office
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: division_office
+  field_restrictions: u_software_restriction
+  field_reviewer:
+    plugin: user_lookup
+    source: constants/reviewer
+  field_promote_it_to_the_technolo:
+    plugin: static_map
+    source: status
+    map:
+      Approved: true
+      catalog: false
+      Catalog: false
+      Waiver: false
+      'Pending Retirement': false
+    default_value: false
+  changed:
+    plugin: format_date
+    source: sys_updated_on
+    from_format: 'Y-m-d H:i:s'
+    to_format: U
+  created:
+    plugin: format_date
+    source: sys_created_on
+    from_format: 'Y-m-d H:i:s'
+    to_format: U
+  field_sync_date:
+    plugin: current_date
+destination:
+  plugin: 'entity:node'
+  overwrite_properties:
+    - status
+    - moderation_state
+    - title
+    - field_approved_version
+    - field_status_usage
+    - field_division_office_multi
+    - field_restrictions
+    - field_promote_it_to_the_technolo
+    - changed
+    - created
+    - field_sync_date
+    - field_restrictions
+    - field_manufacturer
+migration_dependencies: null

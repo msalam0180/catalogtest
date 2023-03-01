@@ -1,0 +1,22 @@
+uuid: 5a2422b1-bf84-4416-9e8b-7cd7da033c13
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: platform_path
+label: 'Platform path'
+type: 'canonical_entities:node'
+pattern: 'platforms/[node:title]'
+selection_criteria:
+  c1f3ba8c-3176-43ec-b43c-6aa1f7bcdff9:
+    id: node_type
+    negate: false
+    uuid: c1f3ba8c-3176-43ec-b43c-6aa1f7bcdff9
+    context_mapping:
+      node: node
+    bundles:
+      platform: platform
+selection_logic: and
+weight: -5
+relationships: {  }

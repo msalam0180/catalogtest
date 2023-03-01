@@ -1,0 +1,29 @@
+uuid: 930a7bb8-1b9c-4385-81fc-639b65f9759f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_submitter
+    - node.type.landing_page
+id: node.landing_page.field_review_submitter
+field_name: field_review_submitter
+entity_type: node
+bundle: landing_page
+label: 'Review Submitter'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

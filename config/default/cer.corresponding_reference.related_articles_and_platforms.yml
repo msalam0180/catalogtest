@@ -1,0 +1,13 @@
+uuid: 86de92ce-feeb-4ed4-9d51-d78eef2a9f39
+langcode: en
+status: true
+dependencies: {  }
+id: related_articles_and_platforms
+label: 'Related Articles and Platforms'
+enabled: true
+first_field: field_related_articles
+second_field: field_related_platforms
+bundles:
+  node:
+    - article
+    - platform

@@ -1,0 +1,10 @@
+uuid: 6fddb20e-b17e-4566-a717-f963b82e9fb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.key_message
+label: 'Key Message'
+targetEntityType: paragraph
+cache: true

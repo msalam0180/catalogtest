@@ -1,0 +1,13 @@
+uuid: e10f79f3-d2e3-49bb-91be-33f28b6168cf
+langcode: en
+status: true
+dependencies: {  }
+id: related_data_insights_and_reports_statistics
+label: 'Related Data Insights and Reports & Statistics'
+enabled: true
+first_field: field_related_reports_statistics
+second_field: field_related_data_insights
+bundles:
+  node:
+    - data_insight
+    - statistics

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: action_disable_comments_action
+label: 'Disable comments'
+type: node
+plugin: action_disable_comments_action
+configuration: {  }

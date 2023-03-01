@@ -1,0 +1,29 @@
+uuid: 1121c05b-f5d6-48a9-869b-8d1371f0d00b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_completeness
+    - node.type.data_set
+    - taxonomy.vocabulary.quality_completeness
+id: node.data_set.field_completeness
+field_name: field_completeness
+entity_type: node
+bundle: data_set
+label: Completeness
+description: 'High: All desired use cases can be implemented without restrictions based on available data<br>Medium: Certain use cases cannot be implemented or use cases do not deliver their full desired value due to data sparseness<br>Low: Data sparseness is so high that most desired use cases would not deliver satisfactory value'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quality_completeness: quality_completeness
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

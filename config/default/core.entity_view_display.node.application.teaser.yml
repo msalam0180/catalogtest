@@ -1,0 +1,105 @@
+uuid: a5311bec-6266-4f04-b366-3e07ce63230a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.application.body
+    - field.field.node.application.field_add_new_discussion
+    - field.field.node.application.field_app_status
+    - field.field.node.application.field_application_link
+    - field.field.node.application.field_application_type
+    - field.field.node.application.field_approved_version
+    - field.field.node.application.field_contact_guidance
+    - field.field.node.application.field_contacts
+    - field.field.node.application.field_data_search_index
+    - field.field.node.application.field_dataset_use
+    - field.field.node.application.field_division_office_multi
+    - field.field.node.application.field_documents
+    - field.field.node.application.field_hosting_location
+    - field.field.node.application.field_how_to_request_access
+    - field.field.node.application.field_logo
+    - field.field.node.application.field_number_of_external_users
+    - field.field.node.application.field_number_of_users
+    - field.field.node.application.field_owner
+    - field.field.node.application.field_permissions_and_usage
+    - field.field.node.application.field_promote_it_to_the_technolo
+    - field.field.node.application.field_related_applications
+    - field.field.node.application.field_related_articles
+    - field.field.node.application.field_related_components
+    - field.field.node.application.field_related_datasets_with_term
+    - field.field.node.application.field_related_discussions
+    - field.field.node.application.field_related_platforms
+    - field.field.node.application.field_reviewer
+    - field.field.node.application.field_screenshots
+    - field.field.node.application.field_short_name
+    - field.field.node.application.field_summary
+    - field.field.node.application.field_sync_date
+    - field.field.node.application.field_sync_description
+    - field.field.node.application.field_tags
+    - field.field.node.application.field_technology_category
+    - field.field.node.application.field_type_of_external_user
+    - node.type.application
+  module:
+    - text
+    - user
+id: node.application.teaser
+targetEntityType: node
+bundle: application
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_add_new_discussion: true
+  field_app_status: true
+  field_application_link: true
+  field_application_type: true
+  field_approved_version: true
+  field_contact_guidance: true
+  field_contacts: true
+  field_data_search_index: true
+  field_dataset_use: true
+  field_division_office_multi: true
+  field_documents: true
+  field_hosting_location: true
+  field_how_to_request_access: true
+  field_logo: true
+  field_number_of_external_users: true
+  field_number_of_users: true
+  field_owner: true
+  field_permissions_and_usage: true
+  field_promote_it_to_the_technolo: true
+  field_related_applications: true
+  field_related_articles: true
+  field_related_components: true
+  field_related_datasets_with_term: true
+  field_related_discussions: true
+  field_related_platforms: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_screenshots: true
+  field_short_name: true
+  field_summary: true
+  field_sync_date: true
+  field_sync_description: true
+  field_tags: true
+  field_technology_category: true
+  field_type_of_external_user: true
+  search_api_excerpt: true

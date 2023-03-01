@@ -1,0 +1,23 @@
+uuid: 62abb12c-b076-493c-81b4-f930d5c263ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_datasetid
+    - node.type.publications
+id: node.publications.field_publication_datasetid
+field_name: field_publication_datasetid
+entity_type: node
+bundle: publications
+label: 'Dataset ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

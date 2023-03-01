@@ -1,0 +1,29 @@
+uuid: 9e8ae6ae-f3f0-4a9e-b564-3da0b33cdcf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mission_criticality_rating
+    - paragraphs.paragraphs_type.mission_criticality
+    - taxonomy.vocabulary.mission_criticality_mefs_
+id: paragraph.mission_criticality.field_mission_criticality_rating
+field_name: field_mission_criticality_rating
+entity_type: paragraph
+bundle: mission_criticality
+label: 'Mission Criticality Rating'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mission_criticality_mefs_: mission_criticality_mefs_
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

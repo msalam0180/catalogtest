@@ -1,0 +1,14 @@
+uuid: 781664ba-52e9-49f2-8e22-78ee0d75cdb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ocdo
+  module:
+    - user
+id: user_remove_role_action.ocdo
+label: 'Remove the OCDO role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ocdo

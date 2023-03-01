@@ -1,0 +1,174 @@
+uuid: dd33ea7a-36e6-4370-b015-e9a9bd4d0116
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.media_item
+    - field.field.node.tools.body
+    - field.field.node.tools.field_add_new_discussion
+    - field.field.node.tools.field_articles
+    - field.field.node.tools.field_associated_data_sets
+    - field.field.node.tools.field_contact
+    - field.field.node.tools.field_contact_guidance
+    - field.field.node.tools.field_dataset_description
+    - field.field.node.tools.field_dataset_related_datasets
+    - field.field.node.tools.field_documents
+    - field.field.node.tools.field_how_to_request_access
+    - field.field.node.tools.field_point_s_of_contact
+    - field.field.node.tools.field_related_discussions
+    - field.field.node.tools.field_review_submitter
+    - field.field.node.tools.field_reviewer
+    - field.field.node.tools.field_tags
+    - field.field.node.tools.field_technical_owner
+    - field.field.node.tools.field_technical_subject_matter_e
+    - field.field.node.tools.field_tool_category
+    - node.type.tools
+  module:
+    - field_group
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_row:
+      children:
+        - group_column_01
+        - group_c
+      label: 'Row 01'
+      parent_name: ''
+      region: hidden
+      weight: 19
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_01:
+      children: {  }
+      label: 'Column 01'
+      parent_name: group_row
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: col-lg-6
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_c:
+      children:
+        - group_extra_content_section
+      label: 'Column 02'
+      parent_name: group_row
+      region: hidden
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: col-lg-6
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_extra_content_section:
+      children:
+        - field_contact
+        - field_documents
+      label: 'Extra Content Section'
+      parent_name: group_c
+      region: hidden
+      weight: 24
+      format_type: html_element
+      format_settings:
+        classes: 'extra-content-display-section  panel panel-default'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_row_02:
+      children:
+        - group_column_03
+      label: 'Row 02'
+      parent_name: ''
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_03:
+      children: {  }
+      label: 'Column 03'
+      parent_name: group_row_02
+      region: hidden
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: col-lg-6
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.tools.media_item
+targetEntityType: node
+bundle: tools
+mode: media_item
+content:
+  field_dataset_description:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tool_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  field_add_new_discussion: true
+  field_articles: true
+  field_associated_data_sets: true
+  field_contact: true
+  field_contact_guidance: true
+  field_dataset_related_datasets: true
+  field_documents: true
+  field_how_to_request_access: true
+  field_point_s_of_contact: true
+  field_related_discussions: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_tags: true
+  field_technical_owner: true
+  field_technical_subject_matter_e: true
+  links: true
+  search_api_excerpt: true

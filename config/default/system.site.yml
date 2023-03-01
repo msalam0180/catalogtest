@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+langcode: en
+uuid: 5995b636-9daa-4df4-ad67-20511ace53e8
+name: 'SEC Data Catalog'
+mail: no-reply@sec.gov
+slogan: ''
+page:
+  403: /node/15611
+  404: ''
+  front: /node/11501
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

@@ -1,0 +1,14 @@
+uuid: d0731832-c3ff-46ae-b748-b2462535c0fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.open_data_moderator
+  module:
+    - user
+id: user_add_role_action.open_data_moderator
+label: 'Add the OPEN Data Moderator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: open_data_moderator

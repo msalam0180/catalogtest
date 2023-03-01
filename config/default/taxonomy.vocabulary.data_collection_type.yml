@@ -1,0 +1,8 @@
+uuid: 8f805478-0d1f-4d1e-8989-c867501efee9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Data Collection Type'
+vid: data_collection_type
+description: ''
+weight: 0

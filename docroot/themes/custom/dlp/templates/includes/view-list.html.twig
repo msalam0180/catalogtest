@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * View List template (can be used by any type of content as long as the vars are passed)
+ *
+ * Available Vars
+ * img (optional) - item image (format: public://2020-04/filename.png)
+ * fallback (optional: defaults to true)- (true/false) if true and an img is defined, then fallback image of a camera will display
+ * fallback_other: (optional) - use a manually created fallback image - currently there is only one option "app_icon"
+ * item_url (optional) - where the title and image link to
+ * htag - what heading level to use (optional: defaults to h2)
+ * title - Title of item (required)
+ * field_short_name - short name of item (optional)
+ * summary - short description (required)
+ * compressed - (true/false) tighten spacing - only works when there are images (optional)
+ * edit_link (optional) - (string: url) show the (edit) link after the title
+ *                        does not work if 'only' is in the include because destination and editaccess are pass through vars, but you can pass them manually
+ * ///COMING SOON: additional_fields (optional) - additional fields to display below summary
+ *
+ * To use the status, you must pass in all of the following 3 vars
+ * status - status value (required)
+ * status_icon - Font Awesome Icon name
+ * status_color - status_color - 6 numbers and no hash
+
+ * Example template call:
+ {% include '@dlp/includes/view-list.html.twig' with {'title': label, 'htag': "h3", 'item_url': url, 'img': img, 'summary': content.field_summary, 'status': 'Recommended', 'status_icon': 'flag', 'status_color': '436BC3'} %}
+ {% include '@dlp/includes/view-list.html.twig' with {'title': label, 'htag': "h3", 'img': img, 'summary': content.field_summary, 'edit_link': true} %}
+ {% include '@dlp/includes/view-list.html.twig' with {'title': label, 'htag': "h3", 'item_url': url, 'summary': content.field_summary, 'status_icon': 'flag', 'status_color': '436BC3'} %}
+
+//TODO: Add additional_fields option
+//TODO: Maybe break this include apart and create a extend template with blocks that can be overridden
+#}
+
+{# set defaults #}
+{% if img is defined  %}
+  {% set fallback = (fallback is not defined) ? true : fallback %}
+{% else  %}
+  {% set noImg = true %}
+{% endif %}
+{% set htag = (htag is not defined) ? "h2" : htag %}
+
+{%
+  set classes = [
+    'view-list-img',
+    compressed ? 'view-list-img--compressed',
+    noImg ? 'view-list-img--no-img',
+    node.isPublished() == false ? "view-list-img--unpublished"
+  ]
+%}
+
+<div <div{{ create_attribute().addClass(classes) }}>
+  {% if img or (fallback == true)  %}
+    <div class="view-list-img--img">
+      {% if item_url %}
+      <a  href="{{ item_url }}" aria-hidden="true" tabindex="-1">
+      {% endif %}
+        {% if img is not empty  %}
+          {{ drupal_image(img, 'logo', {alt: '', presentation: 'true'}) }}          
+        {% else  %}
+          <div class="view-list-img--img-fallback {{fallback_other}}">
+            {% if (fallback_other == 'application_icon')  %}
+              {# application fallback #}
+              {% include '@dlp/includes/application_icon.html.twig' %}
+            {% elseif (fallback_other == 'data_set_icon')  %}
+              {# Dataset fallback #}
+              <i class="fas fa-database" style="color: #133e5e;"></i>
+            {% else  %}
+              {# img fallback #}
+              <i class="fas fa-camera"></i>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if item_url %}
+      </a>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="view-list-img--main">
+    <div class="view-list-img--main-inner">
+        <div class="view-list-img--header">
+          <{{htag}} class="view-list-img--title">
+            {% if item_url %}<a  href="{{ item_url }}">{% endif %}
+              {{ title }}
+            {% if item_url %}</a>{% if field_short_name %}&nbsp;<span class="shortname">({{field_short_name }})</span>{% endif %}{% endif %}
+          </{{htag}}>
+          {% if destination and editaccess and (edit_link == true) %}
+            <a href="{{edit_link}}" hreflang="en"><span class="edit-link-in-title">(Edit)</span></a>
+          {% endif %}
+          {% if status_icon and status and status_color %}
+            {{ include('@dlp/includes/status.html.twig', {'status': status, 'status_icon': status_icon, 'status_color': status_color, 'left_line': true }) }}
+          {% endif %}
+        </div>
+        {% if summary %}
+          <div class="view-list-img--desc">{{ summary }}</div>
+        {% endif %}
+      {# <div class="view-list-img--related">{{ field_related_apps }}</div> #}
+
+      {# TODO: This is printing wrapper because there are empty items in the array #}
+      {% spaceless %}
+      {% if content or (other_fields is not empty) %}
+        <div class="view-list-img--other-fields">{% if content %}
+          {# nodes #}
+            {{content|without('title', 'field_logo', 'field_summary')}}
+          {% elseif other_fields is not empty %}
+          {# Views #}
+            {% for other_field in other_fields %}
+              {% if other_field is not empty %}
+                <div class="view-list-img--other-field">{{ other_field }}</div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endif %}
+      {% endspaceless %}
+
+    </div>
+  </div>
+</div>

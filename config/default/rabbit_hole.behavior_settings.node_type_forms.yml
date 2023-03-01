@@ -1,0 +1,14 @@
+uuid: ca9d49fc-60d4-445b-8674-65bd58149757
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forms
+id: node_type_forms
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

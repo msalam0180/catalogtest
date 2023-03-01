@@ -1,0 +1,10 @@
+uuid: a25d2785-f499-4b26-8656-e4ed61f15dcc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3w0LM8SxHDB66KI7MacVBs5jFimmVtecVGga-Qh3JOU
+name: 'Publication Category'
+vid: publication_category
+description: 'The type of a publication'
+weight: 0

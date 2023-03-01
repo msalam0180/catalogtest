@@ -1,0 +1,23 @@
+uuid: 017b8df1-eaab-4da3-8409-4dde58af77a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.chart
+  module:
+    - text
+id: node.chart.body
+field_name: body
+entity_type: node
+bundle: chart
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

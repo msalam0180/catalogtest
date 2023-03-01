@@ -1,0 +1,49 @@
+uuid: f824a941-9e3d-4ded-a97a-84415fd5eb35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tools.body
+    - field.field.node.tools.field_articles
+    - field.field.node.tools.field_contact
+    - field.field.node.tools.field_dataset_description
+    - field.field.node.tools.field_documents
+    - field.field.node.tools.field_how_to_request_access
+    - field.field.node.tools.field_tool_category
+    - node.type.tools
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: AU2x5j-ZLAuuK5aOVXTJ0gjBcrv2lb_fxVLRrvf75m0
+id: node.tools.teaser
+targetEntityType: node
+bundle: tools
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_articles: true
+  field_contact: true
+  field_dataset_description: true
+  field_documents: true
+  field_how_to_request_access: true
+  field_tool_category: true

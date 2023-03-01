@@ -1,0 +1,55 @@
+//
+// Node: Tools
+// Applys to tool details pages
+// --------------------------------------------------
+@media screen and (min-width: 1100px) {
+  .tool-top-container {
+    display: flex;
+  }
+}
+
+.tool-details {
+  flex: 1 0;
+}
+
+.tool-side {
+  flex: 0 0 500px;
+  align-self: flex-start;
+  margin-left: 30px;
+  background: #f6f6f6;
+  padding: 25px 30px;
+
+  @media screen and (max-width: 1100px) {
+    flex: 0 0 100%;
+		margin: 0;
+		padding: 20px;
+  }
+
+}
+
+.tool-details {
+
+  .field {
+    .field--type-text-with-summary, .field--type-text-long, .cke_editable_themed {
+      // font-size: 1.2em;
+      border-bottom: none;
+    }
+  }
+
+  .field.field--name-field-how-to-request-access {
+    display: inline-block;
+    float: right;
+    padding: 20px;
+    border: 1px solid $border-color;
+    margin: 0 0 20px 20px;
+  }
+}
+
+
+.page-node-type-tools {
+  .btn.btn-primary {
+    @media screen and (max-width: 767px) {
+      margin: 0;
+    }
+  }
+}

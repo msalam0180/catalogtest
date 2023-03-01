@@ -1,0 +1,23 @@
+uuid: adb78ad8-3510-4570-b2b0-51103d9c0016
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_electronic_size
+    - node.type.forms
+id: node.forms.field_electronic_size
+field_name: field_electronic_size
+entity_type: node
+bundle: forms
+label: 'Electronic Size'
+description: 'Enter electronic size, which must be between 0 and 9,999,999,999.99 inclusive.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: 9999999999.99
+  prefix: ''
+  suffix: ' MB'
+field_type: decimal

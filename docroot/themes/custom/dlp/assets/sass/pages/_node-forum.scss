@@ -1,0 +1,127 @@
+.page-node-type-forum .field {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.page-node-type-forum .comment-wrapper > h2 {
+  font-size: 1.4em;
+  border-top: 1px solid $border-color;
+  padding: 15px 0;
+  margin: 30px 0 10px 0;
+  border-bottom: 1px solid $border-color;
+}
+
+@media screen and (min-width: 1100px) {
+  .row-1 {
+    display: flex;
+  }
+}
+
+.col-1 {
+  flex: 1 0;
+}
+
+.col-2 {
+  flex: 0 0 500px;
+  align-self: flex-start;
+  margin-left: 30px;
+  background: #f6f6f6;
+  padding: 25px 30px;
+
+  @media screen and (max-width: 1100px) {
+    flex: 0 0 100%;
+    margin: 0;
+    padding: 20px;
+    margin-top: 20px;
+  }
+}
+
+
+// WYSIWYG output styling
+.page-node-type-forum{
+
+  .field--type-text-with-summary, .field--type-text-long, .cke_editable_themed {
+    a[data-entity-type="file"]{
+      border: 1px solid #c3c3c3;
+      padding: 1px 5px 3px 4px;
+  
+      &:before{
+        background: transparent;
+        position: relative;
+        top: 2px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        margin-top: 5px;
+        margin-bottom: 0;
+        font-size: 14px;
+        // content: "\e142";
+        content: "\e022";
+        margin-right: 3px;
+        color: black;
+      }
+    }
+  
+    img{
+      border: 1px solid #e3e3e3;
+      padding: 5px;
+    }
+  }
+}
+
+
+// Block for actions under discussion body
+.flag-like-discussion {
+  padding: 20px 0 0 0;
+  display: inline-block;
+
+  .list-inline{
+    margin: 0;
+  }
+
+  .list-inline li{
+    padding: 0;
+  }
+
+  .list-inline li:not(:first-child):before,
+  .list-inline li:not(:first-child) > span.wrapper-flag-icon-count:before {
+      content: '\22C5';
+      padding: 0 5px;
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+}
+
+//hide tabs on dicussions page for only auth users
+.role-level-simple.page-node-type-forum .region-tabs {
+  display: none;
+}
+
+/* only show the how to delete help text on the node edit form */
+.extra-field--delete-help-text{
+  display: none;
+}
+
+.role-level-simple #node-forum-edit-form .extra-field--delete-help-text{
+  display: block;
+  font-size: 0.85em;
+}
+
+//hide shadow copy stuff
+.form-item-shadow{
+  display: none;
+}
+
+/* //hide "Rules of the Road" help text from delete pages */
+.comment-comment-forum-delete-form  .extra-field--discussion-rules-of-the-road-help-text,
+.node-forum-delete-form .extra-field--discussion-rules-of-the-road-help-text{
+  display: none;
+}

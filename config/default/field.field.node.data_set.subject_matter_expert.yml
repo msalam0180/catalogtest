@@ -1,0 +1,29 @@
+uuid: f5d93384-5bb8-4f4b-80e9-4600b378f04c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subject_matter_expert
+    - node.type.contact
+    - node.type.data_set
+id: node.data_set.subject_matter_expert
+field_name: subject_matter_expert
+entity_type: node
+bundle: data_set
+label: 'Subject Matter Expert'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: field_last_name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: page
+field_type: entity_reference

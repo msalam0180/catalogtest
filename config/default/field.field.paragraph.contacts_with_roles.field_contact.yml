@@ -1,0 +1,29 @@
+uuid: a3327ae4-af4f-448b-ba72-c0f52100d7eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact
+    - node.type.contact
+    - paragraphs.paragraphs_type.contacts_with_roles
+id: paragraph.contacts_with_roles.field_contact
+field_name: field_contact
+entity_type: paragraph
+bundle: contacts_with_roles
+label: Contact
+description: 'If a person is not in the list of Existing Contacts, you must first <a href="/node/add/contact" target="_blank">create the Contact</a> using the Admin menu (Content >> Add content >> Contact).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: field_last_name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

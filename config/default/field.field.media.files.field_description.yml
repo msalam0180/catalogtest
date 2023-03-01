@@ -1,0 +1,19 @@
+uuid: 1318e247-b1fc-4bd4-8398-8622d86bc342
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_description
+    - media.type.files
+id: media.files.field_description
+field_name: field_description
+entity_type: media
+bundle: files
+label: Description
+description: 'Describe this document briefly so the user can clearly understand the contents of the file. Only 300 characters will appear as a summary on a dataset and 600 in search results.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

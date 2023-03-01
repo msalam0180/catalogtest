@@ -1,0 +1,82 @@
+@function get-base-url() {
+	@return '/themes/custom/dlp/';
+}
+
+/* COLORS */
+
+/* Backgrounds */
+
+$black:          #000;
+$gray-dark:      #444;
+$gray-dark2:     #393d40;
+$gray-medium:    #626262;
+$gray-medium2:   #555;
+$gray-medium3:   #585858;
+$gray-medium4:   #ccc;
+$gray-light:     #ddd;
+$gray-light2:    #dcdcdc;
+$gray-light3:    #eee;
+$gray-light4:    #eaeaea;
+$gray-lighter:   #e9e9e9;
+$gray-lighter2:  #efefef;
+$gray-lighter3:  #f1f1f1;
+$gray-lighter4:  #f6f6f6;
+$gray-lightest:  #f9f9f9;
+
+$white:          #fff;
+
+$gold-sec:       #FFC057;
+$gold-sec2:      #f0ad4e;
+$gold-medium:    #eea236;
+
+$blue-sec-dark:  #273A56;
+$blue-medium:    #337ab7;
+
+$primary-color: #0F3049;
+
+$accent-color:    #00aeef;
+$accent-color-dk:    #037FB0;
+$accent-color-lt: #70C2ED;
+
+
+$icon-font-path: "../bootstrap/assets/fonts/bootstrap/";
+
+//== Borders
+// Grey Border on light background
+$border-color: #e3e3e3;
+// Grey (Dark) Border on light background
+$border-color-dk: #bfbfbf;
+// Alternate boarder color
+$border-color-alt: lighten($accent-color, 40%);
+
+//Spacing
+//when there are two sections to a page and they are separated by a line - top some page content and bottom a view
+$spacing-separation-above-line: 22px;
+$spacing-separation-below-line: 40px;
+
+
+// Bootstrap Var Overrides
+
+//** By default, this inherits from the `<body>`.
+$headings-color:          $blue-sec-dark;
+
+//== Tables
+//
+//##
+
+$table-cell-padding:            1em;
+
+//== Tabs
+//
+//##
+
+$nav-tabs-active-link-hover-bg:             $gray-lighter4;
+
+
+//== Wells
+//
+//##
+
+$well-bg:                     #f5f5f5 !default;
+$well-border:                 darken($well-bg, 7%) !default;
+$well-border-radius:          5px;

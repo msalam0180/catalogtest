@@ -1,0 +1,26 @@
+uuid: 4de4c1ed-9fbe-427a-9d9d-acb1c6c5d080
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.status.field_icon
+    - field.field.taxonomy_term.status.field_status_color
+    - taxonomy.vocabulary.status
+  module:
+    - text
+id: taxonomy_term.status.default
+targetEntityType: taxonomy_term
+bundle: status
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_icon: true
+  field_status_color: true
+  search_api_excerpt: true

@@ -1,0 +1,37 @@
+uuid: 71d82ceb-d3b9-4a86-9df5-d8a554436d25
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.files.field_description
+    - field.field.media.files.field_document_category
+    - field.field.media.files.field_media_file
+    - image.style.medium
+    - media.type.files
+  module:
+    - image
+id: media.files.media_library
+targetEntityType: media
+bundle: files
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_description: true
+  field_document_category: true
+  field_media_file: true
+  name: true
+  search_api_excerpt: true
+  uid: true

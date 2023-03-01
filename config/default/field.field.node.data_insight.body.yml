@@ -1,0 +1,31 @@
+uuid: 240a9c73-b0af-428c-946b-96ea5e2ff450
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.data_insight
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.data_insight.body
+field_name: body
+entity_type: node
+bundle: data_insight
+label: 'Bottom Line Up Front'
+description: 'Provide the key message for this insight'
+required: true
+translatable: true
+default_value:
+  -
+    value: "<p>Recent high-profile events have reopened the debate about the value of capital punishment in a just society. This is an important discussion, because the taking of a human life is always a serious matter.</p>\r\n"
+    summary: ''
+    format: full_html
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

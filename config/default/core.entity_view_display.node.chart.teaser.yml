@@ -1,0 +1,30 @@
+uuid: 74795fe9-7ca7-4848-9a47-4c78e9364ef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.chart.body
+    - field.field.node.chart.field_graph
+    - node.type.chart
+  module:
+    - user
+id: node.chart.teaser
+targetEntityType: node
+bundle: chart
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_graph: true
+  search_api_excerpt: true

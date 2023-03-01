@@ -1,0 +1,23 @@
+uuid: 4334d1fa-4bed-486d-a907-2a3cdf7462c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository_link
+    - node.type.statistics
+  module:
+    - link
+id: node.statistics.field_repository_link
+field_name: field_repository_link
+entity_type: node
+bundle: statistics
+label: 'GitLab Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 16
+field_type: link

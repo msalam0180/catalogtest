@@ -1,0 +1,21 @@
+uuid: 06ed4a22-ae32-4046-8ef1-dbb47a6445f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_vendor_www
+    - node.type.data_set
+_core:
+  default_config_hash: z-ba-gWFAt6cM1e3pfeiqLlCifX5BQuWyECBK90ZcdY
+id: node.data_set.field_dataset_vendor_www
+field_name: field_dataset_vendor_www
+entity_type: node
+bundle: data_set
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

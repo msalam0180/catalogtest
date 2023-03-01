@@ -1,0 +1,323 @@
+<?php
+
+/**
+ * @file
+ * Forum-related hooks for workflows.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Component\Utility\Html;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function dc_forum_entity_presave(EntityInterface $entity)
+{
+  switch ($entity->bundle()) {
+
+    case 'comment_forum':
+      if (!$entity->isNew()) {
+        _dc_send_mail($entity, 'edit_comment');        
+      }
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      $entity->set('field_updated_by',$user);
+      break;
+    case 'forum':
+      // For forums, enable or disable comments based on moderation state.
+      $entity->get('comment_forum')->status = _set_forum_moderation_comments($entity);
+      _dc_send_mail($entity, 'edit_forum');
+      break;
+  }
+}
+
+/**
+ * Enable or Disable forum comments base on moderation state.
+ */
+function _set_forum_moderation_comments($entity)
+{
+  // Get the moderation state.
+  $moderation_state = $entity->get('moderation_state')->getValue()[0]['value'];
+  // If the mod state is published, allow commenting otherwise disable.
+  return $moderation_state == 'published' ? CommentItemInterface::OPEN : CommentItemInterface::CLOSED;
+}
+
+/**
+ * Prepopulates the related content field for discussions.
+ */
+function _prepopulate_related_content()
+{
+  $value = \Drupal::request()->query->get('related_content');
+  $value = Html::escape($value);
+  $node = is_numeric($value) ? Node::load($value) : NULL;
+
+  // $node->set('YOUR_FIELD_NAME', $value);
+  return $node;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dc_forum_form_alter(&$form, $form_state, $form_id)
+{
+  switch ($form_id) {
+    case 'node_forum_form':
+      // If the user is normal auth, don't show the moderation workflow.
+      $user = \Drupal::currentUser()->getRoles();
+      if (in_array('authenticated', $user) && count($user) == 1) {
+        $form['moderation_state']['#access'] = FALSE;
+        $form['field_forum_moderator']['#access'] = FALSE;
+      }
+      // Set a default related content if it exists.
+      $node = _prepopulate_related_content();
+
+      $form['field_related_content']['widget'][0]['target_id']['#default_value'] = $node;
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function dc_forum_mail($key, &$message, $params)
+{
+  /*
+   * Subject: [passed in]
+   * Body: [Discussion thread title] (linked to comment review page?)
+   * (in descending chronological order)
+   * [author]
+   * [date and time of comment]
+   * [1st two lines of text] (linked to comment)
+   * ------------------------------------------(some kind of delineator)
+   *
+   * {etc.}
+   */
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  switch ($key) {
+    case 'create_comment':
+
+      // Setup the 'from'.
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+
+      // Setup the subject line.
+      $message['subject'] = t('Data Catalog Forum: "@title" has new comments', ['@title' => $params['thread_title']], $options);
+
+      // Setup the message body.
+      $message['body'][] = _dc_create_message_body(
+        $params['thread_title'],
+        $params['comment_author_name'],
+        $params['comment_timestamp'],
+        $params['comment_text'],
+        $params['comment_link']
+      );
+
+      // Add comment author as CC for private discussion.
+      if ($params['comment_author_email'] != NULL) {
+        $message['headers']['Cc'] = $params['comment_author_email'];
+      }
+      break;
+    case 'edit_comment':
+      // Setup the 'from'.
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+
+      // Setup the subject line.
+      $message['subject'] = t('Data Catalog Forum: "@title" has edited comments', ['@title' => $params['thread_title']], $options);
+
+      // Setup the message body.
+      $message['body'][] = _dc_create_message_body(
+        $params['thread_title'],
+        $params['comment_author_name'],
+        $params['comment_timestamp'],
+        $params['comment_text'],
+        $params['comment_link']
+      );
+
+      // Add comment author as CC for private discussion.
+      if ($params['comment_author_email'] != NULL) {
+        $message['headers']['Cc'] = $params['comment_author_email'];
+      }
+      break;
+    case 'edit_forum':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+
+      // Setup the subject line.
+      $message['subject'] = t('Data Catalog Forum: "@title" has been edited', ['@title' => $params['thread_title']], $options);
+
+      // Setup the message body.
+      $message['body'][] = _dc_create_message_body(
+        $params['thread_title'],
+        $params['comment_author_name'],
+        $params['comment_timestamp'],
+        $params['comment_text'],
+        $params['comment_link']
+      );
+
+      // Add comment author as CC for private discussion.
+      if ($params['comment_author_email'] != NULL) {
+        $message['headers']['Cc'] = $params['comment_author_email'];
+      }
+      break;
+  }
+}
+
+/**
+ * Returns message body for comment moderation emails.
+ *
+ * @param string $thread_title
+ * @param string $comment_author
+ * @param string $comment_timestamp
+ * @param string $comment_text
+ * @return string
+ */
+function _dc_create_message_body(string $thread_title, string $comment_author, string $comment_timestamp, string $comment_text, $comment_link)
+{
+  /*
+   * Body: [Discussion thread title] (linked to comment review page?)
+   * (in descending chronological order)
+   * [author]
+   * [date and time of comment]
+   * [1st two lines of text] (linked to comment)
+   * ------------------------------------------(some kind of delineator)
+   */
+  return <<<BODY
+Thread:
+  $thread_title
+Author:
+  $comment_author
+Date:
+  $comment_timestamp
+Comment:
+"$comment_text"
+
+The comment can be found at:
+$comment_link
+BODY;
+}
+
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dc_forum_entity_insert($entity)
+{
+  // Check to see if the entity is a forum comment.
+  if ($entity->bundle() == 'comment_forum') {
+    _dc_send_mail($entity, 'create_comment');
+  }
+}
+
+function _dc_send_mail(EntityInterface $entity, $key)
+{
+  // Get the discussion this comment is from.
+  if ($entity->bundle() == 'comment_forum') {
+    $discussion_entity = $entity->getCommentedEntity();
+  } else {
+    $discussion_entity = $entity;
+  }
+
+  // Set the forum moderator mail. Have to go down a chain of methods.
+  $forum_moderator_field = $discussion_entity
+    ->get('field_forum_moderator')
+    ->first();
+
+  // If we don't have a moderator, don't send mail.
+  if ($forum_moderator_field == NULL) {
+    return;
+  }
+  $forum_moderator = $forum_moderator_field->get('entity')
+    ->getTarget()
+    ->getValue();
+
+  // Setup a default email in case a moderator isn't selected.
+  $default_email = "no-reply@sec.gov";
+
+  // Get the comment's author.
+  $comment_author = $entity->getOwner();
+
+  // Setup the mail manager service.
+  $mailManager = \Drupal::service('plugin.manager.mail');
+
+  // Set the module (this) handling the mail call.
+  $module = 'dc_forum';
+
+  // Set the 'to' email address from the moderator's email.
+  $to = $forum_moderator->get('mail')->value;
+
+  // Set the comment author email address.
+  $comment_author_email = $comment_author->get('mail')->value;
+
+  // Set the comment author name.
+  $comment_author_name = $comment_author->get('name')->value;
+
+  $params = [];
+
+  // Setting the message body for params in mail hook.
+  $params['comment_text'] = "";
+  if ($entity->bundle() == 'comment_forum' && !is_null($entity->get('comment_body')->value)) {
+    $params['comment_text'] = $entity->get('comment_body')->value;
+  } elseif ($entity->hasField('body') && !is_null($entity->get('body')->value)){
+    $params['comment_text'] = $entity->get('body')->value;
+  }
+  // Set the thread title.
+  $params['thread_title'] = $discussion_entity->getTitle();
+
+  // Set the comment link.
+  $params['comment_link'] = "";
+  if ($entity && !$entity->isNew()){
+    $params['comment_link'] = $entity->toLink()->toString();
+  }
+
+  // Set the comment author's name.
+  $params['comment_author_name'] = $comment_author_name;
+
+  // Set the comment author's email.
+  $params['comment_author_email'] = $comment_author_email;
+
+  // Set the comment timestamp.
+  $params['comment_timestamp'] = date('m/d/Y H:i:s', $entity->get('created')->value);
+
+  // Get the lang code.
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+
+  // Whether we're opting to send the mail.
+  $send = TRUE;
+
+  // Send the mail, get result.
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+  // Let the user know if the mail send was successful.
+  // if ($result['result'] !== TRUE) {
+  //   drupal_set_message(t('There was a problem sending the moderator an email but your comment is still in the approval queue.'), 'error');
+  // }
+  // else {
+  //   drupal_set_message(t('An email has been sent to the moderator requesting comment approval.'));
+  // }
+}
+/**
+ * Implementation of hook_views_pre_render().
+ */
+function dc_forum_views_pre_render(\Drupal\views\ViewExecutable $view)
+{
+  if ($view->id() == 'discussion_moderation' && $view->current_display == 'attachment_1') {
+    $total_discussions = count($view->result);
+    $total_comments = 0;
+    $total_participants = 0;
+    // Get view results and sum the count of comment and participants to its variables.
+    foreach ($view->result as $submission) {
+      if (is_numeric($submission->comment_entity_statistics_comment_count) && is_numeric($submission->comment_field_data_node_field_data_uid)) {
+        $total_comments += $submission->comment_entity_statistics_comment_count;
+        $total_participants += $submission->comment_field_data_node_field_data_uid;
+      }
+    }
+    // Hide all results to only display header.
+    $view->result = [];
+    // Custom header with total comment and participant count.
+    $header_output = '<span>Total Discussions: ' . $total_discussions . '</span><br>
+                      <span>Total Comments: ' . $total_comments . '</span><br>
+                      <span>Total Participants: ' . $total_participants . '</span>';
+    $view->header['area']->options['content']['value'] = $header_output;
+  }
+}

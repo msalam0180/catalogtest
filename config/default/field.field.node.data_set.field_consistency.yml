@@ -1,0 +1,29 @@
+uuid: 16f240a0-de44-460f-9f2a-410e84a24e40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_consistency
+    - node.type.data_set
+    - taxonomy.vocabulary.quality_consistency
+id: node.data_set.field_consistency
+field_name: field_consistency
+entity_type: node
+bundle: data_set
+label: Consistency
+description: 'High: All desired use cases can be implemented without known restrictions<br>Medium: Certain use cases can’t be implemented at all or use cases don’t deliver their full desired value due to high error levels in data<br>Low: High error level prevents most desired use cases from delivering satisfactory value'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quality_consistency: quality_consistency
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: 097c3bcd-645b-4642-8c60-89f7799d63f5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Hosting Location'
+vid: hosting_location
+description: 'Where an application is hosted'
+weight: 0

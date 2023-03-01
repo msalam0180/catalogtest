@@ -1,0 +1,19 @@
+uuid: 545478fc-b386-477f-b2bc-3d2d7263a5a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_year
+    - paragraphs.paragraphs_type.cost
+id: paragraph.cost.field_year
+field_name: field_year
+entity_type: paragraph
+bundle: cost
+label: Year
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

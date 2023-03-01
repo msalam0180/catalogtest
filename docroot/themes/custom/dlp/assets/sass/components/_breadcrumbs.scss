@@ -1,0 +1,31 @@
+// Breadcrumbs
+.page-title-container .page-title-above .breadcrumb{
+  color: #a7a7a7;
+  @media (max-width: 991px) {
+    margin-bottom: 10px;
+  }
+}
+
+.breadcrumb {
+
+  & > li + li:before {
+    content: "> ";
+    padding: 0 3px;
+    color: #a7a7a7;
+    @media (max-width: 991px) {
+      content: "< ";
+    }
+  }
+  
+  li:before{
+    @media (max-width: 991px) {
+      content: "< ";
+    }
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+}

@@ -1,0 +1,52 @@
+uuid: 75059534-d54a-4ba5-8120-de4aaa5afda2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contact
+  module:
+    - content_moderation
+    - workbench_email
+  enforced:
+    config:
+      - workbench_email.workbench_email_template.published
+      - workbench_email.workbench_email_template.needs_review
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      create_new_draft:
+        needs_review: needs_review
+      publish: {  }
+      create_new_content:
+        needs_review: needs_review
+id: contact_content_type_worklow
+label: 'Contact Content type worklow'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: -1
+      published: true
+      default_revision: true
+  transitions:
+    create_new_content:
+      label: 'Create New Content'
+      from:
+        - draft
+      to: published
+      weight: -1
+    publish:
+      label: Publish
+      from:
+        - published
+      to: published
+      weight: 0
+  entity_types:
+    node:
+      - contact

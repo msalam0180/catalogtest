@@ -1,0 +1,25 @@
+uuid: c5c9a7b1-56a4-4046-9d02-c34eec75ac3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_confluenceid_quest
+    - node.type.data_set
+_core:
+  default_config_hash: KE8A1JGsq1GTy-80BpzyequHT6Wbh3Z-x8cu55eX5es
+id: node.data_set.field_dataset_confluenceid_quest
+field_name: field_dataset_confluenceid_quest
+entity_type: node
+bundle: data_set
+label: 'Frequently Asked Question'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

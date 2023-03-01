@@ -1,0 +1,25 @@
+uuid: ba33f17e-24d2-4da0-9a5d-5f60026eb41f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_further_details
+    - node.type.forms
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.forms.field_further_details
+field_name: field_further_details
+entity_type: node
+bundle: forms
+label: 'Further Details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

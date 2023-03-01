@@ -1,0 +1,9 @@
+services:
+  jsonapi_earlyrendering_workaround.early_rendering_controller_wrapper_subscriber:
+    class: Drupal\jsonapi_earlyrendering_workaround\EventSubscriber\EarlyRenderingControllerWrapperSubscriber
+    decorates: early_rendering_controller_wrapper_subscriber
+    decoration_priority: 9
+    public: false
+    arguments: ['@jsonapi_earlyrendering_workaround.early_rendering_controller_wrapper_subscriber.inner']
+    tags:
+      - { name: event_subscriber }

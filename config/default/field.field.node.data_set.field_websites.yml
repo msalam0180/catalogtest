@@ -1,0 +1,58 @@
+uuid: 9b3ea138-07bd-4f41-94f1-4972b49e34b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_websites
+    - node.type.data_set
+    - paragraphs.paragraphs_type.website
+  module:
+    - entity_reference_revisions
+id: node.data_set.field_websites
+field_name: field_websites
+entity_type: node
+bundle: data_set
+label: Websites
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      website: website
+    negate: 0
+    target_bundles_drag_drop:
+      applications_to_datasets:
+        weight: 11
+        enabled: false
+      contacts_with_roles:
+        weight: 12
+        enabled: false
+      cost:
+        weight: 13
+        enabled: false
+      datasets_to_applications:
+        weight: 14
+        enabled: false
+      licenses_held_by_division_office:
+        weight: 15
+        enabled: false
+      mission_criticality:
+        weight: 16
+        enabled: false
+      related_application:
+        weight: 17
+        enabled: false
+      total_annual_filings:
+        weight: 18
+        enabled: false
+      visualizations:
+        weight: 19
+        enabled: false
+      website:
+        weight: 20
+        enabled: true
+field_type: entity_reference_revisions

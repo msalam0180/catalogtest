@@ -1,0 +1,8 @@
+uuid: f7756979-c2b7-4c69-bac0-b7640d6ae50f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Contract Status'
+vid: contract_status
+description: ''
+weight: 0

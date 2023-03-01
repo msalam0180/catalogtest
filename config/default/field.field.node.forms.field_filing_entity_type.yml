@@ -1,0 +1,21 @@
+uuid: 11ac5a94-c893-4bcb-8751-d608e8dceb6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_filing_entity_type
+    - node.type.forms
+  module:
+    - options
+id: node.forms.field_filing_entity_type
+field_name: field_filing_entity_type
+entity_type: node
+bundle: forms
+label: 'Filing Entity Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

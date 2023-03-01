@@ -1,0 +1,9 @@
+<div class="author-icon">
+  <span class="author-letter-icon letter-{{ author|render|striptags|trim|slice(0, 1)|upper }}">{{ author|render|striptags|trim|slice(0, 1)|upper }}</span>
+</div>
+{# For testing Colors #}
+{# {% for letter in 'A'..'Z' %}
+  <div class="author-icon">
+    <span class="author-letter-icon letter-{{ letter }}">{{ letter }}</span>
+  </div>
+{% endfor %} #}

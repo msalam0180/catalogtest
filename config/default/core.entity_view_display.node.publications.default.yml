@@ -1,0 +1,95 @@
+uuid: 5b8e221a-752c-4512-9e6b-1400f4932f4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.publications.body
+    - field.field.node.publications.field_associated_datasets
+    - field.field.node.publications.field_content_type
+    - field.field.node.publications.field_dataset_isvetted
+    - field.field.node.publications.field_publication_abstract
+    - field.field.node.publications.field_publication_abstract2
+    - field.field.node.publications.field_publication_author
+    - field.field.node.publications.field_publication_author_memo
+    - field.field.node.publications.field_publication_category
+    - field.field.node.publications.field_publication_datasetid
+    - field.field.node.publications.field_publication_hidden_desc
+    - field.field.node.publications.field_publication_name
+    - field.field.node.publications.field_publication_url
+    - field.field.node.publications.field_publication_year
+    - field.field.node.publications.field_publications_dataset
+    - field.field.node.publications.field_publications_keywords
+    - field.field.node.publications.field_publications_publicationid
+    - node.type.publications
+  module:
+    - link
+    - options
+    - user
+id: node.publications.default
+targetEntityType: node
+bundle: publications
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_associated_datasets:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_content_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_publication_author:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_publication_url:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_publication_year:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_dataset_isvetted: true
+  field_publication_abstract: true
+  field_publication_abstract2: true
+  field_publication_author_memo: true
+  field_publication_category: true
+  field_publication_datasetid: true
+  field_publication_hidden_desc: true
+  field_publication_name: true
+  field_publications_dataset: true
+  field_publications_keywords: true
+  field_publications_publicationid: true
+  links: true
+  search_api_excerpt: true

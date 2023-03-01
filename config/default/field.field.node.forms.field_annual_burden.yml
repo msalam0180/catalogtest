@@ -1,0 +1,23 @@
+uuid: 1cd6e44f-0f79-4e44-9b6e-287535331cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_annual_burden
+    - node.type.forms
+id: node.forms.field_annual_burden
+field_name: field_annual_burden
+entity_type: node
+bundle: forms
+label: 'Annual Burden'
+description: 'Enter annual burden, which must be between 0 and 9,999,999,999.99 inclusive.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: 9999999999.99
+  prefix: $
+  suffix: ''
+field_type: decimal

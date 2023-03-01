@@ -1,0 +1,6 @@
+services:
+  dc_feeds.paragraph_feed_subscriber:
+    class: Drupal\dc_feeds\EventSubscriber\ParagraphFeedSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: 'event_subscriber' }

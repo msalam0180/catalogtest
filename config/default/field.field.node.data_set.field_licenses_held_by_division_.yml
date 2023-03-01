@@ -1,0 +1,31 @@
+uuid: a30c4df5-6224-4fff-82a3-7a77ff3c2f79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_licenses_held_by_division_
+    - node.type.data_set
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+  module:
+    - entity_reference_revisions
+id: node.data_set.field_licenses_held_by_division_
+field_name: field_licenses_held_by_division_
+entity_type: node
+bundle: data_set
+label: 'Licenses Held by Division/Office'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      licenses_held_by_division_office: licenses_held_by_division_office
+    negate: 0
+    target_bundles_drag_drop:
+      licenses_held_by_division_office:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

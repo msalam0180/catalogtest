@@ -1,0 +1,8 @@
+uuid: 76429368-ddd5-4848-97e8-f443d25dc2a7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Source Type'
+vid: source_type
+description: 'Type of the data source'
+weight: 0

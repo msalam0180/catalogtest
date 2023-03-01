@@ -1,0 +1,98 @@
+uuid: 39b4f7f7-941e-475a-80b5-e4772b43e937
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.media_item
+    - field.field.node.forum.body
+    - field.field.node.forum.comment_forum
+    - field.field.node.forum.field_forum_moderator
+    - field.field.node.forum.field_related_content
+    - field.field.node.forum.taxonomy_forums
+    - node.type.forum
+  module:
+    - field_group
+    - layout_builder
+    - user
+third_party_settings:
+  field_group:
+    group_column_01:
+      children:
+        - body
+        - flag_like_discussion
+      label: 'Column 01'
+      parent_name: group_r
+      region: hidden
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: col-1
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_02:
+      children:
+        - field_related_content
+      label: 'Column 02'
+      parent_name: group_r
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: col-2
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_r:
+      children:
+        - group_column_01
+        - group_column_02
+      label: 'Row 01'
+      parent_name: ''
+      region: hidden
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: row-1
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: TM_8DV1XKUAtF-wGxTBLOtg_GTtF5CX9WLrADxG7Xm4
+id: node.forum.media_item
+targetEntityType: node
+bundle: forum
+mode: media_item
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  comment_forum: true
+  field_forum_moderator: true
+  field_related_content: true
+  flag_like_discussion: true
+  links: true
+  search_api_excerpt: true
+  taxonomy_forums: true

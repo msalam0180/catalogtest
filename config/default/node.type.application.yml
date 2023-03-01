@@ -1,0 +1,21 @@
+uuid: 1097cee3-9b53-42f8-bf7d-15c5cd58111d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  node_title_help_text:
+    title_help: ''
+name: Application
+type: application
+description: 'End user facing -- Contains business logic (may be customized COTS) -- End users recognize it as one unit/brand -- Operated as a single unit with independent plan for functional releases'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,19 @@
+uuid: fc39c24c-8bba-4756-8bce-3680cf13230d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_search_index
+    - node.type.data_insight
+id: node.data_insight.field_data_search_index
+field_name: field_data_search_index
+entity_type: node
+bundle: data_insight
+label: 'Search Keywords'
+description: 'Add search index terms to improve search results. Include spelling variations, common spelling errors, and high priority keywords.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,28 @@
+uuid: ff642fd3-f6f3-4d36-8bd8-b5fea0a89496
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_reports_statistics
+    - node.type.data_insight
+    - node.type.statistics
+id: node.data_insight.field_related_reports_statistics
+field_name: field_related_reports_statistics
+entity_type: node
+bundle: data_insight
+label: 'Related Reports & Statistics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      statistics: statistics
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

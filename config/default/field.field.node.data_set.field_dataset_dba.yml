@@ -1,0 +1,21 @@
+uuid: 96de2fad-d184-42ce-8fb6-584cdf390936
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_dba
+    - node.type.data_set
+_core:
+  default_config_hash: '-x9nJPWnPKzMV2zG10uafDlTqywVNf4eKFWxyPWnbk0'
+id: node.data_set.field_dataset_dba
+field_name: field_dataset_dba
+entity_type: node
+bundle: data_set
+label: 'ORDS DBA'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

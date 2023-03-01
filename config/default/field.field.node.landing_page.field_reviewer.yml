@@ -1,0 +1,21 @@
+uuid: 89ad9b86-ace1-490c-9690-e91f5f3508d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reviewer
+    - node.type.landing_page
+id: node.landing_page.field_reviewer
+field_name: field_reviewer
+entity_type: node
+bundle: landing_page
+label: Reviewer
+description: 'If you do not have an assigned reviewer, enter <strong>TechCatalog@sec.gov</strong> for tech-related content and enter <strong>DataCatalog@sec.gov</strong> for data-related content.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings: {  }
+field_type: entity_reference

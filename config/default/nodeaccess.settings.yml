@@ -1,0 +1,713 @@
+grants:
+  view: 1
+  edit: 0
+  delete: 0
+priority: 0
+preserve: 1
+_core:
+  default_config_hash: Zno4MMkbreZeJZgnY0DXCPksXkuYye3MyIFlVuh-xLc
+application:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+article:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+chart:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+component:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+contact:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+data_insight:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+data_set:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+forms:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+forum:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+landing_page:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+page:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+platform:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+publications:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+statistics:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+tools:
+  authenticated:
+    grant_view: '1'
+    grant_update: 0
+    grant_delete: 0
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  enduser:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  ocdo:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_creator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  content_approver:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  sitebuilder:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  forum_moderator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  author:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+role_alias:
+  anonymous:
+    alias: 'Anonymous user'
+    weight: '0'
+    name: 'Anonymous user'
+    allow: 0
+  authenticated:
+    alias: 'Authenticated user'
+    weight: '0'
+    name: 'Authenticated user'
+    allow: 0
+  enduser:
+    alias: Enduser
+    weight: '0'
+    name: Enduser
+    allow: 0
+  ocdo:
+    allow: '1'
+    alias: OCDO
+    weight: '0'
+    name: OCDO
+  content_creator:
+    alias: 'Content Creator'
+    weight: '0'
+    name: 'Content Creator'
+    allow: 0
+  content_approver:
+    alias: 'Content Approver'
+    weight: '0'
+    name: 'Content Approver'
+    allow: 0
+  sitebuilder:
+    alias: Sitebuilder
+    weight: '0'
+    name: Sitebuilder
+    allow: 0
+  forum_moderator:
+    alias: 'Forum Moderator'
+    weight: '0'
+    name: 'Forum Moderator'
+    allow: 0
+  administrator:
+    alias: Administrator
+    weight: '0'
+    name: Administrator
+    allow: 0
+  migration_admin:
+    alias: 'Migration Admin'
+    name: 'Migration Admin'
+    weight: 0
+    allow: 0
+  open_data_moderator:
+    alias: 'OPEN Data Moderator'
+    name: 'OPEN Data Moderator'
+    weight: 0
+    allow: 0
+  importer_feeds_admin:
+    alias: 'Importer (feeds) admin'
+    name: 'Importer (feeds) admin'
+    weight: 0
+    allow: 0
+role_map:
+  anonymous: 1
+  authenticated: 2
+  enduser: 3
+  ocdo: 4
+  content_creator: 5
+  content_approver: 6
+  sitebuilder: 7
+  forum_moderator: 8
+  administrator: 9
+  migration_admin: 10
+  open_data_moderator: 11
+  importer_feeds_admin: 12
+allowed_types:
+  application: 0
+  article: 0
+  chart: 0
+  component: 0
+  contact: 0
+  data_insight: 0
+  data_set: 0
+  forms: 0
+  forum: 0
+  landing_page: 1
+  page: 1
+  platform: 0
+  publications: 0
+  statistics: 0
+  tools: 0

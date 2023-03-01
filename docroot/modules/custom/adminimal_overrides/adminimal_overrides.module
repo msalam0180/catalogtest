@@ -1,0 +1,382 @@
+<?php
+
+/**
+ * @file
+ * Adds customizations to admin area of Drupal
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\editor\Entity\Editor;
+use Drupal\node\Entity\Node ;
+use Drupal\Core\Render\Element;
+use Drupal\node\NodeForm;
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Adds the drupal.contextual-links library to the page for any user who has the
+ * 'access contextual links' permission.
+ *
+ * @see contextual_preprocess()
+ */
+function adminimal_overrides_page_attachments(array &$page) {
+  if (\Drupal::service('theme.manager')->getActiveTheme()->getName() == "adminimal_theme") {
+    $page['#attached']['library'][] = 'adminimal_overrides/customizations';
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter to override twigs loaded
+ */
+function adminimal_overrides_theme_registry_alter(&$theme_registry){
+  $theme_registry['status_messages']['path'] = \Drupal::service('extension.path.resolver')->getPath('module','adminimal_overrides'). '/templates';
+  $theme_registry['field__contact_message__field_url'] = $theme_registry['field'];
+  $theme_registry['field__contact_message__field_url']['template'] = 'field--contact-message--field-url';
+  $theme_registry['field__contact_message__field_url']['path'] = \Drupal::service('extension.path.resolver')->getPath('module','adminimal_overrides'). '/templates';
+}
+
+/**
+ * Implements hook_inline_entity_form_table_fields_alter().
+ */
+function adminimal_overrides_inline_entity_form_table_fields_alter(&$fields, $context) {
+  // Inline entity form: Dataset: Contacts fields
+  // Show First and last name instead of title - Title is auto generated, so it does not show correctly
+  foreach ($context ['allowed_bundles'] as $bundle) {
+    if ($bundle == 'contact') {
+      unset($fields['label']);
+      unset($fields['status']);
+
+      $fields ['field_first_name'] = [
+        'type' => 'field',
+        'label' => t('First Name'),
+        'weight' => 10,
+      ];
+
+      $fields ['field_last_name'] = [
+        'type' => 'field',
+        'label' => t('Last Name'),
+        'weight' => 11
+      ];
+    }
+  }
+
+}
+
+/**
+ * Find if any string from an array is a subset of a haystack
+ *
+ * @param string $haystack
+ *   The string to be matched to.
+ * @param array $needles
+ *   The set of matching strings.
+ * @return int|bool
+ *   The position of the mathcing string or FALSE if no match.
+ */
+function strpos_arr(string $haystack, array $needles) {
+  foreach ($needles as $needle) {
+    if (($pos = strpos($haystack, $needle)) !== FALSE) return $pos;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function adminimal_overrides_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Adding Required help text to forms
+  $need_help = [
+    'node_',
+    'media_',
+    'taxonomy_term_',
+    'taxonomy_vocabulary_',
+    'block_content_',
+    'block_form',
+    'menu_link_content_',
+  ];
+
+  if (strpos_arr($form_id, $need_help) !== FALSE) {
+    $form['required-help'] = [
+      '#type' => 'item',
+      '#markup' => '<span class="required-help">' . t('*Fields marked with an asterisk(*) are required.'). '</span>',
+      '#weight' => -21,
+    ];
+  }
+
+  //Disable HTML5 Validation until solved - https://www.drupal.org/node/1797438
+  $form['#attributes']['novalidate'] = 'novalidate';
+
+  //set column headers for revisions table
+  if ($form_id == "revision_overview_form") {
+    $form["node_revisions_table"]["#header"] = [t('Revision'),t('Left Comparison'),t('Right Comparison'), t('Operations')];
+  }
+
+  if (str_ends_with($form_id,"_edit_form")) {
+    if (!empty($form_state->getFormObject()) && $form_state->getformObject() instanceOf NodeForm) {
+      $node = $form_state->getformObject()->getEntity();
+      $user_roles = \Drupal::currentUser()->getRoles();
+      // Display node title and node ID when editing any node content types i.e. 'Awesome Title - 123'.
+      $title = $form['#title'];
+      if ($form_id == 'node_'.$node->bundle().'_edit_form') {
+        $form['#title'] = t($title->getUntranslatedString() . ' - @node_id', array_merge($title->getArguments(), ['@node_id' => $node->id()]));
+      }
+      if (!empty($node) && $node->hasField("moderation_state")) {
+        $moderation_state = $node->get("moderation_state")->value;
+        if ($moderation_state == "review"){
+          if(!in_array('administrator', $user_roles)
+            && !in_array('migration_admin', $user_roles)
+            && !in_array('content_approver', $user_roles)
+            && !in_array('sitebuilder', $user_roles)
+            ) {
+              // Restrict access to all elements in this form.
+              foreach (Element::children($form) as $key) {
+                \Drupal::messenger()->addWarning(t('This node is under review and editing has been disabled.'));
+                if (
+                  $key != "moderation_state" &&
+                  $key != "actions" &&
+                  $key != "revision_log" &&
+                  $form[$key]['#type'] != "token" &&
+                  $form[$key]['#type'] != "hidden"
+                ) {
+                  if ($key == "path") {
+                    $form[$key]['#access'] = FALSE;
+                  }
+                  $form[$key]['#disabled'] = TRUE;
+                }
+              }
+          }
+        }
+        //if there is content moderation, validate revision logs if needed
+        $form['#validate'][] = 'adminimal_overrides_revision_validate';
+      }
+    }
+  }
+  //disable fields based on sync date being set
+  if ($form_id == "node_component_edit_form" || $form_id == "node_application_edit_form") {
+    $form_object = $form_state->getFormObject();
+    $node = $form_object->getEntity();
+    $user_roles = \Drupal::currentUser()->getRoles();
+
+    $componentDisabledFields = array(
+      "title",
+      "field_short_name",
+      "field_manufacturer",
+      "field_summary",
+      "field_component_category",
+      "field_approved_version",
+      "field_status_usage",
+      "field_division_office_multi",
+      "field_restrictions",
+      "field_related_apps",
+      "field_related_platforms",
+      "field_contacts",
+      "field_contact_guidance",
+      "field_promote_it_to_the_technolo",
+      "field_dataset_use"
+    );
+
+    $applicationDisabledFields = array(
+      "title",
+      "field_short_name",
+      "field_summary",
+      "field_technology_category",
+      "field_approved_version",
+      "field_app_status",
+      "field_application_type",
+      "field_hosting_location",
+      "field_owner",
+      "field_number_of_users",
+      "field_division_office_multi",
+      "field_permissions_and_usage",
+      "field_number_of_external_users",
+      "field_type_of_external_user",
+      "field_related_applications",
+      "field_related_platforms",
+      "field_related_components",
+      "field_contacts",
+      "field_promote_it_to_the_technolo",
+      "field_dataset_use"
+    );
+
+    if(!empty($node->field_sync_date->value)) {
+      if(!in_array('administrator', $user_roles) && !in_array('migration_admin', $user_roles)) {
+        //For Users that cannot edit disabled fields
+        \Drupal::messenger()->addWarning(t('This node contains fields that are synchronized from another system. These fields are disabled and cannot be edited.'));
+
+        if ($form_id == "node_component_edit_form"){
+          foreach ($componentDisabledFields as &$fieldName) {
+            $form[$fieldName]['#disabled']= TRUE;
+          }
+        }
+
+        if ($form_id == "node_application_edit_form"){
+          foreach ($applicationDisabledFields as &$fieldName) {
+            $form[$fieldName]['#disabled']= TRUE;
+          }
+        }
+      } else {
+        //For Users that can edit disabled fields
+        \Drupal::messenger()->addWarning(t('This node contains fields that are synchronized from another system. Changes that are made to these fields will be overwritten on the next sync.'));
+
+        if ($form_id == "node_component_edit_form"){
+          foreach ($componentDisabledFields as &$fieldName) {
+            $form[$fieldName]['#attributes']['class'][] = "syncField";
+          }
+        }
+
+        if ($form_id == "node_application_edit_form"){
+          foreach ($applicationDisabledFields as &$fieldName) {
+            $form[$fieldName]['#attributes']['class'][] = "syncField";
+          }
+        }
+      }
+    }
+  }
+  // Change save button text on Discussions
+  if ($form_id == "node_forum_form" || $form_id == "node_forum_edit_form") {
+    $form['actions']['submit']['#value'] = 'Post Discussion';
+  }
+
+}
+
+function adminimal_overrides_revision_validate(&$form, FormStateInterface $form_state) {
+  if (reset($form_state->getValue("moderation_state")[0]) == "rejected" && empty(reset($form_state->getValue("revision_log")[0]))){
+    $node = $form_state->getformObject()->getEntity();
+    if (!empty($node) && $node->hasField("moderation_state")) {
+      $previous_moderation_state = $node->get("moderation_state")->value;
+      if ($previous_moderation_state != "rejected"){
+        $form_state->setErrorByName('revision_log', t("Revision log message required if content is being rejected"));
+      }
+    }
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function adminimal_overrides_preprocess_html(&$variables) {
+
+  // Get currently active user and his roles.
+  $account = \Drupal::currentUser();
+  $roles = $account->getRoles();
+
+  foreach ($roles as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_input().
+ */
+function adminimal_overrides_preprocess_input(&$variables) {
+  //QCTC Bug Fix: DSITE-3652
+  //chrome browser's considers required text fields as invalid out of the box because it is required and has no value.
+  //Stop "required" clientside validation so screen reader does not read invalid
+  if (isset($variables['attributes']['required'])){
+    $variables['attributes']['aria-invalid'] = 'false';
+  }
+}
+
+function adminimal_overrides_preprocess_textarea(&$variables) {
+  //QCTC Bug Fix: DSITE-4969
+  //chrome browser's considers required text fields as invalid out of the box because it is required and has no value.
+  //Stop "required" clientside validation so screen reader does not read invalid
+  if (isset($variables['attributes']['required'])){
+    $variables['attributes']['aria-invalid'] = 'false';
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function adminimal_overrides_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $view = $form_state->getStorage('view')['view'];
+
+  if ($view->id() == 'moderated_content'  &&  $view->current_display == 'moderated_content') {
+    $options = _get_users_by_role('content_approver');
+    $form['field_reviewer_target_id']['#type'] = "select";
+    $form['field_reviewer_target_id']['#multiple'] = FALSE;
+    $form['field_reviewer_target_id']['#size'] = 1;
+    $form['field_reviewer_target_id']['#validated'] = TRUE;
+    $form['field_reviewer_target_id']['#options'] = $options;
+  }
+  if ($view->id() == 'feedback') {
+    $options = _get_users_by_role('content_approver');
+    $form['field_reviewer_target_id']['#type'] = "select";
+    $form['field_reviewer_target_id']['#multiple'] = FALSE;
+    $form['field_reviewer_target_id']['#size'] = 1;
+    $form['field_reviewer_target_id']['#validated'] = TRUE;
+    $form['field_reviewer_target_id']['#options'] = $options;
+  }
+}
+
+ /**
+   * Converts a User Entity Reference exposed filter into a dropdown field
+   *
+   * @param string|array $roles
+   *   A single role as a string or an array of roles
+   *
+   * @return array an array of uid and username values [uid, username]
+   */
+function _get_users_by_role($roles){
+  if (!is_array($roles)) {
+    $roles = array($roles);
+  }
+  $roles = "'" . implode ( "', '", $roles ) . "'";
+  $sql = "SELECT d.uid, d.name FROM users_field_data d inner join user__roles r on d.uid = r.entity_id where r.roles_target_id in (".$roles.") ORDER BY d.name ";
+  $result = \Drupal::database()->query($sql);
+  $users = $result->fetchAll();
+  $options = array('' => t('- Any -'));
+  foreach ($users as $user) {
+    $options[$user->uid] = $user->name;
+  }
+  return $options;
+}
+
+
+/**
+ * Implements hook_entity_presave().
+ */
+function adminimal_overrides_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Clear field values that are unneeded
+  switch ($entity->bundle()) {
+    case 'data_set':
+      $childType = $entity->get('field_child_data_type')->value;
+
+      if ($childType == 'Derived'){
+        $entity->set('field_associated_related_dataset', array());
+      }elseif ($childType == 'Subset' || $childType == 'Transformed' ){
+        $entity->set('field_derived_parent_dataset', array());
+      }
+     break;
+  }
+}
+
+/**
+ * Implements hook_ckeditor_css_alter().
+ *
+ * Injects our CSS sheets anytime CKEditor has loaded.
+ *
+ * @param array $css
+ * @param Drupal\editor\Entity\Editor $editor
+ */
+function adminimal_overrides_ckeditor_css_alter(array &$css, Editor $editor) {
+  if (!$editor->hasAssociatedFilterFormat()) {
+    return;
+  }
+
+  $known_formats = [
+    'basic_html',
+    'full_html'
+  ];
+
+  if (in_array($editor->getFilterFormat()->id(), $known_formats)) {
+    $css[] = \Drupal::service('extension.path.resolver')->getPath('theme', 'dlp') . '/css/style.css';
+    $css[] = \Drupal::service('extension.path.resolver')->getPath('module', 'adminimal_overrides') . '/css/ckeditor.css';
+  }
+
+}
+

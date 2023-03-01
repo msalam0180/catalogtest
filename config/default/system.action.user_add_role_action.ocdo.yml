@@ -1,0 +1,14 @@
+uuid: 55c1de0e-3cba-48f1-a2c9-1540c0122775
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ocdo
+  module:
+    - user
+id: user_add_role_action.ocdo
+label: 'Add the OCDO role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ocdo

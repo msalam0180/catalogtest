@@ -1,0 +1,28 @@
+uuid: adccdddb-2267-44ac-98c1-d767aa6efa2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_size_in_gb
+    - node.type.data_set
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: 'Data Size'
+id: node.data_set.field_data_size_in_gb
+field_name: field_data_size_in_gb
+entity_type: node
+bundle: data_set
+label: 'Data Size'
+description: "Approximately, how large is the dataset (in GB)?\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ∼
+  suffix: GB
+field_type: float

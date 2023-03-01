@@ -1,0 +1,29 @@
+uuid: 4d9a66b5-a36e-407c-b0e6-bf52c63cec7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_government_data_asset
+    - node.type.data_set
+    - taxonomy.vocabulary.open_government_data_asset_compl
+id: node.data_set.field_open_government_data_asset
+field_name: field_open_government_data_asset
+entity_type: node
+bundle: data_set
+label: 'OPEN Government Data Asset Compliance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      open_government_data_asset_compl: open_government_data_asset_compl
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

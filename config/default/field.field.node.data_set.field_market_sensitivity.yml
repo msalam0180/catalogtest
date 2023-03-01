@@ -1,0 +1,29 @@
+uuid: b58035dd-33b1-4b39-a358-77b3979d0268
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_market_sensitivity
+    - node.type.data_set
+    - taxonomy.vocabulary.market_sensitivity
+id: node.data_set.field_market_sensitivity
+field_name: field_market_sensitivity
+entity_type: node
+bundle: data_set
+label: 'Market Sensitivity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      market_sensitivity: market_sensitivity
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

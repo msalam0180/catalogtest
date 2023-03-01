@@ -1,0 +1,27 @@
+uuid: 77af9cba-768b-4b82-9744-7013953a37ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reviewer
+id: back_to_draft
+label: 'Back to Draft'
+subject: 'Content by [node:revision-user] has been recalled for editing'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_reviewer'
+bundles: {  }
+body:
+  value: "[node:title] is back in draft\r\n[node:url]/revisions\r\n\r\nUpdated by [node:revision-user]"
+  format: plain_text
+replyTo: ''

@@ -1,0 +1,19 @@
+uuid: 649f11b3-4b9a-40a1-8670-970787fb70a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_retention_length
+    - node.type.data_set
+id: node.data_set.field_retention_length
+field_name: field_retention_length
+entity_type: node
+bundle: data_set
+label: 'Retention Length'
+description: 'Use the Records Schedule Disposition. For example: "TEMPORARY. Cut off when the release of the final rule is issued, or upon compliance date, whichever is later. Destroy/Delete 15 years after cutoff. (0120-01-02)"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

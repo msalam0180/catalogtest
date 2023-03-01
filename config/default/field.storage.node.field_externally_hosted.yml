@@ -1,0 +1,30 @@
+uuid: 12e7bb90-5710-43d3-9932-3c2d497e51f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_externally_hosted
+field_name: field_externally_hosted
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Externally
+      label: Externally
+    -
+      value: Internally
+      label: Internally
+    -
+      value: 'Externally and Internally'
+      label: 'Externally and Internally'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

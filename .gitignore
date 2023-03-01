@@ -1,0 +1,25 @@
+# Ignore paths that contain user-generated content.
+#docroot/files
+#docroot/sites/*/files
+#docroot/sites/*/private
+#docroot/sites/*/files-private
+#docroot/themes/custom/dlp/node_modules
+#test/bin/
+#test/vendor/
+#test/behat-screenshots/
+#test/**/node_modules/
+test/**/.tmp/
+#docroot/sites/default/settings\.local\.php
+#.buildpath
+#.project
+#.settings/
+#.idea
+keys/
+**/.env
+
+# Ignore lando local override file since this will be unique for everyone
+#.lando.local.yml
+
+# Ignore sql files.
+*.sql
+*.sql.gz

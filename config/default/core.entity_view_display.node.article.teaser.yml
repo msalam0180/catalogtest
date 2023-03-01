@@ -1,0 +1,50 @@
+uuid: 95d371d6-0d77-4eb8-a4da-7c564e62eacf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.body
+    - field.field.node.article.field_category
+    - node.type.article
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: GVJGaVqZxQykZYmwRxOG9zPIcMD5m_0dul8CWfkDvp4
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_add_new_discussion: true
+  field_article_summary: true
+  field_category: true
+  field_dataset_related_datasets: true
+  field_related_apps: true
+  field_related_components: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_related_platforms: true
+  field_reviewer: true
+  field_summary: true
+  search_api_excerpt: true

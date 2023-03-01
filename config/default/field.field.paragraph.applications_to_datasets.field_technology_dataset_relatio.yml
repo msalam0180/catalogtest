@@ -1,0 +1,29 @@
+uuid: cb6efec1-ae18-47c3-a12f-c788ad1473b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_technology_dataset_relatio
+    - paragraphs.paragraphs_type.applications_to_datasets
+    - taxonomy.vocabulary.technology_dataset_relationship
+id: paragraph.applications_to_datasets.field_technology_dataset_relatio
+field_name: field_technology_dataset_relatio
+entity_type: paragraph
+bundle: applications_to_datasets
+label: 'Technology & Dataset Relationship'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      technology_dataset_relationship: technology_dataset_relationship
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

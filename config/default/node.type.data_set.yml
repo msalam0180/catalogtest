@@ -1,0 +1,22 @@
+uuid: dd5596a1-bcb9-47d4-821d-1d6469bc2a3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+_core:
+  default_config_hash: gx9IvemhAjuhvn1tMlwAx8tM7Jt-6ofgbwvRxHfuPhA
+name: Dataset
+type: data_set
+description: 'The master record of a dataset and all its related information, to assist in the discovery of that dataset and its uses by a user.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

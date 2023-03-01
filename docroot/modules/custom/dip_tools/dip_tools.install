@@ -1,0 +1,21 @@
+<?php 
+
+/**
+ * Update viewfield storage definition.
+ */
+function dip_tools_update_8001() {
+  if (!$field_configs = \Drupal::entityTypeManager()
+      ->getStorage('field_config')
+      ->loadByProperties(['field_type' => 'viewfield'])) {
+        return;
+      }
+      
+      $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+      foreach ($field_configs as $field) {
+        /** @var \Drupal\Core\Field\FieldConfigInterface $field */
+        $entity_type = $field->getTargetEntityTypeId();
+        $field_name = $field->getName();
+        $field_storage_definition = $entity_definition_update_manager->getFieldStorageDefinition($field_name, $entity_type);
+        $entity_definition_update_manager->updateFieldStorageDefinition($field_storage_definition);
+      }
+}

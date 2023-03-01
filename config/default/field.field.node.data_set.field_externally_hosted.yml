@@ -1,0 +1,21 @@
+uuid: 3053979c-111e-4799-94e7-9dbd6b4e4060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_externally_hosted
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_externally_hosted
+field_name: field_externally_hosted
+entity_type: node
+bundle: data_set
+label: 'Externally or Internally Hosted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

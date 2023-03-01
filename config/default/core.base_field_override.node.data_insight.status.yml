@@ -1,0 +1,22 @@
+uuid: d8390b90-5f56-4f00-ba27-8eac66a29595
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.data_insight
+id: node.data_insight.status
+field_name: status
+entity_type: node
+bundle: data_insight
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Hook to restrict masquerade dropdown to 'enduser' account.
+ */
+
+
+/**
+ * Control access to masquerade as a certain target user.
+ *
+ * Modules may implement this hook to control whether a user is allowed to
+ * masquerade as a certain target user account.
+ *
+ * @param \Drupal\user\UserInterface $user
+ *   The currently logged-in user.
+ * @param \Drupal\user\UserInterface $target_account
+ *   The target user account to check for masquerade access.
+ *
+ * @return bool
+ *   Either a Boolean or NULL:
+ *   - FALSE to explicitly deny access. If a module denies access, no other
+ *     module is able to grant access and access is denied.
+ *   - TRUE to grant access. Access is only granted if at least one module
+ *     grants access and no module denies access.
+ *   - NULL or nothing to not affect the operation. If no module explicitly
+ *     grants access, access is denied.
+ */
+
+
+function masquerade_overrides_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'masquerade_block_form') {
+
+    $username = 'enduser';
+    $user = user_load_by_name($username);
+
+    $form['autocomplete']['masquerade_as'] = [
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'user',
+      '#selection_settings' => [
+        'include_anonymous' => FALSE,
+        'match_operator' => 'STARTS_WITH',
+        'filter' => [
+          'type' => 'role',
+          'role' => ['enduser'],
+        ],
+      ],
+      '#default_value' => $user,
+    ];
+
+    $form['required-help'] = [
+      '#type' => 'item',
+      '#markup' => '<span class="required-help">' . t('To preview, the value of "enduser" is required.'). '</span>',
+      '#weight' => -21,
+    ];
+
+    $form['autocomplete']['actions']['submit']['#value'] = t('Preview as Enduser');
+    $form['autocomplete']['#attributes']['aria-live'] = "polite";
+    $form['autocomplete']['actions']['submit']['#attributes']['aria-controls'] = "block_masquerade";
+	  return $form;
+
+  }
+}

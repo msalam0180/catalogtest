@@ -1,0 +1,14 @@
+uuid: cb97a709-1c95-4266-9914-968d779e343f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.data_insight
+id: node_type_data_insight
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

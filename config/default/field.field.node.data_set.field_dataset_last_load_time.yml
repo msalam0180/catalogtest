@@ -1,0 +1,21 @@
+uuid: a256f29f-1ce0-4a4d-a8e0-e24c8411c2c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_last_load_time
+    - node.type.data_set
+  module:
+    - datetime
+id: node.data_set.field_dataset_last_load_time
+field_name: field_dataset_last_load_time
+entity_type: node
+bundle: data_set
+label: 'Last Load Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

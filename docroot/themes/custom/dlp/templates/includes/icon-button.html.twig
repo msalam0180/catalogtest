@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Status template (can be used by any type of content as long as the vars are passed)
+ *
+ * Available Vars
+ * button_text - the text that displays - should be TEXT only (required)
+ * url - where the button links to (required)
+ * icon - the icon that displays (optional)
+ * btn_type - class to add to a button - defaults to primary - options are primary, reset, success, visit_app, request_access (optional)
+ * status_color - specific to status buttons - do not use "btn_type" if you use "status_color" (optional)
+
+ * Example template call:
+{% include '@dlp/includes/icon-button.html.twig' with {button_text: 'text', url: 'http://google.com'} only %}
+{% include '@dlp/includes/icon-button.html.twig' with {button_text: 'text', url: 'http://google.com', 'icon': 'star'} only %}
+{% include '@dlp/includes/icon-button.html.twig' with {button_text: 'text', url: 'http://google.com', 'tooltip': 'Time For Tooltip'} only %}
+{% include '@dlp/includes/icon-button.html.twig' with {button_text: 'text', url: 'http://google.com', 'icon': 'star', 'btn_type': 'visit_app'} only %}
+/// status icon button
+{% include '@dlp/includes/icon-button.html.twig' with {'button_text': label, 'url': url, 'icon': iconFA, 'status_color': colorNumber, 'tooltip': status} only %}
+or
+{{ include('@dlp/includes/icon-button.html.twig', {button_text: label, url: url, 'tooltip': status, 'status_color': colorNumber, 'icon': status_icon}) }}
+#}
+
+{% if tooltip %}
+  {% set tooltip_text = tooltip %}
+{% endif %}
+
+{% if btn_type %}
+  {% set button_class = btn_type %}
+{% elseif status_color %}
+  {% set button_class = 'status--' ~ status_color %}
+{% else %}
+  {% set button_class = 'primary' %}
+{% endif %}
+
+{%
+  set classes = [
+    'btn',
+    'btn-sm',
+    button_class ? 'btn-' ~ button_class,
+    button_class ? 'btn-status',
+  ]
+%}
+
+<a {{ create_attribute().addClass(classes).setAttribute('href', url) }} {{tooltip_text ? create_attribute().setAttribute('data-toggle', 'tooltip').setAttribute('data-placement', 'bottom').setAttribute('title', tooltip_text)}}>
+    {% if icon %}<span class="icon-in-btn fas fa-{{icon}}" aria-hidden="true"></span> {% endif %}<span class="btn-status-text">{{button_text}}</span>
+  {% if tooltip_text %}
+    <span class="sr-only">{{tooltip_text}}</span>
+  {% endif %}
+</a>

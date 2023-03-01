@@ -1,0 +1,27 @@
+type: theme
+base theme: bootstrap
+core: 8.x
+core_version_requirement: ^8 || ^9
+name: 'DLP'
+description: 'Uses the Bootstrap framework Sass source files and must be compiled (not for beginners).'
+package: 'Bootstrap'
+
+regions:
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  header: 'Top Bar'
+  content: 'Content'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  tabs: 'Tabs'
+  masq: 'Masquerade'
+
+libraries-extend:
+  bootstrap/framework:
+    - 'dlp/bootstrap-scripts'
+
+libraries:
+  - 'dlp/global-styling'
+  # - 'dlp/search-filter'
+  # - 'dlp/datatables'

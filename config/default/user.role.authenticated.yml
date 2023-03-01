@@ -1,0 +1,65 @@
+uuid: 042d7488-8857-4c6f-a645-008b58d82a76
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.limited_plus
+    - node.type.forum
+    - workflows.workflow.forum_moderation
+  module:
+    - comment
+    - comment_delete
+    - contact
+    - content_moderation
+    - entity_browser
+    - filter
+    - flag
+    - media
+    - node
+    - paragraphs_type_permissions
+    - search_api_autocomplete
+    - shortcut
+    - system
+_core:
+  default_config_hash: LTiDqWmOoCX5_tuxCN2XJriXv9LxTNDdxvy-RnITh5Y
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access forum_related_content entity browser pages'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'access user profiles'
+  - 'allow node forum comment_forum soft delete'
+  - 'create forum content'
+  - 'delete own comment'
+  - 'delete own comment anytime'
+  - 'edit own comments'
+  - 'edit own forum content'
+  - 'flag like_comment'
+  - 'flag like_discussion'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'unflag like_comment'
+  - 'unflag like_discussion'
+  - 'use forum_moderation transition publish'
+  - 'use search_api_autocomplete for abc'
+  - 'use search_api_autocomplete for applications'
+  - 'use search_api_autocomplete for data_search'
+  - 'use search_api_autocomplete for data_search_index'
+  - 'use search_api_autocomplete for dataset_search'
+  - 'use search_api_autocomplete for search_results'
+  - 'use search_api_autocomplete for software_search'
+  - 'use text format limited_plus'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view paragraph content applications_to_datasets'
+  - 'view paragraph content contacts_with_roles'
+  - 'view paragraph content datasets_to_applications'
+  - 'view paragraph content related_application'
+  - 'view paragraph content total_annual_filings'
+  - 'view paragraph content visualizations'
+  - 'view paragraph content website'

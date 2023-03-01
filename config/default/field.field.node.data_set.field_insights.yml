@@ -1,0 +1,25 @@
+uuid: 0205eb6d-4102-4f96-9ce1-a6a30bcc3034
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_insights
+    - node.type.data_set
+  module:
+    - text
+_core:
+  default_config_hash: CaYM2ebH06-BPm0DN1I88AKSW_WJ0hdp8IRBt1flRRY
+id: node.data_set.field_insights
+field_name: field_insights
+entity_type: node
+bundle: data_set
+label: 'Further Details'
+description: 'Do you have other information to add that users might find useful?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

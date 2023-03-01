@@ -1,0 +1,28 @@
+uuid: ae41d1a0-541b-4bf1-a143-24f95a35b03e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_permission_type
+    - node.type.data_set
+    - taxonomy.vocabulary.dataset_accesslevel
+id: node.data_set.field_dataset_permission_type
+field_name: field_dataset_permission_type
+entity_type: node
+bundle: data_set
+label: 'Permission Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dataset_accesslevel: dataset_accesslevel
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

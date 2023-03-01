@@ -1,0 +1,13 @@
+diff --git a/src/EventSubscriber/SimplesamlSubscriber.php b/src/EventSubscriber/SimplesamlSubscriber.php
+index 0e2964737..d27c59162 100644
+--- a/src/EventSubscriber/SimplesamlSubscriber.php
++++ b/src/EventSubscriber/SimplesamlSubscriber.php
+@@ -112,7 +112,8 @@ public function checkAuthStatus(GetResponseEvent $event) {
+     }
+     user_logout();
+
+-    $response = new RedirectResponse('/', RedirectResponse::HTTP_FOUND);
++    $current_path = \Drupal::service('path.current')->getPath();
++    $response = new RedirectResponse($current_path, RedirectResponse::HTTP_FOUND);
+     $event->setResponse($response);
+     $event->stopPropagation();

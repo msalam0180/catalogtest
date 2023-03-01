@@ -1,0 +1,21 @@
+uuid: dbd1b71b-45fb-4624-bf1b-096f5750ad60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_path
+    - node.type.data_set
+_core:
+  default_config_hash: euoQLMk6ms5VKtWfjRv4U1PKhiAyS3oVjN1ZC8chEuI
+id: node.data_set.field_dataset_path
+field_name: field_dataset_path
+entity_type: node
+bundle: data_set
+label: 'Data Path'
+description: 'What is the feed/file path of the data?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

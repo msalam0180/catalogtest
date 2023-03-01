@@ -1,0 +1,8 @@
+editor_link_filesize:
+  version: 1.0
+  js:
+    js/editor_link_filesize.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

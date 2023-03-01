@@ -1,0 +1,23 @@
+uuid: 6226af04-cd35-4fc9-971f-0d4ac8305f0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_annual_responses
+    - node.type.forms
+id: node.forms.field_total_annual_responses
+field_name: field_total_annual_responses
+entity_type: node
+bundle: forms
+label: 'Total Annual Filings'
+description: 'Enter total annual filings, which must be between 0 and 999,999 inclusive.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 999999
+  prefix: ''
+  suffix: ''
+field_type: integer

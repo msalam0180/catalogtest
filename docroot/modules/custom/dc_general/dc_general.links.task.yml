@@ -1,0 +1,10 @@
+dc_general.search_by_contact:
+  title: 'Search by Contact'
+  route_name: view.content_contacts.page_1
+  parent_id: system.admin_content
+  weight: 2
+dc_general.synced_content:
+  title: 'Synced Content'
+  route_name: view.synced_content.page_1
+  parent_id: system.admin_content
+  weight: 8

@@ -1,0 +1,83 @@
+stages:
+  - test
+  - build
+  - deploy
+test:
+    stage: test
+    script: 
+    - 'pwd'
+    - 'chmod a+x test.sh'
+    - 'sh ./test.sh'
+pa11y:
+    stage: test
+    only:
+    -  master
+    -  /^release\/.*$/
+    script: 
+    - 'pwd'
+    - 'sh ./setup-test-environment.sh'
+    - 'sh ./pa11y.sh'
+    when: manual 
+behat:
+    stage: test
+    only:
+    -  master
+    -  /^release\/.*$/
+    script: 
+    - 'pwd'
+    - 'sh ./setup-test-environment.sh'
+    - 'sh ./behat.sh'
+    artifacts:
+      expire_in: 1 week
+      name: "$CI_JOB_NAME"
+      untracked: true   
+    when: manual
+behat_nightly:
+    stage: test
+    only:
+    - schedules
+    script: 
+    - 'pwd'
+    - 'sh ./setup-test-environment.sh'
+    - 'sh ./behat.sh'
+behat_rerun:
+    stage: test
+    only:
+    -  master
+    -  /^release\/.*$/
+    script: 
+    - 'pwd'
+    - 'sh ./setup-test-environment.sh'
+    - 'sh ./behat-rerun.sh'
+    when: manual
+datacatalog_build:
+  stage: build
+  only:
+    - master
+  script: 
+    - 'pwd'
+    - 'sh ./build.sh'
+deploy_stage:
+  stage: deploy
+  only:
+    - master
+  script:
+    - 'sh ./deploy.sh'
+  environment: stage
+  when: manual
+css_compile:
+  stage: build
+  only:
+    changes:
+      - "**/*.scss"
+  script:
+  - 'pwd'
+  - 'chmod a+x css-compile.sh'
+  - 'sh ./css-compile.sh'
+acquia_sync:
+  stage: build
+  only:
+    -  /^release\/.*$/
+    - techcat
+  script:
+    - 'sh ./acquia-sync.sh'

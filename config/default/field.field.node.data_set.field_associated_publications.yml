@@ -1,0 +1,29 @@
+uuid: e1de7aaf-d6cc-4f2b-a28f-6a682e7c1a1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_associated_publications
+    - node.type.data_set
+    - node.type.publications
+id: node.data_set.field_associated_publications
+field_name: field_associated_publications
+entity_type: node
+bundle: data_set
+label: 'Associated Publications'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      publications: publications
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

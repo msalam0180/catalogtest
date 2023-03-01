@@ -1,0 +1,29 @@
+uuid: b9e21e83-64b8-48a0-8320-e8e70620f1b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.component
+    - taxonomy.vocabulary.tags
+id: node.component.field_tags
+field_name: field_tags
+entity_type: node
+bundle: component
+label: Tags
+description: 'Start typing to find and select subject terms that describe this content. If the term does not exist, you can add it as a new tag.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

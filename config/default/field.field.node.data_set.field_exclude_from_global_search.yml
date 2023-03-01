@@ -1,0 +1,23 @@
+uuid: 256a8ca9-659f-4196-b6cf-6d86ab7a8833
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_global_search
+    - node.type.data_set
+  module:
+    - search_api_exclude_entity
+id: node.data_set.field_exclude_from_global_search
+field_name: field_exclude_from_global_search
+entity_type: node
+bundle: data_set
+label: 'Exclude From Global Search'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings: {  }
+field_type: search_api_exclude_entity

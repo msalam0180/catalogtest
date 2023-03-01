@@ -1,0 +1,25 @@
+uuid: 937c47b5-ca60-4f98-b169-0a625c4e7b46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_restricted_dataset
+    - node.type.data_set
+_core:
+  default_config_hash: XCQAPSNM9cglk5Lecmlsm46iOcbHsjP7K7uazm05dws
+id: node.data_set.field_restricted_dataset
+field_name: field_restricted_dataset
+entity_type: node
+bundle: data_set
+label: 'Restricted Dataset'
+description: 'Indicates whether this dataset is highly restricted to a few users'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

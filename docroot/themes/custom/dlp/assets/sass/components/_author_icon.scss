@@ -1,0 +1,63 @@
+//colors still need work
+$letter-color-1: $primary-color;
+$letter-color-2: $blue-medium;
+$letter-color-3: $accent-color-dk;
+$letter-color-4: #2c866f;
+$letter-color-5: #9851ac;
+$letter-color-6: #c2440c;
+$letter-color-7: #767676;
+
+$letterColors: (
+  A: $letter-color-1,
+  B: $letter-color-2,
+  C: $letter-color-3,
+  D: $letter-color-4,
+  E: $letter-color-5,
+  F: $letter-color-6,
+  G: $letter-color-7,
+  H: lighten($letter-color-1, 10%),
+  I: darken($letter-color-2, 10%),
+  J: darken($letter-color-3, 10%),
+  K: darken($letter-color-4, 10%),
+  L: darken($letter-color-5, 10%),
+  M: darken($letter-color-6, 10%),
+  N: darken($letter-color-7, 10%),
+  O: lighten($letter-color-1, 15%),
+  P: darken($letter-color-2, 15%),
+  Q: darken($letter-color-3, 15%),
+  R: darken($letter-color-4, 15%),
+  S: darken($letter-color-5, 15%),
+  T: darken($letter-color-6, 15%),
+  U: darken($letter-color-7, 15%),
+  V: darken($letter-color-1, 20%),
+  W: darken($letter-color-2, 20%),
+  X: darken($letter-color-3, 20%),
+  Y: darken($letter-color-4, 20%),
+  Z: darken($letter-color-5, 20%)
+);
+
+
+@each $letter, $color in $letterColors {
+  .author-letter-icon.letter-#{$letter} {
+    background: $color;
+  }
+}
+
+.author-icon{
+  margin-right: 10px;
+}
+
+$circlesize: 40px;
+
+.author-letter-icon{
+  width: $circlesize;
+  line-height: $circlesize;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 22px;
+  display: block;
+  font-weight: bold;
+  background: $accent-color-dk;
+  color: #fff;
+  text-indent: 2px;
+}

@@ -1,0 +1,39 @@
+{
+        "result": [
+                                        {
+                                                "name": "NEW JSON Import Test December-7.5.22",
+                                                "cmdb_model_category": "Software License, Workflow and Business Process Management, Enterprise Content Management (ECM), Software",
+                                                "short_description":"Fireworks",
+                                                "short_summary": "Today is Thursday",
+                                                "manufacturer": "IBM",
+                                                "version": "1",
+                                                "status": "Retired",
+                                                "sys_id": "01c631d4db9683c0bfe5f4b40f011tbr",
+                                                "sys_created_on": "2022-05-19 12:28:42",
+                                                "u_software_restriction": "4.5.6"
+                                        },
+                                        {
+                                                "name": "NEW JSON Import Test December-7.6.22",
+                                                "cmdb_model_category": "Software License, Workflow and Business Process Management, Enterprise Content Management (ECM), Software",
+                                                "manufacturer": "IBM",
+                                                "short_summary": "Today is New Test",
+                                                "version": "1.2",
+                                                "status": "Approved",
+                                                "sys_id": "01c631d4db9683c0bfe5f4b40f011tdi",
+                                                "sys_created_on": "2022-05-19 12:28:42",
+                                                "u_software_restriction": "4.5.6"
+                                        },
+                                        {
+                                                "name": "NEW JSON Import Test Thursday-7.7.22",
+                                                "cmdb_model_category": "Software License, Workflow and Business Process Management, Enterprise Content Management (ECM), Software",
+                                                "manufacturer": "Acquia",
+                                                "short_description":" ",
+                                                "short_summary": "Today is another day.",
+                                                "version": "1.2.3",
+                                                "status": "Waiver",
+                                                "sys_id": "01c631d4db9683c0bfe5f4b40f011tx1",
+                                                "sys_created_on": "2022-05-19 12:28:42",
+                                                "u_software_restriction": "4.5.6"
+                                        }
+        ]
+}

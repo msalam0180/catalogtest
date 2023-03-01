@@ -1,0 +1,31 @@
+uuid: bce9bae5-1089-466a-9f09-dbed73b77092
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:13d02366-a7b6-45a5-ae9b-f6689592788e'
+  module:
+    - block_content
+    - system
+  theme:
+    - dlp
+id: datainsighttile
+theme: dlp
+region: header
+weight: -9
+provider: null
+plugin: 'block_content:13d02366-a7b6-45a5-ae9b-f6689592788e'
+settings:
+  id: 'block_content:13d02366-a7b6-45a5-ae9b-f6689592788e'
+  label: 'Data Insight Tile'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /quick-look-reg-d-digital-security-filings

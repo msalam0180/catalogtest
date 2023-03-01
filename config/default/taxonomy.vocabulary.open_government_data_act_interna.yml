@@ -1,0 +1,8 @@
+uuid: 1518da8a-0c48-4a08-a380-89f64195ceac
+langcode: en
+status: true
+dependencies: {  }
+name: 'Associated Inventories'
+vid: open_government_data_act_interna
+description: ''
+weight: 0

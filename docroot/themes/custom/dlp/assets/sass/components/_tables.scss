@@ -1,0 +1,21 @@
+//
+// VTables
+// 
+// --------------------------------------------------
+
+//TODO: Need to review... How much of this can be done using vars
+
+th {
+  font-weight:600;
+  background:#eee;
+  border-right:1px solid #fff;
+}
+
+//Where do these belong?
+thead .dataset {min-width:200px}
+thead .source-type {min-width:120px}
+thead .mkt-part {width:260px}
+
+.tablesaw-columntoggle tbody td {
+  line-height: 1.2;
+}

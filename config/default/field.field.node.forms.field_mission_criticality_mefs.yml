@@ -1,0 +1,29 @@
+uuid: d00ed3e0-d46f-4fa8-b816-4137baaca6b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mission_criticality_mefs
+    - node.type.forms
+    - taxonomy.vocabulary.mission_criticality_mefs_
+id: node.forms.field_mission_criticality_mefs
+field_name: field_mission_criticality_mefs
+entity_type: node
+bundle: forms
+label: 'Mission criticality (MEFs)'
+description: 'Does this data support essential functions?'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mission_criticality_mefs_: mission_criticality_mefs_
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

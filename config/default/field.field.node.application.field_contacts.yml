@@ -1,0 +1,40 @@
+uuid: 20a0954e-7a75-463d-80e6-0de5dde4a2d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contacts
+    - node.type.application
+    - paragraphs.paragraphs_type.contacts_with_roles
+  module:
+    - entity_reference_revisions
+id: node.application.field_contacts
+field_name: field_contacts
+entity_type: node
+bundle: application
+label: Contacts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      contacts_with_roles: contacts_with_roles
+    negate: 0
+    target_bundles_drag_drop:
+      contacts_with_roles:
+        weight: 5
+        enabled: true
+      licenses_held_by_division_office:
+        weight: 6
+        enabled: false
+      related_application:
+        weight: 7
+        enabled: false
+      visualizations:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,22 @@
+uuid: 6958b036-99fc-49ae-a2d4-4b812b8a026a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: cSnr3ah87M9oJp2HE7Jpfn555cZOCgdOT9gxZAzK_DQ
+id: node.field_dataset_registrant_type
+field_name: field_dataset_registrant_type
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

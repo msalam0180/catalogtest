@@ -1,0 +1,15 @@
+uuid: e80f51c3-792c-4d2c-afe7-77ff5c02b0e7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: qu5wE7cIRz6giH_Yq4imqiW_rEhX35lJTmCUos6XX7w
+id: files
+label: File
+description: ''
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map: {  }

@@ -1,0 +1,21 @@
+uuid: 2b9c2d6a-c705-4be5-8daa-742a06bdf262
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_abstract
+    - node.type.publications
+  module:
+    - text
+id: node.publications.field_publication_abstract
+field_name: field_publication_abstract
+entity_type: node
+bundle: publications
+label: Abstract
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

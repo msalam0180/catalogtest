@@ -1,0 +1,20 @@
+uuid: 8d40b793-ef28-4418-b02f-183fa89870da
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+name: 'Data Insight'
+type: data_insight
+description: 'Summarizations of compelling data analyses conducted within the SEC'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

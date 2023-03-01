@@ -1,0 +1,10 @@
+uuid: 12ef21b4-bcec-48de-8a52-087557e0aeb4
+langcode: en
+status: true
+dependencies: {  }
+id: mission_criticality
+label: 'Mission Criticality'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

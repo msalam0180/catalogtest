@@ -1,0 +1,27 @@
+dc_dashboard.dataset_dashboard:
+  path: '/admin/dataset-dashboard'
+  defaults:
+    _controller: '\Drupal\dc_dashboard\Controller\DatasetDashboardController::dashboardPage'
+    _title: 'Dataset Dashboard'
+  requirements:
+    _permission: 'access dataset dashboard'
+
+dc_dashboard.ajax.save_data:
+  path: '/ajax/dataset-dashboard-save'
+  defaults:
+    _controller: 'Drupal\dc_dashboard\Controller\DatasetDashboardController::saveData'
+    _title: 'Data Dashboard Save API'
+  methods:  [POST]
+  requirements:
+    _permission: 'access dataset dashboard'
+    _format: json
+
+dc_dashboard_ajax.get_field_data:
+  path: '/ajax/dataset-dashboard-get-field-data'
+  defaults:
+    _controller: 'Drupal\dc_dashboard\Controller\DatasetDashboardController::getFieldData'
+    _title: 'Data Dashboard API'
+  methods:  [POST]
+  requirements:
+    _permission: 'access dataset dashboard'
+    _format: json

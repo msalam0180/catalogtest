@@ -1,0 +1,19 @@
+uuid: 69c786d3-4eb1-45e8-b57c-4d58d37eccd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ogda_determination_notes
+    - node.type.data_set
+id: node.data_set.field_ogda_determination_notes
+field_name: field_ogda_determination_notes
+entity_type: node
+bundle: data_set
+label: 'OGDA Determination Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

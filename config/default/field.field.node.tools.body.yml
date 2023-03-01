@@ -1,0 +1,25 @@
+uuid: 9f9eef17-427f-4d33-8718-aa1f4c3f5eb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tools
+  module:
+    - text
+_core:
+  default_config_hash: rIN_nhcLmaLQTsZ2ZZozQ06tCBssoANduGdmDZ3w3R8
+id: node.tools.body
+field_name: body
+entity_type: node
+bundle: tools
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

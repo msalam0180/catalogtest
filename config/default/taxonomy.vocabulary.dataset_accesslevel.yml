@@ -1,0 +1,10 @@
+uuid: bae351b2-952b-4dad-991d-861b650206ef
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: mzk0_xlZ-QW0kyhtiO7pw_ApqwK6sW8cTBjnpbrYH44
+name: 'Dataset Permission Type'
+vid: dataset_accesslevel
+description: 'Indicates if any special permissions are needed to use the dataset'
+weight: 0

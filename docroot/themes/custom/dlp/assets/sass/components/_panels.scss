@@ -1,0 +1,28 @@
+//
+// Panels
+//  
+// --------------------------------------------------
+
+.panel-title {
+  display: block;
+  margin: -10px -15px;
+  padding: 10px 15px;
+  &, &:hover, &:focus, &:hover:focus {
+    color: inherit;
+  }
+  &:focus, &:hover {
+    text-decoration: none;
+  }
+}
+
+.panel-bg-subtle{
+  background-color: $nav-tabs-active-link-hover-bg;
+}
+
+.foux-subtle-panel{
+  @extend .panel;
+  @extend .panel-default;
+  padding: 25px 30px;
+  @extend .panel-bg-subtle;
+}
+

@@ -1,0 +1,30 @@
+uuid: 7382ca99-5306-4f94-ab80-9b188c2bd568
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_how_to_access_this_dataset
+    - node.type.data_set
+  module:
+    - allowed_formats
+    - field_display_label
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+  field_display_label:
+    display_label: 'Dataset Access Details'
+_core:
+  default_config_hash: '-mPlPpl4PiWlYHwoqNexWVUe2EG5o12euHRVewjpv7w'
+id: node.data_set.field_how_to_access_this_dataset
+field_name: field_how_to_access_this_dataset
+entity_type: node
+bundle: data_set
+label: 'Dataset Access Details'
+description: 'Provide any additional information or website links to assist the user in finding the dataset'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

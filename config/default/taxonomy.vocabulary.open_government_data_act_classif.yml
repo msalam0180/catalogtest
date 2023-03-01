@@ -1,0 +1,8 @@
+uuid: 383a9c98-bbb0-4958-82f5-0a7d47d83971
+langcode: en
+status: true
+dependencies: {  }
+name: 'OPEN Government Data Act Data Asset Determination'
+vid: open_government_data_act_classif
+description: ''
+weight: 0

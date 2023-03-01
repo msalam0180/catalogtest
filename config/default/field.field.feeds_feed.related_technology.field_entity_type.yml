@@ -1,0 +1,21 @@
+uuid: c40e7fdc-41c2-4633-9673-338d8eb9df19
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.related_technology
+    - field.storage.feeds_feed.field_entity_type
+id: feeds_feed.related_technology.field_entity_type
+field_name: field_entity_type
+entity_type: feeds_feed
+bundle: related_technology
+label: 'Entity type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: node
+default_value_callback: ''
+settings: {  }
+field_type: string

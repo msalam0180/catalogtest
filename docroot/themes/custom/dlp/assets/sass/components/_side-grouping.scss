@@ -1,0 +1,89 @@
+$sg-border-color: #ddd;
+$sg-padding: 20px;
+.side-grouping{
+  border: 1px solid $sg-border-color;
+  border-radius: 2px;
+  margin-bottom: 10px;
+
+  h2{
+    font-size: 20px;
+    padding: $sg-padding/2 $sg-padding;
+    border-bottom: 1px solid shade($sg-border-color, 30%);
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1199px){
+    margin-top: 20px;
+  }
+}
+
+.side-grouping-content{
+  padding: $sg-padding;
+  background-color: #f6f6f6;
+  font-size: .9em;
+
+  .media-item.bordered-left{
+    padding: 9px 12px;
+  }
+
+  .path-node & .field, .media-body .field{
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+  }
+
+  .snapshot-group {
+    .field{
+      border-bottom: none;
+    }
+    border-bottom: 1px solid #e3e3e3;
+    padding: 10px 0;
+    &:first-of-type{
+      padding-top: 0;
+    }
+    &:last-of-type{
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .field--type-string-long.field--label-inline, .field--type-text-long.field--label-inline{
+    display: flex;
+    .field--label{
+      white-space: nowrap;
+    }
+  }
+}
+
+.page-node-type-component .main-content-display-section{
+  @extend .foux-subtle-panel;
+}
+
+
+//button group
+.button-group{
+  display: flex;
+  border: none;
+  margin: 15px 3px 16px;
+   & > .field.field--item{
+     border: none;
+     margin: 0;
+     padding: 0;
+     flex: 1;
+     flex-basis: 50%;
+     overflow: hidden;
+     .btn{
+      margin-right: 5px;
+      display: block;
+      text-transform: none;
+      font-size: 1.2em;
+      border-radius: 2px !important;
+      padding: 6px 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     }
+     &:last-child .btn{
+       margin-right: 0;
+     }
+   }
+
+}

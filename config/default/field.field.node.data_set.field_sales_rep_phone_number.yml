@@ -1,0 +1,21 @@
+uuid: ea717ed8-3393-4fd6-ad52-4c3bc2b2eca6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sales_rep_phone_number
+    - node.type.data_set
+  module:
+    - telephone
+id: node.data_set.field_sales_rep_phone_number
+field_name: field_sales_rep_phone_number
+entity_type: node
+bundle: data_set
+label: 'Sales Rep Phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

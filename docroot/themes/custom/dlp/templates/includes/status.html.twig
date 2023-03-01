@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Status template (can be used by any type of content as long as the vars are passed)
+ *
+ * Available Vars
+ * status - status value (required)
+ * status_sm - if var is there use the small variation of status
+ * status_icon - Font Awesome Icon name
+ * status_color - status_color - 6 numbers and no hash
+ * status_url - URL to the status tax page
+
+ * Example template call:
+  {{ include('@dlp/includes/status.html.twig', {'status': status}) }}
+  {{ include('@dlp/includes/status.html.twig', {'status': status, 'status_icon': icon, 'status_color': XXXXXX}) }}
+
+#}
+
+{%
+  set classes = [
+    'status',
+    'status--' ~ status|clean_class,
+    status_color ? 'status-color--' ~ status_color,
+    left_line ? 'status--left-line',
+    boxed ? 'status--boxed',
+    status_url ? 'status--link',
+  ]
+%}
+
+{% set status_element = (status_url) ? "a" : "div" %}
+
+{% if status %}
+  <{{status_element}} {{create_attribute().addClass(classes).setAttribute('href', status_url ?: null) }} >
+    <span class="status-icon fas fa-{{ status_icon }}" aria-hidden="true"></span>
+    <span class="status-text">{{ status }}</span>
+  </{{status_element}}>
+{% endif %}

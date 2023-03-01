@@ -1,0 +1,54 @@
+uuid: a74eeeee-3209-4fd0-b714-fceb755abc97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.licenses_held_by_division_office.field_division_office
+    - field.field.paragraph.licenses_held_by_division_office.field_license_notes
+    - field.field.paragraph.licenses_held_by_division_office.field_license_type
+    - field.field.paragraph.licenses_held_by_division_office.field_number_of_licenses_held
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+  module:
+    - content_moderation
+id: paragraph.licenses_held_by_division_office.default
+targetEntityType: paragraph
+bundle: licenses_held_by_division_office
+mode: default
+content:
+  field_division_office:
+    type: options_select
+    weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_license_notes:
+    type: string_textarea
+    weight: 104
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_license_type:
+    type: options_select
+    weight: 103
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_number_of_licenses_held:
+    type: number
+    weight: 102
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

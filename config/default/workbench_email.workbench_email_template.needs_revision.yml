@@ -1,0 +1,27 @@
+uuid: 6dd26397-343b-4e39-88e8-c157af70b338
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_submitter
+id: needs_revision
+label: 'Needs Revision'
+subject: 'Content needs revision'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_review_submitter'
+bundles: {  }
+body:
+  value: "[node:title] was not approved for publication. Please revise.\r\n[node:log]\r\n[node:url]/revisions"
+  format: plain_text
+replyTo: ''

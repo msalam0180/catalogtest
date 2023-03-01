@@ -1,0 +1,24 @@
+uuid: c37f80cb-a372-44ed-bbcf-a759d24bc3c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_date
+    - node.type.statistics
+  module:
+    - datetime
+id: node.statistics.field_published_date
+field_name: field_published_date
+entity_type: node
+bundle: statistics
+label: 'Date Posted'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains install, update and uninstall functions for Comment Delete module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function comment_delete_install(): void {
+  module_set_weight('comment_delete', 1000);
+}
+
+/**
+ * Ensure caches are flushed and rebuilt.
+ */
+function comment_delete_update_8001(&$sandbox): void {
+  drupal_flush_all_caches();
+}

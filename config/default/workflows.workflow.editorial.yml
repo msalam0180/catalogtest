@@ -1,0 +1,170 @@
+uuid: 441e540f-3168-4f6a-a78f-db4196b26469
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.application
+    - node.type.article
+    - node.type.chart
+    - node.type.component
+    - node.type.data_insight
+    - node.type.data_set
+    - node.type.forms
+    - node.type.landing_page
+    - node.type.page
+    - node.type.platform
+    - node.type.publications
+    - node.type.statistics
+    - node.type.tools
+  module:
+    - content_moderation
+    - workbench_email
+  enforced:
+    config:
+      0: workbench_email.workbench_email_template.needs_review
+      2: workbench_email.workbench_email_template.published
+      5: workbench_email.workbench_email_template.needs_revision
+      8: workbench_email.workbench_email_template.archived
+      13: workbench_email.workbench_email_template.back_to_draft
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      create_new_draft: {  }
+      publish:
+        published: published
+      rejected:
+        needs_revision: needs_revision
+      archive:
+        archived: archived
+      send_for_review:
+        needs_review: needs_review
+      back_to_draft:
+        back_to_draft: back_to_draft
+      restore: {  }
+      public: {  }
+      publish_to_data_gov: {  }
+_core:
+  default_config_hash: 3XUOYURnOLRqB2BjCl76A1aLx53B3X1j5kMnZHE78Qw
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 1
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      weight: -3
+      published: false
+      default_revision: false
+    public:
+      label: Published-Public
+      weight: 2
+      published: true
+      default_revision: true
+    published:
+      label: Published
+      weight: -1
+      published: true
+      default_revision: true
+    rejected:
+      label: Rejected
+      weight: 0
+      published: false
+      default_revision: false
+    review:
+      label: Review
+      weight: -2
+      published: false
+      default_revision: false
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - archived
+        - draft
+        - published
+        - rejected
+        - review
+      to: archived
+      weight: 0
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 1
+    back_to_draft:
+      label: 'Back to Draft'
+      from:
+        - public
+        - review
+      to: draft
+      weight: -3
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: -5
+    public:
+      label: 'Publish to Data.gov'
+      from:
+        - published
+      to: public
+      weight: 5
+    publish:
+      label: Publish
+      from:
+        - draft
+        - public
+        - published
+        - review
+      to: published
+      weight: -1
+    rejected:
+      label: Rejected
+      from:
+        - rejected
+        - review
+      to: rejected
+      weight: -2
+    restore:
+      label: Restore
+      from:
+        - archived
+      to: review
+      weight: 4
+    revised:
+      label: Revised
+      from:
+        - rejected
+      to: draft
+      weight: 3
+    send_for_review:
+      label: 'Send for Review'
+      from:
+        - draft
+        - published
+      to: review
+      weight: -4
+  entity_types:
+    node:
+      - application
+      - article
+      - chart
+      - component
+      - data_insight
+      - data_set
+      - forms
+      - landing_page
+      - page
+      - platform
+      - publications
+      - statistics
+      - tools
+  default_moderation_state: draft

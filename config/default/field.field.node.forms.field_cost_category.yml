@@ -1,0 +1,29 @@
+uuid: 7e5d421e-2088-4422-8f95-7a7625589b00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cost_category
+    - node.type.forms
+    - taxonomy.vocabulary.cost_category
+id: node.forms.field_cost_category
+field_name: field_cost_category
+entity_type: node
+bundle: forms
+label: 'Cost Category'
+description: 'Qualitative description of primary cost related to owning/processing this data'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cost_category: cost_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

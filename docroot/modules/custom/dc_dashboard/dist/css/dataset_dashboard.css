@@ -1,0 +1,36 @@
+#dataset-dashboard-container .details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#dataset-dashboard-container .details-wrapper div.form-item {
+  margin-right: 5px;
+}
+
+#dataset-dashboard-container tr th,
+#dataset-dashboard-container tr td {
+  max-width: 100px;
+}
+
+.data-has-latest-revision {
+  outline: 1px solid #ffb9b9;
+  background-color: #fff7f7;
+}
+
+.data-is-not-published {
+  outline: 1px solid #abd7f5;
+  background-color: #b9ddfa;
+}
+
+.my-2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}

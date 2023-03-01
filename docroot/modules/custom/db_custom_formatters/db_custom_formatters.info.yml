@@ -1,0 +1,8 @@
+name: DB Custom Formatters
+type: module
+description: 'Custom Formatters created for field displays.'
+core: 8.x
+package: Custom
+dependencies:
+  - field
+core_version_requirement: ^8 || ^9

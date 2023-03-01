@@ -1,0 +1,28 @@
+uuid: d6b63869-221b-4d55-a3f6-1d2e2e528f07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_point_s_of_contact
+    - node.type.contact
+    - node.type.forms
+id: node.forms.field_point_s_of_contact
+field_name: field_point_s_of_contact
+entity_type: node
+bundle: forms
+label: 'Rulemaking Contact(s)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

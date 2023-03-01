@@ -1,0 +1,23 @@
+uuid: 5e0a4ac2-f284-4411-a20d-6bf3f4b4f7b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_of_licenses_held
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+id: paragraph.licenses_held_by_division_office.field_number_of_licenses_held
+field_name: field_number_of_licenses_held
+entity_type: paragraph
+bundle: licenses_held_by_division_office
+label: 'Licenses Held'
+description: 'How many licenses are held by the selected Division or Office?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

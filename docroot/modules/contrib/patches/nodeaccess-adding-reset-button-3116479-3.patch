@@ -1,0 +1,47 @@
+diff --git a/src/Form/GrantsForm.php b/src/Form/GrantsForm.php
+index 22f479997..e03291e92 100644
+--- a/src/Form/GrantsForm.php
++++ b/src/Form/GrantsForm.php
+@@ -283,6 +283,11 @@ public function buildForm(array $form, FormStateInterface $form_state, Node $nod
+       '#type' => 'submit',
+       '#value' => $this->t('Save Grants'),
+     ];
++    $form['reset'] = [
++      '#type' => 'submit',
++      '#value' => $this->t('Reset to Default Grants'),
++      '#submit' => [[$this, 'resetForm']],
++    ];
+     return $form;
+   }
+
+@@ -354,6 +359,30 @@ public function submitForm(array &$form, FormStateInterface $form_state) {
+     Cache::invalidateTags($tags);
+   }
+
++  /**
++   * {@inheritdoc}
++   */
++  public function resetForm(array &$form, FormStateInterface $form_state) {
++    $values = $form_state->getValues();
++    $nid = $values['nid'];
++    $db = \Drupal::database();
++    // Load current node.
++    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
++    // If the node loads successfully.
++    if (!empty($node)) {
++      $db->delete('nodeaccess')
++      ->condition('nid', $nid)
++      ->execute();
++      $access_control_handler = \Drupal::entityTypeManager()->getAccessControlHandler('node');
++      $grants = $access_control_handler->acquireGrants($node);
++      \Drupal::service('node.grant_storage')->write($node, $grants);
++      \Drupal::messenger()->addMessage($this->t('Grants has been reset.'));
++
++      $tags = ['node:' . $node->id()];
++      Cache::invalidateTags($tags);
++    }
++  }
++
+   /**
+    * Helper function to search usernames.
+    */

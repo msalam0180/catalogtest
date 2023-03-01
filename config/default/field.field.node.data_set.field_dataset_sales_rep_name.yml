@@ -1,0 +1,19 @@
+uuid: 55bb6e4e-a936-4b16-ad92-ed478b3d9114
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_sales_rep_name
+    - node.type.data_set
+id: node.data_set.field_dataset_sales_rep_name
+field_name: field_dataset_sales_rep_name
+entity_type: node
+bundle: data_set
+label: 'Sales Rep Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

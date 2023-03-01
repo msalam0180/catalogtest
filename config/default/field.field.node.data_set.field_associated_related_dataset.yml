@@ -1,0 +1,30 @@
+uuid: b5ff2ec2-c4eb-493f-aaf3-0b482c2d640b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_associated_related_dataset
+    - node.type.data_set
+_core:
+  default_config_hash: epL9tq-n-hKD2vYk7uDQMpzwrO-dhdXh4Yt7fFinmk8
+id: node.data_set.field_associated_related_dataset
+field_name: field_associated_related_dataset
+entity_type: node
+bundle: data_set
+label: 'Parent Dataset'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

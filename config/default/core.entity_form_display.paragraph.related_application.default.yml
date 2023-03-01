@@ -1,0 +1,34 @@
+uuid: 925353be-2571-4cd2-9c94-a5d7745bec2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_application.field_application
+    - field.field.paragraph.related_application.field_desc_of_relationship
+    - paragraphs.paragraphs_type.related_application
+id: paragraph.related_application.default
+targetEntityType: paragraph
+bundle: related_application
+mode: default
+content:
+  field_application:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_desc_of_relationship:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

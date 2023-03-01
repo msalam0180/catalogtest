@@ -1,0 +1,301 @@
+uuid: a2a78a42-d0ef-4dec-a078-30c76ac1126c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_business_owner
+    - field.storage.node.field_data_category
+    - field.storage.node.field_data_search_index
+    - field.storage.node.field_dataset_asset_category
+    - field.storage.node.field_dataset_category
+    - field.storage.node.field_dataset_description
+    - field.storage.node.field_dataset_name_old
+    - field.storage.node.field_dataset_registrant_type
+    - field.storage.node.field_dataset_source_type
+    - field.storage.node.field_dataset_use
+    - field.storage.node.field_division_office_multi
+    - field.storage.node.field_owner
+    - field.storage.node.field_security_classification
+    - field.storage.node.field_sensitivity_classification
+    - field.storage.node.field_source_type
+    - field.storage.node.field_tags
+    - search_api.server.database
+  module:
+    - taxonomy
+    - node
+    - search_api
+    - search_api_exclude_entity
+_core:
+  default_config_hash: ITn92isZwqwZhWfs8CmIgfza-KCves4_250Q-cz86JE
+id: data_search
+name: 'Data Search'
+description: ''
+read_only: false
+field_settings:
+  field_business_owner:
+    label: 'Business Owner'
+    datasource_id: 'entity:node'
+    property_path: field_business_owner
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_business_owner
+  field_data_category:
+    label: 'Data Category'
+    datasource_id: 'entity:node'
+    property_path: field_data_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_data_category
+  field_data_search_index:
+    label: 'data Search Index'
+    datasource_id: 'entity:node'
+    property_path: field_data_search_index
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_data_search_index
+  field_dataset_asset_category:
+    label: 'Asset Type'
+    datasource_id: 'entity:node'
+    property_path: field_dataset_asset_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_asset_category
+  field_dataset_category:
+    label: 'Data Type'
+    datasource_id: 'entity:node'
+    property_path: field_dataset_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_category
+  field_dataset_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_dataset_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_description
+  field_dataset_name_old:
+    label: 'Other Names Used'
+    datasource_id: 'entity:node'
+    property_path: field_dataset_name_old
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_name_old
+  field_dataset_registrant_type:
+    label: 'Entity Type'
+    datasource_id: 'entity:node'
+    property_path: field_dataset_registrant_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_registrant_type
+  field_dataset_source_type:
+    label: Source
+    datasource_id: 'entity:node'
+    property_path: field_dataset_source_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_source_type
+  field_dataset_use:
+    label: 'Use Cases'
+    datasource_id: 'entity:node'
+    property_path: field_dataset_use
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_dataset_use
+  field_division_office_multi:
+    label: 'Divisions/Offices that use this '
+    datasource_id: 'entity:node'
+    property_path: field_division_office_multi
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_division_office_multi
+  field_owner:
+    label: Owner
+    datasource_id: 'entity:node'
+    property_path: field_owner
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_owner
+  field_security_classification:
+    label: 'Security Classification'
+    datasource_id: 'entity:node'
+    property_path: field_security_classification
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_security_classification
+  field_sensitivity_classification:
+    label: 'Sensitivity Classification'
+    datasource_id: 'entity:node'
+    property_path: field_sensitivity_classification
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_sensitivity_classification
+  field_source_type:
+    label: 'Source Type'
+    datasource_id: 'entity:node'
+    property_path: field_source_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_source_type
+  name:
+    label: 'Tags » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_tags:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+      module:
+        - taxonomy
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 3
+    dependencies:
+      module:
+        - node
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - data_set
+    languages:
+      default: false
+      selected:
+        - en
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  hierarchy:
+    weights:
+      preprocess_index: -45
+    fields:
+      field_dataset_asset_category: taxonomy_term-parent
+      field_dataset_category: taxonomy_term-parent
+      field_dataset_registrant_type: taxonomy_term-parent
+      field_dataset_source_type: taxonomy_term-parent
+      field_dataset_use: taxonomy_term-parent
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: false
+    fields:
+      - field_data_search_index
+      - field_dataset_description
+      - field_dataset_name_old
+      - name
+      - title
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  ignore_character:
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: true
+    fields:
+      - field_data_search_index
+      - field_dataset_description
+      - field_dataset_name_old
+      - name
+      - title
+    ignorable: '[''¿¡!?,.:;]'
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - field_data_search_index
+      - field_dataset_description
+      - field_dataset_name_old
+      - name
+      - title
+  language_with_fallback: {  }
+  rendered_item: {  }
+  search_api_exclude_entity_processor:
+    fields:
+      node:
+        - field_exclude_dataset_search
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - field_data_search_index
+      - field_dataset_description
+      - field_dataset_name_old
+      - name
+      - title
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: database

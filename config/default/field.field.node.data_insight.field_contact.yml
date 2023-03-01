@@ -1,0 +1,32 @@
+uuid: 43dade5a-3d4e-46c0-b9eb-807ea52d40ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.contact
+    - node.type.data_insight
+  content:
+    - 'node:contact:abd147b6-9a79-4cfa-85a5-24a386065d22'
+id: node.data_insight.field_contact
+field_name: field_contact
+entity_type: node
+bundle: data_insight
+label: 'Editorial Point of Contact'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: abd147b6-9a79-4cfa-85a5-24a386065d22
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

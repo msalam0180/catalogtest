@@ -1,0 +1,25 @@
+uuid: 64824ceb-8fb3-4cbf-adb5-5dc0b05d903f
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:d82cd32b-f04d-442f-b284-8cd153074093'
+  module:
+    - block_content
+  theme:
+    - dlp
+id: businessapplications
+theme: dlp
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:d82cd32b-f04d-442f-b284-8cd153074093'
+settings:
+  id: 'block_content:d82cd32b-f04d-442f-b284-8cd153074093'
+  label: 'Business Applications'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

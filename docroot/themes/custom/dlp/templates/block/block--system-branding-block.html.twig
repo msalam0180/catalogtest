@@ -1,0 +1,33 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * SEC.gov's theme implementation for a branding block.
+ *
+ * Each branding element variable (logo, name) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ */
+#}
+{% set attributes = attributes.addClass('site-branding') %}
+
+{% block content %}
+
+  <div class="banner-seal">
+    <a href="{{ path('<front>') }}" rel="home">
+      <img src="/{{ base_path ~ directory }}/images/dclogo4_0.png" alt="{{ 'SEC Data Catalog'|t }}" />
+      {# NEW LOGO - When new logo is approved - uncomment the line below and delete the line above #}
+      {# <img src="/{{ base_path ~ directory }}/images/catalog_logo.svg" alt="{{ 'SEC Data Catalog'|t }}" /> #}
+    </a>
+  </div>
+
+  {% if site_name %}
+  <div class="banner-org-name">
+      <a href="{{ path('<front>') }}" title="{{ site_name }}" rel="home">{{ site_name|render|striptags|replace({'and ':'and <br>'}) }}</a>
+  </div>
+  {% endif %} 
+
+{% endblock %}

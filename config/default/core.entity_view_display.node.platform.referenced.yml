@@ -1,0 +1,418 @@
+uuid: 8d920a9b-7d3d-44c6-9fae-ff8a0250810b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.referenced
+    - field.field.node.platform.body
+    - field.field.node.platform.field_add_new_discussion
+    - field.field.node.platform.field_approved_version
+    - field.field.node.platform.field_component_category
+    - field.field.node.platform.field_contact_guidance
+    - field.field.node.platform.field_contacts
+    - field.field.node.platform.field_data_search_index
+    - field.field.node.platform.field_dataset_use
+    - field.field.node.platform.field_division_office_multi
+    - field.field.node.platform.field_documents
+    - field.field.node.platform.field_how_to_request_access
+    - field.field.node.platform.field_logo
+    - field.field.node.platform.field_manufacturer
+    - field.field.node.platform.field_platform_link
+    - field.field.node.platform.field_promote_it_to_the_technolo
+    - field.field.node.platform.field_related_apps
+    - field.field.node.platform.field_related_articles
+    - field.field.node.platform.field_related_components
+    - field.field.node.platform.field_related_datasets_with_term
+    - field.field.node.platform.field_related_discussions
+    - field.field.node.platform.field_review_submitter
+    - field.field.node.platform.field_reviewer
+    - field.field.node.platform.field_short_name
+    - field.field.node.platform.field_status_usage
+    - field.field.node.platform.field_summary
+    - field.field.node.platform.field_tags
+    - node.type.platform
+  module:
+    - field_group
+    - layout_builder
+    - user
+third_party_settings:
+  field_group:
+    group_row_01:
+      children:
+        - group_column_01
+        - group_column_02
+      label: 'Row 01'
+      parent_name: ''
+      region: hidden
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_01:
+      children:
+        - body
+      label: 'Column 01'
+      parent_name: group_row_01
+      region: hidden
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: 'col-lg-8 mainSection clearfix'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_02:
+      children:
+        - group_logo
+        - group_snapshot
+        - group_components
+        - group_applications
+        - group_contacts
+        - group_articles
+        - group_documents
+        - group_tags
+      label: 'Column 02'
+      parent_name: group_row_01
+      region: hidden
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: 'col-lg-4 sideSection'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_snapshot:
+      children:
+        - group_snapshot_content
+      label: Snapshot
+      parent_name: group_column_02
+      region: hidden
+      weight: 9
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_snapshot_content:
+      children:
+        - field_division_office_multi
+      label: 'Snapshot Content'
+      parent_name: group_snapshot
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_components:
+      children:
+        - group_components_content
+      label: Software
+      parent_name: group_column_02
+      region: hidden
+      weight: 10
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_components_content:
+      children:
+        - field_related_components
+      label: 'Software Content'
+      parent_name: group_components
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_applications:
+      children:
+        - group_applications_content
+      label: Applications
+      parent_name: group_column_02
+      region: hidden
+      weight: 11
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_applications_content:
+      children:
+        - field_related_apps
+      label: 'Applications Content'
+      parent_name: group_applications
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_contacts:
+      children:
+        - group_contacts_content
+      label: Contacts
+      parent_name: group_column_02
+      region: hidden
+      weight: 12
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_contacts_content:
+      children:
+        - field_contact_guidance
+        - field_contacts
+      label: 'Contacts Content'
+      parent_name: group_contacts
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_articles:
+      children:
+        - group_articles_content
+      label: Articles
+      parent_name: group_column_02
+      region: hidden
+      weight: 13
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_articles_content:
+      children:
+        - field_related_articles
+      label: 'Articles Content'
+      parent_name: group_articles
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_logo:
+      children:
+        - field_logo
+      label: Logo
+      parent_name: group_column_02
+      region: hidden
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: 'side-grouping node-logo'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_documents:
+      children:
+        - group_documents_content
+      label: Documents
+      parent_name: group_column_02
+      region: hidden
+      weight: 14
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_documents_content:
+      children:
+        - field_documents
+      label: 'Documents Content'
+      parent_name: group_documents
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_tags:
+      children:
+        - group_tags_content
+      label: Tags
+      parent_name: group_column_02
+      region: hidden
+      weight: 15
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_tags_content:
+      children:
+        - field_tags
+      label: 'Tags Content'
+      parent_name: group_tags
+      region: hidden
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.platform.referenced
+targetEntityType: node
+bundle: platform
+mode: referenced
+content:
+  field_status_usage:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: button
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  field_add_new_discussion: true
+  field_approved_version: true
+  field_component_category: true
+  field_contact_guidance: true
+  field_contacts: true
+  field_data_search_index: true
+  field_dataset_use: true
+  field_division_office_multi: true
+  field_documents: true
+  field_how_to_request_access: true
+  field_logo: true
+  field_manufacturer: true
+  field_platform_link: true
+  field_promote_it_to_the_technolo: true
+  field_related_apps: true
+  field_related_articles: true
+  field_related_components: true
+  field_related_datasets_with_term: true
+  field_related_discussions: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_short_name: true
+  field_summary: true
+  field_tags: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,46 @@
+//
+// Node: Dataset
+// Only apply to Dataset nodes
+// --------------------------------------------------
+
+.page-node-type-data-set{
+  .main-content-display-section{
+    @extend .foux-subtle-panel;
+    @media screen and (max-width: 1100px) {
+      padding: 20px;
+    }
+  }
+
+  .field-group-tabs-wrapper{
+    @media screen and (max-width: 1199px){
+      margin-top: 20px;
+    }
+  }
+
+  .tab-content{
+    @extend .panel-bg-subtle;
+  }
+
+  .field--name-field-related-apps {
+    .field--items{
+      margin-top: 5px;
+    }
+    .field--item{
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+    .btn{
+      text-transform: capitalize;
+    }
+  }
+}
+
+.filing-year {
+  padding-right: 5px;
+}
+
+.filing-type{
+  padding-left: 0;
+  color: #656363;
+  font-size: .75em;
+}

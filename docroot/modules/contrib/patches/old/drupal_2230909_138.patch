@@ -1,0 +1,428 @@
+diff --git a/core/lib/Drupal/Component/Utility/Number.php b/core/lib/Drupal/Component/Utility/Number.php
+index 838c33c454..4ce636bef7 100644
+--- a/core/lib/Drupal/Component/Utility/Number.php
++++ b/core/lib/Drupal/Component/Utility/Number.php
+@@ -9,6 +9,75 @@
+  */
+ class Number {
+
++  /**
++   * The minimum guaranteed significant number of floating point decimals.
++   *
++   * PHP's floating point implementation follows IEEE 754 doubles, which have
++   * 53-bit significands. For a significand with N bits, floor((N-1) * log10(2))
++   * gives the minimum number of significant decimals (Kahan, 1997, retrieved
++   * from https://people.eecs.berkeley.edu/~wkahan/ieee754status/IEEE754.PDF).
++   * For IEEE 754 doubles (PHP floats), this is floor((53-1) * log10(2)) = 15.
++   */
++  const IEEE_754_DOUBLE_GUARANTEED_SIGNIFICANT_DECIMALS = 15;
++
++  /**
++   * Normalizes a numeric value to a lossless, easily parseable numeric string.
++   *
++   * The normalized value is string suitable for use with libraries such as
++   * BCMath (https://secure.php.net/manual/en/book.bc.php).
++   *
++   * @param $number int|float|string
++   *   The value to normalize. If this is a string, it must be formatted as an
++   *   integer or a float. Floats with a higher number of significant decimals
++   *   than the IEEE_754_DOUBLE_GUARANTEED_SIGNIFICANT_DECIMALS will lose the
++   *   additional precision as PHP does not guarantee.
++   *
++   * @return string
++   *   The normalized numeric string containing integers with an optional decimal
++   *   separator (.).
++   */
++  public static function normalize($number) {
++    // Convert non-strings to strings, for consistent and lossless processing.
++    if (is_float($number)) {
++      // If the float has less significant decimals than the number we can
++      // guarantee, convert it to a stirng directly.
++      if (preg_match(sprintf('/^\d+\.\d{1,%d}$/', static::IEEE_754_DOUBLE_GUARANTEED_SIGNIFICANT_DECIMALS), (string) $number)) {
++        return (string) $number;
++      }
++      // For floats with more significant decimals than the number we can
++      // guarantee, discard the unguaranteed ones.
++      return rtrim(number_format($number, self::IEEE_754_DOUBLE_GUARANTEED_SIGNIFICANT_DECIMALS, '.', ''), '0');
++    }
++    elseif (is_int($number)) {
++      return (string) $number;
++    }
++    return $number;
++  }
++
++  /**
++   * Counts a number's significant decimals.
++   *
++   * @param int|float|string
++   *   The number whose decimals needed to be to count. If this is a string, it
++   *   must be an integer or a float formatted. Floats are limited to the
++   *   precision guaranteed by PHP (for example, 15).
++   *
++   * @return int
++   */
++  public static function countSignificantDecimals($number) {
++    $number = static::normalize($number);
++
++    // If no decimal separator is encountered, the step is an integer and the
++    // there are 0 significant decimals.
++    if (strrpos($number, '.') === FALSE) {
++      return 0;
++    }
++
++    // If a decimal separator is encountered, count the number of significant
++    // decimal digits.
++    return strlen($number) - strrpos($number, '.') - 1;
++  }
++
+   /**
+    * Verifies that a number is a multiple of a given step.
+    *
+@@ -17,11 +86,20 @@ class Number {
+    *
+    * This is based on the number/range verification methods of webkit.
+    *
+-   * @param float $value
+-   *   The value that needs to be checked.
+-   * @param float $step
+-   *   The step scale factor. Must be positive.
+-   * @param float $offset
++   * Besides integers and floating numbers, we also support decimal numbers
++   * which are not stored in IEEE 754 format. In somewhat higher precisions for
++   * these numbers, the $step value cannot accurately represent the desired
++   * precision, when it is passed as a float. Passing it as a string bypasses
++   * this loss of precision and enables a correct calculation of the step
++   * validity.
++   *
++   * @param int|float|string $value
++   *   The value that needs to be checked. If this is a string, it must be
++   *   formatted as an integer or a float.
++   * @param int|float|string $step
++   *   The step scale factor. Must be positive. If this is a string, it must be
++   *   formatted as an integer or a float.
++   * @param float|null $offset
+    *   (optional) An offset, to which the difference must be a multiple of the
+    *   given step.
+    *
+@@ -30,8 +108,28 @@ class Number {
+    *
+    * @see http://opensource.apple.com/source/WebCore/WebCore-1298/html/NumberInputType.cpp
+    */
+-  public static function validStep($value, $step, $offset = 0.0) {
+-    $double_value = (double) abs($value - $offset);
++  public static function validStep($value, $step, $offset = NULL) {
++    // Confirm the step is positive.
++    if ($step <= 0) {
++      return FALSE;
++    }
++
++    // Convert the value to a float so we can evaluate the precision later.
++    // Because subtracting the offset may change the value's precision, we only
++    // do so if it was set explicitly (is not null).
++    $float_value = (float) abs(is_null($offset) ? $value : $value - $offset);
++
++    // The expected number significant decimals is dictated by the step.
++    $expected_significant_decimals = static::countSignificantDecimals($step) + 1;
++
++    // If the actual value has more significant decimals than expected, it has a
++    // higher precision than desired it isn't divisible by the step.
++    $actual_significant_decimals = static::countSignificantDecimals($float_value);
++    if ($actual_significant_decimals > $expected_significant_decimals) {
++      return FALSE;
++    }
++
++    $float_value = (float) round($float_value, $expected_significant_decimals);
+
+     // The fractional part of a double has 53 bits. The greatest number that
+     // could be represented with that is 2^53. If the given value is even bigger
+@@ -39,18 +137,19 @@ public static function validStep($value, $step, $offset = 0.0) {
+     // remainder. Since that remainder can't even be represented with a single
+     // precision float the following computation of the remainder makes no sense
+     // and we can safely ignore it instead.
+-    if ($double_value / pow(2.0, 53) > $step) {
++    if ($float_value / pow(2.0, 53) > $step) {
+       return TRUE;
+     }
+
++    $expected_float_value = (float) round($step * round($float_value / $step), $expected_significant_decimals);
+     // Now compute that remainder of a division by $step.
+-    $remainder = (double) abs($double_value - $step * round($double_value / $step));
++    $remainder = (float) abs($float_value - $expected_float_value);
+
+     // $remainder is a double precision floating point number. Remainders that
+     // can't be represented with single precision floats are acceptable. The
+     // fractional part of a float has 24 bits. That means remainders smaller than
+     // $step * 2^-24 are acceptable.
+-    $computed_acceptable_error = (double) ($step / pow(2.0, 24));
++    $computed_acceptable_error = (float) ($step / pow(2.0, 24));
+
+     return $computed_acceptable_error >= $remainder || $remainder >= ($step - $computed_acceptable_error);
+   }
+diff --git a/core/lib/Drupal/Core/Field/Plugin/Field/FieldType/DecimalItem.php b/core/lib/Drupal/Core/Field/Plugin/Field/FieldType/DecimalItem.php
+index 379ff74db0..fde4596384 100644
+--- a/core/lib/Drupal/Core/Field/Plugin/Field/FieldType/DecimalItem.php
++++ b/core/lib/Drupal/Core/Field/Plugin/Field/FieldType/DecimalItem.php
+@@ -2,6 +2,7 @@
+
+ namespace Drupal\Core\Field\Plugin\Field\FieldType;
+
++use Drupal\Component\Utility\Number;
+ use Drupal\Core\Field\FieldDefinitionInterface;
+ use Drupal\Core\Field\FieldStorageDefinitionInterface;
+ use Drupal\Core\Form\FormStateInterface;
+@@ -78,7 +79,7 @@ public function storageSettingsForm(array &$form, FormStateInterface $form_state
+       '#type' => 'number',
+       '#title' => t('Scale', [], ['context' => 'decimal places']),
+       '#min' => 0,
+-      '#max' => 10,
++      '#max' => Number::IEEE_754_DOUBLE_GUARANTEED_SIGNIFICANT_DECIMALS,
+       '#default_value' => $settings['scale'],
+       '#description' => t('The number of digits to the right of the decimal.'),
+       '#disabled' => $has_data,
+@@ -112,8 +113,10 @@ public function fieldSettingsForm(array $form, FormStateInterface $form_state) {
+     $element = parent::fieldSettingsForm($form, $form_state);
+     $settings = $this->getSettings();
+
+-    $element['min']['#step'] = pow(0.1, $settings['scale']);
+-    $element['max']['#step'] = pow(0.1, $settings['scale']);
++    // Convert to string, for consistent and lossless processing.
++    $step = number_format(pow(0.1, $settings['scale']), $settings['scale'], '.', '');
++    $element['min']['#step'] = $step;
++    $element['max']['#step'] = $step;
+
+     return $element;
+   }
+diff --git a/core/lib/Drupal/Core/Field/Plugin/Field/FieldWidget/NumberWidget.php b/core/lib/Drupal/Core/Field/Plugin/Field/FieldWidget/NumberWidget.php
+index b4fac537b4..fe028fd3f8 100644
+--- a/core/lib/Drupal/Core/Field/Plugin/Field/FieldWidget/NumberWidget.php
++++ b/core/lib/Drupal/Core/Field/Plugin/Field/FieldWidget/NumberWidget.php
+@@ -73,12 +73,13 @@ public function formElement(FieldItemListInterface $items, $delta, array $elemen
+       '#type' => 'number',
+       '#default_value' => $value,
+       '#placeholder' => $this->getSetting('placeholder'),
++      '#number_type' => $this->fieldDefinition->getType(),
+     ];
+
+     // Set the step for floating point and decimal numbers.
+     switch ($this->fieldDefinition->getType()) {
+       case 'decimal':
+-        $element['#step'] = pow(0.1, $field_settings['scale']);
++        $element['#step'] = number_format(pow(0.1, $field_settings['scale']), $field_settings['scale'], '.', '');
+         break;
+
+       case 'float':
+diff --git a/core/lib/Drupal/Core/Render/Element/Number.php b/core/lib/Drupal/Core/Render/Element/Number.php
+index b7b2524126..09b82a2ffe 100644
+--- a/core/lib/Drupal/Core/Render/Element/Number.php
++++ b/core/lib/Drupal/Core/Render/Element/Number.php
+@@@ -87,7 +87,6 @@ public static function validateNumber(&$element, FormStateInterface $form_state,
+       // Check that the input is an allowed multiple of #step (offset by #min if
+       // #min is set).
+       $offset = isset($element['#min']) ? $element['#min'] : 0.0;
+-
+       if (!NumberUtility::validStep($value, $element['#step'], $offset)) {
+         $form_state->setError($element, t('%name is not a valid number.', ['%name' => $name]));
+       }
+diff --git a/core/modules/field/tests/src/Functional/Number/NumberFieldTest.php b/core/modules/field/tests/src/Functional/Number/NumberFieldTest.php
+index 347b72c419..0d3a7cdd1c 100644
+--- a/core/modules/field/tests/src/Functional/Number/NumberFieldTest.php
++++ b/core/modules/field/tests/src/Functional/Number/NumberFieldTest.php
+@@ -44,11 +44,13 @@ protected function setUp() {
+   public function testNumberDecimalField() {
+     // Create a field with settings to validate.
+     $field_name = mb_strtolower($this->randomMachineName());
++    // Having precision = 10 and scale = 4 means 6 numbers before the decimal
++    // point and 4 after.
+     FieldStorageConfig::create([
+       'field_name' => $field_name,
+       'entity_type' => 'entity_test',
+       'type' => 'decimal',
+-      'settings' => ['precision' => 8, 'scale' => 4],
++      'settings' => ['precision' => 10, 'scale' => 4],
+     ])->save();
+     FieldConfig::create([
+       'field_name' => $field_name,
+@@ -78,16 +80,29 @@ public function testNumberDecimalField() {
+     $this->assertFieldByName("{$field_name}[0][value]", '', 'Widget is displayed');
+     $this->assertRaw('placeholder="0.00"');
+
+-    // Submit a signed decimal value within the allowed precision and scale.
+-    $value = '-1234.5678';
+-    $edit = [
+-      "{$field_name}[0][value]" => $value,
+-    ];
+-    $this->drupalPostForm(NULL, $edit, t('Save'));
+-    preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
+-    $id = $match[1];
+-    $this->assertText(t('entity_test @id has been created.', ['@id' => $id]), 'Entity was created');
+-    $this->assertRaw($value, 'Value is displayed.');
++    // Submit decimal values within the allowed precision and scale.
++    $valid_entries = [
++      '-1234.5678',
++      '19999.0000',
++      '99999.0000',
++      '909888.96',
++      '909888.99',
++      '988999.0096',
++      '988999.0099',
++     ];
++
++    foreach ($valid_entries as $valid_entry) {
++      $this->drupalGet('entity_test/add');
++      $edit = [
++        "{$field_name}[0][value]" => $valid_entry,
++      ];
++      $this->drupalPostForm(NULL, $edit, t('Save'));
++      preg_match('|entity_test/manage/(\d+)|', $this->getUrl(), $match);
++      $id = $match[1];
++      $this->assertText(t('entity_test @id has been created.', ['@id' => $id]), 'Entity was created');
++      $this->assertRaw($valid_entry, t('Value @val is displayed.', ['@val' => $valid_entry]));
++      $this->assertNoRaw(t('%name is not a valid number.', ['%name' => $field_name]), 'Values are accepted');
++    }
+
+     // Try to create entries with more than one decimal separator; assert fail.
+     $wrong_entries = [
+diff --git a/core/tests/Drupal/Tests/Component/Utility/NumberTest.php b/core/tests/Drupal/Tests/Component/Utility/NumberTest.php
+index 1fc05d3ad7..2b22b0bf8d 100644
+--- a/core/tests/Drupal/Tests/Component/Utility/NumberTest.php
++++ b/core/tests/Drupal/Tests/Component/Utility/NumberTest.php
+@@ -22,9 +22,9 @@ class NumberTest extends TestCase {
+    * @dataProvider providerTestValidStep
+    * @covers ::validStep
+    *
+-   * @param numeric $value
++   * @param int|float|string $value
+    *   The value argument for Number::validStep().
+-   * @param numeric $step
++   * @param int|float|string $step
+    *   The step argument for Number::validStep().
+    * @param bool $expected
+    *   Expected return value from Number::validStep().
+@@ -34,17 +34,72 @@ public function testValidStep($value, $step, $expected) {
+     $this->assertEquals($expected, $return);
+   }
+
++  /**
++   * @covers ::countSignificantDecimals
++   *
++   * @dataProvider provideCountSignificantDecimals
++   *
++   * @param int $expected
++   *   The expected number of significant decimals.
++   * @param int|float|string $number
++   *   The number to test the count on.
++   */
++  public function testCountSignificantDecimals($expected, $number) {
++    $this->assertEquals($expected, Number::countSignificantDecimals($number));
++  }
++
++  /**
++   * Provides data to self::testCountSignificantDecimals().
++   */
++  public function provideCountSignificantDecimals() {
++    return [
++      [0, 0],
++      [0, '0'],
++      [0, 9],
++      [0, '9'],
++      [0, -9],
++      [0, '-9'],
++      [0, 999999999],
++      [0, '999999999'],
++      [0, -999999999],
++      [0, '-999999999'],
++      [0, 0.0],
++      [1, '0.0'],
++      [0, -0.0],
++      [1, '-0.0'],
++      // The maximum supported number of significant float decimals is 15.
++      [0, 0.0000000000000],
++      [0, -0.0000000000000],
++      [9, -0.0000000090000],
++      [9, -0.0000000090000],
++      [9, -0.00000000900000],
++      [9, -0.000000009000000000],
++      [15, -0.0000000090000009],
++      [15, -0.00000000900000099],
++      [15, -0.000000009000000900009],
++      // Numeric strings do not suffer from the system-specific limitations to
++      // float precision, so they can contain many more significant decimals.
++      // This is especially useful when working with solutions such as BCMath
++      // (https://secure.php.net/manual/en/book.bc.php)
++      [15, '0.000000000000000'],
++      [15, '-0.000000000000000'],
++      [15, '-0.000000009000000'],
++      [16, '-0.0000000090000000'],
++      [20, '-0.00000000900000000000'],
++    ];
++  }
++
+   /**
+    * Tests Number::validStep() with offset.
+    *
+    * @dataProvider providerTestValidStepOffset
+    * @covers ::validStep
+    *
+-   * @param numeric $value
++   * @param int|float|string $value
+    *   The value argument for Number::validStep().
+-   * @param numeric $step
++   * @param int|float|string $step
+    *   The step argument for Number::validStep().
+-   * @param numeric $offset
++   * @param float $offset
+    *   The offset argument for Number::validStep().
+    * @param bool $expected
+    *   Expected return value from Number::validStep().
+@@ -72,23 +127,50 @@ public static function providerTestValidStep() {
+       [42, 10.5, TRUE],
+       [1, 1 / 3, TRUE],
+       [-100, 100 / 7, TRUE],
+-      [1000, -10, TRUE],
+
+       // Valid and very small float steps.
++      [1936.5, 3e-8, TRUE],
+       [1000.12345, 1e-10, TRUE],
+       [3.9999999999999, 1e-13, TRUE],
+
+       // Invalid integer steps.
+       [100, 30, FALSE],
+       [-10, 4, FALSE],
++      [1000, -10, FALSE],
+
+       // Invalid float steps.
+       [6, 5 / 7, FALSE],
+       [10.3, 10.25, FALSE],
++      [1000, -10.0, FALSE],
+
+       // Step mismatches very close to being valid.
+       [70 + 9e-7, 10 + 9e-7, FALSE],
+-      [1936.5, 3e-8, FALSE],
++
++      // These floats are valid, but might fail due to precision (rounding)
++      // errors that are inherent to floating point numbers.
++      [3333333, 0.01, TRUE],
++      [4444444, 0.01, TRUE],
++      [9990009888.96, 0.01, TRUE],
++      [9990009888.99, 0.01, TRUE],
++      [990088999.0096, 0.0001, TRUE],
++      [990088999.0099, 0.0001, TRUE],
++      [4031239412.52, 0.01, TRUE],
++      [90000000000.00, 0.01, TRUE],
++      [9999999999.99, 0.01, TRUE],
++      [-3.1933172, 0.0000001, TRUE],
++      [1109.87, 0.01, TRUE],
++      [70000000, 0.01, TRUE],
++      [70000000.00, 0.01, TRUE],
++      [13517282.20, 0.01, TRUE],
++      [13517282.21, 0.01, TRUE],
++
++      // Precision of the value is higher than that of the step.
++      [990088999.0099, 0.001, FALSE],
++      [990088999.0099, 0.01, FALSE],
++
++      // Ensure floats with more significant decimals that the guaranteed
++      // minimum are normalized.
++      [0.00000000000000900009, 0.00000000000000100001, TRUE],
+     ];
+   }

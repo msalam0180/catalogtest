@@ -1,0 +1,23 @@
+uuid: d6827ec4-9620-45f5-a9d3-6befc1faea3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.feeds_item
+    - paragraphs.paragraphs_type.contacts_with_roles
+  module:
+    - feeds
+id: paragraph.contacts_with_roles.feeds_item
+field_name: feeds_item
+entity_type: paragraph
+bundle: contacts_with_roles
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

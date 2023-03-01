@@ -1,0 +1,142 @@
+uuid: 76dac980-806f-4157-a6a1-9184f1980e39
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.autocomplete
+    - field.field.node.data_insight.body
+    - field.field.node.data_insight.field_add_new_discussion
+    - field.field.node.data_insight.field_articles
+    - field.field.node.data_insight.field_associated_datasets
+    - field.field.node.data_insight.field_author
+    - field.field.node.data_insight.field_contact
+    - field.field.node.data_insight.field_contacts
+    - field.field.node.data_insight.field_data_insights
+    - field.field.node.data_insight.field_data_insights_term_list
+    - field.field.node.data_insight.field_data_search_index
+    - field.field.node.data_insight.field_documents
+    - field.field.node.data_insight.field_featured_item
+    - field.field.node.data_insight.field_footnotes
+    - field.field.node.data_insight.field_published_date
+    - field.field.node.data_insight.field_relate_data_insight
+    - field.field.node.data_insight.field_related_datasets
+    - field.field.node.data_insight.field_related_discussions
+    - field.field.node.data_insight.field_related_reports_statistics
+    - field.field.node.data_insight.field_repository_link
+    - field.field.node.data_insight.field_review_submitter
+    - field.field.node.data_insight.field_reviewer
+    - field.field.node.data_insight.field_summary
+    - field.field.node.data_insight.field_tags
+    - field.field.node.data_insight.field_visualization_paragraph
+    - node.type.data_insight
+  module:
+    - field_group
+    - layout_builder
+    - user
+third_party_settings:
+  field_group:
+    group_row_01:
+      children:
+        - group_c
+        - group_article_side
+      label: 'Row 01'
+      parent_name: ''
+      region: hidden
+      weight: 10
+      format_type: html_element
+      format_settings:
+        classes: article-top-container
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_c:
+      children:
+        - body
+        - field_footnotes
+        - field_repository_link
+        - field_visualization_paragraph
+      label: 'Column 01'
+      parent_name: group_row_01
+      region: hidden
+      weight: 10
+      format_type: html_element
+      format_settings:
+        classes: article-details
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_article_side:
+      children:
+        - field_add_new_discussion
+        - field_articles
+        - field_associated_datasets
+        - field_contacts
+        - field_data_insights
+        - field_data_insights_term_list
+        - field_documents
+        - field_related_datasets
+        - field_related_discussions
+        - field_related_reports_statistics
+        - field_tags
+      label: 'Column 02'
+      parent_name: group_row_01
+      region: hidden
+      weight: 11
+      format_type: html_element
+      format_settings:
+        classes: article-side
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: JIt307oXnMKx6CYS_XA06WPeuuEQwsh1HJsGsl2ikFw
+id: node.data_insight.autocomplete
+targetEntityType: node
+bundle: data_insight
+mode: autocomplete
+content: {  }
+hidden:
+  body: true
+  content_moderation_control: true
+  field_add_new_discussion: true
+  field_articles: true
+  field_associated_datasets: true
+  field_author: true
+  field_contact: true
+  field_contacts: true
+  field_data_insights: true
+  field_data_insights_term_list: true
+  field_data_search_index: true
+  field_documents: true
+  field_featured_item: true
+  field_footnotes: true
+  field_published_date: true
+  field_relate_data_insight: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_related_reports_statistics: true
+  field_repository_link: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_summary: true
+  field_tags: true
+  field_visualization_paragraph: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,87 @@
+uuid: 576a7d7b-f1d8-495c-a0f0-74a44b61db34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_tools_ref
+    - node.type.data_set
+    - views.view.dataset_related_articles
+  module:
+    - viewfield
+id: node.data_set.field_dataset_tools_ref
+field_name: field_dataset_tools_ref
+entity_type: node
+bundle: data_set
+label: 'Tools Referencing this Dataset'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 757825c2-8979-434c-a037-d61b177d4a64
+    display_id: block_2
+    arguments: ''
+    token_help: ''
+default_value_callback: ''
+settings:
+  force_default: true
+  allowed_views:
+    dataset_related_articles: dataset_related_articles
+    abc: '0'
+    aggregator_rss_feed: '0'
+    aggregator_sources: '0'
+    article_related_datasets: '0'
+    associated_data_sets: '0'
+    child_datasets: '0'
+    comment: '0'
+    content: '0'
+    block_content: '0'
+    data_catalog_data_export: '0'
+    data_insights: '0'
+    data_search: '0'
+    data_search_index: '0'
+    dataset_related_forums: '0'
+    dataset_search: '0'
+    derived_datasets: '0'
+    discussions: '0'
+    entity_browser_articles: '0'
+    entity_browser_contacts: '0'
+    entity_browser_forum_related_content: '0'
+    entity_browser_tools: '0'
+    files: '0'
+    forum_related_content: '0'
+    frontpage: '0'
+    maillog_overview: '0'
+    media: '0'
+    media_entity_browser: '0'
+    media_browser_files: '0'
+    moderated_content: '0'
+    user_admin_people: '0'
+    profiles: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    recent_content_test: '0'
+    edc_recently_created_datasets: '0'
+    edc_recently_updated_datasets: '0'
+    redirect: '0'
+    related_data_dictionary: '0'
+    related_data_systems: '0'
+    search_results: '0'
+    speaker_rest: '0'
+    taxonomy_term: '0'
+    watchdog: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+  allowed_display_types:
+    block: block
+    data_export: '0'
+    embed: '0'
+    entity_browser: '0'
+    entity_reference: '0'
+    feed: '0'
+    default: '0'
+    page: '0'
+    rest_export: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

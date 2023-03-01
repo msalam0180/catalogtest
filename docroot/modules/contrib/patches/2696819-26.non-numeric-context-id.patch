@@ -1,0 +1,31 @@
+diff --git a/src/Form/ContextConfigure.php b/src/Form/ContextConfigure.php
+index 14377bf5..c96624c1 100644
+--- a/src/Form/ContextConfigure.php
++++ b/src/Form/ContextConfigure.php
+@@ -51,7 +51,14 @@ abstract class ContextConfigure extends FormBase {
+     );
+   }
+ 
+-
++  /**
++   * Constructs ContextConfigure object.
++   *
++   * @param \Drupal\user\SharedTempStoreFactory $tempstore
++   *   A shared temporary storage.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   An entity type manager.
++   */
+   public function __construct(SharedTempStoreFactory $tempstore, EntityTypeManagerInterface $entity_type_manager) {
+     $this->tempstore = $tempstore;
+     $this->entityTypeManager = $entity_type_manager;
+@@ -188,9 +195,7 @@ abstract class ContextConfigure extends FormBase {
+     // We're dealing with an entity and should make sure it's loaded.
+     if (strpos($context_definition->getDataType(), 'entity:') === 0) {
+       list(, $entity_type) = explode(':', $context_definition->getDataType());
+-      if (is_numeric($form_state->getValue('context_value'))) {
+-        $value = $this->entityTypeManager->getStorage($entity_type)->load($form_state->getValue('context_value'));
+-      }
++      $value = $this->entityTypeManager->getStorage($entity_type)->load($form_state->getValue('context_value'));
+     }
+     // No loading required for non-entity values.
+     else {

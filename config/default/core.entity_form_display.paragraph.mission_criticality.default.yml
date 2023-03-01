@@ -1,0 +1,28 @@
+uuid: b60f3d9b-5e31-4cca-8fba-14326a0f1a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mission_criticality.field_division_office
+    - field.field.paragraph.mission_criticality.field_mission_criticality_rating
+    - paragraphs.paragraphs_type.mission_criticality
+id: paragraph.mission_criticality.default
+targetEntityType: paragraph
+bundle: mission_criticality
+mode: default
+content:
+  field_division_office:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mission_criticality_rating:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,8 @@
+uuid: cf8ffc2a-24b9-48fe-b4be-4c0eaf8b6144
+langcode: en
+status: true
+dependencies: {  }
+name: 'Market Sensitivity'
+vid: market_sensitivity
+description: ''
+weight: 0

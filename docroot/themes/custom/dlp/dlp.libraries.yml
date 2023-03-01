@@ -1,0 +1,50 @@
+global-styling:
+  css:
+    theme:
+      # css/third-party/tablesaw.css: {}
+      css/style.css: {}
+      css/shame.css: {}
+  js:
+    js/scripts.js: {}
+    js/third-party/ovo.js: {}
+    js/third-party/jquery.smartmenus.min.js: {}
+    js/third-party/jquery.smartmenus.bootstrap.min.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - tippy_lib/base_config
+
+bootstrap-scripts:
+  js:
+    bootstrap/assets/javascripts/bootstrap/affix.js: {}
+    bootstrap/assets/javascripts/bootstrap/alert.js: {}
+    bootstrap/assets/javascripts/bootstrap/button.js: {}
+    bootstrap/assets/javascripts/bootstrap/carousel.js: {}
+    bootstrap/assets/javascripts/bootstrap/collapse.js: {}
+    bootstrap/assets/javascripts/bootstrap/dropdown.js: {}
+    bootstrap/assets/javascripts/bootstrap/modal.js: {}
+    bootstrap/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap/assets/javascripts/bootstrap/popover.js: {}
+    bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
+    bootstrap/assets/javascripts/bootstrap/tab.js: {}
+    bootstrap/assets/javascripts/bootstrap/transition.js: {}
+
+datatables:
+
+  js:
+    js/datatables.js: {}
+    js/jquery.tablesorter.js: {}
+    js/jquery.tablesorter.pager.js: {}
+    js/tablesaw.js: {}
+    js/tablesaw-init.js: {}
+    js/ui-persistent-tabs.js: {}
+    js/jquery.shorten.js: {}
+    js/text-truncation.js: {}
+
+  dependencies:
+  - core/jquery
+
+search-filter:
+  js:
+    js/search-filter.js: {}

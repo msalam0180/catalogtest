@@ -1,0 +1,29 @@
+uuid: 1994b466-3743-4ba6-8286-7b75063bb273
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_reports_statistics
+    - node.type.data_set
+    - node.type.statistics
+id: node.data_set.field_related_reports_statistics
+field_name: field_related_reports_statistics
+entity_type: node
+bundle: data_set
+label: 'Related Reports & Statistics'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      statistics: statistics
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,122 @@
+uuid: 0fe438ea-5737-4b9f-88d8-7d7748354381
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact.field_division_office
+    - field.field.node.contact.field_email
+    - field.field.node.contact.field_first_name
+    - field.field.node.contact.field_last_name
+    - node.type.contact
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      c1f4dcf5-b6eb-4ec6-bb25-a90434e003ad:
+        invert: false
+        uuid: c1f4dcf5-b6eb-4ec6-bb25-a90434e003ad
+        plugin: required
+        source: last_name
+        weight: 0
+        label: Required
+      e7fb95e7-817e-4fc4-be00-35bc96505cd2:
+        invert: false
+        uuid: e7fb95e7-817e-4fc4-be00-35bc96505cd2
+        plugin: required
+        source: email
+        weight: 0
+        label: Required
+label: 'Add New Contact'
+id: add_new_contact
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: contact
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  first_name:
+    value: 'First Name'
+    label: 'First Name'
+    machine_name: first_name
+    type: csv
+  last_name:
+    value: 'Last Name'
+    label: 'Last Name'
+    machine_name: last_name
+    type: csv
+  email:
+    value: Email
+    label: Email
+    machine_name: email
+    type: csv
+  division:
+    value: Division
+    label: Division
+    machine_name: division
+    type: csv
+  state:
+    value: State
+    label: State
+    machine_name: state
+    type: csv
+mappings:
+  -
+    target: field_first_name
+    map:
+      value: first_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_last_name
+    map:
+      value: last_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_email
+    map:
+      value: email
+    settings:
+      language: null
+      defuse: false
+    unique:
+      value: '1'
+  -
+    target: field_division_office
+    map:
+      target_id: division
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: moderation_state
+    map:
+      value: state
+    settings:
+      language: null
+    unique: {  }

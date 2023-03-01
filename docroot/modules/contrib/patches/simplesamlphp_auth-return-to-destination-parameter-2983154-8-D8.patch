@@ -1,0 +1,29 @@
+diff --git a/simplesamlphp_auth.module b/simplesamlphp_auth.module
+index dba7d35..2992a8d 100644
+--- a/simplesamlphp_auth.module
++++ b/simplesamlphp_auth.module
+@@ -175,10 +181,12 @@ function simplesamlphp_auth_form_user_login_form_alter(&$form, FormStateInterfac
+   }
+
+   $label = $config->get('login_link_display_name');
++  $destination = \Drupal::destination()->getAsArray();
+   $form['simplesamlphp_auth_login_link'] = [
+     '#title' => $label,
+     '#type' => 'link',
+     '#url' => Url::fromRoute('simplesamlphp_auth.saml_login'),
++    '#options' => ['query' => $destination],
+     '#attributes' => [
+       'title' => $label,
+       'class' => ['simplesamlphp-auth-login-link'],
+diff --git a/src/Controller/SimplesamlphpAuthController.php b/src/Controller/SimplesamlphpAuthController.php
+index 8a084f2..d0e04b6 100644
+--- a/src/Controller/SimplesamlphpAuthController.php
++++ b/src/Controller/SimplesamlphpAuthController.php
+@@ -150,6 +150,7 @@ public function authenticate() {
+     if (($return_to = $request->query->get('ReturnTo')) ||
+         ($return_to = $request->request->get('ReturnTo')) ||
+         ($return_to = $request->server->get('HTTP_REFERER'))) {
++      $return_to = \Drupal::request()->getSchemeAndHttpHost() . $return_to;
+       if ($this->pathValidator->isValid($return_to) && UrlHelper::externalIsLocal($return_to, $base_url)) {
+         $redirect = $return_to;
+       }

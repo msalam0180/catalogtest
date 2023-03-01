@@ -1,0 +1,21 @@
+uuid: c30c282f-4f9d-4a73-916f-b4649f875896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purchased
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_purchased
+field_name: field_purchased
+entity_type: node
+bundle: data_set
+label: Purchased
+description: 'Does the SEC purchase this data?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

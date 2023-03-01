@@ -1,0 +1,14 @@
+uuid: 44f8ada9-4541-4705-8835-6c7922971b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.migration_admin
+  module:
+    - user
+id: user_add_role_action.migration_admin
+label: 'Add the Migration Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: migration_admin

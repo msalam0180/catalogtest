@@ -1,0 +1,25 @@
+uuid: 90a28baa-4e8d-418d-a51f-3e021ff2cebc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.data_set
+  module:
+    - text
+_core:
+  default_config_hash: NbChqdDpsaedCtgFAZvqovyXCcmY06WC9REXVRQf6zM
+id: node.data_set.body
+field_name: body
+entity_type: node
+bundle: data_set
+label: Body
+description: 'Provide a concise description of the nature of the data to quickly inform the user of the content of the dataset. It will display on this dataset''s page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

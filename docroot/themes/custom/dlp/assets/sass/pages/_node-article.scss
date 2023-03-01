@@ -1,0 +1,42 @@
+//
+// Node: Articles
+// Applys to Article details pages
+// --------------------------------------------------
+@media screen and (min-width: 1100px) {
+  .article-top-container {
+    display: flex;
+  }
+}
+
+.article-details {
+  flex: 1 0;
+}
+
+.article-side {
+  flex: 0 0 500px;
+  align-self: flex-start;
+  margin-left: 30px;
+  .media-md-wrapper{
+    background: #f6f6f6;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
+
+  @media screen and (max-width: 1100px) {
+    flex: 0 0 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+}
+
+.article-details {
+
+  .field {
+    .field--type-text-with-summary, .field--type-text-long, .cke_editable_themed {
+      // font-size: 1.2em;
+      border-bottom: none;
+    }
+  }
+}

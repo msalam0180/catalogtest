@@ -1,0 +1,749 @@
+uuid: c6665baf-b06d-4ded-b373-8556e65f1f4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.data_search
+    - taxonomy.vocabulary.dataset_asset_category
+    - taxonomy.vocabulary.dataset_category
+    - taxonomy.vocabulary.dataset_registrant_type
+    - taxonomy.vocabulary.security_classification
+    - taxonomy.vocabulary.source_type
+    - user.role.sitebuilder
+  module:
+    - search_api
+    - user
+_core:
+  default_config_hash: yWOOU5yw66y_ok9kFl0B6BtvyMlpWEv_1oBWUJBqv7I
+id: data_search
+label: 'Data Search'
+module: views
+description: 'Dataset Search view showing on the homepage'
+tag: ''
+base_table: search_api_index_data_search
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Custom Dataset Search'
+      fields:
+        title_1:
+          id: title_1
+          table: search_api_index_data_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h2
+          element_class: view-box-style-title
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+        created:
+          id: created
+          table: search_api_datasource_data_search_entity_node
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp_ago
+          settings:
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 1
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: true
+          field_rendering: true
+          fallback_handler: search_api_date
+          fallback_options:
+            date_format: date_timestamp
+            custom_date_format: ''
+            timezone: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 10000
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 5
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: role
+        options:
+          role:
+            sitebuilder: sitebuilder
+      cache:
+        type: search_api_tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: '<div class="no-results">Your Search Returned <strong>No Results</strong>. <br>You can adjust the filters or you can start the <a href="[view:url]">search again</a>.</div>'
+          tokenize: false
+      sorts:
+        title:
+          id: title
+          table: search_api_index_data_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Title
+            field_identifier: title
+          exposed: true
+        node_grants:
+          id: node_grants
+          table: search_api_index_data_search
+          field: node_grants
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: 'Node access information'
+            field_identifier: node_grants
+          exposed: true
+      arguments: {  }
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_data_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - field_data_search_index
+            - field_dataset_description
+            - field_dataset_name_old
+            - name
+            - title
+        field_source_type:
+          id: field_source_type
+          table: search_api_index_data_search
+          field: field_source_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_source_type_op
+            label: 'Source Type'
+            description: ''
+            use_operator: false
+            operator: field_source_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_source_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: source_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_dataset_registrant_type:
+          id: field_dataset_registrant_type
+          table: search_api_index_data_search
+          field: field_dataset_registrant_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_registrant_type_op
+            label: 'Entity Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_registrant_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_registrant_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_registrant_type
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_asset_category:
+          id: field_dataset_asset_category
+          table: search_api_index_data_search
+          field: field_dataset_asset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_asset_category_op
+            label: 'Asset Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_asset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_asset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_asset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_category:
+          id: field_dataset_category
+          table: search_api_index_data_search
+          field: field_dataset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_category_op
+            label: 'Data Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_security_classification:
+          id: field_security_classification
+          table: search_api_index_data_search
+          field: field_security_classification
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_security_classification_op
+            label: 'Security Classification'
+            description: ''
+            use_operator: false
+            operator: field_security_classification_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_security_classification
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: security_classification
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_business_owner:
+          id: field_business_owner
+          table: search_api_index_data_search
+          field: field_business_owner
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_business_owner_op
+            label: 'Business Owner'
+            description: null
+            use_operator: false
+            operator: field_business_owner_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_business_owner
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Division/Office
+            description: ''
+            identifier: field_business_owner
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'SEC Library'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '6886'
+              2:
+                title: 'EDGAR Business Office'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8741'
+              3:
+                title: 'Office of Compliance Inpsections and Examinations'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8666'
+              4:
+                title: 'Division of Corporation Finance'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8831'
+              5:
+                title: 'Division of Economic and Risk Analysis'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8601'
+              6:
+                title: 'Division of Enforcement'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8596'
+              7:
+                title: 'Division of Investment Management'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8821'
+              8:
+                title: 'Division of Trading and Markets'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '8606'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: created
+              rendered: false
+              rendered_strip: false
+          row_class: ''
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            created: created
+          separator: ''
+          hide_empty: true
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+      relationships: {  }
+      css_class: 'view-box-style views-wide-create-filters-col views-exposed-form-dk accent-boxes'
+      use_more: true
+      use_more_always: false
+      use_more_text: more
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<p align="right"><strong>Showing @start - @end of @total Datasets</strong></p>'
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags: {  }
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      defaults:
+        filters: true
+        filter_groups: true
+      display_extenders: {  }
+      path: data-search
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags: {  }

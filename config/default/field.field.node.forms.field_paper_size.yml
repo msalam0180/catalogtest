@@ -1,0 +1,23 @@
+uuid: bbe28afb-0cdd-4504-bac4-39556398bd75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paper_size
+    - node.type.forms
+id: node.forms.field_paper_size
+field_name: field_paper_size
+entity_type: node
+bundle: forms
+label: 'Number of Pages'
+description: 'Enter number of pages, which must be between 0 and 999,999 inclusive.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 999999
+  prefix: ''
+  suffix: ''
+field_type: integer

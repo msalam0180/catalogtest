@@ -1,0 +1,45 @@
+uuid: dc99f6e7-75ad-4c0b-97bb-71070b73970f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.file_and_description
+    - field.field.media.files.field_description
+    - field.field.media.files.field_document_category
+    - field.field.media.files.field_media_file
+    - media.type.files
+  module:
+    - file
+id: media.files.file_and_description
+targetEntityType: media
+bundle: files
+mode: file_and_description
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_document_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

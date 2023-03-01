@@ -1,0 +1,25 @@
+uuid: 96e95f9c-ac47-416d-ac18-3f36216a97ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_visualization_text
+    - paragraphs.paragraphs_type.visualizations
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: paragraph.visualizations.field_visualization_text
+field_name: field_visualization_text
+entity_type: paragraph
+bundle: visualizations
+label: 'Visualization Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

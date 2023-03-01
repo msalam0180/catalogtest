@@ -1,0 +1,36 @@
+uuid: e2e6ddca-6940-4d5f-b253-d46f0b733974
+langcode: en
+status: true
+dependencies: {  }
+id: contact_message.feedback.text_above
+label: 'Text Above'
+display_label: false
+name: text_above
+description: 'What is this'
+base_entity_type_id: contact_message
+base_bundle_type_id: feedback
+field_type_id: token
+field_type_config:
+  type: text_format
+  token:
+    value: "<p>Whether you found&nbsp;an error in the content or just want to let us know how we are doing, we appreciate the feedback!</p>\r\n"
+    format: full_html
+field_type_condition:
+  'entity_bundle:contact_message':
+    id: 'entity_bundle:contact_message'
+    negate: false
+    context_mapping:
+      contact_message: entity_extra_field.target_entity
+    bundles:
+      feedback: feedback
+  current_theme:
+    id: current_theme
+    theme: ''
+    negate: 0
+  request_path:
+    id: request_path
+    negate: false
+    pages: ''
+field_conditions_all_pass: false
+display:
+  type: form

@@ -1,0 +1,35 @@
+.field--name-field-related-applications{
+  .field--item{
+    margin-bottom: 5px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  .paragraph--view-mode--button-display{
+
+    .field--name-field-application{
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      a{
+        @extend .btn;
+        @extend .btn-primary;
+        @extend .btn-sm;
+        text-transform: capitalize;
+        margin-bottom: 0;
+      }
+    }
+
+    .field.field--name-field-desc-of-relationship{
+      font-size: 0.9em;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.field--name-field-related-applications .field--item:last-child .field--name-field-desc-of-relationship{
+  margin-bottom: 0;
+}

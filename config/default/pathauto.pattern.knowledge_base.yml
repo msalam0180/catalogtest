@@ -1,0 +1,22 @@
+uuid: 394ef1d7-7ead-4d84-aea5-22c8d7c04889
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: knowledge_base
+label: 'Knowledge Base'
+type: 'canonical_entities:node'
+pattern: 'knowledge-base/[node:nid]'
+selection_criteria:
+  d6df6b2a-7a14-4bca-a1c4-11170e4e6411:
+    id: node_type
+    negate: false
+    uuid: d6df6b2a-7a14-4bca-a1c4-11170e4e6411
+    context_mapping:
+      node: node
+    bundles:
+      knowledge_base_page: knowledge_base_page
+selection_logic: and
+weight: -5
+relationships: {  }

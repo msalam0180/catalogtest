@@ -1,0 +1,8 @@
+uuid: ce65218b-5244-409e-9c02-abab0ef3b24c
+langcode: en
+status: true
+dependencies: {  }
+id: auxiliary-menu
+label: 'Auxiliary Menu'
+description: 'Menu under the Global Search'
+locked: false

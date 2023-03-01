@@ -1,0 +1,23 @@
+uuid: 55b77599-8a8b-4981-9c67-2265a0a8632b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promote_it_to_the_technolo
+    - node.type.platform
+id: node.platform.field_promote_it_to_the_technolo
+field_name: field_promote_it_to_the_technolo
+entity_type: node
+bundle: platform
+label: 'Promoted to Technology Standards'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

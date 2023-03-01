@@ -1,0 +1,13 @@
+uuid: 257633c8-1e92-4253-995b-c0a4daaeea41
+langcode: en
+status: true
+dependencies: {  }
+id: apps_and_components
+label: 'Related Apps and Software'
+enabled: true
+first_field: field_related_components
+second_field: field_related_apps
+bundles:
+  node:
+    - application
+    - component

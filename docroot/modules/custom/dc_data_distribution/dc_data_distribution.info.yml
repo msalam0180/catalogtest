@@ -1,0 +1,5 @@
+name: 'Data Catalog Data Distribution'
+description: 'Dataset Content type REST plugin.'
+type: module
+package: SEC
+core_version_requirement: ^8 || ^9

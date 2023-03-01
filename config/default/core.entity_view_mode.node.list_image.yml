@@ -1,0 +1,10 @@
+uuid: ad830ceb-0722-42de-b9c5-8322ce9685d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.list_image
+label: 'List Image'
+targetEntityType: node
+cache: true

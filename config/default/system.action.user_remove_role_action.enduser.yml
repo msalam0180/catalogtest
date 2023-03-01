@@ -1,0 +1,14 @@
+uuid: ae5edce6-fc61-4922-8b3c-6bb990862716
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.enduser
+  module:
+    - user
+id: user_remove_role_action.enduser
+label: 'Remove the Enduser role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: enduser

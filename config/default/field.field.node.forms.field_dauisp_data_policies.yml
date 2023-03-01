@@ -1,0 +1,23 @@
+uuid: 39c362cc-8b19-47aa-ab69-d195eba4f42e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dauisp_data_policies
+    - node.type.forms
+  module:
+    - link
+id: node.forms.field_dauisp_data_policies
+field_name: field_dauisp_data_policies
+entity_type: node
+bundle: forms
+label: 'DAUISP Data Policies'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

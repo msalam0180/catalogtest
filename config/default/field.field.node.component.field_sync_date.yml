@@ -1,0 +1,21 @@
+uuid: c7cf1d04-7b9f-4e2f-aa0d-6450d627471f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sync_date
+    - node.type.component
+  module:
+    - datetime
+id: node.component.field_sync_date
+field_name: field_sync_date
+entity_type: node
+bundle: component
+label: 'Sync Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,26 @@
+uuid: 12d1fc8c-889a-4660-89dc-cea21287b475
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_helpful_information
+    - node.type.contact
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
+id: node.contact.field_helpful_information
+field_name: field_helpful_information
+entity_type: node
+bundle: contact
+label: 'Helpful information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

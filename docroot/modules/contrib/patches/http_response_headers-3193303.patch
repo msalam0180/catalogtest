@@ -1,0 +1,45 @@
+diff --git a/src/Form/ResponseHeaderForm.php b/src/Form/ResponseHeaderForm.php
+index 12284cb92..4231e4c50 100644
+--- a/src/Form/ResponseHeaderForm.php
++++ b/src/Form/ResponseHeaderForm.php
+@@ -3,7 +3,7 @@
+ namespace Drupal\http_response_headers\Form;
+
+ use Drupal\Core\Entity\EntityForm;
+-use Drupal\Core\Entity\Query\QueryFactory;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Form\FormStateInterface;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+
+@@ -15,18 +15,18 @@ class ResponseHeaderForm extends EntityForm {
+   /**
+    * Constructs an ResponseHeaderForm object.
+    *
+-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager;
+    *   The entity query.
+    */
+-  public function __construct(QueryFactory $entity_query) {
+-    $this->entityQuery = $entity_query;
++  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
++    $this->entityTypeManager = $entityTypeManager;
+   }
+
+   /**
+    * {@inheritdoc}
+    */
+   public static function create(ContainerInterface $container) {
+-    return new static($container->get('entity.query'));
++    return new static($container->get('entity_type.manager'));
+   }
+
+   /**
+@@ -116,7 +116,7 @@ public function save(array $form, FormStateInterface $form_state) {
+    * Helper function to check whether an Response Header configuration entity exists.
+    */
+   public function exist($id) {
+-    $entity = $this->entityQuery->get('response_header')
++    $entity = $this->entityTypeManager->getStorage('response_header')->getQuery()
+       ->condition('id', $id)
+       ->execute();
+     return (bool) $entity;

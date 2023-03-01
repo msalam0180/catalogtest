@@ -1,0 +1,23 @@
+uuid: e8572e05-b8dd-4369-b892-bcd2b65e13c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_item
+    - node.type.data_insight
+id: node.data_insight.field_featured_item
+field_name: field_featured_item
+entity_type: node
+bundle: data_insight
+label: 'Is featured item'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

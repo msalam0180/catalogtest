@@ -1,0 +1,364 @@
+uuid: db4deb75-0b4e-4e4a-995f-d46acc06a8f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.quick
+    - field.field.node.statistics.body
+    - field.field.node.statistics.field_add_new_discussion
+    - field.field.node.statistics.field_articles
+    - field.field.node.statistics.field_associated_datasets
+    - field.field.node.statistics.field_author
+    - field.field.node.statistics.field_contact
+    - field.field.node.statistics.field_contacts
+    - field.field.node.statistics.field_data_search_index
+    - field.field.node.statistics.field_documents
+    - field.field.node.statistics.field_footnotes
+    - field.field.node.statistics.field_published_date
+    - field.field.node.statistics.field_r_and_s_category
+    - field.field.node.statistics.field_related_data_insights
+    - field.field.node.statistics.field_related_datasets
+    - field.field.node.statistics.field_related_discussions
+    - field.field.node.statistics.field_reports_statistics_menu
+    - field.field.node.statistics.field_repository_link
+    - field.field.node.statistics.field_review_submitter
+    - field.field.node.statistics.field_reviewer
+    - field.field.node.statistics.field_summary
+    - field.field.node.statistics.field_tags
+    - field.field.node.statistics.field_visualization_paragraph
+    - node.type.statistics
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - datetime
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
+    - link
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_fieldtabs:
+      children:
+        - group_general
+        - group_related_content
+        - group_contacts
+        - group_related_documentation
+      label: FieldTabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_general:
+      children:
+        - title
+        - field_summary
+        - body
+        - field_author
+        - field_published_date
+        - field_visualization_paragraph
+        - field_repository_link
+        - field_footnotes
+        - field_r_and_s_category
+        - field_data_search_index
+        - field_tags
+      label: General
+      region: content
+      parent_name: group_fieldtabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_related_content:
+      children:
+        - field_associated_datasets
+        - field_related_data_insights
+      label: 'Related Content'
+      region: content
+      parent_name: group_fieldtabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contacts:
+      children:
+        - field_contacts
+      label: Contacts
+      region: content
+      parent_name: group_fieldtabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_related_documentation:
+      children:
+        - field_documents
+        - field_articles
+      label: 'Related Documentation'
+      region: content
+      parent_name: group_fieldtabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: KuJ-MVVynL3yYeppuJLzL4BUNRcrYyoa6nUjoGqLikg
+id: node.statistics.default
+targetEntityType: node
+bundle: statistics
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_articles:
+    type: inline_entity_form_complex
+    weight: 9
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Article
+      label_plural: Articles
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: articles
+  field_associated_datasets:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_author:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Author
+      label_plural: Authors
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: contacts
+  field_contacts:
+    type: entity_reference_paragraphs
+    weight: 15
+    region: content
+    settings:
+      title: Contact
+      title_plural: Contacts
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_data_search_index:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_documents:
+    type: inline_entity_form_complex
+    weight: 8
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Document
+      label_plural: Documents
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: files
+  field_footnotes:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_published_date:
+    type: datetime_default
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_r_and_s_category:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_related_data_insights:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_repository_link:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_reviewer:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_summary:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_visualization_paragraph:
+    type: entity_reference_paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: visualizations
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_add_new_discussion: true
+  field_contact: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_reports_statistics_menu: true
+  field_review_submitter: true
+  promote: true
+  sticky: true

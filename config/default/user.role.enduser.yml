@@ -1,0 +1,9 @@
+uuid: f4044322-f8c2-4370-bdb2-c3eebd24a506
+langcode: en
+status: true
+dependencies: {  }
+id: enduser
+label: Enduser
+weight: -8
+is_admin: null
+permissions: {  }

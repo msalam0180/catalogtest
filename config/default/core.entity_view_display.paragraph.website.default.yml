@@ -1,0 +1,36 @@
+uuid: f95571a1-9053-4cb5-82f1-4552da30c07b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.website.field_link
+    - field.field.paragraph.website.field_link_description
+    - paragraphs.paragraphs_type.website
+  module:
+    - link
+id: paragraph.website.default
+targetEntityType: paragraph
+bundle: website
+mode: default
+content:
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

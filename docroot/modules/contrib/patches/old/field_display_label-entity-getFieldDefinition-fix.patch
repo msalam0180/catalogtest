@@ -1,0 +1,14 @@
+diff --git a/field_display_label.module b/field_display_label.module
+index 5a6dddfcd..8a9ec3239 100644
+--- a/field_display_label.module
++++ b/field_display_label.module
+@@ -54,6 +54,9 @@ function field_display_label_form_field_config_edit_form_submit(array $form, For
+ function field_display_label_preprocess_field(&$variables) {
+   $element = $variables['element'];
+   $entity = $element['#object'];
++  if (empty($entity)){
++    return;
++  }
+   $field_definition = $entity->getFieldDefinition($element['#field_name']);
+   if ($field_definition instanceof ThirdPartySettingsInterface) {
+     $definition = $field_definition->getThirdPartySetting('field_display_label', 'display_label');

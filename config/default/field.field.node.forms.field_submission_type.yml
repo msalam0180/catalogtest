@@ -1,0 +1,21 @@
+uuid: 58bfbe3a-1a3a-425d-ba41-a5e325bcfd5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_type
+    - node.type.forms
+  module:
+    - options
+id: node.forms.field_submission_type
+field_name: field_submission_type
+entity_type: node
+bundle: forms
+label: 'Submission Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

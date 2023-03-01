@@ -1,0 +1,23 @@
+uuid: e9bb23ba-e710-4959-af53-dcfcf3e44dbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_date_archive
+    - node.type.data_set
+  module:
+    - datetime
+_core:
+  default_config_hash: PNaiesLWsc9nz5DEObkz6bti3irgrqwI-b2Tn80_ZoE
+id: node.data_set.field_dataset_date_archive
+field_name: field_dataset_date_archive
+entity_type: node
+bundle: data_set
+label: 'Discontinuation Date'
+description: 'Is this dataset discontinued? If so, on what date?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

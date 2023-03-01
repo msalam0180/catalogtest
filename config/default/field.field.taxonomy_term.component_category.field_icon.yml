@@ -1,0 +1,21 @@
+uuid: 3e5b3012-1aef-4394-b1c3-779db5276bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_icon
+    - taxonomy.vocabulary.component_category
+  module:
+    - fontawesome
+id: taxonomy_term.component_category.field_icon
+field_name: field_icon
+entity_type: taxonomy_term
+bundle: component_category
+label: Icon
+description: 'Icons should only be added to top level Technology Category Terms'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

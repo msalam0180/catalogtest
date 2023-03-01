@@ -1,0 +1,8 @@
+uuid: 79dd5a1d-cf07-4e95-be8a-4c180f1da3ba
+langcode: en
+status: true
+dependencies: {  }
+name: 'Delivery Method to SEC'
+vid: delivery_method_to_sec
+description: 'The media/method that the SEC receives the datasets'
+weight: 0

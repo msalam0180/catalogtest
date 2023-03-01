@@ -1,0 +1,15 @@
+uuid: 5ce7baa0-e3a0-41d4-a6bd-8c4c232391b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.feedback_reviewed
+  module:
+    - flag
+id: flag_action.feedback_reviewed_flag
+label: 'Mark as Reviewed'
+type: contact_message
+plugin: 'flag_action:feedback_reviewed_flag'
+configuration:
+  flag_id: feedback_reviewed
+  flag_action: flag

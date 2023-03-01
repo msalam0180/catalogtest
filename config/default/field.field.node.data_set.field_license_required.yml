@@ -1,0 +1,23 @@
+uuid: a3c68e76-cb9d-4194-a0a8-065a530c84a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_license_required
+    - node.type.data_set
+id: node.data_set.field_license_required
+field_name: field_license_required
+entity_type: node
+bundle: data_set
+label: 'License Restrictions'
+description: 'Check if there are restrictions on the use of this dataset.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

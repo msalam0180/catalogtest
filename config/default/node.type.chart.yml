@@ -1,0 +1,20 @@
+uuid: 476f82b1-601f-4062-8cf1-5926d996bd16
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+name: Chart
+type: chart
+description: 'Use <em>chart</em> to create chart/graph.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

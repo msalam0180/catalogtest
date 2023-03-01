@@ -1,0 +1,29 @@
+uuid: 19c54177-e4c2-467b-9d22-328afb5bde00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status_usage
+    - node.type.platform
+    - taxonomy.vocabulary.status
+id: node.platform.field_status_usage
+field_name: field_status_usage
+entity_type: node
+bundle: platform
+label: 'Approval Status'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      status: status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: 1430b569-d6b1-4ce9-9b37-4798c6d96050
+langcode: en
+status: true
+dependencies: {  }
+id: date_timestamp
+label: 'Date TimeStamp'
+locked: false
+pattern: 'm-j-Y_g:i:sA'

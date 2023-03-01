@@ -1,0 +1,8 @@
+uuid: 81c160e0-61ba-4053-b6d1-ccd1ac054a94
+langcode: en
+status: true
+dependencies: {  }
+name: 'NIST Data Type'
+vid: fips_category_justification
+description: 'NIST Data Type (on the front-end)'
+weight: 0

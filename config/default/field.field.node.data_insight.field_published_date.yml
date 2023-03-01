@@ -1,0 +1,24 @@
+uuid: 89a1b7e1-71da-45ad-88f9-6f0ef1585a15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_date
+    - node.type.data_insight
+  module:
+    - datetime
+id: node.data_insight.field_published_date
+field_name: field_published_date
+entity_type: node
+bundle: data_insight
+label: 'Published Date'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

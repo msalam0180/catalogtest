@@ -1,0 +1,391 @@
+uuid: 43f2508b-f187-4bea-a613-3021a9a9d8f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.forms.body
+    - field.field.node.forms.field_act
+    - field.field.node.forms.field_annual_burden
+    - field.field.node.forms.field_average_ingestion_volume
+    - field.field.node.forms.field_completeness
+    - field.field.node.forms.field_consistency
+    - field.field.node.forms.field_contact
+    - field.field.node.forms.field_contacts
+    - field.field.node.forms.field_cost_category
+    - field.field.node.forms.field_data_structure
+    - field.field.node.forms.field_dataset_use
+    - field.field.node.forms.field_dauisp_audit_logs
+    - field.field.node.forms.field_dauisp_data_policies
+    - field.field.node.forms.field_division_office
+    - field.field.node.forms.field_electronic_size
+    - field.field.node.forms.field_filing_entity_type
+    - field.field.node.forms.field_filing_format
+    - field.field.node.forms.field_further_details
+    - field.field.node.forms.field_mission_criticality_mefs
+    - field.field.node.forms.field_number_of_active_internal_
+    - field.field.node.forms.field_paper_size
+    - field.field.node.forms.field_pmef_divisions_offices
+    - field.field.node.forms.field_point_s_of_contact
+    - field.field.node.forms.field_rulemaking_office
+    - field.field.node.forms.field_sensitivity
+    - field.field.node.forms.field_submission_type
+    - field.field.node.forms.field_timeliness_recency
+    - field.field.node.forms.field_total_annual_burden_hours
+    - field.field.node.forms.field_total_annual_responses
+    - node.type.forms
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - cshs
+    - field_group
+    - link
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_forms:
+      children:
+        - group_general
+        - group_contacts
+        - group_governance
+      label: Forms
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_general:
+      children:
+        - title
+        - body
+        - field_further_details
+        - field_division_office
+        - field_rulemaking_office
+        - field_filing_format
+        - field_paper_size
+        - field_electronic_size
+        - field_average_ingestion_volume
+        - field_sensitivity
+        - field_annual_burden
+        - field_total_annual_burden_hours
+        - field_total_annual_responses
+        - field_submission_type
+        - field_filing_entity_type
+        - field_act
+        - field_dataset_use
+      label: General
+      region: content
+      parent_name: group_forms
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_contacts:
+      children:
+        - field_contacts
+      label: Contacts
+      region: content
+      parent_name: group_forms
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_governance:
+      children:
+        - field_dauisp_data_policies
+        - field_dauisp_audit_logs
+        - field_data_structure
+        - field_cost_category
+        - field_mission_criticality_mefs
+        - field_pmef_divisions_offices
+        - field_number_of_active_internal_
+        - field_completeness
+        - field_consistency
+        - field_timeliness_recency
+      label: Governance
+      region: content
+      parent_name: group_forms
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.forms.default
+targetEntityType: node
+bundle: forms
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_act:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_annual_burden:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_average_ingestion_volume:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_completeness:
+    type: cshs
+    weight: 33
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_consistency:
+    type: cshs
+    weight: 34
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_contacts:
+    type: entity_reference_paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Contact
+      title_plural: Contacts
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_cost_category:
+    type: options_select
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_data_structure:
+    type: cshs
+    weight: 28
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_dataset_use:
+    type: cshs
+    weight: 17
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_dauisp_audit_logs:
+    type: link_default
+    weight: 27
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dauisp_data_policies:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_division_office:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_electronic_size:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_filing_entity_type:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_filing_format:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_further_details:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_mission_criticality_mefs:
+    type: cshs
+    weight: 30
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_number_of_active_internal_:
+    type: number
+    weight: 32
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_paper_size:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_pmef_divisions_offices:
+    type: cshs
+    weight: 31
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_rulemaking_office:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sensitivity:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_submission_type:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_timeliness_recency:
+    type: cshs
+    weight: 35
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+  field_total_annual_burden_hours:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_total_annual_responses:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_contact: true
+  field_point_s_of_contact: true
+  promote: true
+  sticky: true

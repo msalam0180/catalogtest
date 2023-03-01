@@ -1,0 +1,10 @@
+uuid: 3be310a6-41be-442d-aa4a-5893f77c71d9
+langcode: en
+status: true
+dependencies: {  }
+id: related_application
+label: 'Related Application'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

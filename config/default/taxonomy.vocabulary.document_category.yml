@@ -1,0 +1,8 @@
+uuid: 23eed68a-d165-44fc-b4b4-ac2ac6703150
+langcode: en
+status: true
+dependencies: {  }
+name: 'Document Category'
+vid: document_category
+description: 'Used to categorize types of documents'
+weight: 0

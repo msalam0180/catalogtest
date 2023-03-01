@@ -1,0 +1,27 @@
+{
+  "require": {
+    "bex/behat-screenshot": "^2.1",
+    "cweagans/composer-patches": "^1.7",
+    "drupal/drupal-extension": "^4.1",
+    "symfony/browser-kit": "^4.4",
+    "symfony/console": "^4.4",
+    "symfony/dependency-injection": "^4.4",
+    "symfony/translation": "^4.4",
+    "symfony/yaml": "^4.4"
+  },
+  "extra": {
+    "enable-patching": true,
+    "patchLevel": {
+      "drupal/core": "-p2"
+    },
+    "patches": {
+      "drupal/drupal-driver": {
+        "https://github.com/jhedstrom/DrupalDriver/pull/235/commits/eaa9238c8c8e34372dc82ebe5367e6d24b5854e7": "patches/fix-date-only-field-not-working.patch"
+      }
+    }
+  },
+  "config": {
+    "bin-dir": "bin/",
+    "sort-packages": true
+  }
+}

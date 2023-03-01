@@ -1,0 +1,42 @@
+uuid: 212c7425-2964-4ac4-b417-dc629cbc2e25
+langcode: en
+status: true
+dependencies: {  }
+id: node.forum.delete_help_text
+label: 'Delete Help text'
+display_label: false
+name: delete_help_text
+description: ''
+base_entity_type_id: node
+base_bundle_type_id: forum
+field_type_id: token
+field_type_config:
+  type: text_format
+  token:
+    value: "<p>You may edit or remove content from your discussion post; please contact the <a href=\"mailto:datacatalog@sec.gov\">Data Catalog team</a> if you would like the post to be deleted.</p>\r\n"
+    format: full_html
+field_type_condition:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: entity_extra_field.target_entity
+    bundles:
+      forum: forum
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: entity_extra_field.target_entity
+    bundles: {  }
+  current_theme:
+    id: current_theme
+    theme: ''
+    negate: 0
+  request_path:
+    id: request_path
+    negate: false
+    pages: ''
+field_conditions_all_pass: false
+display:
+  type: form

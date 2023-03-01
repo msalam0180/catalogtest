@@ -1,0 +1,12 @@
+diff --git a/src/Controller/SimplesamlphpAuthController.php b/src/Controller/SimplesamlphpAuthController.php
+index 8a084f26c..d0e04b6f3 100644
+--- a/src/Controller/SimplesamlphpAuthController.php
++++ b/src/Controller/SimplesamlphpAuthController.php
+@@ -150,6 +150,7 @@ public function authenticate() {
+     if (($return_to = $request->query->get('ReturnTo')) ||
+         ($return_to = $request->request->get('ReturnTo')) ||
+         ($return_to = $request->server->get('HTTP_REFERER'))) {
++      $return_to = \Drupal::request()->getSchemeAndHttpHost() . $return_to;
+       if ($this->pathValidator->isValid($return_to) && UrlHelper::externalIsLocal($return_to, $base_url)) {
+         $redirect = $return_to;
+       }

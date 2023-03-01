@@ -1,0 +1,15 @@
+uuid: 9748b0e1-d8dd-424b-8190-99da5f722736
+langcode: en
+status: true
+dependencies: {  }
+name: node_main_full_width_image_large
+label: 'Node Main Full Width Image - Large'
+effects:
+  431f2fd8-2f20-44cf-af38-ad80d7e4b405:
+    uuid: 431f2fd8-2f20-44cf-af38-ad80d7e4b405
+    id: image_scale
+    weight: 1
+    data:
+      width: 905
+      height: null
+      upscale: false

@@ -1,0 +1,22 @@
+//
+// Tippy
+// Custom styles that overwrite tippy.js styles
+// --------------------------------------------------
+
+$tippy-text-color: #545454;
+$tippy-bg-color: #d4d4d4;
+
+.tippy-content {
+  padding: 2px 5px;
+}
+
+.tippy-box {
+  background: $tippy-bg-color;
+  color: $tippy-text-color;
+  font-size: 9px;
+  text-transform: capitalize;
+}
+
+.tippy-arrow {
+  color: $tippy-bg-color;
+}

@@ -1,0 +1,89 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function dc_general_paragraph_delete(EntityInterface $entity) {
+  // This will prevent the syncing getting remove when it's cleaning paragraph items.
+  // type is injected from ParagraphFeedSubscriber event listener.
+  if ($entity->state && $entity->state == 'clean') {
+    return;
+  }
+  // Get parent entity, this is where it is getting deleted.
+  $parentId = $entity->get('parent_id')->getValue();
+
+  // Check for none existing (deleted) node references
+  $nodeExist = \Drupal::entityQuery('node')
+    ->condition('nid', $parentId[0])
+    ->execute();
+
+  if (empty($nodeExist)) {
+    return;
+  }
+  // Get the Dataset node
+  $parentEntity = $entity->getParentEntity();
+  // Process Related Technology field.
+  if (!empty($parentEntity) && $parentEntity->hasField('field_related_apps_with_term')) {
+    // Parent entity can be of any platform, component, application, data_set content type.
+    // field_related_apps_with_term is the field link to a paragraph field, it can be
+    // applications_to_datasets or datasets_to_applications.
+    // i.e. datasets_to_applications paragraph type.
+    $entityType = match ($parentEntity->getType()) {
+      'data_set' => 'datasets_to_applications',
+      'component', 'platform', 'application' => 'applications_to_datasets',
+      default => 'unknown_field'
+    };
+    // Dynamically assign the dataset node parent field, base on paragraph type.
+    $entityTypeField = match ($entityType) {
+      'datasets_to_applications' => 'field_related_application',
+      'applications_to_datasets' => 'field_related_dataset',
+    };
+     // Get field_related_application and remove it's link to the parent entity.
+    if ($entity->hasField($entityTypeField)) {
+      $refEntities = $entity->get($entityTypeField)
+        ->referencedEntities();
+
+      foreach ($refEntities as $refEntity) {
+        // Load the $refEntity which is the Related link(s)
+        // and delete the link back to the $parentEntity
+        $relatedLinks = $refEntity->field_related_datasets_with_term;
+        // Get related links of this Parent node.
+        foreach ($relatedLinks as $item => $link) {
+          $targetId = $link->target_id;
+          $paragraph = \drupal::entityTypeManager()
+            ->getStorage('paragraph')->load($targetId);
+          if ($paragraph == NULL) {
+            continue;
+          }
+          else {
+            $paragraphType = $paragraph->getType();
+            $nodeRef = '';
+            // Related Dataset
+            if ($paragraphType == 'applications_to_datasets') {
+              $nodeRef = $paragraph->field_related_dataset->target_id;
+            }
+            // Related Technology
+            if ($paragraphType == 'datasets_to_applications') {
+              $nodeRef = $paragraph->field_related_application->target_id;
+            }
+            if ($nodeRef == $parentEntity->id()) {
+              $paragraph->delete();
+              $args = ['%parent' => $parentEntity->label(), '%related' => $refEntity->label()];
+              \Drupal::logger('dc_feeds')->notice('%related removed from Related Technology field of %parent', $args);
+              \Drupal::messenger()->addStatus(t('%related removed from Related Technology field of %parent', $args));
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

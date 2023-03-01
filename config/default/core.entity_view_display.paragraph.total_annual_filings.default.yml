@@ -1,0 +1,42 @@
+uuid: a0cd6a30-610a-4a2e-81b2-918d23dff40b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.total_annual_filings.field_number
+    - field.field.paragraph.total_annual_filings.field_type
+    - field.field.paragraph.total_annual_filings.field_year
+    - paragraphs.paragraphs_type.total_annual_filings
+id: paragraph.total_annual_filings.default
+targetEntityType: paragraph
+bundle: total_annual_filings
+mode: default
+content:
+  field_number:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ','
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_year:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  all_in_one: true
+  search_api_excerpt: true

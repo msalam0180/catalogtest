@@ -1,0 +1,27 @@
+uuid: 340b0418-fcfb-4ae3-9ff6-d889eb76ffb6
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_license_type
+field_name: field_license_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Limited
+      label: Limited
+    -
+      value: Enterprise
+      label: Enterprise
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

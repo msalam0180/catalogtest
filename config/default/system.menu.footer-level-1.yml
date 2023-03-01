@@ -1,0 +1,8 @@
+uuid: 2854e61b-00bd-4b78-a481-af504c2b4e02
+langcode: en
+status: true
+dependencies: {  }
+id: footer-level-1
+label: 'Footer Level 1'
+description: ''
+locked: false

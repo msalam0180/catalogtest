@@ -1,0 +1,70 @@
+diff --git a/src/Plugin/Field/FieldWidget/PlotlyJsGraphWidget.php b/src/Plugin/Field/FieldWidget/PlotlyJsGraphWidget.php
+index 8e6aa7479..d74d317d1 100644
+--- a/src/Plugin/Field/FieldWidget/PlotlyJsGraphWidget.php
++++ b/src/Plugin/Field/FieldWidget/PlotlyJsGraphWidget.php
+@@ -237,29 +237,29 @@ private function buildFormFromTemplate($formname, array $element_parents, $delta
+           'bar' => 'Bar Chart',
+           'box' => 'Box Plot',
+           'candlestick' => 'Candlestick Plot',
+-          'carpet' => 'Carpet Plot',
+-          'choropleth' => 'Choropleth Maps',
+-          'contour' => 'Contour Plot',
+-          'contourcarpet' => 'Contour Carpet Plot',
++          // 'carpet' => 'Carpet Plot',
++          // 'choropleth' => 'Choropleth Maps',
++          // 'contour' => 'Contour Plot',
++          // 'contourcarpet' => 'Contour Carpet Plot',
+           'heatmap' => 'Heatmap',
+-          'heatmapgl' => 'Heatmap (WebGL version)',
++          // 'heatmapgl' => 'Heatmap (WebGL version)',
+           'histogram' => 'Histogram',
+-          'histogram2d' => 'Histogram (2D)',
+-          'histogram2dcontour' => 'Histogram (2D Contour)',
+-          'mesh3d' => 'Mesh (3D)',
++          // 'histogram2d' => 'Histogram (2D)',
++          // 'histogram2dcontour' => 'Histogram (2D Contour)',
++          // 'mesh3d' => 'Mesh (3D)',
+           'ohlc' => 'Open-High-Low-Close (OHLC) Charts',
+-          'parcoords' => 'Parallel Coordinates',
++          // 'parcoords' => 'Parallel Coordinates',
+           'pie' => 'Pie Chart',
+-          'pointcloud' => 'Point Cloud',
+-          'sankey' => 'Sankey Diagram',
++          // 'pointcloud' => 'Point Cloud',
++          // 'sankey' => 'Sankey Diagram',
+           'scatter' => 'Scatter Plot',
+-          'scatter3d' => 'Scatter Plot (3D)',
+-          'scattercarpet' => 'Scatter Plot (Carpet)',
+-          'scattergeo' => 'Scatter Geo Plot',
+-          'scattergl' => 'Scatter Plot (WebGL version)',
+-          'scattermapbox' => 'Scatter Map Plot (Mapbox integration)',
+-          'surface' => 'Surface Plot (3D)',
+-          'scatterternary' => 'Ternary Scatter Plot',
++          // 'scatter3d' => 'Scatter Plot (3D)',
++          // 'scattercarpet' => 'Scatter Plot (Carpet)',
++          // 'scattergeo' => 'Scatter Geo Plot',
++          // 'scattergl' => 'Scatter Plot (WebGL version)',
++          // 'scattermapbox' => 'Scatter Map Plot (Mapbox integration)',
++          // 'surface' => 'Surface Plot (3D)',
++          // 'scatterternary' => 'Ternary Scatter Plot',
+         ],
+         '#default_value' => $formname,
+         '#description' => $this->t('The type of series which this graph entry represents. Configuration options for this series type will be available after you select this option and save. Choosing `None` will have the effect of deleting this series. For more information on series types, see <a href=":link">:link</a>', [
+@@ -943,7 +943,7 @@ public function formElement(FieldItemListInterface $items, $delta, array $elemen
+     // If the number of series hasn't been set by the form, get it.
+     if ($number_of_series === NULL) {
+       // Number of series comes from count of series settings.
+-      $number_of_series = ($this->seriesSettings instanceof Countable) ? max(count($this->seriesSettings), 1) : 1;
++      $number_of_series = ($this->seriesSettings != null) ? max(count($this->seriesSettings), 1) : 1;
+       $form_state->set(('number_of_series-' . $delta), $number_of_series);
+     }
+     // Container for series data.
+@@ -1022,7 +1022,7 @@ public function formElement(FieldItemListInterface $items, $delta, array $elemen
+         'false' => $this->t('False'),
+         'true' => $this->t('True'),
+       ],
+-      '#default_value' => isset($this->layoutSettings['responsive']) ? $this->layoutSettings['responsive'] : 'false',
++      '#default_value' => isset($this->layoutSettings['responsive']) ? $this->layoutSettings['responsive'] : 'true',
+     ];
+
+     $form_state->setCached(FALSE);

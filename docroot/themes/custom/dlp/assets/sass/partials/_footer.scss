@@ -1,0 +1,78 @@
+//
+// Footer
+// these are the styles for the site footer
+// --------------------------------------------------
+
+.footer-container{
+  background-color: $gray-dark2;
+  color: #fff;
+  margin-top: 20px;
+
+  .list-inline{
+    margin: 0 auto;
+    max-width: 90%;
+    text-align: center;
+    line-height: 2em;
+    li {
+      border-right: 1px solid white;
+      padding: 0 0.5em;
+      display: inline;
+
+      &:last-child{
+        border: none;
+      }
+
+      a {
+        font-weight: normal;
+        color: white;
+        padding-right: 5px;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#block-googleanalytics {
+  display: none;
+}
+
+.footer-container{
+  .nav > li > a{
+    padding: 0 5px; //remove boostrap styles
+  }
+
+  .menu{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .menu {
+    li {
+      border-right: 1px solid white;
+      padding: 0 0.5em;
+      margin: 5px 0;
+      &:last-child{
+        border: none;
+      }
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: normal;
+      &:hover, &:focus{
+        text-decoration: underline;
+        background-color: transparent;
+      }
+      &:focus{
+        outline: 2px auto white;
+        outline-offset: 2px;
+      }
+    }
+  }
+}

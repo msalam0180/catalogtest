@@ -1,0 +1,15 @@
+uuid: 0434b0b4-6fe9-404e-9257-130055cdd049
+langcode: en
+status: true
+dependencies: {  }
+name: logo
+label: 'Logo on Node'
+effects:
+  de9b3d83-35c7-4d8b-a879-7c3f3b1909c5:
+    uuid: de9b3d83-35c7-4d8b-a879-7c3f3b1909c5
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 90
+      upscale: false

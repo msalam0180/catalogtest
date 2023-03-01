@@ -1,0 +1,21 @@
+uuid: 6cb68a78-894e-41c4-9a8e-747f5e1a6edb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_metadata
+    - taxonomy.vocabulary.metadata_groups
+id: taxonomy_term.metadata_groups.field_metadata
+field_name: field_metadata
+entity_type: taxonomy_term
+bundle: metadata_groups
+label: Metadata
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default_descriptive:field_storage_config'
+  handler_settings: {  }
+field_type: entity_reference

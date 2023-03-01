@@ -1,0 +1,306 @@
+uuid: 966c0f7e-9223-46db-9041-e9451653944e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tools.body
+    - field.field.node.tools.field_add_new_discussion
+    - field.field.node.tools.field_articles
+    - field.field.node.tools.field_associated_data_sets
+    - field.field.node.tools.field_contact
+    - field.field.node.tools.field_contact_guidance
+    - field.field.node.tools.field_dataset_description
+    - field.field.node.tools.field_dataset_related_datasets
+    - field.field.node.tools.field_documents
+    - field.field.node.tools.field_how_to_request_access
+    - field.field.node.tools.field_point_s_of_contact
+    - field.field.node.tools.field_related_discussions
+    - field.field.node.tools.field_review_submitter
+    - field.field.node.tools.field_reviewer
+    - field.field.node.tools.field_tags
+    - field.field.node.tools.field_technical_owner
+    - field.field.node.tools.field_technical_subject_matter_e
+    - field.field.node.tools.field_tool_category
+    - node.type.tools
+  module:
+    - field_group
+    - fixed_text_link_formatter
+    - text
+    - user
+    - viewfield
+third_party_settings:
+  field_group:
+    group_row:
+      children:
+        - group_column_01
+        - group_c
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: tool-top-container
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_01:
+      children:
+        - field_how_to_request_access
+        - field_dataset_description
+      label: 'Column 01'
+      parent_name: group_row
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: tool-details
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_c:
+      children:
+        - field_tool_category
+        - group_extra_content_section
+      label: 'Column 02'
+      parent_name: group_row
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: tool-side
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_extra_content_section:
+      children:
+        - field_contact_guidance
+        - field_technical_owner
+        - field_technical_subject_matter_e
+        - field_point_s_of_contact
+        - field_contact
+        - field_documents
+        - field_articles
+        - field_dataset_related_datasets
+        - field_associated_data_sets
+        - field_tags
+        - field_add_new_discussion
+        - field_related_discussions
+      label: 'Extra Content Section'
+      parent_name: group_c
+      region: content
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: media-md-wrapper
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_row_02:
+      children:
+        - group_column_03
+      label: 'Row 02'
+      parent_name: ''
+      region: hidden
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_03:
+      children: {  }
+      label: 'Column 03'
+      parent_name: group_row_02
+      region: hidden
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: col-lg-6
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: node.tools.default
+targetEntityType: node
+bundle: tools
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_add_new_discussion:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_articles:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_associated_data_sets:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_contact:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_contact_guidance:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_dataset_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_dataset_related_datasets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_documents:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: file_and_description
+      link: false
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_how_to_request_access:
+    type: fixed_text_link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'Request Access'
+      link_class: 'btn btn-primary'
+      allow_override: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_point_s_of_contact:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_related_discussions:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      field_delimiter:
+        delimiter: ','
+    weight: 26
+    region: content
+  field_technical_owner:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_technical_subject_matter_e:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_tool_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_review_submitter: true
+  field_reviewer: true
+  search_api_excerpt: true

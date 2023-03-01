@@ -1,0 +1,29 @@
+uuid: f3484760-13b5-4b11-8186-f0f5587a275a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_collection_type
+    - node.type.data_set
+    - taxonomy.vocabulary.data_collection_type
+id: node.data_set.field_data_collection_type
+field_name: field_data_collection_type
+entity_type: node
+bundle: data_set
+label: 'Data Collection Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_collection_type: data_collection_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

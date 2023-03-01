@@ -1,0 +1,23 @@
+uuid: 08403254-6b84-4d6b-a55b-35de20a3f385
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_link
+    - node.type.application
+  module:
+    - link
+id: node.application.field_application_link
+field_name: field_application_link
+entity_type: node
+bundle: application
+label: 'Application Link'
+description: 'If the application has multiple links, please add them in the "Detailed Description" field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

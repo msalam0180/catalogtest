@@ -1,0 +1,26 @@
+uuid: 0eb376fc-ad39-4555-a92a-4cb12fccfff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.statistics
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: node.statistics.field_summary
+field_name: field_summary
+entity_type: node
+bundle: statistics
+label: 'Short Description'
+description: 'Short Description text will show in search results and list pages'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

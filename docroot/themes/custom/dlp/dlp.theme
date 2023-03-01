@@ -1,0 +1,440 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ */
+
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Form\FormState;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\Core\Render\Element;
+
+function dlp_preprocess_html(&$variables) {
+  // Add node id to the body class.
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (is_string($node)){
+    $node = Node::load($node);
+  }
+  if ($node && !is_string($node)) {
+     $variables['attributes']['class'][] = 'node-' . $node->id();
+   }
+
+  // Get currently active user and his roles.
+  $account = \Drupal::currentUser();
+  $roles = $account->getRoles();
+  $isElevatedUser = $account->hasPermission('view the administration theme');
+
+  foreach ($roles as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+
+  if($isElevatedUser === true) {
+    $variables['attributes']['class'][] = 'role-level-elevated';
+  }else{
+    $variables['attributes']['class'][] = 'role-level-simple';
+  }
+}
+
+function dlp_preprocess_field(&$variables) {
+  //add class to field_how_to_request_access based on value of field_restricted_dataset
+  if($variables['element']['#field_name'] == 'field_how_to_request_access') {
+    $node = \Drupal::request()->attributes->get('node');
+    if (is_string($node)){
+      $node = Node::load($node);
+    }
+    if($node && !is_string($node)) {
+      if ($node->field_restricted_dataset && $node->field_restricted_dataset->getString() == "1") {
+        $variables['attributes']['class'][] = 'restricted_dataset';
+        $variables['attributes']['title'][] = 'This dataset is highly restricted to a few users';
+      }
+    }
+  }
+  else if ($variables['element']['#field_name'] == 'field_related_apps') {
+    // Resort as ALPHA - Platform Node - Related apps field
+    usort($variables['items'], function ($a, $b) {
+      $a = isset($a['content']['#node']) ? $a['content']['#node']->title->value : null;
+      $b = isset($b['content']['#node']) ? $b['content']['#node']->title->value : null;
+
+      return strtolower($a) <=> strtolower($b);
+    });
+  }
+  else if ($variables['element']['#field_name'] == 'field_platform_link'
+        ||$variables['element']['#field_name'] == 'field_application_link') {
+    $node = \Drupal::request()->attributes->get('node');
+
+    if($node instanceof Node){
+      $name = $node->field_short_name->value ?: $node->label();
+      $variables['items'][0]['content']['#title'] .= ' ' . $name;
+    }
+
+  }
+
+  //Set a var on fields that have a delimiter
+
+  // Get a few convenient handles.
+  $entity      = $variables['element']['#object'];
+  $field_name  = $variables['element']['#field_name'];
+  $view_mode   = $variables['element']['#view_mode'];
+  $field_type   = $variables['element']['#field_type'];
+
+  // Drill down to field formatter settings.
+  $render_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+  $field_display = $render_display->getComponent($field_name);
+
+  // set a var on the field that has a delimiter
+  if (isset($field_display['third_party_settings']['field_delimiter'])) {
+    $delimiter = $field_display['third_party_settings']['field_delimiter']['delimiter'];
+    if (!empty($delimiter)){
+      $variables['delimiter'] = true;
+    }
+  }
+
+
+  // Entity Reference fields that are referencing a node and using the "entity_reference_label" formatter
+  if ($field_type == 'entity_reference'){
+
+    $entity_formatter = $variables['element']['#formatter'] ?? 'no entity formatter';
+
+    if ($entity_formatter == 'entity_reference_label' || $entity_formatter == 'entity_reference_button') {
+
+      $entity_type_referenced = $variables['element'][0]['#options']['entity_type'] ?? 'no entity type referenced';
+
+      if ($entity_type_referenced == 'node') {
+
+        $items = $variables['element']['#items'];
+
+        foreach ($items as $key=>$item) {
+          $referenedEntity = $item->get('entity')->getTarget()->getValue();
+
+          //Overwrite entity_reference_button to add classes that were being stripped
+          if ($entity_formatter == 'entity_reference_button') {
+            $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'btn btn-primary btn-sm';
+          }
+
+          // Add classes to mark references as published or not
+          if ($referenedEntity->isPublished()) {
+            $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'item-published-true';
+          }
+          else {
+            $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'item-published-false';
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function dlp_preprocess_page_title(&$variables) {
+  $variables['pageTitleAbove'] =  ""; // What appears int he pageTitleAbove section
+
+  // If Node Page
+  $node = \Drupal::request()->attributes->get('node');
+  if (is_string($node)) {
+    $node = Node::load($node);
+  }
+  if($node && !is_string($node)) {
+    $content_type = \Drupal::entityTypeManager()
+      ->getStorage('node_type')
+      ->load($node->bundle())
+      ->label();
+
+    $dontUseBreadcrumbs = array("Tool", "Contact");
+
+    if (!in_array($content_type, $dontUseBreadcrumbs)){
+      $variables['pageTitleAbove'] = "breadcrumbs";
+    }else{
+      $variables['pageTitleAbove'] = $content_type;
+    }
+
+    if ($node->hasField("field_short_name")){
+      $shortname = $node->get('field_short_name')->value;
+      if (!empty($shortname)){
+        $variables['shortname'] = $shortname;
+      }
+    }
+
+    if ($content_type == "Platform" || $content_type == "Software"){
+      // If Platform or Component/Software Details Page, add status to page title
+      $status_usage_field = $node->get('field_status_usage')->target_id;
+      if ($status_usage_field) {
+        $term = Term::load($status_usage_field);
+
+        if (isset($term)) {
+          $status = $term->getName();
+          $variables['status'] = $status;
+
+          $icon = $term->get('field_icon')->getValue();
+          $iconName = $icon[0]['icon_name'];
+          $variables['status_icon'] = $iconName;
+
+          $color = $term->get('field_status_color')->getValue();
+          $colorNumber = $color['0']['color'];
+          $variables['status_color'] = $colorNumber;
+
+          $status_url = $term->get('path')->alias;
+          $variables['status_url'] = $status_url;
+        }
+      }
+    }
+
+    // If Tool Details Page
+    if ($content_type == "Tool") {
+      $category_field = $node->get('field_tool_category')->target_id;
+      if ($category_field) {
+        $term = Term::load($category_field);
+        $singular = $term->get('field_singular')->value;
+
+        if ($singular){
+          $variables['pageTitleAbove'] = $singular;
+        }
+        else {
+          $name = $term->getName();
+          $variables['pageTitleAbove'] = $name;
+        }
+      }
+      else {
+        $variables['pageTitleAbove'] = "Tool";
+      }
+    }
+
+    //if Landing Page
+    if ($content_type == "Landing Page") {
+      // add hide title attr
+      $hideTitle = $node->get('field_hide_page_title')->value;
+      if ($hideTitle) {
+        $variables['hideTitle'] = $hideTitle;
+      }
+    }
+  }
+
+  // If Taxonomy Term Page
+  $term = \Drupal::request()->attributes->get('taxonomy_term');
+
+  if ($term) {
+    $vid = $term->bundle();
+    $vocab = Vocabulary::load($vid);
+    $vocab_name = $vocab->label();
+
+    if ($vid != "tool_types") {
+      $variables['pageTitleAbove'] = $vocab_name;
+    }
+
+    //update the division office title to use the 'Full Name' field
+    if ($vid == "division_office") {
+      $fullName = $term->get('field_full_name')->value;
+      $shortName = $variables['title']['#markup'];
+      if ($fullName != "") {
+        $variables['title'] = $fullName;
+        $variables['shortname'] = $shortName;
+      }
+    }
+
+    if ($vid == "component_category") {
+      // Component category uses breadcrumbs
+      $variables['pageTitleAbove'] = "breadcrumbs";
+      //Add icon to page title
+      $icon = $term->get('field_icon')->view(['label' => 'hidden']);
+      $variables['pageTitleIcon'] = $icon;
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_comment().
+ */
+function dlp_preprocess_comment(&$variables) {
+  // Update how the date displays on comments.
+  $date = $variables['comment']->getCreatedTime();
+  $variables['created'] = formatDateTimeAgoAndNotAgo($date);
+  $comment = $variables['comment'];
+
+  if ($comment->field_updated_by && $comment->field_updated_by->entity) {
+    $variables['updatedBy'] = $comment->field_updated_by->entity->getAccountName();
+  }
+  $variables['isEdited'] = $comment->getChangedTime() != $comment->getCreatedTime();
+  $variables['isDeleted'] = $variables['isEdited'] && empty($comment->get('comment_body')->value);
+  $variables['changedFormatedDate'] = formatDateTimeAgoAndNotAgo($comment->getChangedTime());
+
+  //Find out if the user is a moderator
+  $cid = $comment->id();
+  $nid = \Drupal::entityTypeManager()->getStorage('comment')->load($cid)->getCommentedEntityId();
+  $node = \Drupal\node\Entity\Node::load($nid);
+  $discussionModerator = $node->field_forum_moderator->target_id;
+  $commentAuthor = $comment->get('uid')->target_id;
+  $updatedByAuthor = $comment->field_updated_by->target_id;
+
+  // Find out if the current comment was posted by moderator
+  if ($discussionModerator == $commentAuthor){
+    $variables['moderatorComment'] = true;
+  }
+
+  // Find out if the current comment was updated or deleted by moderator
+  if (!empty($discussionModerator) && $discussionModerator == $updatedByAuthor){
+    $variables['moderatorUpdate'] = true;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function dlp_preprocess_node(&$variables) {
+  $destination = \Drupal::service('redirect.destination')->getAsArray();
+  $variables['destination'] = $destination['destination'];
+
+  $node = $variables['elements']['#node'];
+  $user = \Drupal::currentUser();
+  $check = $node->access('update', $user);
+  $variables['editaccess'] = $check;
+
+  //Add a class if published
+  if (isset($node)) {
+    if ($node->isPublished()) {
+      $variables['attributes']['class'][] = 'node-published-true';
+    }
+    else {
+      $variables['attributes']['class'][] = 'node-published-false';
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_comment_form_alter().
+ */
+function dlp_form_comment_form_alter(&$form, &$form_state) {
+  // Remove Homepage Field from comment edit form.
+  $form['author']['homepage']['#access'] = FALSE;
+  $form['actions']['submit']['#value'] = t('Post');
+}
+
+/**
+ * Implements hook_form_comment_form_alter().
+ */
+function dlp_form_alter(&$form, &$form_state,  $form_id) {
+  // Change save button text on Discussions
+  if ($form_id == "node_forum_form" || $form_id == "node_forum_edit_form") {
+    $form['actions']['submit']['#value'] = 'Post Discussion';
+  }
+
+  if ($form_id == "content_moderation_entity_moderation_form"){
+    $form['#validate'][] = 'dlp_revision_validate';
+  }
+}
+
+function dlp_revision_validate(&$form, FormState $form_state) {
+  $newState = $form_state->getValue('new_state');
+  if ($newState == "rejected" && empty($form_state->getValue('revision_log'))){
+    $form_state->setErrorByName('revision_log', t("Revision log message required if content is being rejected"));
+  }
+  return $form;
+}
+/**
+ * Overrides template_process_username().
+ */
+function dlp_preprocess_username(&$variables) {
+  // Use full email as the username and do not truncate it.
+  $account = $variables['name_raw'];
+  $variables['name'] = t($account);
+}
+
+/**
+ * Overrides template_preprocess_flag().
+ */
+function dlp_preprocess_flag(&$variables) {
+  // Get the bundle.
+  $bundle = $variables['flaggable']->bundle();
+  $comment_forum_status = 2;
+
+  if ($bundle == "comment_forum") {
+    $cid = $variables['flaggable']->id();
+    // Get the node ID of the discussion.
+    $nid = \Drupal::entityTypeManager()->getStorage('comment')->load($cid)->getCommentedEntityId();
+    $comment_forum_status = \Drupal::entityTypeManager()->getStorage('node')->load($nid)->get('comment_forum')->status;
+    $user = \Drupal::currentUser();
+    $comment = \Drupal::entityTypeManager()->getStorage('comment')->load($cid);
+    $checkEdit = $comment->access('update', $user);
+    $checkDelete = $comment->access('delete', $user);
+    $variables['canEdit'] = $checkEdit;
+    $variables['canDelete'] = $checkDelete;
+    $variables['cid'] = $cid;
+  }
+
+  if ($bundle == "forum") {
+    // Get the node ID of the discussion.
+    $nid = $variables['flaggable']->id();
+    $comment_forum_status = \Drupal::entityTypeManager()->getStorage('node')->load($nid)->get('comment_forum')->status;
+    $user = \Drupal::currentUser();
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $checkEdit = $node->access('update', $user);
+    $checkDelete = $node->access('delete', $user);
+    $variables['canEdit'] = $checkEdit;
+    $variables['canDelete'] = $checkDelete;
+    // $comment_forum_status = 2;
+  }
+
+  $variables['comment_forum_status'] = $comment_forum_status;
+  $variables['nid'] = $nid;
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * Adding custom theme template for following pages:
+ * 1. search result page
+ * 2. discussions
+ */
+function dlp_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if (in_array($hook, array('views_view'))) {
+    // List of view_id and view_current_display to use custom template.
+    $affected_views = [
+      'search_results' => 'page_1',
+    ];
+    // Looping through $affected_views to apply custom template.
+    foreach ($affected_views as $view_id => $view_current_display) {
+      if ($variables["view"]->id() == $view_id && $variables["view"]->current_display == $view_current_display) {
+        $suggestions[] = $hook . '__' . 'header_on_left_sidebar';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function dlp_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  // Add view mode theme suggestions.
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+}
+
+function formatDateTimeAgoAndNotAgo($date){
+  // Format date to be time ago if less that 24 hours old, but to show date if older
+  $currentYear = date('Y');
+  $dateYear = date('Y', $date);
+  $date24HoursAgo = strtotime("-24 hours");
+
+  if ($date <= $date24HoursAgo) {
+    //Older than 24h
+    if ($currentYear != $dateYear) {
+      return \Drupal::service('date.formatter')->format($date, 'custom', 'd M, Y · g:ia');
+    }else{
+      return \Drupal::service('date.formatter')->format($date, 'custom', 'd M · g:ia');
+    }
+  } else {
+    //Newer than 24h
+    $currentTime = Drupal::time()->getRequestTime();
+    return \Drupal::service('date.formatter')->formatInterval($currentTime - $date) . ' ago';
+  }
+}

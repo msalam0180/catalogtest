@@ -1,0 +1,34 @@
+uuid: 65bf7813-8c88-4aa3-8b7e-3d5d5461a8cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_division_office_multi
+    - node.type.application
+    - taxonomy.vocabulary.division_office
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: 'SEC Users'
+id: node.application.field_division_office_multi
+field_name: field_division_office_multi
+entity_type: node
+bundle: application
+label: 'Divisions/Offices that use this '
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

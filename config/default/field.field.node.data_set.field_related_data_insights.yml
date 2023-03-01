@@ -1,0 +1,28 @@
+uuid: 3fb5ffdb-f6eb-4f53-89ca-0ca95d9a4fc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_data_insights
+    - node.type.data_insight
+    - node.type.data_set
+id: node.data_set.field_related_data_insights
+field_name: field_related_data_insights
+entity_type: node
+bundle: data_set
+label: 'Related Data Insights'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_insight: data_insight
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

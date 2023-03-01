@@ -1,0 +1,28 @@
+uuid: b4a36e74-7a21-4bdb-9795-8030a53a2dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_forum
+    - field.storage.comment.comment_body
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - limited_plus
+_core:
+  default_config_hash: WuaSPL5QS8oJbnd1mPGSSJ-Pt7arUBnbMHXGNm1BjS8
+id: comment.comment_forum.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: comment_forum
+label: 'Reply to this Discussion'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

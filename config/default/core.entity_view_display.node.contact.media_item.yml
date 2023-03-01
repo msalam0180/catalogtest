@@ -1,0 +1,53 @@
+uuid: c801f0cc-0d62-4051-bc3b-ad0573b5c056
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.media_item
+    - field.field.node.contact.body
+    - field.field.node.contact.feeds_item
+    - field.field.node.contact.field_associated_websites
+    - field.field.node.contact.field_division_office
+    - field.field.node.contact.field_email
+    - field.field.node.contact.field_first_name
+    - field.field.node.contact.field_helpful_information
+    - field.field.node.contact.field_image_upload
+    - field.field.node.contact.field_last_name
+    - field.field.node.contact.field_phone_number
+    - node.type.contact
+  module:
+    - user
+_core:
+  default_config_hash: MpWNPMRjau6qecBbRl5qch5BgCmDkrh93-AG5Wnxplg
+id: node.contact.media_item
+targetEntityType: node
+bundle: contact
+mode: media_item
+content:
+  field_division_office:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_email:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  feeds_item: true
+  field_associated_websites: true
+  field_first_name: true
+  field_helpful_information: true
+  field_image_upload: true
+  field_last_name: true
+  field_phone_number: true
+  links: true
+  search_api_excerpt: true

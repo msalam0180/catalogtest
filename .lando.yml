@@ -1,0 +1,165 @@
+name: catalog
+recipe: drupal9
+
+config:
+  php: '8.0'
+  via: apache:2.4
+  drush: false
+  composer_version: "2.1.6"
+
+services:
+  appserver:
+    webroot: docroot
+    xdebug: true
+    config:
+      php: .lando-config/php.ini
+    build_as_root:
+      - .lando-config/build.sh
+
+  # Setting up Databases.
+  catalogdb: # Setting up Catalog.gov Database Creds
+    type: mysql:5.7
+    creds:
+      user: drupal
+      password: drupal
+      database: catalog
+    config:
+      database: .lando-config/my-custom.cnf
+
+  # Set phpmyadmin database hosts.
+  pma:
+    type: phpmyadmin
+    ssl: true
+    hosts:
+      - catalogdb
+
+  # Setting up mailhog service for emails.
+  mail:
+    type: mailhog
+    ssl: true
+    hogfrom:
+      - appserver
+
+  # Setting up Chromedriver and Selenium.
+  chrome:
+    type: compose
+    services:
+      image: selenium/standalone-chrome-debug
+      user: root
+      volumes:
+        - /dev/shm:/dev/shm
+      command: "/opt/bin/entry_point.sh"
+      ports:
+        - '4444'
+        - '5902:5900'
+      environment:
+        TZ: US/Eastern
+        VNC_NO_PASSWORD: "1"
+        JAVA_OPTS: -Dwebdriver.chrome.whitelistedIps=
+
+events:
+  post-start:
+    - .lando-config/post-start.sh
+
+proxy:
+  # Setting up static URLs for appserver, pma, chrome services.
+  appserver:
+    - catalog.lndo.site
+  pma:
+    - phpmyadmin-catalog.lndo.site
+  mail:
+    - mail-catalog.lndo.site
+  chrome:
+    - chrome-catalog.lndo.site:4444
+
+tooling:
+  # Setting up Acquia CLI command.
+  acli:
+    service: appserver
+    description: Acquia CLI is a command-line interface for interacting with Cloud Platform services. [Usage - lando acli auth:login]
+    cmd: /usr/local/bin/acli
+  acli-drush:
+    service: appserver
+    description: Runs drush command on Acquia Cloud given site and environment. [Usage - lando acli-drush sitename-environment]
+    cmd: /usr/local/bin/acli remote:drush
+  pulldb:
+    service: appserver
+    description: Pulls database down locally.
+    cmd:
+      - .lando-config/pull-database.sh
+
+  # Setting up Drush commands.
+  drush:
+    service: appserver
+    description: Allows you to run drush locally. [Usage - lando drush cr]
+    cmd: drush --root=/app/docroot
+  initproject-catalog:
+    service: appserver
+    description: Runs cr, updb, cim, user-create (lando) with admin permissions on local catalog site.
+    dir: /app/docroot
+    cmd:
+      - drush cr
+      - drush updb -y
+      - drush cim -y
+      - echo 'Local Username/Password will be set as lando/lando'
+      - drush ucrt "lando" --password=lando && drush urol administrator lando
+  login-catalog:
+    service: appserver
+    description: Creates one-time login link as admin for local catalog site.
+    dir: /app/docroot
+    cmd: drush uli --no-browser
+
+  # Setting up Behat commands.
+  initbehat:
+    service: appserver
+    description: Runs npm install and composer install for Behat and WDIO.
+    dir: /app/test
+    cmd:
+      - rm -rf node_modules && npm install
+      - rm -rf vendor bin && composer install
+  behat:
+    service: appserver
+    description: Runs Behat command without any Behat Parameters.
+    dir: /app/test
+    cmd: /app/test/bin/behat
+  behat-catalog:
+    service: appserver
+    description: Runs Behat command for local catalog site.
+    dir: /app/test
+    env: # environment gets overridden by .lando.local.yml
+      BEHAT_PARAMS: '{"extensions": {"Behat\\MinkExtension": {"base_url": "http://catalog.lndo.site"},"Drupal\\DrupalExtension":{"drupal":{"drupal_root":"/app/docroot"},"drush":{"alias":"local.catalog"}}}}'
+    cmd:
+      - appserver: /app/test/bin/behat --suite=default
+
+  # Setting up theme commands.
+  theme-catalog-build:
+    service: appserver
+    description: Runs npm install and compiles catalog theme sass.
+    dir: /app/docroot/themes/custom/dlp
+    cmd:
+      - npm install
+      - npm run compile
+
+  # Setting up xdebug commands.
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for Apache.
+    cmd: docker-php-ext-enable xdebug && /etc/init.d/apache2 reload && echo "Enabling xdebug"
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for Apache.
+    cmd: rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload && echo "Disabling xdebug"
+    user: root
+
+  node:
+    service: appserver
+  npm:
+    service: appserver
+  npx:
+    service: appserver
+  gulp:
+    service: appserver
+  chromedriver:
+    service: chrome
+    cmd: chromedriver

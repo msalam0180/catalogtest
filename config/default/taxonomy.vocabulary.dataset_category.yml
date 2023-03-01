@@ -1,0 +1,8 @@
+uuid: 032fd8ec-8308-4d6c-86dd-5a80890976cf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Data Type'
+vid: dataset_category
+description: 'Type of data contained in a dataset'
+weight: 0

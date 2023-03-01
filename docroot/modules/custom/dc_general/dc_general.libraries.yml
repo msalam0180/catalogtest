@@ -1,0 +1,16 @@
+env_indicator:
+  version: 1.x
+  css:
+    theme:
+      css/env_indicator.css: {}
+  js:
+    js/env_indicator.js: {}
+dc_general:
+  css:
+    theme:
+      css/dc_general.css: {}
+  js:
+    js/dc_general.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

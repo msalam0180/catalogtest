@@ -1,0 +1,19 @@
+uuid: 1c3b1626-1f29-47a0-be8d-8f45ccdadcb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved_version
+    - node.type.platform
+id: node.platform.field_approved_version
+field_name: field_approved_version
+entity_type: node
+bundle: platform
+label: 'Approved Version'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

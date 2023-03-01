@@ -1,0 +1,19 @@
+uuid: fd12a95a-dd48-455f-a7cc-8f0b8b8137ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_singular
+    - taxonomy.vocabulary.tool_types
+id: taxonomy_term.tool_types.field_singular
+field_name: field_singular
+entity_type: taxonomy_term
+bundle: tool_types
+label: 'Singular Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

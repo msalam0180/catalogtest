@@ -1,0 +1,23 @@
+uuid: defe5b38-33df-4481-a8e9-fcc262e54e80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publications_publicationid
+    - node.type.publications
+id: node.publications.field_publications_publicationid
+field_name: field_publications_publicationid
+entity_type: node
+bundle: publications
+label: 'Publication ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,23 @@
+uuid: 607e4b34-bdb4-4a78-b783-5afa381f3c95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number
+    - paragraphs.paragraphs_type.total_annual_filings
+id: paragraph.total_annual_filings.field_number
+field_name: field_number
+entity_type: paragraph
+bundle: total_annual_filings
+label: 'Number of Filings Received'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

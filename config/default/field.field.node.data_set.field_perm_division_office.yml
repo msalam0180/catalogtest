@@ -1,0 +1,29 @@
+uuid: aa417ac4-bdf4-4d16-a38a-cd49af49ad0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_perm_division_office
+    - node.type.data_set
+    - taxonomy.vocabulary.division_office
+id: node.data_set.field_perm_division_office
+field_name: field_perm_division_office
+entity_type: node
+bundle: data_set
+label: 'Allow These Division/Office(s)'
+description: "This Dataset will be limited to users who are of the selected Division/Office.\r\nIf no options are chosen then the Dataset is available to anyone of the any Division/Office if they match the other criteria."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

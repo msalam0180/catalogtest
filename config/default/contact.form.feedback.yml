@@ -1,0 +1,32 @@
+uuid: 58175b93-7115-4e23-98ac-7e21647aac3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_ajax
+    - contact_storage
+third_party_settings:
+  contact_ajax:
+    enabled: true
+    render_selector: ''
+    prefix_id: ''
+    confirmation_type: 3
+    load_from_message:
+      value: "<p>Thank you for your feedback!</p>\r\n\r\n<p>Would you like to become a contributor to the Catalog?&nbsp;&nbsp;<a href=\"/how-do-i-contribute-catalog\">Join the Catalog as a Contributor</a>&nbsp;</p>\r\n"
+      format: full_html
+  contact_storage:
+    submit_text: Send
+    show_preview: false
+    disabled_form_message: 'This contact form has been disabled.'
+    maximum_submissions_user: 0
+    page_autoreply_format: plain_text
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: Feedback
+recipients:
+  - datacatalog@sec.gov
+reply: ''
+weight: 0
+message: ''
+redirect: ''

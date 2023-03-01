@@ -1,0 +1,8 @@
+uuid: 5a867388-8a3a-4c8f-bf2e-311ea44583fe
+langcode: en
+status: true
+dependencies: {  }
+name: 'PII Category'
+vid: sensitive_data_category
+description: 'Category of sensitivity the dataset falls into'
+weight: 0

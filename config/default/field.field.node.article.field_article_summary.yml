@@ -1,0 +1,25 @@
+uuid: 0dbb3cf5-0067-4518-85e7-a4b18d312a31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_summary
+    - node.type.article
+  module:
+    - field_display_label
+    - text
+third_party_settings:
+  field_display_label:
+    display_label: Summary
+id: node.article.field_article_summary
+field_name: field_article_summary
+entity_type: node
+bundle: article
+label: 'Article Summary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

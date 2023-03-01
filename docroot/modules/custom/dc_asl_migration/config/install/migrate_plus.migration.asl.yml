@@ -1,0 +1,182 @@
+id: asl
+label: JSON import of ASL content
+migration_tags:
+  - asl
+source:
+  plugin: url
+  data_parser_plugin: json
+  item_selector: 1
+  data_fetcher_plugin: file
+  urls: public://migration/asl.json
+  fields:
+    -
+      #unique identifier
+      name: id
+      selector: sys_id
+    -
+      #title
+      name: name
+      selector: name
+    # -
+    #   #Short Name
+    #   #Note: cannot find in data, - Does this need to be in the migration
+    #   name: short_name
+    #   selector: "Short Name"
+    -
+      #Manufacturer
+      name: manufacturer
+      selector: manufacturer
+    -
+      #Short Description
+      name: short_description
+      selector: short_description
+    -
+      #Detailed Description
+      name: description
+      selector: description
+    -
+      #Approved Version
+      name: version
+      selector: version
+    -
+      #Approved Status
+      name: status
+      selector: status
+    -
+      #Restrictions
+      name: u_software_restriction
+      selector: u_software_restriction
+    -
+      name: sys_updated_on
+      selector: sys_updated_on
+    -
+      name: sys_created_on
+      selector: sys_created_on
+
+  constants:
+    reviewer: 'TechCatalog@sec.gov'
+    division_office: 'Enterprise'
+    request_installation_uri: 'https://seceamsprod.servicenowservices.com/secsp?id=sc_cat_item&sys_id=f10eada7dbb73200c1b474131f961985'
+    request_installation_title: 'Request Installation'
+
+  ids:
+    id:
+      type: string
+
+process:
+  status:
+    plugin: default_value
+    default_value: 1
+
+  moderation_state: published
+
+  type:
+    plugin: default_value
+    default_value: component
+
+  # text - Title
+  title:
+    plugin: concat
+    source:
+      - name
+      - version
+    delimiter: " "
+
+  # text - Detailed Description
+  body/value: description
+  body/format:
+    plugin: default_value
+    default_value: restricted_html
+
+  # text - Approved Version
+  field_approved_version: version
+
+  # tax reference - Approved Status
+  field_status_usage:
+    plugin: entity_lookup
+    source: status
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: status
+
+  # link - How to Request Installation
+  # hard coded to "https://seceamsprod.servicenowservices.com/secsp?id=sc_cat_item&sys_id=f10eada7dbb73200c1b474131f961985"
+  field_request_installation/uri: constants/request_installation_uri
+  field_request_installation/title: constants/request_installation_title"Request Installation"
+
+  field_manufacturer:
+    plugin: entity_generate
+    source: manufacturer
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: manufacturer
+
+  # tax reference
+  # hard coded to "Enterprise"
+  field_division_office_multi:
+    plugin: entity_lookup
+    source: constants/division_office
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    bundle: division_office
+
+  # text - Restrictions
+  field_restrictions: u_software_restriction
+
+  # user reference - Reviewer
+  # hard coded to "TechCatalog@sec.gov"
+  field_reviewer:
+    plugin: user_lookup
+    source: constants/reviewer
+
+  # boolean - Promoted to Technology Standards
+  field_promote_it_to_the_technolo:
+    plugin: static_map
+    source: status
+    map:
+      'Approved': TRUE
+      'catalog': FALSE
+      'Catalog': FALSE
+      'Waiver': FALSE
+      'Pending Retirement': FALSE
+    default_value: FALSE
+
+  changed:
+    plugin: format_date
+    source: sys_updated_on
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+
+  created:
+    plugin: format_date
+    source: sys_created_on
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+
+  field_sync_date:
+    plugin: current_date
+
+destination:
+  plugin: entity:node
+  overwrite_properties:
+    # If a migration should not overwrite an existing value, the add that field here.
+    # Also disable these fields in the UI: modules/custom/adminimal_overrides/adminimal_overrides.module
+    - status
+    - moderation_state
+    - title
+    - field_approved_version
+    - field_status_usage
+    - field_division_office_multi
+    - field_restrictions
+    - field_promote_it_to_the_technolo
+    - changed
+    - created
+    - field_sync_date
+    - field_restrictions
+    - field_manufacturer

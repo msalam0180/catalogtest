@@ -1,0 +1,21 @@
+uuid: f00cfe3f-588f-4491-88b5-d47a556c23ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sensitive_pii
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_sensitive_pii
+field_name: field_sensitive_pii
+entity_type: node
+bundle: data_set
+label: 'Sensitive PII'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

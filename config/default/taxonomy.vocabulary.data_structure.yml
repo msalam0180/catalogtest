@@ -1,0 +1,8 @@
+uuid: fd680222-4f01-4ae9-b729-a59e4db35ffd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Data Structure'
+vid: data_structure
+description: ''
+weight: 0

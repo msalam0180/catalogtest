@@ -1,0 +1,28 @@
+uuid: 4d9702ba-9cfa-4fc7-9486-686337e0e63e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_associated_datasets
+    - node.type.data_insight
+    - node.type.data_set
+id: node.data_insight.field_associated_datasets
+field_name: field_associated_datasets
+entity_type: node
+bundle: data_insight
+label: 'Related Datasets'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: title
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

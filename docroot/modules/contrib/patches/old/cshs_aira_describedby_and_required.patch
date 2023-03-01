@@ -1,0 +1,28 @@
+diff --git a/js/libs/jquery.simpler-select.js b/js/libs/jquery.simpler-select.js
+index a4488f454..54556f0ae 100644
+--- a/js/libs/jquery.simpler-select.js
++++ b/js/libs/jquery.simpler-select.js
+@@ -18,6 +18,9 @@
+     this.$element = $(element);
+     this.$currentSelect = null;
+     options.id = $(element).attr('id');
++    options.inMutiValueFormFirstRow = $(element).closest("tbody tr:first-of-type").length > 0;
++    options.describedByValue = $(element).attr('aria-describedby');
++    options.requiredValue = $(element).attr('required');
+     options.defaultLabel = $('label[for="' + options.id + '"]').text();
+     this.settings = $.extend({}, defaults, options);
+     this.selectOptions = [];
+@@ -115,7 +118,12 @@
+       var that = this;
+       var id = that.settings.id + "-level-" + (level + 1);
+       var defaultLabel = that.settings.defaultLabel + " Level " + (level + 1);
+-      var $select = $('<select class="simpler-select"></select>').addClass(that.$element.attr('class')).attr('id', id);
++      var $select = $('<select class="simpler-select">').addClass(that.$element.attr('class')).attr({
++          'id': id,
++          'aria-describedby': ((level === 0) && (that.settings.describedByValue !== 'undefined') ? that.settings.describedByValue : null),
++          'required': ((level === 0) && (that.settings.inMutiValueFormFirstRow !== 'undefined') && (that.settings.requiredValue === "required") ? "required" : null),
++          'aria-required': ((level === 0) && (that.settings.inMutiValueFormFirstRow !== 'undefined') && (that.settings.requiredValue === "required") ? "true" : null),
++        });
+       var $wrapper = $('<div class="select-wrapper"></div>');
+
+       if (that.$element.hasClass('error')) {

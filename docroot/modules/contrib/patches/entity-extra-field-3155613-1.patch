@@ -1,0 +1,29 @@
+diff --git a/entity_extra_field.module b/entity_extra_field.module
+index 55723740a..154af8c8e 100644
+--- a/entity_extra_field.module
++++ b/entity_extra_field.module
+@@ -143,17 +143,21 @@ function entity_extra_field_display(
+         || empty($extra_field_build['content'])) {
+         continue;
+       }
+-      $build[$extra_field->name()] = $extra_field_build;
++      $build[$extra_field->name()] = [
++        '#type' => 'container',
++      ];
++
++      $build[$extra_field->name()]['field_' . $extra_field->name()] = $extra_field_build;
+
+       if ($attachments = $extra_field->getBuildAttachments()) {
+-        $build[$extra_field->name()]['#attached'] = $attachments;
++        $build[$extra_field->name()]['field_' . $extra_field->name()]['#attached'] = $attachments;
+       }
+
+       (CacheableMetadata::createFromObject($extra_field))
+         ->addCacheTags([
+           'entity_extra_field',
+           "entity_extra_field:{$type}.{$entity->getEntityTypeId()}.{$entity->bundle()}",
+-        ])->applyTo($build[$extra_field->name()]);
++        ])->applyTo($build[$extra_field->name()]['field_' . $extra_field->name()]);
+     }
+   }
+ }

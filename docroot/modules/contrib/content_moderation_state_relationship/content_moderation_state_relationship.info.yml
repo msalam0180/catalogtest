@@ -1,0 +1,12 @@
+name: 'Content moderation state relationship'
+type: module
+description: 'Provides a shim for deprecated core functionality.'
+core_version_requirement: ^8 || ^9
+package: Core
+dependencies:
+  - drupal:content_moderation
+
+# Information added by Drupal.org packaging script on 2019-12-19
+version: '8.x-1.2'
+project: 'content_moderation_state_relationship'
+datestamp: 1576737502

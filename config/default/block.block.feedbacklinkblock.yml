@@ -1,0 +1,27 @@
+uuid: afe18f67-bde8-41b8-85f1-d4a436ba6750
+langcode: en
+status: true
+dependencies:
+  module:
+    - dc_general
+    - system
+  theme:
+    - dlp
+id: feedbacklinkblock
+theme: dlp
+region: footer
+weight: 0
+provider: null
+plugin: feedbacklinkblock_block
+settings:
+  id: feedbacklinkblock_block
+  label: 'Feedback Link block'
+  label_display: '0'
+  provider: dc_general
+  Feedback_Button_Label: Feedback
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: /contact/feedback

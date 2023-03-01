@@ -1,0 +1,4 @@
+name: Tippy.js Library
+type: module
+description: 'Provides Tippy.js library.'
+core_version_requirement: ^8 || ^9

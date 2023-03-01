@@ -1,0 +1,88 @@
+uuid: 1ae20d1c-1a8c-40f9-a065-cb61184b0cf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_set.field_dataset_use
+    - node.type.data_set
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      b5f7cbdb-9938-4e5e-aace-dc55226f130f:
+        separator: '|'
+        limit: null
+        uuid: b5f7cbdb-9938-4e5e-aace-dc55226f130f
+        plugin: explode
+        source: use_cases
+        weight: 0
+        label: Explode
+label: 'Dataset Reduced'
+id: dataset_reduced
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: data_set
+  langcode: en
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  use_cases:
+    value: 'Use Cases'
+    label: 'Use Cases'
+    machine_name: use_cases
+    type: csv
+  state:
+    value: State
+    label: State
+    machine_name: state
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_dataset_use
+    map:
+      target_id: use_cases
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: moderation_state
+    map:
+      value: state
+    settings:
+      language: null
+    unique: {  }

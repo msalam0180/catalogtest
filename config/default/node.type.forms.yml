@@ -1,0 +1,20 @@
+uuid: d97261e8-8930-4e6b-8cc1-e5112fe9bf07
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+name: Forms
+type: forms
+description: 'SEC regulatory forms which enable users to discover information about the forms, what type of information is filed, and other metadata associated with the forms.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,31 @@
+uuid: f5214a9f-5abc-4314-b9ac-4bba3e9402e4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:053c2d29-854a-4538-86d4-15aad3805b8a'
+  module:
+    - block_content
+    - system
+  theme:
+    - dlp
+id: styleblock
+theme: dlp
+region: content
+weight: -1
+provider: null
+plugin: 'block_content:053c2d29-854a-4538-86d4-15aad3805b8a'
+settings:
+  id: 'block_content:053c2d29-854a-4538-86d4-15aad3805b8a'
+  label: 'Style Block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/dataset-search\r\n"

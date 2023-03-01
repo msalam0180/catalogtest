@@ -1,0 +1,5 @@
+enable_override: true
+view: division_office_taxonomy_term
+view_display: page_3
+inherit_settings: true
+pass_arguments: true

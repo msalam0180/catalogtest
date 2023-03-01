@@ -1,0 +1,179 @@
+default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - ListPageContext
+        - WysiwygContext
+        - InputScreenContext
+        - EntityContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\RawDrupalContext
+        - Drupal\DrupalExtension\Context\MarkupContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  extensions:
+    Drupal\MinkExtension:
+      goutte: ~
+      selenium2:
+        browser: chrome
+        wd_host: http://chrome-catalog.lndo.site:4444/wd/hub
+        capabilities:
+          marionette: null
+          extra_capabilities:
+            chromeOptions:
+              args:
+                - "--disable-gpu"
+                - "--window-size=1820,1024"
+              w3c: false
+      files_path: '%paths.base%/files'
+      show_cmd: chrome.exe
+    Bex\Behat\ScreenshotExtension:
+      image_drivers:
+        local:
+          screenshot_directory: '%paths.base%/behat-screenshots'
+          clear_screenshot_directory: true
+    Drupal\DrupalExtension:
+      selectors:
+        message_selector: '#messages'
+        error_message_selector: '#messages.messages-error'
+        success_message_selector: '#messages.messages-status'
+      blackbox: ~
+      api_driver: 'drupal'
+      region_map:
+        header: "#header"
+        select_catagory: "#edit-field-category-wrapper"
+        form_area: "#edit-group-docs-links"
+        modal_document_name: "edit-name"
+        modal_document_apply: "Apply"
+        tools_tab: ".vertical-tabs__menu"
+        getting_started_link: ".menu.menu--auxiliary-menu.nav"
+        horizotal_tabs: ".tabbable"
+        tools_title_field: "#edit-field-tools-form-inline-entity-form-title-0-value"
+        add_document_term: ".button--primary button--small"
+        general: ".main-content-display-section"
+        how_to_access: "#how-to-access"
+        usage_restrictons: "#edit-group-licensing-usage"
+        node_action: ".tabs"
+        first_name: "#edit-subject-matter-expert-form-inline-entity-form-field-first-name-0-value--FBpjwYrvIo4"
+        who_to_contact: "#edit-group-who-to-contact--content"
+        subject_matter_expert: ".field--name-subject-matter-expert"
+        confirm_remove: ".ief-form"
+        dataset_search: "#views-exposed-form-data-search-index-page-1"
+        menu: ".region-navigation-collapsible"
+        edit_delete: "#edit-actions"
+        how_to_access_link: "#edit-group-how-to-access"
+        tools: "#edit-group-tools--content"
+        footer: ".footer-container"
+        sub_title: ".page-title-container"
+        recently_updated: "div.layout__region.layout__region--second"
+        COR: "#edit-field-contract-officer-represent"
+        contacts: "#edit-group-who-to-contact"
+        results_view: ".view-content"
+        search_form: "#views-exposed-form-search-results-page-1"
+        technical_owner: "#edit-field-technical-owner"
+        business_owner: "#edit-field-business-owner"
+        header_gettingStarted: ".region-header"
+        forum_comment: "div.content"
+        reply_comment: ".indented"
+        forum_content: ".region-content"
+        tools_details: ".tool-side"
+        new_comment: ".comment.new"
+        reply_section: "article.contextual-region.comment"
+        like_discussion: ".flag-like-discussion"
+        block_section: "#drupal-off-canvas"
+        configure_block: "#layout-builder-modal"
+        first_block: ".layout__region--first"
+        second_block: ".layout__region--second"
+        second_section_block: ".layout--twocol-section--75-25"
+        layout_section: ".layout-builder__section"
+        add_document: "#edit-field-documents-wrapper"
+        homepage_search: ".block-views-exposed-filter-blocksearch-results-page-3"
+        visualization: "#field-visualization-paragraph-values"
+        form_contact: "#edit-field-contact-wrapper"
+        rulemaking_contact: "#edit-field-point-s-of-contact-wrapper"
+        env_indicator: "#environment-indicator"
+        logo: ".img-responsive"
+        screenshot: ".field--name-field-screenshots"
+        edit_screenshot: "#edit-field-screenshots"
+        create_logo: ".ief-entity-table"
+        icon: ".fontawesome-icons"
+        component_fallback_icon: ".view-list-img"
+        breadcrumb: ".breadcrumb"
+        category_list: ".view-group"
+        sidebar: ".sideSection"
+        article_side: ".article-side"
+        related_apps: ".field--name-field-related-apps"
+        total_items: ".block-component-categories"
+        sub_category: ".view-browse-subcategories"
+        main_container: ".main-container"
+        applications: ".view-display-id-apps"
+        group_heading: ".view-group-heading"
+        seal: ".banner-seal"
+        category_term_title: "div[data-group-tax='BEHAT CC Header 1']"
+        edit_advanced: "#edit-advanced"
+        secondary_links: ".region-pre-content"
+        row_form: ".ief-row-form"
+        recent_technology: "div.layout__region.layout__region--second"
+        1stupdatedtech: "div.layout__region.layout__region--second > section > div > div > div > div > ul > li:nth-child(1)"
+        2ndupdatedtech: "div.layout__region.layout__region--second > section > div > div > div > div > ul > li:nth-child(2)"
+        3rdupdatedtech: "div.layout__region.layout__region--second > section > div > div > div > div > ul > li:nth-child(3)"
+        4thupdatedtech: "div.layout__region.layout__region--second > section > div > div > div > div > ul > li:nth-child(4)"
+        10thupdatedtech: "div.layout__region.layout__region--second > section > div > div > div > div > ul > li:nth-child(10)"
+        recent_discussions: ".block-views-blockdiscussions-block-2"
+        1stupdateddiss: "div.layout__region.layout__region--third > section > div > div > div > div > ul > li:nth-child(1)"
+        10thupdateddiss: "div.layout__region.layout__region--third > section > div > div > div > div > ul > li:nth-child(10)"
+        1st_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(1)"
+        2nd_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(2)"
+        3rd_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(3)"
+        4th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(4)"
+        5th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(5)"
+        6th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(6)"
+        7th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(7)"
+        8th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(8)"
+        9th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(9)"
+        10th_updated_info: "div.layout__region.layout__region--second > section > div > div > div.view-content > div > ul > li:nth-child(10)"
+        admincontent_view: "#views-form-content-page-1"
+        moderation_state: "#content-moderation-entity-moderation-form"
+        moderation_state_status: "#edit-current"
+        edit_page_status: "#edit-meta"
+        tools_moderation_status: "#edit-moderation-state-0-current"
+        article_related_dataset: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.article-side > div"
+        article_related_platform: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.article-side > div:nth-child(2)"
+        article_related_software: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.article-side > div:nth-child(3)"
+        article_related_application: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.article-side > div:nth-child(4)"
+        platform_related_software: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(2)"
+        platform_related_application: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-8.mainSection.clearfix > div.mainSection-field-wrapper"
+        application_related_platform: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(2)"
+        application_related_software: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(3)"
+        application_related_article: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(4)"
+        software_related_platform: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(2)"
+        software_related_application: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(3)"
+        software_related_article: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div.col-lg-4.sideSection > div:nth-child(4)"
+        dataset_related_tool: "div.field.field--name-field-tools.field"
+        dataset_related_insight: "div.field.field--name-field-related-data-insights"
+        dataset_related_dataset: "div.main-container.container-fluid.js-quickedit-main-content > div > div > section > div > article > div.main > div > div:nth-child(1)"
+        dataset_related_article: "#edit-group-docs-links--content"
+        reports_related_dataset: "div.field.field--name-field-associated-datasets.field--type-entity-reference.field"
+        reports_related_insight: "div.field.field--name-field-related-data-insights.field--type-entity-reference.field"
+        reports_related_article: "div.field.field--name-field-articles.field--type-entity-reference.field"
+        insight_related_dataset: "div.field.field--name-field-associated-datasets.field"
+        insight_related_reports: "div.field.field--name-field-related-reports-statistics.field"
+        insight_related_article: "div.field.field--name-field-articles.field"
+        tool_related_article: "div.field.field--name-field-articles.field"
+        tool_related_dataset: "div.field.field--name-field-dataset-related-datasets.field"
+        revision2_diff_category_col1: "#block-adminimal-theme-content > div.diff-responsive-table-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(3)"
+        revision2_diff_category_col2: "#block-adminimal-theme-content > div.diff-responsive-table-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(6)"
+        revision3_diff_category_col1: "#block-adminimal-theme-content > div.diff-responsive-table-wrapper > table > tbody > tr:nth-child(6) > td:nth-child(3)"
+        revision3_diff_category_col2: "#block-adminimal-theme-content > div.diff-responsive-table-wrapper > table > tbody > tr:nth-child(6) > td:nth-child(6)"
+        ogda: "#edit-group-open-government-data-act > legend > span"
+        cost: "#edit-group-cost > legend > span"
+        save_as_state: "#edit-moderation-state-0-state"
+        current_state: "#edit-moderation-state-0-current"
+        datasets_related_reports_stats: "#edit-field-related-reports-statistics-wrapper"
+        metadata_db_display_opt: "#edit-display-container"
+        metadata_db_table: "#dataset-dashboard-table"
+        metadata_db_table_header: "#dataset-dashboard-table > thead"
+        insight_related_insights: "#edit-field-relate-data-insight-wrapper"
+        insight_contact: "#inline-entity-form-field_contacts-0-subform-field_contact-form"

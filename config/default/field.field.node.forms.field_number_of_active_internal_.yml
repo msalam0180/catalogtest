@@ -1,0 +1,23 @@
+uuid: ddb946f0-ce94-4c6a-b796-a51cb65edf02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_active_internal_
+    - node.type.forms
+id: node.forms.field_number_of_active_internal_
+field_name: field_number_of_active_internal_
+entity_type: node
+bundle: forms
+label: 'Number of active internal end users'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

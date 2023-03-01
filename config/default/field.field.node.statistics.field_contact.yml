@@ -1,0 +1,32 @@
+uuid: d78e4f1b-a7b5-44cc-b7ca-b2028a09e37a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.contact
+    - node.type.statistics
+  content:
+    - 'node:contact:cc1a26c1-20a1-4fda-9158-73e4e0b0e396'
+id: node.statistics.field_contact
+field_name: field_contact
+entity_type: node
+bundle: statistics
+label: 'Editorial Point of Contact'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: cc1a26c1-20a1-4fda-9158-73e4e0b0e396
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

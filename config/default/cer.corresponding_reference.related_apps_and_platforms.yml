@@ -1,0 +1,13 @@
+uuid: 08ec31fc-da34-42a6-9c28-bf2f2beaf112
+langcode: en
+status: true
+dependencies: {  }
+id: related_apps_and_platforms
+label: 'Related Apps and Platforms'
+enabled: true
+first_field: field_related_platforms
+second_field: field_related_apps
+bundles:
+  node:
+    - application
+    - platform

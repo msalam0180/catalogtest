@@ -1,0 +1,36 @@
+uuid: 5a79e821-0ee0-4745-9fa7-54836d0e82e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_sensitivity
+field_name: field_sensitivity
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Sensitive PII'
+      label: 'Sensitive PII'
+    -
+      value: 'Market Sensitive'
+      label: 'Market Sensitive'
+    -
+      value: 'SEC Sensitive'
+      label: 'SEC Sensitive'
+    -
+      value: Internal
+      label: Internal
+    -
+      value: Non-sensitive
+      label: Non-sensitive
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

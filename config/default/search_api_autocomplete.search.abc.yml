@@ -1,0 +1,35 @@
+uuid: a54e9adb-f78a-41fc-a7c0-2522443d3335
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.data_search
+    - views.view.abc
+  module:
+    - views
+    - search_api_autocomplete
+id: abc
+label: ABC
+index_id: data_search
+suggester_settings:
+  live_results:
+    fields:
+      - title
+    view_modes:
+      'entity:node':
+        data_set: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:abc':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: false

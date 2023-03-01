@@ -1,0 +1,104 @@
+//
+// Technology Standards List page
+// Styles the list page of top level components
+// --------------------------------------------------
+
+//tech standards page
+$viewtechStandardsBig: (min-width: 1020px);
+$viewtechStandardsMediumAndUp: "(min-width: 501px)";
+$viewtechStandardsMedium: "(max-width: 1019px) AND (min-width: 501px)";
+$viewtechStandardsMediumAndDown: "(max-width: 1019px)";
+$viewtechStandardsTiny:  (max-width: 500px);
+
+.block-component-categories{
+  margin-top: $spacing-separation-above-line;
+  border-top: 1px solid $border-color;
+  padding-top: $spacing-separation-below-line + 20px;
+
+  [class^="parent---"]:not([class$="parent---"]){
+    display: none;
+  }
+
+  .view-content{
+
+    & > .parent---{
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      @media #{$viewtechStandardsMediumAndDown} {
+        padding-bottom: 30px;
+      }
+    }
+
+    @media #{$viewtechStandardsBig} {
+      display: flex;
+      flex-wrap: wrap;
+      & > * {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+      
+      & > .parent---{
+        padding-right: 40px;
+      }
+      
+      & > :nth-child(2n){
+        padding-right: 0;
+      }
+    }
+
+  }
+
+  .tech-view-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .tech-view-box--header{
+    margin-bottom: 5px;
+
+    @media #{$viewtechStandardsMediumAndUp} {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    
+    h2{
+      margin: 0;
+      font-size: 1.4em;
+      flex-grow: 1;
+      color: #273A56; //need var
+      .fontawesome-icons{
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      @media #{$viewtechStandardsTiny} {
+        font-size: 1.2em;
+      }
+    }
+  }
+  
+
+  .tech-view-box--main{
+    border: 1px solid $border-color-alt;
+    padding: 15px 20px;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+    font-size: 0.95em;
+  }
+
+  .total-component-nodes {
+    line-height: 1em;
+    color: #6f6f6f;
+    font-size: .9em;
+    white-space: nowrap;
+    flex-grow: 1;
+    text-align: right;
+    @media #{$viewtechStandardsTiny} {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+uuid: 6f1537e3-7b7b-4850-9a90-91a8dda62db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.division_office.field_full_name
+    - taxonomy.vocabulary.division_office
+  module:
+    - text
+id: taxonomy_term.division_office.default
+targetEntityType: taxonomy_term
+bundle: division_office
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_full_name: true
+  search_api_excerpt: true

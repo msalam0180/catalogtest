@@ -1,0 +1,28 @@
+uuid: d6dc06c5-c3f6-4030-8307-53fbb02bfc2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_faq_s
+    - node.type.article
+    - taxonomy.vocabulary.tool_types
+id: taxonomy_term.tool_types.field_faq_s
+field_name: field_faq_s
+entity_type: taxonomy_term
+bundle: tool_types
+label: 'FAQ''s'
+description: 'To add a new FAQ, you need to add a new article of the type FAQ. | Reordering FAQ''s will not reorder their display. They are displayed by last updated first.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

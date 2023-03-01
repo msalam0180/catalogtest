@@ -1,0 +1,10 @@
+uuid: e2a673a8-8c66-4621-a9a1-c84940598e15
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IhBJA4MBx3owzsFFXO912vyR5jlIFCFcCriThjfjTVY
+name: '[OLD TAX: REPLACED WITH DATA SYSTEM TOOLS] Platform'
+vid: dataset_datastore
+description: "[Saving temporarily for reference] Identifies platform of the dataset.\t"
+weight: 0

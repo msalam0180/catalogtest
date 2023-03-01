@@ -1,0 +1,6 @@
+access dataset dashboard:
+  title: 'Access Dataset Dashboard'
+  description: 'Access the dataset dashboard page and functionalities'
+save and publish dataset dashboard:
+  title: 'Save and publish content in Dataset Dashboard'
+  description: 'Allowed to save and publish content in the dataset dashboard page'

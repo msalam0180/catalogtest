@@ -1,0 +1,28 @@
+uuid: 51797218-3cc5-43d2-a5af-016f13f4504c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_documents
+    - media.type.files
+    - node.type.application
+id: node.application.field_documents
+field_name: field_documents
+entity_type: node
+bundle: application
+label: 'Related Documents'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      files: files
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

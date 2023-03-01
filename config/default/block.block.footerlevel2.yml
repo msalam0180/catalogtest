@@ -1,0 +1,25 @@
+uuid: 42eb0e47-8deb-477d-8eae-25f7ddd5425e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-level-2
+  module:
+    - system
+  theme:
+    - dlp
+id: footerlevel2
+theme: dlp
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-level-2'
+settings:
+  id: 'system_menu_block:footer-level-2'
+  label: 'Footer Level 2'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

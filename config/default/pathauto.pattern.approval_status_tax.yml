@@ -1,0 +1,23 @@
+uuid: 050f1a84-a643-4f92-b625-c4723cd1ce01
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: approval_status_tax
+label: 'Approval Status Tax'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/technology-standards/[term:name]'
+selection_criteria:
+  cf41ae8f-2ecb-48bb-9cf6-ba957243f883:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: cf41ae8f-2ecb-48bb-9cf6-ba957243f883
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      status: status
+selection_logic: and
+weight: -5
+relationships: {  }

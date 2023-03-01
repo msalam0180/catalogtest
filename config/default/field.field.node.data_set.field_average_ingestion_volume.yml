@@ -1,0 +1,23 @@
+uuid: 3e46874c-0d1b-481d-bb15-069d5d42b497
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_average_ingestion_volume
+    - node.type.data_set
+id: node.data_set.field_average_ingestion_volume
+field_name: field_average_ingestion_volume
+entity_type: node
+bundle: data_set
+label: 'Average Ingestion Volume'
+description: 'Average data volume of each ingestion and provisioning cycle (in GB)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: GB
+field_type: decimal

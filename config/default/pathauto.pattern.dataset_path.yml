@@ -1,0 +1,22 @@
+uuid: c2e37473-bf03-4de6-b4f4-77eade34d448
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: dataset_path
+label: 'Dataset path'
+type: 'canonical_entities:node'
+pattern: 'datasets/[node:title]'
+selection_criteria:
+  b7f77707-239a-4da1-8789-39f6d089554d:
+    id: node_type
+    negate: false
+    uuid: b7f77707-239a-4da1-8789-39f6d089554d
+    context_mapping:
+      node: node
+    bundles:
+      data_set: data_set
+selection_logic: and
+weight: -5
+relationships: {  }

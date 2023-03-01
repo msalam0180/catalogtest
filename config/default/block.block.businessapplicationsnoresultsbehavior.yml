@@ -1,0 +1,25 @@
+uuid: b6bc15b0-8815-4e25-aa10-340b92fe32f3
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a3ca87ff-d01b-4335-9f1c-c308c40acefa'
+  module:
+    - block_content
+  theme:
+    - dlp
+id: businessapplicationsnoresultsbehavior
+theme: dlp
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:a3ca87ff-d01b-4335-9f1c-c308c40acefa'
+settings:
+  id: 'block_content:a3ca87ff-d01b-4335-9f1c-c308c40acefa'
+  label: 'Business Applications - No Results Behavior'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

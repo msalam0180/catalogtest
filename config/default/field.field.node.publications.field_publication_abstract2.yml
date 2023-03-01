@@ -1,0 +1,21 @@
+uuid: 78969bd4-2abf-4517-baf4-0a40c08bbd75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_abstract2
+    - node.type.publications
+  module:
+    - text
+id: node.publications.field_publication_abstract2
+field_name: field_publication_abstract2
+entity_type: node
+bundle: publications
+label: 'Publication Abstract'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

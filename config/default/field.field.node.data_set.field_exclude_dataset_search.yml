@@ -1,0 +1,23 @@
+uuid: 263c3bc9-7cca-426e-9ad6-ed0cce92881b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_dataset_search
+    - node.type.data_set
+  module:
+    - search_api_exclude_entity
+id: node.data_set.field_exclude_dataset_search
+field_name: field_exclude_dataset_search
+entity_type: node
+bundle: data_set
+label: 'Exclude from Dataset Search'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings: {  }
+field_type: search_api_exclude_entity

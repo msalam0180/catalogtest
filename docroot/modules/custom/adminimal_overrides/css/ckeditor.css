@@ -1,0 +1,33 @@
+html {
+  background: white;
+}
+
+body {
+  margin: 10px;
+}
+drupal-media {
+  outline: 1px dashed #8a8a8a;
+}
+
+drupal-media .media-library-item__edit{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+drupal-media .media-library-item__edit:hover,
+drupal-media .media-library-item__edit:focus {
+  outline: 1px solid #75bed0;
+}
+
+/* Each page should only have 1 H1 - user should not be able to add an H1 */
+[title="Heading 1"] {
+  display: none !important;
+}
+
+[contenteditable="false"] {
+  opacity: .6;
+  color: #000 !important;
+}
+
+

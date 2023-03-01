@@ -1,0 +1,58 @@
+uuid: b57e95cd-8add-4a0d-9e9d-5100cf48edb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.limited_plus
+  module:
+    - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: public
+    directory: inline-files-wysiwyg
+    extensions: 'pdf doc docx xls xlsx ppt pptx csv txt json avi wmv jpg dm1 msg zip sas db dbf mpeg mp3 wav'
+    max_size: ''
+format: limited_plus
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - DrupalFile
+            - DrupalImage
+        -
+          name: Tools
+          items:
+            - Source
+  plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: content_limited_
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: 1436
+    height: null

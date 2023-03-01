@@ -1,0 +1,31 @@
+uuid: 72c313f2-708e-43c3-b0bd-f9328c3a1eb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.title_only
+    - field.field.paragraph.applications_to_datasets.field_related_dataset
+    - field.field.paragraph.applications_to_datasets.field_technology_dataset_relatio
+    - paragraphs.paragraphs_type.applications_to_datasets
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.applications_to_datasets.title_only
+targetEntityType: paragraph
+bundle: applications_to_datasets
+mode: title_only
+content:
+  field_related_dataset:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_technology_dataset_relatio: true
+  search_api_excerpt: true

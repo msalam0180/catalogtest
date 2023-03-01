@@ -1,0 +1,19 @@
+uuid: 6e5ef7f6-4776-42f7-8ef0-5f77f2ad0e08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_guidance
+    - node.type.platform
+id: node.platform.field_contact_guidance
+field_name: field_contact_guidance
+entity_type: node
+bundle: platform
+label: 'Contact Guidance'
+description: 'This field can be used to provide more specific guidance to users as to who to contact, as needed'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

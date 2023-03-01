@@ -1,0 +1,10 @@
+uuid: f86398d7-db8b-4329-843e-36a3f3597a8d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.node_main_full_width_image
+label: 'Node Main Full Width Image'
+targetEntityType: media
+cache: true

@@ -1,0 +1,12 @@
+uuid: b5e7e6cb-8d02-446b-90d4-756ab1d91330
+langcode: en
+status: true
+dependencies: {  }
+id: related_data_insights
+label: 'Related Data Insights'
+enabled: true
+first_field: field_relate_data_insight
+second_field: field_relate_data_insight
+bundles:
+  node:
+    - data_insight

@@ -1,0 +1,8 @@
+uuid: 25b588b7-47bd-41a2-8d75-2fa46698d247
+langcode: en
+status: true
+dependencies: {  }
+name: 'Application Type'
+vid: application_type
+description: 'Where the application''s originates'
+weight: 0

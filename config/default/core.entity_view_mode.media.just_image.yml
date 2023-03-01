@@ -1,0 +1,10 @@
+uuid: 98e6c73b-4f51-4920-97b0-15f047644710
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.just_image
+label: 'Just Image'
+targetEntityType: media
+cache: true

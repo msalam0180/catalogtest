@@ -1,0 +1,14 @@
+uuid: bbfcd764-5f1f-40fc-b64a-d31226c50e32
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.chart
+id: node_type_chart
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

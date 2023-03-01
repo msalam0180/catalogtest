@@ -1,0 +1,29 @@
+uuid: 131229e5-6e62-4c27-ae92-e1b936c254a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ocdo_classification
+    - node.type.data_set
+    - taxonomy.vocabulary.ocdo_classification
+id: node.data_set.field_ocdo_classification
+field_name: field_ocdo_classification
+entity_type: node
+bundle: data_set
+label: 'OCDO Classification'
+description: 'Internal Classification for OCDO Use'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ocdo_classification: ocdo_classification
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

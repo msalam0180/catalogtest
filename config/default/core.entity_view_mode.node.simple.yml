@@ -1,0 +1,10 @@
+uuid: b5ff321f-6611-4caa-94d9-53095b8d9477
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.simple
+label: Simple
+targetEntityType: node
+cache: true

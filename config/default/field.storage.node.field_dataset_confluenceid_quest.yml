@@ -1,0 +1,22 @@
+uuid: efd583d9-b95e-43aa-bd14-7dfb415eaabb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: iZf2maezT16M3J2wgJhMQaIoMDNal2hUyG7-5RUfw-I
+id: node.field_dataset_confluenceid_quest
+field_name: field_dataset_confluenceid_quest
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

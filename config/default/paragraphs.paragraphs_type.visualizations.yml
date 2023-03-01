@@ -1,0 +1,9 @@
+uuid: a86bdac5-bc46-4704-9e43-a6eff9bec28f
+langcode: en
+status: true
+dependencies: {  }
+id: visualizations
+label: Visualizations
+icon_uuid: null
+description: 'Visualizations and related text boxes '
+behavior_plugins: {  }

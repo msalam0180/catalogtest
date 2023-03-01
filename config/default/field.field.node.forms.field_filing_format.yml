@@ -1,0 +1,21 @@
+uuid: 42d80d54-bebf-491e-bd18-125671da8299
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_filing_format
+    - node.type.forms
+  module:
+    - options
+id: node.forms.field_filing_format
+field_name: field_filing_format
+entity_type: node
+bundle: forms
+label: 'Filing Format'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

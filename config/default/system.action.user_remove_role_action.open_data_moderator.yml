@@ -1,0 +1,14 @@
+uuid: e664f4d1-9df1-41ab-a6cf-f7990b42dd20
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.open_data_moderator
+  module:
+    - user
+id: user_remove_role_action.open_data_moderator
+label: 'Remove the OPEN Data Moderator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: open_data_moderator

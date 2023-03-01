@@ -1,0 +1,47 @@
+uuid: 08cdb85b-5d65-4d41-a6d1-6da967d21b44
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:landing_page_block:d231edd0-43d3-4f65-8c0a-c3157ffe8b0b'
+  module:
+    - block_content
+id: node.data_set.feeback
+label: Feedback
+display_label: false
+name: feeback
+description: ''
+base_entity_type_id: node
+base_bundle_type_id: data_set
+field_type_id: block
+field_type_config:
+  block_type: 'block_content:d231edd0-43d3-4f65-8c0a-c3157ffe8b0b'
+  block_config:
+    label: 'Feedback Text'
+    label_display: '0'
+    provider: block_content
+    view_mode: full
+field_type_condition:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      data_set: data_set
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles: {  }
+  current_theme:
+    id: current_theme
+    theme: ''
+    negate: 0
+  request_path:
+    id: request_path
+    negate: false
+    pages: ''
+display:
+  type: view

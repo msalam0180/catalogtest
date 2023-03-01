@@ -1,0 +1,21 @@
+{
+    "name": "drupal/entity_reference_labels",
+    "type": "drupal-module",
+    "description": "Provides more descriptive labels for entity reference fields.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "George Anderson (geoanders)",
+            "homepage": "https://www.drupal.org/u/geoanders",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://drupal.org/project/entity_reference_labels",
+    "support": {
+        "issues": "https://drupal.org/project/issues/entity_reference_labels",
+        "source": "https://git.drupalcode.org/project/entity_reference_labels"
+    },
+    "require": {
+        "drupal/core": "^8.8 || ^9.0"
+    }
+}

@@ -1,0 +1,22 @@
+uuid: 9b06eddf-c76e-491f-b9db-b9a2e2e189aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: component_path
+label: 'Component path'
+type: 'canonical_entities:node'
+pattern: 'software/[node:title]'
+selection_criteria:
+  e3ab24e9-e7d5-4a54-a179-e8ee21b6cb24:
+    id: node_type
+    negate: false
+    uuid: e3ab24e9-e7d5-4a54-a179-e8ee21b6cb24
+    context_mapping:
+      node: node
+    bundles:
+      component: component
+selection_logic: and
+weight: -5
+relationships: {  }

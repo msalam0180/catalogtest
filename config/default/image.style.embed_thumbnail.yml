@@ -1,0 +1,15 @@
+uuid: 90280566-20db-428c-9eb6-a917e7a60e95
+langcode: en
+status: true
+dependencies: {  }
+name: embed_thumbnail
+label: 'Embed Thumbnail'
+effects:
+  111e6e3e-45c4-4b0e-9b24-4f17954ceb1c:
+    uuid: 111e6e3e-45c4-4b0e-9b24-4f17954ceb1c
+    id: image_scale
+    weight: 1
+    data:
+      width: 250
+      height: 246
+      upscale: false

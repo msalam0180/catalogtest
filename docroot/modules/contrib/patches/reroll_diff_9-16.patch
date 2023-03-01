@@ -1,0 +1,17 @@
+diff --git a/src/Plugin/ImporterBase.php b/src/Plugin/ImporterBase.php
+index 3c7de05..e9f0b7a 100644
+--- a/src/Plugin/ImporterBase.php
++++ b/src/Plugin/ImporterBase.php
+@@ -85,6 +85,12 @@ abstract class ImporterBase extends PluginBase implements ImporterInterface {
+             $content = Unicode::convertToUtf8($content, mb_detect_encoding($content));
+             $fields = explode('|', $csv_fields[$key]);
+ 
++            // Pipe delimited values.
++            $multifields = explode('|', $content);
++            if (count($multifields) > 1) {
++              $content = $multifields;
++            }
++
+             $field = $fields[0];
+             if (count($fields) > 1) {
+               foreach ($fields as $key => $in) {

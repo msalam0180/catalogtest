@@ -1,0 +1,5 @@
+dc_dashboard.dataset_dashboard:
+  title: 'Dataset Dashboard'
+  route_name: dc_dashboard.dataset_dashboard
+  parent_id: system.admin_content
+  weight: 9

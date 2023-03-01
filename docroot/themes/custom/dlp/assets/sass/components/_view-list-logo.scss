@@ -1,0 +1,194 @@
+// View List With Image
+// See Platform View for example usage
+
+$viewListImageBig: (min-width: 768px);
+$viewListImageMedium: (max-width: 767px) AND (min-width: 500px);
+$viewListImageTiny:  (max-width: 500px);
+$viewListImageBorderColor: $border-color;
+$viewListImageFallbackImageColor: #d2d2d2;
+$viewListImageTinyBackgroundColor: $gray-lighter4; //TODO: This color should be a proper var in the var file
+$viewListImageSubTextColor: #6f6f6f;
+
+.view-list-img{
+  display: flex;
+  margin-bottom: 30px;
+
+  &.view-list-img--compressed{
+    margin-bottom: 20px;
+  }
+
+  @media #{$viewListImageTiny} {
+    border: 1px solid $viewListImageBorderColor;
+    display: block;
+  }
+
+  &.view-list-img--no-img{
+    margin-bottom: 0px;
+  }
+}
+
+.view-list-img--img{
+  display: flex;
+  justify-content: center;
+  flex-basis: 120px;
+  min-width: 120px;
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid $viewListImageBorderColor;
+  align-items: center;
+
+  @media #{$viewListImageBig} {
+    flex-basis: 250px;
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  @media #{$viewListImageTiny} {
+    border: none;
+    border-bottom: 1px solid $viewListImageBorderColor;
+    align-items: flex-start;
+    padding: 20px 30px;
+    margin: 0;
+  }
+
+  //Fallback Image
+  .view-list-img--img-fallback {
+    width: 100%;
+    svg{
+      color: $viewListImageFallbackImageColor;
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  & > a{
+    flex-basis: 100%;
+  }
+
+  img, svg{
+    margin: 0 auto;
+    display: block;
+  }
+
+  // hide quick edit
+  .contextual{
+    display: none !important;
+  }
+}
+
+.view-list-img--main{
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0px;
+
+  @media #{$viewListImageTiny} {
+    padding: 20px 30px;
+    background: $viewListImageTinyBackgroundColor;
+  }
+}
+.view-list-img--main-inner{
+  width: 100%;
+}
+
+.view-list-img--header{
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 5px;
+
+  .status{
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+
+    @media #{$viewListImageTiny} {
+      border-left: 0;
+      margin: 0 0 0 10px;
+      padding: 0;
+    }
+  }
+}
+
+.view-list-img--title{
+  margin-top: 0;
+  font-size: 1.4em;
+  margin-bottom: 0;
+
+  @media #{$viewListImageTiny} {
+    flex-grow: 1;
+  }
+
+  & + a{
+    @media (max-width: 650px) {
+      display: none;
+    }
+  }
+}
+
+.view-list-img--desc{
+  @media #{$viewListImageTiny} {
+    margin-top: 10px;
+  }
+}
+
+.view-list-img--related{
+  color: $viewListImageSubTextColor;
+  font-size: .9em;
+}
+
+.edit-link-in-title{
+  font-size: 0.7em;
+  margin-left: 5px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.view-list-img--other-fields{
+  // font-size: 0.9em;
+  margin-top: 15px;
+
+  .view-list-img--other-fields--label{
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  &:empty {
+    display: none;
+  }
+
+  .view-list-img--other-field--paragraph-title-only-list {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline
+    }
+    li{
+      display: inline
+    }
+    li + li:before {
+      content: ", ";
+    }
+  }
+
+}
+
+.view-list-img--other-field{
+  font-size: 0.9em;
+
+  .views-label, .view-list-img--other-fields--label{
+    font-weight: bold;
+    margin-right: 3px;
+  }
+}
+
+.view-list-img--desc + .view-list-img--other-field{
+  margin-top: 15px;
+}
+
+.view-list-img--other-field.view-list-img--other-field--paragraph-title-only-list {
+  ul {list-style: none; margin: 0; padding: 0; display: inline}
+  li{ display: inline}
+  li + li:before {
+      content: ", ";
+  }
+}  

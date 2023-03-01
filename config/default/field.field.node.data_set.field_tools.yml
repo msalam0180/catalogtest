@@ -1,0 +1,29 @@
+uuid: 75f83c7b-fd4d-4599-a008-1b5cd1f1e715
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tools
+    - node.type.data_set
+    - node.type.tools
+id: node.data_set.field_tools
+field_name: field_tools
+entity_type: node
+bundle: data_set
+label: Tools
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      tools: tools
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

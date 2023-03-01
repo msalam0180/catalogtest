@@ -1,0 +1,8 @@
+uuid: ae5d3d5a-1a33-414a-9b73-20e910b9db3a
+langcode: en
+status: true
+dependencies: {  }
+id: landing_page_block
+label: 'Custom Landing Page block'
+revision: 1
+description: 'Custom block for Landing pages.'

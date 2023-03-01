@@ -1,0 +1,23 @@
+uuid: c7c2dd77-2f83-477c-8f14-05f40c6ef4bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.feeds_item
+    - paragraphs.paragraphs_type.datasets_to_applications
+  module:
+    - feeds
+id: paragraph.datasets_to_applications.feeds_item
+field_name: feeds_item
+entity_type: paragraph
+bundle: datasets_to_applications
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

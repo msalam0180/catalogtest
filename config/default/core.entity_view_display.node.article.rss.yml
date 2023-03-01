@@ -1,0 +1,42 @@
+uuid: fe94b7bc-1d7a-4abc-96f3-f39bb5286e28
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.rss
+    - field.field.node.article.body
+    - field.field.node.article.field_category
+    - node.type.article
+  module:
+    - user
+_core:
+  default_config_hash: hkJIlt2a7P8lgjWqom8-YMbSV8Qukjun3ps6b6qO_z0
+id: node.article.rss
+targetEntityType: node
+bundle: article
+mode: rss
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_add_new_discussion: true
+  field_article_summary: true
+  field_category: true
+  field_dataset_related_datasets: true
+  field_related_apps: true
+  field_related_components: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_related_platforms: true
+  field_reviewer: true
+  field_summary: true
+  search_api_excerpt: true

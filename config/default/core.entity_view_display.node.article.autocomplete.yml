@@ -1,0 +1,328 @@
+uuid: 843e2ad8-44cc-47b8-8c0e-d2bbab4c120c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.autocomplete
+    - field.field.node.article.body
+    - field.field.node.article.field_add_new_discussion
+    - field.field.node.article.field_article_summary
+    - field.field.node.article.field_category
+    - field.field.node.article.field_dataset_related_datasets
+    - field.field.node.article.field_related_apps
+    - field.field.node.article.field_related_components
+    - field.field.node.article.field_related_datasets
+    - field.field.node.article.field_related_discussions
+    - field.field.node.article.field_related_platforms
+    - field.field.node.article.field_reviewer
+    - field.field.node.article.field_summary
+    - node.type.article
+  module:
+    - db_custom_formatters
+    - field_delimiter
+    - field_group
+    - layout_builder
+    - text
+    - user
+    - viewfield
+third_party_settings:
+  field_group:
+    group_extra_content_section:
+      children:
+        - field_category
+        - field_article_summary
+        - field_dataset_related_datasets
+        - field_related_datasets
+        - field_related_discussions
+        - field_add_new_discussion
+      label: 'Extra Content Section'
+      parent_name: group_article_side
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: media-md-wrapper
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_row_01:
+      children:
+        - group_c
+        - group_article_side
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: article-top-container
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_c:
+      children:
+        - body
+      label: 'Column 01'
+      parent_name: group_row_01
+      region: content
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: article-details
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_article_side:
+      children:
+        - group_extra_content_section
+        - group_platforms
+        - group_components
+        - group_applications
+      label: 'Column 02'
+      parent_name: group_row_01
+      region: content
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: article-side
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_components:
+      children:
+        - group_components_content
+      label: Software
+      parent_name: group_article_side
+      region: content
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_components_content:
+      children:
+        - field_related_components
+      label: 'Software Content'
+      parent_name: group_components
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_applications:
+      children:
+        - group_applications_
+      label: Applications
+      parent_name: group_article_side
+      region: content
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_applications_:
+      children:
+        - field_related_apps
+      label: 'Applications Content'
+      parent_name: group_applications
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_platforms:
+      children:
+        - group_platforms_content
+      label: Platforms
+      parent_name: group_article_side
+      region: content
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_platforms_content:
+      children:
+        - field_related_platforms
+      label: 'Platforms Content'
+      parent_name: group_platforms
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: side-grouping-content
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: _qyrbO8fl7Kb-d1K2Xhy_DpvJTaRBfKf1SdJN-N3dMk
+id: node.article.autocomplete
+targetEntityType: node
+bundle: article
+mode: autocomplete
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_add_new_discussion:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_article_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_dataset_related_datasets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_related_apps:
+    type: entity_reference_button
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_related_components:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: referenced
+      link: false
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 3
+    region: content
+  field_related_datasets:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: true
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_related_discussions:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_related_platforms:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: referenced
+      link: false
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_review_submitter: true
+  field_reviewer: true
+  field_summary: true
+  search_api_excerpt: true

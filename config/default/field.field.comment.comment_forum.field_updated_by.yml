@@ -1,0 +1,28 @@
+uuid: 57e66eaa-0b30-4786-875c-80e7527f4f0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment_forum
+    - field.storage.comment.field_updated_by
+id: comment.comment_forum.field_updated_by
+field_name: field_updated_by
+entity_type: comment
+bundle: comment_forum
+label: 'Updated By'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

@@ -1,0 +1,89 @@
+uuid: 46dd41d9-ca56-4336-ab88-9f321860ff2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.datasets_to_applications.field_related_application
+    - field.field.paragraph.datasets_to_applications.field_technology_dataset_relatio
+    - paragraphs.paragraphs_type.datasets_to_applications
+  module:
+    - paragraphs
+label: 'Related Technology'
+id: related_technology
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:paragraph'
+processor_configuration:
+  values:
+    type: datasets_to_applications
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  node_id:
+    value: 'Node ID'
+    label: 'Node ID'
+    machine_name: node_id
+    type: csv
+  related_technology:
+    value: 'Related Technology'
+    label: 'Related Technology'
+    machine_name: related_technology
+    type: csv
+  technology_relationship:
+    value: 'Technology Relationship'
+    label: 'Technology Relationship'
+    machine_name: technology_relationship
+    type: csv
+mappings:
+  -
+    target: parent_id
+    map:
+      value: node_id
+    settings: {  }
+    unique: {  }
+  -
+    target: parent_field_name
+    map:
+      value: 'parent:field_entity_field_name'
+    settings: {  }
+    unique: {  }
+  -
+    target: parent_type
+    map:
+      value: 'parent:type'
+    settings: {  }
+    unique: {  }
+  -
+    target: field_related_application
+    map:
+      target_id: related_technology
+    settings:
+      language: null
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_technology_dataset_relatio
+    map:
+      target_id: technology_relationship
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

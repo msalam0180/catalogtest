@@ -1,0 +1,10 @@
+uuid: d45858e3-d522-443e-82b1-c21de717b196
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yoFfLWxzf0-6eJT3YCYr9BQv-PHK_eKDr5qBHes-J9c
+name: 'Publications Keywords'
+vid: publications_keywords
+description: 'Tags for publications'
+weight: 0

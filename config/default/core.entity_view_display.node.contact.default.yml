@@ -1,0 +1,114 @@
+uuid: dee2dc14-846e-4c2c-a3d3-ef8f39b23292
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact.body
+    - field.field.node.contact.feeds_item
+    - field.field.node.contact.field_associated_websites
+    - field.field.node.contact.field_division_office
+    - field.field.node.contact.field_email
+    - field.field.node.contact.field_first_name
+    - field.field.node.contact.field_helpful_information
+    - field.field.node.contact.field_image_upload
+    - field.field.node.contact.field_last_name
+    - field.field.node.contact.field_phone_number
+    - image.style.thumbnail
+    - node.type.contact
+  module:
+    - field_delimiter
+    - link
+    - media
+    - telephone
+    - text
+    - user
+_core:
+  default_config_hash: O3NFMM0j1RaSxMASOhv5hEwVgyHrvpBScvVFvsG4yRk
+id: node.contact.default
+targetEntityType: node
+bundle: contact
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_associated_websites:
+    type: link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 7
+    region: content
+  field_division_office:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_email:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_first_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_helpful_information:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_image_upload:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_last_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_phone_number:
+    type: telephone_link
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  feeds_item: true
+  search_api_excerpt: true

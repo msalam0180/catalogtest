@@ -1,0 +1,13 @@
+uuid: 6ea3a69e-0922-41a8-b84e-98f25bc66e18
+langcode: en
+status: true
+dependencies: {  }
+id: related_apps_and_datasets
+label: 'Related Apps and Datasets'
+enabled: true
+first_field: field_cer_datasets
+second_field: field_related_apps
+bundles:
+  node:
+    - application
+    - data_set

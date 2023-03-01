@@ -1,0 +1,12 @@
+uuid: 45bbfdb0-2d40-46ba-ae4c-45da4837d387
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: v7WkCnJlBWdvVqgKLFLPnVIm8disSpfBgPwLSYIXM4g
+id: media.just_file
+label: 'Just File'
+targetEntityType: media
+cache: true

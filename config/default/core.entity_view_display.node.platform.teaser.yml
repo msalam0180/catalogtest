@@ -1,0 +1,86 @@
+uuid: 074688ce-bd1f-40ff-9f69-501f8b4f7e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.platform.body
+    - field.field.node.platform.field_add_new_discussion
+    - field.field.node.platform.field_approved_version
+    - field.field.node.platform.field_component_category
+    - field.field.node.platform.field_contact_guidance
+    - field.field.node.platform.field_contacts
+    - field.field.node.platform.field_data_search_index
+    - field.field.node.platform.field_dataset_use
+    - field.field.node.platform.field_division_office_multi
+    - field.field.node.platform.field_documents
+    - field.field.node.platform.field_how_to_request_access
+    - field.field.node.platform.field_logo
+    - field.field.node.platform.field_manufacturer
+    - field.field.node.platform.field_platform_link
+    - field.field.node.platform.field_promote_it_to_the_technolo
+    - field.field.node.platform.field_related_apps
+    - field.field.node.platform.field_related_articles
+    - field.field.node.platform.field_related_components
+    - field.field.node.platform.field_related_datasets_with_term
+    - field.field.node.platform.field_related_discussions
+    - field.field.node.platform.field_review_submitter
+    - field.field.node.platform.field_reviewer
+    - field.field.node.platform.field_short_name
+    - field.field.node.platform.field_status_usage
+    - field.field.node.platform.field_summary
+    - field.field.node.platform.field_tags
+    - node.type.platform
+  module:
+    - text
+    - user
+id: node.platform.teaser
+targetEntityType: node
+bundle: platform
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_add_new_discussion: true
+  field_approved_version: true
+  field_component_category: true
+  field_contact_guidance: true
+  field_contacts: true
+  field_data_search_index: true
+  field_dataset_use: true
+  field_division_office_multi: true
+  field_documents: true
+  field_how_to_request_access: true
+  field_logo: true
+  field_manufacturer: true
+  field_platform_link: true
+  field_promote_it_to_the_technolo: true
+  field_related_apps: true
+  field_related_articles: true
+  field_related_components: true
+  field_related_datasets_with_term: true
+  field_related_discussions: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_short_name: true
+  field_status_usage: true
+  field_summary: true
+  field_tags: true
+  search_api_excerpt: true

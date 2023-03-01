@@ -1,0 +1,92 @@
+uuid: b9fe86e1-249b-4858-902d-75e9c7f4327d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.forms.body
+    - field.field.node.forms.field_act
+    - field.field.node.forms.field_annual_burden
+    - field.field.node.forms.field_average_ingestion_volume
+    - field.field.node.forms.field_completeness
+    - field.field.node.forms.field_consistency
+    - field.field.node.forms.field_contact
+    - field.field.node.forms.field_contacts
+    - field.field.node.forms.field_cost_category
+    - field.field.node.forms.field_data_structure
+    - field.field.node.forms.field_dataset_use
+    - field.field.node.forms.field_dauisp_audit_logs
+    - field.field.node.forms.field_dauisp_data_policies
+    - field.field.node.forms.field_division_office
+    - field.field.node.forms.field_electronic_size
+    - field.field.node.forms.field_filing_entity_type
+    - field.field.node.forms.field_filing_format
+    - field.field.node.forms.field_further_details
+    - field.field.node.forms.field_mission_criticality_mefs
+    - field.field.node.forms.field_number_of_active_internal_
+    - field.field.node.forms.field_paper_size
+    - field.field.node.forms.field_pmef_divisions_offices
+    - field.field.node.forms.field_point_s_of_contact
+    - field.field.node.forms.field_rulemaking_office
+    - field.field.node.forms.field_sensitivity
+    - field.field.node.forms.field_submission_type
+    - field.field.node.forms.field_timeliness_recency
+    - field.field.node.forms.field_total_annual_burden_hours
+    - field.field.node.forms.field_total_annual_responses
+    - node.type.forms
+  module:
+    - text
+    - user
+id: node.forms.teaser
+targetEntityType: node
+bundle: forms
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_act: true
+  field_annual_burden: true
+  field_average_ingestion_volume: true
+  field_completeness: true
+  field_consistency: true
+  field_contact: true
+  field_contacts: true
+  field_cost_category: true
+  field_data_structure: true
+  field_dataset_use: true
+  field_dauisp_audit_logs: true
+  field_dauisp_data_policies: true
+  field_division_office: true
+  field_electronic_size: true
+  field_filing_entity_type: true
+  field_filing_format: true
+  field_further_details: true
+  field_mission_criticality_mefs: true
+  field_number_of_active_internal_: true
+  field_paper_size: true
+  field_pmef_divisions_offices: true
+  field_point_s_of_contact: true
+  field_rulemaking_office: true
+  field_sensitivity: true
+  field_submission_type: true
+  field_timeliness_recency: true
+  field_total_annual_burden_hours: true
+  field_total_annual_responses: true
+  search_api_excerpt: true

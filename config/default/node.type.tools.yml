@@ -1,0 +1,22 @@
+uuid: 2bf42d4f-4e4f-4ec8-8ce5-397884f58138
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: 'Provide commonly used name'
+_core:
+  default_config_hash: 1xoVdZYpAp3OA0SUFn_2aHnxTvbBB6A4UEX9UZJ0pq4
+name: Tool
+type: tools
+description: 'Any system that uses or holds the datasets in the data catalog; any tool that is used to manipulate or analyze the data in a dataset.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,153 @@
+/**
+ * Comment styling.
+ */
+
+.field--name-comment-forum{
+  & > .indented, & > .comment{
+    max-width: 900px; //todo: 
+  }
+}
+
+.comment {
+  display: flex;
+  padding-top: 30px;
+
+  .content{
+    flex-grow: 1;
+  }
+
+  .comment--subcontent{
+    padding: 10px;
+    border: 1px solid #e3e3e3;
+  }
+
+  // Top section - author etc
+  .author_details {
+    display: flex;
+    align-items: center;
+  }
+
+  .comment-username {
+    font-weight: bold;
+  }
+
+  .comment_details{
+    color: #797676;
+    font-size: .7em;
+  }
+
+  //Middle Section - body
+  .comment-body{
+    margin: 5px 0 0 0;
+    background: #f9f9f9;
+    padding: 15px;
+  }
+
+  //Bottom Section - edited etc
+  .comment-details-below{
+    margin-top: 3px;
+    color: #797676;
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .status{
+      margin: 0 -0.1em 0 0.56em;
+    }
+  }
+
+}
+
+//Links Section - edit like etc
+.discussion-links {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+
+  li {
+    padding: 0px;
+    &:not(:first-child):before, &:not(:first-child) > span.wrapper-flag-icon-count:before {
+      content: '\22C5';
+      padding: 0 5px;
+    }
+  }
+  a{
+    padding: 3px 5px;
+    &:hover, &:focus{
+      text-decoration: none;
+      background: #f3f3f3;
+      border-radius: 2px;
+      outline: none;
+    }
+  }
+}
+.comment-links{
+  font-size: 0.7em;
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
+
+.indented {
+  // border-left: 2px solid $border-color;
+  padding-left: 50px;
+  margin-left: 0;
+
+  @media #{$mobile} {
+    padding-left: 10px;
+    margin-left: 15px;
+  }
+
+}
+
+// New comment style
+mark.new {
+  color: #7b0218;
+  background: #ffe6ea;
+  padding: 1px 5px;
+  line-height: 1em;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+// Comment Form
+.comment-comment-forum-form {
+  margin-top: 30px;
+  border-top: 1px solid #e3e3e3;
+  padding-top: 30px;
+}
+
+.comment + .comment-comment-forum-form{
+  border-top: none;
+
+}
+
+.comment-deleted{
+  .deletedMessage{
+    padding: 5px 0;
+    font-size: .8em;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .status{
+      margin: 0 -0.1em 0 0.56em;
+    }
+  }
+  .notAdministerCommentsMessage{
+    margin-left: 50px;
+  }
+  .administerCommentsMessage{
+    margin-top: 5px;
+  }
+}
+
+.js-flag-message{
+  display: none;
+}
+
+.filter-help a {
+  font-weight: 500;
+  text-decoration: none;
+}

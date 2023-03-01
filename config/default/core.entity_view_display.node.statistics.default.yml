@@ -1,0 +1,289 @@
+uuid: 13927be8-30c4-4e9b-9a9d-2f88e9efde5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.statistics.body
+    - field.field.node.statistics.field_add_new_discussion
+    - field.field.node.statistics.field_articles
+    - field.field.node.statistics.field_associated_datasets
+    - field.field.node.statistics.field_author
+    - field.field.node.statistics.field_contact
+    - field.field.node.statistics.field_contacts
+    - field.field.node.statistics.field_data_search_index
+    - field.field.node.statistics.field_documents
+    - field.field.node.statistics.field_footnotes
+    - field.field.node.statistics.field_published_date
+    - field.field.node.statistics.field_r_and_s_category
+    - field.field.node.statistics.field_related_data_insights
+    - field.field.node.statistics.field_related_datasets
+    - field.field.node.statistics.field_related_discussions
+    - field.field.node.statistics.field_reports_statistics_menu
+    - field.field.node.statistics.field_repository_link
+    - field.field.node.statistics.field_review_submitter
+    - field.field.node.statistics.field_reviewer
+    - field.field.node.statistics.field_summary
+    - field.field.node.statistics.field_tags
+    - field.field.node.statistics.field_visualization_paragraph
+    - node.type.statistics
+  module:
+    - datetime
+    - entity_reference_revisions
+    - field_delimiter
+    - field_group
+    - link
+    - text
+    - user
+    - viewfield
+third_party_settings:
+  field_group:
+    group_extra_content_section:
+      children: {  }
+      label: 'Extra Content Section'
+      parent_name: ''
+      region: content
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: media-md-wrapper
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_row_01:
+      children:
+        - group_c
+        - group_article_side
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: article-top-container
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_c:
+      children:
+        - body
+        - field_visualization_paragraph
+        - field_repository_link
+        - field_footnotes
+      label: 'Column 01'
+      parent_name: group_row_01
+      region: content
+      weight: 10
+      format_type: html_element
+      format_settings:
+        classes: article-details
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_article_side:
+      children:
+        - field_reports_statistics_menu
+        - field_r_and_s_category
+        - field_contacts
+        - field_associated_datasets
+        - field_related_data_insights
+        - field_documents
+        - field_articles
+        - field_tags
+        - field_related_discussions
+        - field_add_new_discussion
+      label: 'Column 02'
+      parent_name: group_row_01
+      region: content
+      weight: 11
+      format_type: html_element
+      format_settings:
+        classes: article-side
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+_core:
+  default_config_hash: JIt307oXnMKx6CYS_XA06WPeuuEQwsh1HJsGsl2ikFw
+id: node.statistics.default
+targetEntityType: node
+bundle: statistics
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_add_new_discussion:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_articles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_associated_datasets:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_author:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_contacts:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: ''
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 25
+    region: content
+  field_documents:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: file_and_description
+      link: false
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_footnotes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_published_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_r_and_s_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_related_data_insights:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_related_discussions:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_reports_statistics_menu:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_repository_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      field_delimiter:
+        delimiter: ', '
+    weight: 30
+    region: content
+  field_visualization_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_contact: true
+  field_data_search_index: true
+  field_related_datasets: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_summary: true
+  search_api_excerpt: true

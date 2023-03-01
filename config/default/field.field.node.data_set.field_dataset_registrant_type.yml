@@ -1,0 +1,30 @@
+uuid: f6832d9e-9aeb-401c-9c9f-fd8b0ab7d6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_registrant_type
+    - node.type.data_set
+    - taxonomy.vocabulary.dataset_registrant_type
+_core:
+  default_config_hash: hpRZi0SJLashWdN-pdRjjqIFc9prVmYqhXkRuC7iRwo
+id: node.data_set.field_dataset_registrant_type
+field_name: field_dataset_registrant_type
+entity_type: node
+bundle: data_set
+label: 'Entity Type'
+description: 'What type of entity(s) does the data represent?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dataset_registrant_type: dataset_registrant_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,41 @@
+uuid: e02e40d4-55ba-4dbf-8f93-aff4f44434a4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:landing_page_block:75f473ca-35ba-436a-a046-189987d613dd'
+  module:
+    - block_content
+id: comment.comment_forum.discussion_rules_of_the_road_help_text
+label: 'Discussion Rules of the Road Help Text'
+display_label: false
+name: discussion_rules_of_the_road_help_text
+description: ''
+base_entity_type_id: comment
+base_bundle_type_id: comment_forum
+field_type_id: block
+field_type_config:
+  block_type: 'block_content:75f473ca-35ba-436a-a046-189987d613dd'
+  block_config:
+    label: 'Discussion Rules of the Road Help Text'
+    label_display: '0'
+    provider: block_content
+    view_mode: full
+field_type_condition:
+  'entity_bundle:comment':
+    id: 'entity_bundle:comment'
+    negate: false
+    context_mapping:
+      comment: entity_extra_field.target_entity
+    bundles: {  }
+  current_theme:
+    id: current_theme
+    theme: ''
+    negate: 0
+  request_path:
+    id: request_path
+    negate: false
+    pages: ''
+field_conditions_all_pass: false
+display:
+  type: form

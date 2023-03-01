@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: bcgcLMNIxEahLndyWMnW3w04QTpDvpFR2DYQNZX6SxE
+use_external: false
+external_location: 'https://cdn.plot.ly/plotly-latest.min.js'
+graph_template_path: 'public://graph_templates'
+mapbox_access_token: ''

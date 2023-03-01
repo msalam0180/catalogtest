@@ -1,0 +1,19 @@
+uuid: 26bd114e-4d6c-4aef-8be4-ab14e721a867
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_name
+    - node.type.application
+id: node.application.field_short_name
+field_name: field_short_name
+entity_type: node
+bundle: application
+label: 'Short Name'
+description: 'Short name is the acronym or shortened version of the title'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

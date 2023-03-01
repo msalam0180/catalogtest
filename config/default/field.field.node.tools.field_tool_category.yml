@@ -1,0 +1,31 @@
+uuid: 89164426-3481-46e1-8c79-c0e47571fcc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tool_category
+    - node.type.tools
+    - taxonomy.vocabulary.tool_types
+_core:
+  default_config_hash: VgIyylHIUaSM5YdsfPfVElsFku0QQEZZehrESkr9xPg
+id: node.tools.field_tool_category
+field_name: field_tool_category
+entity_type: node
+bundle: tools
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tool_types: tool_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

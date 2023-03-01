@@ -1,0 +1,34 @@
+uuid: 25aa11ad-ce11-4670-8517-e4c160c6332e
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.application_search
+    - views.view.applications
+  module:
+    - views
+    - search_api_autocomplete
+id: applications
+label: Applications
+index_id: application_search
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes:
+      'entity:node':
+        application: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:applications':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: false

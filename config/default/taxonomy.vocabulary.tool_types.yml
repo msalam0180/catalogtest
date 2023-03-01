@@ -1,0 +1,8 @@
+uuid: 378a7a50-c1d7-4e8b-a46f-51c92a56b967
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tool Types'
+vid: tool_types
+description: 'Categories that are used to group types of tools'
+weight: 0

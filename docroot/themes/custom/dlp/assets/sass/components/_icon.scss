@@ -1,0 +1,28 @@
+/**
+ * Icon styles.
+ */
+a {
+  &.icon-before .glyphicon,
+  & .glyphicon.icon-before {
+    margin-right: .25em;
+  }
+  &.icon-after .glyphicon,
+  & .glyphicon.icon-after {
+    margin-left: .25em;
+  }
+}
+
+.btn {
+  &.icon-before .glyphicon,
+  & .glyphicon.icon-before {
+    font-size: 0.8em;
+    margin-left: -.25em;
+    margin-right: .25em;
+  }
+  &.icon-after .glyphicon,
+  & .glyphicon.icon-after {
+    font-size: 0.8em;
+    margin-left: .25em;
+    margin-right: -.25em;
+  }
+}

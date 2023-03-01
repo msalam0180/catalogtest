@@ -1,0 +1,43 @@
+uuid: ca57977e-9a13-4623-8d82-bc39a4bce729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cost.field_amount
+    - field.field.paragraph.cost.field_cost_type
+    - field.field.paragraph.cost.field_year
+    - paragraphs.paragraphs_type.cost
+id: paragraph.cost.default
+targetEntityType: paragraph
+bundle: cost
+mode: default
+content:
+  field_amount:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cost_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_year:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

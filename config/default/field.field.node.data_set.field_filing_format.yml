@@ -1,0 +1,21 @@
+uuid: 9976683c-e85a-4298-88ea-9984ee921eff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_filing_format
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_filing_format
+field_name: field_filing_format
+entity_type: node
+bundle: data_set
+label: 'Filing Format'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

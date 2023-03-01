@@ -1,0 +1,6 @@
+uuid: 268ed84b-383f-4381-a8a9-2383a36b4694
+langcode: en
+status: true
+dependencies: {  }
+id: srk-shortcuts
+label: 'SRK shortcuts'

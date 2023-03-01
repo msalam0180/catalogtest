@@ -1,0 +1,21 @@
+uuid: 37907ef2-96d6-4749-a91b-5362f45f3bf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.add_existing_contact
+    - field.storage.feeds_feed.field_entity_field_name
+id: feeds_feed.add_existing_contact.field_entity_field_name
+field_name: field_entity_field_name
+entity_type: feeds_feed
+bundle: add_existing_contact
+label: 'Entity field name'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: field_contacts
+default_value_callback: ''
+settings: {  }
+field_type: string

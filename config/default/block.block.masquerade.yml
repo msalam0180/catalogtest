@@ -1,0 +1,34 @@
+uuid: fcdaacdf-9095-4709-ad59-c2e6a7ac184f
+langcode: en
+status: true
+dependencies:
+  module:
+    - masquerade
+    - user
+  theme:
+    - dlp
+id: masquerade
+theme: dlp
+region: masq
+weight: 0
+provider: null
+plugin: masquerade
+settings:
+  id: masquerade
+  label: 'Preview as User'
+  label_display: visible
+  provider: masquerade
+  show_unmasquerade_link: true
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      enduser: enduser
+      content_creator: content_creator
+      content_approver: content_approver
+      sitebuilder: sitebuilder
+      forum_moderator: forum_moderator
+      administrator: administrator

@@ -1,0 +1,29 @@
+uuid: 3d4aba7a-2ebd-40e8-ae7e-0cb2714fb7d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_type
+    - paragraphs.paragraphs_type.total_annual_filings
+    - taxonomy.vocabulary.annual_filings_type
+id: paragraph.total_annual_filings.field_type
+field_name: field_type
+entity_type: paragraph
+bundle: total_annual_filings
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      annual_filings_type: annual_filings_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

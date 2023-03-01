@@ -1,0 +1,74 @@
+uuid: 43209ef5-bf5a-4953-af38-38521f580762
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_systems
+    - node.type.data_set
+    - views.view.related_data_systems
+  module:
+    - field_display_label
+    - viewfield
+third_party_settings:
+  field_display_label:
+    display_label: 'Data systems on which this dataset is found'
+id: node.data_set.field_data_systems
+field_name: field_data_systems
+entity_type: node
+bundle: data_set
+label: 'Data Systems'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 9250dcb3-3c6a-48d7-9d2e-31aa2875b0f4
+    display_id: block_1
+    arguments: ''
+    token_help: ''
+default_value_callback: ''
+settings:
+  force_default: true
+  allowed_views:
+    related_data_systems: related_data_systems
+    child_datasets: '0'
+    comment: '0'
+    content: '0'
+    block_content: '0'
+    dataset_search_homepage: '0'
+    derived_datasets: '0'
+    entity_browser_articles: '0'
+    entity_browser_contacts: '0'
+    entity_browser_tools: '0'
+    files: '0'
+    frontpage: '0'
+    maillog_overview: '0'
+    media: '0'
+    media_entity_browser: '0'
+    media_browser_files: '0'
+    moderated_content: '0'
+    user_admin_people: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    recent_content_test: '0'
+    edc_recently_created_datasets: '0'
+    edc_recently_updated_datasets: '0'
+    related_data_dictionary: '0'
+    search_results: '0'
+    speaker_rest: '0'
+    taxonomy_term: '0'
+    watchdog: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+    workflow_entity_history: '0'
+  allowed_display_types:
+    block: block
+    embed: '0'
+    entity_browser: '0'
+    feed: '0'
+    default: '0'
+    page: '0'
+    rest_export: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

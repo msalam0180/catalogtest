@@ -1,0 +1,36 @@
+/*
+  Customizations to admin toolbar with Environment Indicator enabled
+*/
+#environment-indicator {
+  background-image: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-shadow: none;
+  letter-spacing: normal;
+  font-family: "Open Sans", sans-serif;
+  height: 30px;
+  padding: 0px;
+}
+
+.env-indicator-text {
+  position: fixed;
+  width: 100%;
+  padding: 5px 0;
+  z-index: 501;
+}
+
+@media screen and (min-width: 576px) {
+  .toolbar-vertical #environment-indicator {
+    margin-top: 39px;
+  }
+}
+
+@media screen and (min-width: 610px) {
+  table.sticky-header {
+    margin-top: 30px;
+  }
+  .adminimal.toolbar-vertical #environment-indicator {
+    margin-top: 46px;
+  }
+}
+

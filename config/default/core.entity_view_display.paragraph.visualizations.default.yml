@@ -1,0 +1,31 @@
+uuid: c5aff687-6417-4085-8c5c-c8dd21b421f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.visualizations.field_visualization
+    - field.field.paragraph.visualizations.field_visualization_text
+    - paragraphs.paragraphs_type.visualizations
+  module:
+    - text
+id: paragraph.visualizations.default
+targetEntityType: paragraph
+bundle: visualizations
+mode: default
+content:
+  field_visualization:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_visualization_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

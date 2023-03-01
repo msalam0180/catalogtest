@@ -1,0 +1,12 @@
+uuid: af1b6e70-70da-4e68-ad24-32018616b169
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 8EuR95Bnp7Wn8qd9D3Zma9VHA-9gSuR8fyGl5OEVhAg
+id: node.media_item
+label: 'Media Item'
+targetEntityType: node
+cache: true

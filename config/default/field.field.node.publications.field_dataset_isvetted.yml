@@ -1,0 +1,23 @@
+uuid: 5f277300-e6e2-4299-a2c4-f42afe7af4ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_isvetted
+    - node.type.publications
+id: node.publications.field_dataset_isvetted
+field_name: field_dataset_isvetted
+entity_type: node
+bundle: publications
+label: Approved
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

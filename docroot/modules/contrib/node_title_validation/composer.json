@@ -1,0 +1,15 @@
+{
+  "name": "drupal/node_title_validation",
+  "description": "Node Title Validation is used to validate node titles with min/max characters, Blacklist special characters/words and unique node titles.",
+  "type": "drupal-module",
+  "keywords": ["Drupal"],
+  "homepage": "https://www.drupal.org/project/node_title_validation",
+  "license": "GPL-2.0-or-later",
+  "support": {
+	"issues": "https://www.drupal.org/project/issues/node_title_validation",
+	"source": "https://git.drupalcode.org/project/node_title_validation"
+  },
+  "require": {
+    "drupal/core": "^8 || ^9"
+  }
+}

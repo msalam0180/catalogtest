@@ -1,0 +1,23 @@
+uuid: d75597e4-9008-4bfa-95f2-1d2c820ae950
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.filter_by_data_category
+  module:
+    - facets
+  theme:
+    - dlp
+id: filterbydatacategory
+theme: dlp
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:filter_by_data_category'
+settings:
+  id: 'facet_block:filter_by_data_category'
+  label: 'Filter By Data Category'
+  label_display: '0'
+  provider: facets
+  block_id: filterbydatacategory
+visibility: {  }

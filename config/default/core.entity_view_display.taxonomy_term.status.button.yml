@@ -1,0 +1,42 @@
+uuid: bbe320a5-e6a5-4382-93b6-285b3d632bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.button
+    - field.field.taxonomy_term.status.field_icon
+    - field.field.taxonomy_term.status.field_status_color
+    - taxonomy.vocabulary.status
+  module:
+    - color_field
+    - fontawesome
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.status.button
+targetEntityType: taxonomy_term
+bundle: status
+mode: button
+content:
+  field_icon:
+    type: fontawesome_icon_formatter
+    label: above
+    settings:
+      layers: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_status_color:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  description: true
+  search_api_excerpt: true

@@ -1,0 +1,25 @@
+uuid: 6e70a25a-a6d4-46ab-a00d-0fb70230b833
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - viewfield
+    - views
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_reports_statistics_menu
+field_name: field_reports_statistics_menu
+entity_type: node
+type: viewfield
+settings:
+  target_type: view
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

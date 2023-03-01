@@ -1,0 +1,29 @@
+uuid: a203a2e7-5587-4513-8dee-61d418a44633
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_division_office
+    - paragraphs.paragraphs_type.mission_criticality
+    - taxonomy.vocabulary.division_office
+id: paragraph.mission_criticality.field_division_office
+field_name: field_division_office
+entity_type: paragraph
+bundle: mission_criticality
+label: Division/Office
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

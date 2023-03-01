@@ -1,0 +1,8 @@
+uuid: c2f5ff45-a194-463d-aef2-dae0edca0b92
+langcode: en
+status: true
+dependencies: {  }
+name: 'Security Category'
+vid: security_classification
+description: 'SEC Security Category'
+weight: 0

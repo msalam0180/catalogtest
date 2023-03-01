@@ -1,0 +1,29 @@
+uuid: 9e465368-7d22-4b5f-ad9a-d75ccdb57a76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_government_data_class
+    - node.type.data_set
+    - taxonomy.vocabulary.open_government_data_act_classif
+id: node.data_set.field_open_government_data_class
+field_name: field_open_government_data_class
+entity_type: node
+bundle: data_set
+label: 'OPEN Government Data Act Data Asset Determination'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      open_government_data_act_classif: open_government_data_act_classif
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    delimiter ? 'field-delimiter',
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'sr-only',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+  
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item') }}><a href="{{ item.content }}" target="_blank">{{ item.content }}</a></div>
+  {% endfor %}
+
+</div>

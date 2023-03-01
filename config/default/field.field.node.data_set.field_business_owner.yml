@@ -1,0 +1,31 @@
+uuid: 163a3933-8420-4a03-86ef-98599442d293
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_business_owner
+    - node.type.contact
+    - node.type.data_set
+_core:
+  default_config_hash: PucTj-xMt1uNhFVFR_-IDdRh1lCf-oKavJOfHj6_XrQ
+id: node.data_set.field_business_owner
+field_name: field_business_owner
+entity_type: node
+bundle: data_set
+label: Division/Office
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: field_last_name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

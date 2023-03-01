@@ -1,0 +1,127 @@
+uuid: f1d41c93-44b7-4a7c-bab4-7a9081efa769
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_submission_type
+field_name: field_submission_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Accounting Certifications'
+      label: 'Accounting Certifications'
+    -
+      value: 'Advisors Act Registration'
+      label: 'Advisors Act Registration'
+    -
+      value: 'Application for exemption from Section 12(g) or from filing certain reports pursuant to Section 13(a) of the Securities Exchange Act of 1934'
+      label: 'Application for exemption from Section 12(g) or from filing certain reports pursuant to Section 13(a) of the Securities Exchange Act of 1934'
+    -
+      value: 'Beneficial Ownership Reports'
+      label: 'Beneficial Ownership Reports'
+    -
+      value: 'Confidential Treatment Application'
+      label: 'Confidential Treatment Application'
+    -
+      value: 'EDGAR Generated'
+      label: 'EDGAR Generated'
+    -
+      value: 'Exceptive Applications'
+      label: 'Exceptive Applications'
+    -
+      value: 'Exempt Offerings'
+      label: 'Exempt Offerings'
+    -
+      value: 'Extension of Time (notices and requests)'
+      label: 'Extension of Time (notices and requests)'
+    -
+      value: 'Filing Review Correspondence'
+      label: 'Filing Review Correspondence'
+    -
+      value: Form
+      label: Form
+    -
+      value: 'Hardship Extension'
+      label: 'Hardship Extension'
+    -
+      value: 'Notice Registration Form'
+      label: 'Notice Registration Form'
+    -
+      value: 'Notice to SEC Filings'
+      label: 'Notice to SEC Filings'
+    -
+      value: 'Obsolete File Type'
+      label: 'Obsolete File Type'
+    -
+      value: Other
+      label: Other
+    -
+      value: 'Other - Investor Facing'
+      label: 'Other - Investor Facing'
+    -
+      value: 'Proxy Materials'
+      label: 'Proxy Materials'
+    -
+      value: 'Proxy Voting Records'
+      label: 'Proxy Voting Records'
+    -
+      value: 'Registrant Data - Internal Use'
+      label: 'Registrant Data - Internal Use'
+    -
+      value: 'Registration Attachment'
+      label: 'Registration Attachment'
+    -
+      value: 'Registration Form'
+      label: 'Registration Form'
+    -
+      value: 'Registration Statements'
+      label: 'Registration Statements'
+    -
+      value: 'Registration Statements, & Reports (Annual, Periodic, Current)'
+      label: 'Registration Statements, & Reports (Annual, Periodic, Current)'
+    -
+      value: 'Registration Withdraw Form'
+      label: 'Registration Withdraw Form'
+    -
+      value: 'Reports (Annual, Periodic, Current)'
+      label: 'Reports (Annual, Periodic, Current)'
+    -
+      value: 'SBIC Report'
+      label: 'SBIC Report'
+    -
+      value: 'SEC Orders and Notices'
+      label: 'SEC Orders and Notices'
+    -
+      value: 'Section 16 Reports'
+      label: 'Section 16 Reports'
+    -
+      value: 'SRO Rule Filing'
+      label: 'SRO Rule Filing'
+    -
+      value: 'Tender Offers & Going Private Transactions'
+      label: 'Tender Offers & Going Private Transactions'
+    -
+      value: 'Tender Offers & Going Private Transactions, & Beneficial Ownership Reports'
+      label: 'Tender Offers & Going Private Transactions, & Beneficial Ownership Reports'
+    -
+      value: 'Trust Indenture Filings'
+      label: 'Trust Indenture Filings'
+    -
+      value: (Blanks)
+      label: (Blanks)
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

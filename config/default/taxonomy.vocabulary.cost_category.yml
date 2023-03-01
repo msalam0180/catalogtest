@@ -1,0 +1,8 @@
+uuid: f83203be-73ce-45f8-86be-8470a7eb6754
+langcode: en
+status: true
+dependencies: {  }
+name: 'Cost Category'
+vid: cost_category
+description: 'Qualitative description of primary cost related to owning/processing this data'
+weight: 0

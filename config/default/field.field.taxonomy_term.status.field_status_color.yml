@@ -1,0 +1,22 @@
+uuid: 3602b6fb-9404-4748-904d-1c2fe42bce2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_status_color
+    - taxonomy.vocabulary.status
+  module:
+    - color_field
+id: taxonomy_term.status.field_status_color
+field_name: field_status_color
+entity_type: taxonomy_term
+bundle: status
+label: 'Status Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

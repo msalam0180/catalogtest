@@ -1,0 +1,31 @@
+uuid: 9ebc3af8-b615-47bc-a548-66599ac3b4e1
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:189cc4a4-4639-4d1f-9615-ba63f2e57a07'
+  module:
+    - block_content
+    - system
+  theme:
+    - dlp
+id: datasetdescriptioncallout_2
+theme: dlp
+region: content
+weight: -4
+provider: null
+plugin: 'block_content:189cc4a4-4639-4d1f-9615-ba63f2e57a07'
+settings:
+  id: 'block_content:189cc4a4-4639-4d1f-9615-ba63f2e57a07'
+  label: 'Dataset Description Callout'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

@@ -1,0 +1,26 @@
+uuid: 1f4112f4-d136-42c1-9a73-5751456e690f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.data_insight
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: node.data_insight.field_summary
+field_name: field_summary
+entity_type: node
+bundle: data_insight
+label: 'Short Description'
+description: 'Short Description text will show in search results and list pages'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

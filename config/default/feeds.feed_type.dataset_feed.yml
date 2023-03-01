@@ -1,0 +1,265 @@
+uuid: 557ff7d5-8d44-481a-b2e0-47d61435b8ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_set.field_data_category
+    - field.field.node.data_set.field_dataset_description
+    - field.field.node.data_set.field_dataset_source_type
+    - field.field.node.data_set.field_dataset_use
+    - field.field.node.data_set.field_date_acquired
+    - field.field.node.data_set.field_division_office_multi
+    - field.field.node.data_set.field_number_of_licenses_held
+    - field.field.node.data_set.field_open_government_data_acces
+    - field.field.node.data_set.field_open_government_data_act_i
+    - field.field.node.data_set.field_open_government_data_class
+    - field.field.node.data_set.field_owner
+    - field.field.node.data_set.field_reviewer
+    - field.field.node.data_set.field_summary
+    - node.type.data_set
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      80ad19cd-8cd7-4b1c-b1fa-18624ba359c3:
+        uuid: 80ad19cd-8cd7-4b1c-b1fa-18624ba359c3
+        plugin: html_entity_encode
+        source: description_text
+        weight: 0
+        label: 'HTML entity encode'
+label: 'Dataset Feed'
+id: dataset_feed
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: data_set
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  short_description:
+    value: 'Short Description'
+    label: 'Short Description'
+    machine_name: short_description
+    type: csv
+  description_text:
+    value: 'Description Text'
+    label: 'Description Text'
+    machine_name: description_text
+    type: csv
+  description_summary:
+    value: 'Description Summary'
+    label: 'Description Summary'
+    machine_name: description_summary
+    type: csv
+  divisions_offices:
+    value: Divisions/Offices
+    label: Divisions/Offices
+    machine_name: divisions_offices
+    type: csv
+  data_category_for_landing_page_display:
+    value: 'Data Category for Landing Page Display'
+    label: 'Data Category for Landing Page Display'
+    machine_name: data_category_for_landing_page_display
+    type: csv
+  reviewer:
+    value: Reviewer
+    label: Reviewer
+    machine_name: reviewer
+    type: csv
+  owner:
+    value: Owner
+    label: Owner
+    machine_name: owner
+    type: csv
+  ogda_internal_or_public:
+    value: 'OGDA Internal or Public'
+    label: 'OGDA Internal or Public'
+    machine_name: ogda_internal_or_public
+    type: csv
+  ogda_access_level:
+    value: 'OGDA Access Level'
+    label: 'OGDA Access Level'
+    machine_name: ogda_access_level
+    type: csv
+  ogda_data_asset_determination:
+    value: 'OGDA Data Asset Determination'
+    label: 'OGDA Data Asset Determination'
+    machine_name: ogda_data_asset_determination
+    type: csv
+  use_cases:
+    value: 'Use Cases'
+    label: 'Use Cases'
+    machine_name: use_cases
+    type: csv
+  source:
+    value: Source
+    label: Source
+    machine_name: source
+    type: csv
+  number_of_licences_held:
+    value: 'Number of Licences Held'
+    label: 'Number of Licences Held'
+    machine_name: number_of_licences_held
+    type: csv
+  state:
+    value: State
+    label: State
+    machine_name: state
+    type: csv
+  date_acquired:
+    value: 'Date Acquired'
+    label: 'Date Acquired'
+    machine_name: date_acquired
+    type: csv
+  associated_inventories:
+    value: 'Associated Inventories'
+    label: 'Associated Inventories'
+    machine_name: associated_inventories
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_summary
+    map:
+      value: short_description
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_dataset_description
+    map:
+      value: description_text
+      summary: description_summary
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_division_office_multi
+    map:
+      target_id: divisions_offices
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_data_category
+    map:
+      target_id: data_category_for_landing_page_display
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_reviewer
+    map:
+      target_id: reviewer
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 0
+  -
+    target: field_owner
+    map:
+      target_id: owner
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_open_government_data_act_i
+    map:
+      target_id: associated_inventories
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_open_government_data_acces
+    map:
+      target_id: ogda_access_level
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_open_government_data_class
+    map:
+      target_id: ogda_data_asset_determination
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_dataset_use
+    map:
+      target_id: use_cases
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_dataset_source_type
+    map:
+      target_id: source
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: field_number_of_licenses_held
+    map:
+      value: number_of_licences_held
+    settings:
+      language: null
+  -
+    target: moderation_state
+    map:
+      value: state
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_date_acquired
+    map:
+      value: date_acquired
+    settings:
+      language: ''
+      timezone: America/New_York

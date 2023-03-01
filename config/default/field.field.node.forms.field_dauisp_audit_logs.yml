@@ -1,0 +1,23 @@
+uuid: 16fe04e6-1f8d-421d-8ef4-aa6af18e01df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dauisp_audit_logs
+    - node.type.forms
+  module:
+    - link
+id: node.forms.field_dauisp_audit_logs
+field_name: field_dauisp_audit_logs
+entity_type: node
+bundle: forms
+label: 'DAUISP Audit Logs'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

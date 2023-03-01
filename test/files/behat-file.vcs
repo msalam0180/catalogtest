@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:1.0
+BEGIN:VEVENT
+DTSTART:20171025T170000Z
+DTEND:20171025T173000Z
+LOCATION:Skype Meeting
+UID:040000008200E00074C5B7101A82E0080000000060DA2F70CC4CD301000000000000000
+	010000000EDC9A36030AF4942B686F99CB616419E
+DESCRIPTION;ENCODING=QUOTED-PRINTABLE:=
+The purpose of this meeting is to confirm Insider Performance Test Techni=
+cal Requirement and Timeline.=0D=0A=0D=0A =0D=0A=0D=0AThanks,=0D=0A=0D=0A=
+Kingsley=0D=0A=0D=0A =0D=0A=0D=0A........................................=
+.........................................................................=
+........................=0D=0A=0D=0A--> Join Skype Meeting <https://meet.=
+lync.com/afs365/kingsley.madikaegbu/DYFLRRGW>       =0D=0A=0D=0ATrouble J=
+oining? Try Skype Web App <https://meet.lync.com/afs365/kingsley.madikaeg=
+bu/DYFLRRGW?sl=3D1>  =0D=0A=0D=0AJoin by phone=0D=0A=0D=0A =0D=0A=0D=0ATo=
+ll number:        +1 (571) 429-4731, access code: 60424465 (Dial-in Numbe=
+r)                  English (United States)  =0D=0A=0D=0A =0D=0A=0D=0AFin=
+d a local number <https://dialin.lync.com/e5bdb6c0-0112-4b90-8dd5-c5cc082=
+a6e72?id=3D60424465>  =0D=0A=0D=0A =0D=0A=0D=0AConference ID: 60424465 (s=
+ame as access code above)=0D=0A=0D=0AForgot your dial-in PIN? <https://my=
+settings.lync.com/pstnconferencing>  |Help <http://go.microsoft.com/fwlin=
+k/?LinkId=3D389737>    =0D=0A=0D=0A =0D=0A=0D=0A[!OC([1033])!]=0D=0A=0D=
+=0A......................................................................=
+...................................................................=0D=0A=
+=0D=0A =0D=0A=0D=0A
+SUMMARY:Insider Performance Testing
+PRIORITY:3
+END:VEVENT
+END:VCALENDAR

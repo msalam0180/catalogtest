@@ -1,0 +1,28 @@
+uuid: f7c4aacd-1224-4c86-90eb-e55f012238b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_asset_category
+    - node.type.data_set
+    - taxonomy.vocabulary.dataset_asset_category
+id: node.data_set.field_dataset_asset_category
+field_name: field_dataset_asset_category
+entity_type: node
+bundle: data_set
+label: 'Asset Type'
+description: 'What is the asset category of this dataset?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dataset_asset_category: dataset_asset_category
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,6 @@
+status: 1
+pattern: '[contact_message:contact_form] message from [contact_message:mail]'
+escape: false
+dependencies:
+  config:
+    - contact.form.feedback

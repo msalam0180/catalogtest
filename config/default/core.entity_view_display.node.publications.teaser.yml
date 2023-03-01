@@ -1,0 +1,68 @@
+uuid: 6d53e022-5fe9-44da-8e95-d0f1b70c4f5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.publications.body
+    - field.field.node.publications.field_associated_datasets
+    - field.field.node.publications.field_content_type
+    - field.field.node.publications.field_dataset_isvetted
+    - field.field.node.publications.field_publication_abstract
+    - field.field.node.publications.field_publication_abstract2
+    - field.field.node.publications.field_publication_author
+    - field.field.node.publications.field_publication_author_memo
+    - field.field.node.publications.field_publication_category
+    - field.field.node.publications.field_publication_datasetid
+    - field.field.node.publications.field_publication_hidden_desc
+    - field.field.node.publications.field_publication_name
+    - field.field.node.publications.field_publication_url
+    - field.field.node.publications.field_publication_year
+    - field.field.node.publications.field_publications_dataset
+    - field.field.node.publications.field_publications_keywords
+    - field.field.node.publications.field_publications_publicationid
+    - node.type.publications
+  module:
+    - text
+    - user
+id: node.publications.teaser
+targetEntityType: node
+bundle: publications
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_associated_datasets: true
+  field_content_type: true
+  field_dataset_isvetted: true
+  field_publication_abstract: true
+  field_publication_abstract2: true
+  field_publication_author: true
+  field_publication_author_memo: true
+  field_publication_category: true
+  field_publication_datasetid: true
+  field_publication_hidden_desc: true
+  field_publication_name: true
+  field_publication_url: true
+  field_publication_year: true
+  field_publications_dataset: true
+  field_publications_keywords: true
+  field_publications_publicationid: true
+  search_api_excerpt: true

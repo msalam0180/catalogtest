@@ -1,0 +1,8 @@
+uuid: 84c87077-558e-4583-ae28-96c4ed56dd07
+langcode: en
+status: true
+dependencies: {  }
+id: new_content
+label: 'New content'
+revision: 1
+description: ''

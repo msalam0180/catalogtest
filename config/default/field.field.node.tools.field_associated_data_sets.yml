@@ -1,0 +1,80 @@
+uuid: 8607e3d4-bb11-4fba-8abd-ffdc3a8efed7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_associated_data_sets
+    - node.type.tools
+    - views.view.associated_data_sets
+  module:
+    - viewfield
+_core:
+  default_config_hash: wLgLGFEuSuNajmpGJ8n1-UroPhc7au_KpGeipuksINU
+id: node.tools.field_associated_data_sets
+field_name: field_associated_data_sets
+entity_type: node
+bundle: tools
+label: 'Dataset Referencing this Tool'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 61fc2585-0720-4792-87db-435b34a33064
+    display_id: block_2
+    arguments: ''
+    token_help: ''
+default_value_callback: ''
+settings:
+  force_default: true
+  allowed_views:
+    associated_data_sets: associated_data_sets
+    aggregator_rss_feed: '0'
+    aggregator_sources: '0'
+    article_related_datasets: '0'
+    child_datasets: '0'
+    comment: '0'
+    content: '0'
+    block_content: '0'
+    data_catalog_data_export: '0'
+    data_search_index: '0'
+    dataset_search_homepage: '0'
+    derived_datasets: '0'
+    entity_browser_articles: '0'
+    entity_browser_contacts: '0'
+    entity_browser_tools: '0'
+    files: '0'
+    frontpage: '0'
+    maillog_overview: '0'
+    media: '0'
+    media_entity_browser: '0'
+    media_browser_files: '0'
+    moderated_content: '0'
+    user_admin_people: '0'
+    profiles: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    recent_content_test: '0'
+    edc_recently_created_datasets: '0'
+    edc_recently_updated_datasets: '0'
+    related_data_dictionary: '0'
+    related_data_systems: '0'
+    search_results: '0'
+    speaker_rest: '0'
+    taxonomy_term: '0'
+    watchdog: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+    workflow_entity_history: '0'
+  allowed_display_types:
+    block: block
+    data_export: '0'
+    embed: '0'
+    entity_browser: '0'
+    feed: '0'
+    default: '0'
+    page: '0'
+    rest_export: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

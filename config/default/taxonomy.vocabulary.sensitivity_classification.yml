@@ -1,0 +1,8 @@
+uuid: d07b6911-ea09-4c56-9416-56a33f8ca926
+langcode: en
+status: true
+dependencies: {  }
+name: 'Dataset Risk Category'
+vid: sensitivity_classification
+description: 'How sensitive is the data in this database'
+weight: 0

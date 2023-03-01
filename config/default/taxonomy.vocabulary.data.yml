@@ -1,0 +1,10 @@
+uuid: eef7fa90-f173-477d-9b7a-8a78e8c00bc1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4U01yBPyDpGDXVhV60pbij2iccB9IK72uxXXEhv7XU4
+name: 'Use Case'
+vid: data
+description: 'Use cases (rulemaking, enforcement, etc)'
+weight: 0

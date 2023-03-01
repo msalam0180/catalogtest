@@ -1,0 +1,10 @@
+uuid: e5722501-9ed8-416d-bea8-c4b7edebd74f
+langcode: en
+status: true
+dependencies: {  }
+id: datasets_to_applications
+label: 'Related Technology'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

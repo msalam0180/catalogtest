@@ -1,0 +1,1545 @@
+uuid: 8484617a-8c89-4e94-a080-6224b95ef95b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.quick
+    - field.field.node.data_set.body
+    - field.field.node.data_set.feeds_item
+    - field.field.node.data_set.field_act
+    - field.field.node.data_set.field_add_new_discussion
+    - field.field.node.data_set.field_annual_burden
+    - field.field.node.data_set.field_articles
+    - field.field.node.data_set.field_associated_publications
+    - field.field.node.data_set.field_associated_related_dataset
+    - field.field.node.data_set.field_attribution_statement
+    - field.field.node.data_set.field_average_ingestion_volume
+    - field.field.node.data_set.field_business_owner
+    - field.field.node.data_set.field_child_data_type
+    - field.field.node.data_set.field_children_datasets
+    - field.field.node.data_set.field_completeness
+    - field.field.node.data_set.field_consistency
+    - field.field.node.data_set.field_contact_guidance
+    - field.field.node.data_set.field_contacts
+    - field.field.node.data_set.field_contract_officer_represent
+    - field.field.node.data_set.field_contract_status
+    - field.field.node.data_set.field_controlled_unclassified_in
+    - field.field.node.data_set.field_cost
+    - field.field.node.data_set.field_cost_category
+    - field.field.node.data_set.field_data_category
+    - field.field.node.data_set.field_data_collection_type
+    - field.field.node.data_set.field_data_dictionary
+    - field.field.node.data_set.field_data_search_index
+    - field.field.node.data_set.field_data_size_in_gb
+    - field.field.node.data_set.field_data_structure
+    - field.field.node.data_set.field_data_systems
+    - field.field.node.data_set.field_dataset_articles_ref
+    - field.field.node.data_set.field_dataset_asset_category
+    - field.field.node.data_set.field_dataset_categorization
+    - field.field.node.data_set.field_dataset_categorization_det
+    - field.field.node.data_set.field_dataset_category
+    - field.field.node.data_set.field_dataset_confluenceid_quest
+    - field.field.node.data_set.field_dataset_date_archive
+    - field.field.node.data_set.field_dataset_dba
+    - field.field.node.data_set.field_dataset_description
+    - field.field.node.data_set.field_dataset_last_load_time
+    - field.field.node.data_set.field_dataset_license_holder
+    - field.field.node.data_set.field_dataset_name_old
+    - field.field.node.data_set.field_dataset_pass
+    - field.field.node.data_set.field_dataset_path
+    - field.field.node.data_set.field_dataset_permission_type
+    - field.field.node.data_set.field_dataset_references
+    - field.field.node.data_set.field_dataset_registrant_type
+    - field.field.node.data_set.field_dataset_related_datasets
+    - field.field.node.data_set.field_dataset_sales_rep_name
+    - field.field.node.data_set.field_dataset_source_type
+    - field.field.node.data_set.field_dataset_title
+    - field.field.node.data_set.field_dataset_tool
+    - field.field.node.data_set.field_dataset_tools_ref
+    - field.field.node.data_set.field_dataset_use
+    - field.field.node.data_set.field_dataset_vendor_www
+    - field.field.node.data_set.field_date_acquired
+    - field.field.node.data_set.field_dauisp_audit_logs
+    - field.field.node.data_set.field_dauisp_data_policies
+    - field.field.node.data_set.field_delivery_frequency_to_sec
+    - field.field.node.data_set.field_delivery_method_to_sec
+    - field.field.node.data_set.field_derived_datasets
+    - field.field.node.data_set.field_derived_parent_dataset
+    - field.field.node.data_set.field_division_office_multi
+    - field.field.node.data_set.field_documents
+    - field.field.node.data_set.field_efile_contract_link
+    - field.field.node.data_set.field_exclude_dataset_search
+    - field.field.node.data_set.field_exclude_from_global_search
+    - field.field.node.data_set.field_externally_hosted
+    - field.field.node.data_set.field_filing_entity_type
+    - field.field.node.data_set.field_filing_format
+    - field.field.node.data_set.field_fips_category_justificatio
+    - field.field.node.data_set.field_fips_security_classificati
+    - field.field.node.data_set.field_how_to_access_this_dataset
+    - field.field.node.data_set.field_how_to_request_access
+    - field.field.node.data_set.field_insights
+    - field.field.node.data_set.field_license_required
+    - field.field.node.data_set.field_license_types
+    - field.field.node.data_set.field_licenses_held_by_division_
+    - field.field.node.data_set.field_market_sensitivity
+    - field.field.node.data_set.field_mission_criticality
+    - field.field.node.data_set.field_notes
+    - field.field.node.data_set.field_notes_regarding_permission
+    - field.field.node.data_set.field_number_of_active_internal_
+    - field.field.node.data_set.field_number_of_licenses_assigne
+    - field.field.node.data_set.field_number_of_licenses_held
+    - field.field.node.data_set.field_ocdo_classification
+    - field.field.node.data_set.field_ogda_access_level_rights
+    - field.field.node.data_set.field_ogda_determination_notes
+    - field.field.node.data_set.field_omb_number
+    - field.field.node.data_set.field_open_government_data_acces
+    - field.field.node.data_set.field_open_government_data_act_i
+    - field.field.node.data_set.field_open_government_data_asset
+    - field.field.node.data_set.field_open_government_data_class
+    - field.field.node.data_set.field_owner
+    - field.field.node.data_set.field_perm_division_office
+    - field.field.node.data_set.field_perm_employment_type
+    - field.field.node.data_set.field_perm_operand
+    - field.field.node.data_set.field_purchased
+    - field.field.node.data_set.field_related_apps_with_term
+    - field.field.node.data_set.field_related_data_insights
+    - field.field.node.data_set.field_related_discussions
+    - field.field.node.data_set.field_related_forums_view
+    - field.field.node.data_set.field_related_reports_statistics
+    - field.field.node.data_set.field_restricted_dataset
+    - field.field.node.data_set.field_retention_length
+    - field.field.node.data_set.field_review_submitter
+    - field.field.node.data_set.field_reviewer
+    - field.field.node.data_set.field_sales_rep_email_address
+    - field.field.node.data_set.field_sales_rep_phone_number
+    - field.field.node.data_set.field_sec_gov_node_id
+    - field.field.node.data_set.field_security_classification
+    - field.field.node.data_set.field_sensitive_data_category
+    - field.field.node.data_set.field_sensitive_pii
+    - field.field.node.data_set.field_sensitivity_classification
+    - field.field.node.data_set.field_source_type
+    - field.field.node.data_set.field_submission_type
+    - field.field.node.data_set.field_summary
+    - field.field.node.data_set.field_support_email_address
+    - field.field.node.data_set.field_support_phone_number
+    - field.field.node.data_set.field_tags
+    - field.field.node.data_set.field_technical_contact
+    - field.field.node.data_set.field_time_period_covered
+    - field.field.node.data_set.field_timeliness_recency
+    - field.field.node.data_set.field_tools
+    - field.field.node.data_set.field_total_annual_burden_hours
+    - field.field.node.data_set.field_total_annual_filings
+    - field.field.node.data_set.field_vendor_name
+    - field.field.node.data_set.field_vendor_website
+    - field.field.node.data_set.field_visit_dataset_link
+    - field.field.node.data_set.field_websites
+    - field.field.node.data_set.point_of_contact
+    - field.field.node.data_set.subject_matter_expert
+    - node.type.data_set
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - cshs
+    - datetime
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
+    - link
+    - paragraphs
+    - path
+    - search_api_exclude_entity
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_datasets:
+      children:
+        - group_general
+        - group_how_to_access
+        - group_form
+        - group_tools
+        - group_who_to_contact
+        - group_docs_links
+        - group_vendor_info
+        - group_licensing_usage
+        - group_load_times
+      label: Datasets
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_general:
+      children:
+        - title
+        - field_summary
+        - field_dataset_description
+        - field_insights
+        - field_time_period_covered
+        - field_division_office_multi
+        - field_ocdo_classification
+        - field_data_category
+        - field_dataset_source_type
+        - field_externally_hosted
+        - field_data_size_in_gb
+        - field_delivery_method_to_sec
+        - field_delivery_frequency_to_sec
+        - field_average_ingestion_volume
+        - field_dataset_last_load_time
+        - field_dataset_registrant_type
+        - field_dataset_asset_category
+        - field_dataset_category
+        - field_dataset_use
+        - group_child_datasets
+        - field_dataset_related_datasets
+        - field_dataset_name_old
+        - field_date_acquired
+        - field_contract_status
+        - field_dataset_date_archive
+        - field_data_search_index
+        - field_tags
+      label: General
+      region: content
+      parent_name: group_datasets
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_how_to_access:
+      children:
+        - field_visit_dataset_link
+        - field_how_to_request_access
+        - field_how_to_access_this_dataset
+        - field_dataset_path
+        - field_sensitivity_classification
+        - field_controlled_unclassified_in
+        - field_fips_security_classificati
+        - field_restricted_dataset
+        - field_notes_regarding_permission
+        - field_attribution_statement
+        - field_license_types
+        - field_number_of_licenses_held
+        - field_licenses_held_by_division_
+        - field_number_of_licenses_assigne
+      label: 'Access & Use'
+      region: content
+      parent_name: group_datasets
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_docs_links:
+      children:
+        - field_documents
+        - field_websites
+        - field_articles
+      label: 'Related Documentation'
+      region: content
+      parent_name: group_datasets
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_who_to_contact:
+      children:
+        - field_contacts
+        - field_contact_guidance
+      label: Contacts
+      region: content
+      parent_name: group_datasets
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_permissions:
+      children:
+        - field_perm_division_office
+        - field_perm_employment_type
+        - field_perm_operand
+      label: Permissions
+      region: hidden
+      parent_name: ''
+      weight: 45
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_vendor_info:
+      children:
+        - field_vendor_name
+        - field_vendor_website
+        - field_support_phone_number
+        - field_support_email_address
+        - field_dataset_sales_rep_name
+        - field_sales_rep_phone_number
+        - field_sales_rep_email_address
+      label: Vendor
+      region: content
+      parent_name: group_datasets
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_load_times:
+      children: {  }
+      label: 'Load Times'
+      region: hidden
+      parent_name: group_datasets
+      weight: 28
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_licensing_usage:
+      children:
+        - group_dausip
+        - group_open_government_data_act
+        - group_risk_sensitivity
+        - group_data_characteristics
+        - group_other_categorizations
+        - group_acquired_data_information
+        - group_cost
+      label: Governance
+      region: content
+      parent_name: group_datasets
+      weight: 27
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_tools:
+      children:
+        - field_tools
+        - field_related_apps_with_term
+        - field_related_data_insights
+        - field_related_reports_statistics
+      label: 'Related Content'
+      region: content
+      parent_name: group_datasets
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_child_datasets:
+      children:
+        - field_child_data_type
+        - field_associated_related_dataset
+        - field_derived_parent_dataset
+      label: 'If this dataset is the child of another dataset:'
+      region: content
+      parent_name: group_general
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        id: ''
+        description: ''
+        required_fields: true
+    group_form:
+      children:
+        - field_omb_number
+        - field_filing_format
+        - field_total_annual_filings
+        - field_annual_burden
+        - field_total_annual_burden_hours
+        - field_submission_type
+        - field_filing_entity_type
+        - field_act
+      label: Forms
+      region: content
+      parent_name: group_datasets
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_dausip:
+      children:
+        - field_owner
+        - field_dauisp_data_policies
+        - field_dauisp_audit_logs
+        - field_dataset_categorization_det
+      label: 'SEC Data Policies'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 22
+      format_type: fieldset
+      format_settings:
+        classes: form-display-tab-side-grouping
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: false
+    group_open_government_data_act:
+      children:
+        - field_open_government_data_acces
+        - field_ogda_access_level_rights
+        - field_open_government_data_class
+        - field_open_government_data_asset
+        - field_sec_gov_node_id
+        - field_ogda_determination_notes
+      label: 'Open Government Data Act'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 23
+      format_type: fieldset
+      format_settings:
+        classes: ' form-display-tab-side-grouping'
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: false
+    group_risk_sensitivity:
+      children:
+        - field_sensitive_data_category
+        - field_market_sensitivity
+        - field_mission_criticality
+      label: 'Risk & Sensitivity'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 24
+      format_type: fieldset
+      format_settings:
+        classes: form-display-tab-side-grouping
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_data_characteristics:
+      children:
+        - field_data_structure
+        - field_completeness
+        - field_consistency
+        - field_timeliness_recency
+        - field_number_of_active_internal_
+        - field_retention_length
+      label: 'Data Characteristics'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 25
+      format_type: fieldset
+      format_settings:
+        classes: form-display-tab-side-grouping
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_other_categorizations:
+      children:
+        - field_open_government_data_act_i
+        - field_data_collection_type
+        - field_fips_category_justificatio
+        - field_dataset_categorization
+      label: 'Other Categorizations'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 26
+      format_type: fieldset
+      format_settings:
+        classes: form-display-tab-side-grouping
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_acquired_data_information:
+      children:
+        - field_purchased
+        - field_license_required
+        - field_efile_contract_link
+      label: 'Acquired Data Information'
+      region: content
+      parent_name: group_licensing_usage
+      weight: 27
+      format_type: fieldset
+      format_settings:
+        classes: form-display-tab-side-grouping
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_cost:
+      children:
+        - field_cost_category
+        - field_cost
+      label: Cost
+      region: hidden
+      parent_name: group_licensing_usage
+      weight: 28
+      format_type: fieldset
+      format_settings:
+        classes: ' form-display-tab-side-grouping'
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: MUhgERQj5w3GTCSkngEpIUCikPCspUPW5pw3ch5o41k
+id: node.data_set.default
+targetEntityType: node
+bundle: data_set
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_act:
+    type: options_select
+    weight: 146
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_annual_burden:
+    type: number
+    weight: 141
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_articles:
+    type: inline_entity_form_complex
+    weight: 7
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Article
+      label_plural: Articles
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: articles
+  field_associated_related_dataset:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        e91c0516-7594-4afa-93ac-e88622d9addb:
+          entity_type: node
+          bundle: data_set
+          dependee: field_child_data_type
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "Subset\r\nTransformed"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_attribution_statement:
+    type: string_textarea
+    weight: 101
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_average_ingestion_volume:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_child_data_type:
+    type: options_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_completeness:
+    type: cshs
+    weight: 21
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_consistency:
+    type: cshs
+    weight: 22
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_contact_guidance:
+    type: string_textarea
+    weight: 116
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_contacts:
+    type: entity_reference_paragraphs
+    weight: 115
+    region: content
+    settings:
+      title: Contact
+      title_plural: Contacts
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_contract_status:
+    type: options_select
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_controlled_unclassified_in:
+    type: options_select
+    weight: 97
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cost:
+    type: entity_reference_paragraphs
+    weight: 25
+    region: content
+    settings:
+      title: Cost
+      title_plural: Costs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_cost_category:
+    type: options_select
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_data_category:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_data_collection_type:
+    type: cshs
+    weight: 19
+    region: content
+    settings:
+      force_deepest: false
+      parent: ''
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_data_search_index:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_size_in_gb:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_structure:
+    type: cshs
+    weight: 19
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_dataset_asset_category:
+    type: cshs
+    weight: 17
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_dataset_categorization:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dataset_categorization_det:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_category:
+    type: cshs
+    weight: 18
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_dataset_date_archive:
+    type: datetime_default
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dataset_description:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_dataset_last_load_time:
+    type: datetime_default
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dataset_name_old:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_path:
+    type: string_textfield
+    weight: 95
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_registrant_type:
+    type: cshs
+    weight: 16
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_dataset_related_datasets:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_sales_rep_name:
+    type: string_textfield
+    weight: 63
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_source_type:
+    type: cshs
+    weight: 9
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_dataset_use:
+    type: cshs
+    weight: 19
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_date_acquired:
+    type: datetime_default
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dauisp_audit_logs:
+    type: link_default
+    weight: 19
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_dauisp_data_policies:
+    type: link_default
+    weight: 18
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_delivery_frequency_to_sec:
+    type: options_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_delivery_method_to_sec:
+    type: cshs
+    weight: 12
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_derived_parent_dataset:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        a12dc1e7-3cf7-4a26-845f-1b87d791c656:
+          entity_type: node
+          bundle: data_set
+          dependee: field_child_data_type
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: Derived
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_division_office_multi:
+    type: cshs
+    weight: 6
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_documents:
+    type: inline_entity_form_complex
+    weight: 4
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Document
+      label_plural: Documents
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: files
+  field_efile_contract_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_exclude_dataset_search:
+    type: search_api_exclude_entity_widget
+    weight: 13
+    region: content
+    settings:
+      field_label: 'Yes, exclude this page from the Dataset Search index.'
+    third_party_settings: {  }
+  field_exclude_from_global_search:
+    type: search_api_exclude_entity_widget
+    weight: 12
+    region: content
+    settings:
+      field_label: 'Yes, exclude this page from the Global Search index.'
+    third_party_settings: {  }
+  field_externally_hosted:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_filing_entity_type:
+    type: options_select
+    weight: 145
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_filing_format:
+    type: options_select
+    weight: 139
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fips_category_justificatio:
+    type: options_select
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fips_security_classificati:
+    type: options_select
+    weight: 98
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_how_to_access_this_dataset:
+    type: text_textarea
+    weight: 94
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_how_to_request_access:
+    type: link_default
+    weight: 93
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Request Access'
+    third_party_settings: {  }
+  field_insights:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_license_required:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_license_types:
+    type: cshs
+    weight: 102
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_licenses_held_by_division_:
+    type: entity_reference_paragraphs
+    weight: 104
+    region: content
+    settings:
+      title: Division/Office
+      title_plural: Divisions/Offices
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_market_sensitivity:
+    type: cshs
+    weight: 22
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_mission_criticality:
+    type: entity_reference_paragraphs
+    weight: 23
+    region: content
+    settings:
+      title: 'Mission Criticality'
+      title_plural: 'Mission Criticality'
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_notes:
+    type: string_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_notes_regarding_permission:
+    type: text_textarea
+    weight: 100
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_number_of_active_internal_:
+    type: number
+    weight: 24
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_number_of_licenses_assigne:
+    type: number
+    weight: 105
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_number_of_licenses_held:
+    type: number
+    weight: 103
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_ocdo_classification:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ogda_access_level_rights:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_ogda_determination_notes:
+    type: string_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_omb_number:
+    type: string_textfield
+    weight: 138
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_open_government_data_acces:
+    type: cshs
+    weight: 19
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_open_government_data_act_i:
+    type: cshs
+    weight: 18
+    region: content
+    settings:
+      force_deepest: false
+      parent: ''
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_open_government_data_asset:
+    type: cshs
+    weight: 22
+    region: content
+    settings:
+      force_deepest: false
+      parent: ''
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_open_government_data_class:
+    type: cshs
+    weight: 21
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_owner:
+    type: options_select
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_purchased:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_related_apps_with_term:
+    type: entity_reference_paragraphs
+    weight: 27
+    region: content
+    settings:
+      title: 'Related Technology'
+      title_plural: 'Related Technology'
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_related_data_insights:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_reports_statistics:
+    type: entity_reference_autocomplete
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_restricted_dataset:
+    type: boolean_checkbox
+    weight: 99
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_retention_length:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_reviewer:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sales_rep_email_address:
+    type: email_default
+    weight: 65
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_sales_rep_phone_number:
+    type: telephone_default
+    weight: 64
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_sec_gov_node_id:
+    type: number
+    weight: 24
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_sensitive_data_category:
+    type: options_select
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sensitivity_classification:
+    type: options_select
+    weight: 96
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_submission_type:
+    type: options_select
+    weight: 144
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_summary:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_support_email_address:
+    type: email_default
+    weight: 62
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_support_phone_number:
+    type: telephone_default
+    weight: 61
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete
+    weight: 27
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_time_period_covered:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_timeliness_recency:
+    type: cshs
+    weight: 23
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_tools:
+    type: inline_entity_form_complex
+    weight: 26
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Tool
+      label_plural: Tools
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: tools
+  field_total_annual_burden_hours:
+    type: number
+    weight: 142
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_total_annual_filings:
+    type: entity_reference_paragraphs
+    weight: 140
+    region: content
+    settings:
+      title: 'Annual Filing'
+      title_plural: 'Annual Filings'
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_vendor_name:
+    type: string_textfield
+    weight: 59
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_vendor_website:
+    type: link_default
+    weight: 60
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_visit_dataset_link:
+    type: link_default
+    weight: 92
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_websites:
+    type: entity_reference_paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Website
+      title_plural: Websites
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  feeds_item: true
+  field_add_new_discussion: true
+  field_associated_publications: true
+  field_business_owner: true
+  field_children_datasets: true
+  field_contract_officer_represent: true
+  field_data_dictionary: true
+  field_data_systems: true
+  field_dataset_articles_ref: true
+  field_dataset_confluenceid_quest: true
+  field_dataset_dba: true
+  field_dataset_license_holder: true
+  field_dataset_pass: true
+  field_dataset_permission_type: true
+  field_dataset_references: true
+  field_dataset_title: true
+  field_dataset_tool: true
+  field_dataset_tools_ref: true
+  field_dataset_vendor_www: true
+  field_derived_datasets: true
+  field_perm_division_office: true
+  field_perm_employment_type: true
+  field_perm_operand: true
+  field_related_discussions: true
+  field_related_forums_view: true
+  field_review_submitter: true
+  field_security_classification: true
+  field_sensitive_pii: true
+  field_source_type: true
+  field_technical_contact: true
+  point_of_contact: true
+  subject_matter_expert: true

@@ -1,0 +1,25 @@
+uuid: c491c1f4-fc8a-4e3b-a4e0-2075a928b2ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: CaMuj0ElTf3g6JvmNdTZKbRK7W761Hdq6_CtJ3-nNk8
+id: node.field_dataset_description
+field_name: field_dataset_description
+entity_type: node
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

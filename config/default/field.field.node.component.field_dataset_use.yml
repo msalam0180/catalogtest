@@ -1,0 +1,29 @@
+uuid: 4574cf76-6987-4eaf-893f-0a96ec94883a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_use
+    - node.type.component
+    - taxonomy.vocabulary.data
+id: node.component.field_dataset_use
+field_name: field_dataset_use
+entity_type: node
+bundle: component
+label: 'Use Cases'
+description: 'What are the common use cases?'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data: data
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

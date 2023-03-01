@@ -1,0 +1,36 @@
+diff --git a/js/libs/jquery.simpler-select.js b/js/libs/jquery.simpler-select.js
+index 6b93313f8..a4488f454 100644
+--- a/js/libs/jquery.simpler-select.js
++++ b/js/libs/jquery.simpler-select.js
+@@ -17,7 +17,8 @@
+   function Plugin(element, options) {
+     this.$element = $(element);
+     this.$currentSelect = null;
+-
++    options.id = $(element).attr('id');
++    options.defaultLabel = $('label[for="' + options.id + '"]').text();
+     this.settings = $.extend({}, defaults, options);
+     this.selectOptions = [];
+
+@@ -112,7 +113,9 @@
+       level = level || 0;
+
+       var that = this;
+-      var $select = $('<select class="simpler-select"></select>').addClass(that.$element.attr('class'));
++      var id = that.settings.id + "-level-" + (level + 1);
++      var defaultLabel = that.settings.defaultLabel + " Level " + (level + 1);
++      var $select = $('<select class="simpler-select"></select>').addClass(that.$element.attr('class')).attr('id', id);
+       var $wrapper = $('<div class="select-wrapper"></div>');
+
+       if (that.$element.hasClass('error')) {
+@@ -176,7 +179,9 @@
+       });
+
+       if (that.settings.labels[level]) {
+-        $wrapper.append('<label>' + that.settings.labels[level] + '</label>');
++        $wrapper.append('<label for="' + id + '">' + that.settings.labels[level] + '</label>');
++      } else {
++        $wrapper.append('<label class="visually-hidden" for="' + id + '">' + defaultLabel + '</label>');
+       }
+
+       $wrapper.append($select);

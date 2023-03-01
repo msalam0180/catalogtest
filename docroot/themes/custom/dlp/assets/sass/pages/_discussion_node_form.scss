@@ -1,0 +1,100 @@
+// Discussion form
+.description.help-block{
+  color: #737373;
+}
+
+/*hide certain workflow fields from authenticated users on forums*/
+.role-authenticated .node-forum-edit-form .field--name-moderation-state,
+.role-authenticated .node-forum-edit-form .js-form-type-vertical-tabs,
+.role-authenticated .node-forum-form .js-form-type-vertical-tabs
+ {
+  display: none;
+}
+
+
+.node-forum-form, .node-forum-edit-form{
+  .btn{
+    text-transform: capitalize;
+    padding: 6px 12px;
+  }
+}
+
+
+.field-multiple-table{
+  margin-bottom: 0;
+}
+
+.field--widget-entity-reference-autocomplete.form-group{
+  margin-top: 0px;
+
+
+  .tabledrag-toggle-weight.btn.btn-sm{
+    text-transform: capitalize;
+    background: transparent;
+    color: #333;
+    padding: 0;
+    &:hover, :focus{
+      text-decoration: underline;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  
+    position: absolute;
+    right: 0px;
+    top: -22px;
+  }
+
+
+  .field-multiple-drag{
+    width: 20px;
+    text-align: center;
+    padding: 0 15px;
+    .tabledrag-handle{
+      padding: 0;
+      margin: 0;
+      position: relative;
+      top: 25px;
+    }
+  }
+}
+
+/* Make Autocomplete fields look like the fields are grouped */
+.field--widget-entity-reference-autocomplete > div > .form-item {
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.field--widget-entity-reference-autocomplete .tabledrag-toggle-weight-wrapper {
+  position: absolute;
+  right: 0px;
+  top: -20px;
+}
+
+// Rules of the road help text
+.text-and-help #edit-discussion-rules-of-the-road-help-text{
+  font-size: 0.75em;
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+}
+
+@media screen and (min-width: 850px){
+
+  .text-and-help{
+    display: flex;
+    .field--type-text-with-summary, .field--type-text-long, .cke_editable_themed{
+      flex-grow: 1;
+    }
+    #edit-discussion-rules-of-the-road-help-text{
+      width: 380px;
+      padding: 10px;
+      font-size: 0.75em;
+      margin-top: 26px;
+      margin-left: 10px;
+      height: 323px;
+      margin-bottom: 0;
+    }
+  }
+}

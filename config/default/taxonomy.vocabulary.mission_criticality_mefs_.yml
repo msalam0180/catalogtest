@@ -1,0 +1,8 @@
+uuid: 83678f7b-500a-416c-91f8-f27d02146b1e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Mission Criticality (MEFs)'
+vid: mission_criticality_mefs_
+description: 'Support essential functions'
+weight: 0

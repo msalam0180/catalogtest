@@ -1,0 +1,27 @@
+uuid: d3a6439c-0b13-4baa-b7df-d93f201c2f8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_request_installation
+    - node.type.component
+  module:
+    - field_display_label
+    - link
+third_party_settings:
+  field_display_label:
+    display_label: 'Request Install'
+id: node.component.field_request_installation
+field_name: field_request_installation
+entity_type: node
+bundle: component
+label: 'How to Request Installation'
+description: 'Enter the URL to allow a user to request installation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

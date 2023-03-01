@@ -1,0 +1,21 @@
+uuid: 1e28840c-ed11-4e42-8b19-64deb200d691
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_perm_employment_type
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_perm_employment_type
+field_name: field_perm_employment_type
+entity_type: node
+bundle: data_set
+label: 'Allow These Employment Type(s)'
+description: "This Dataset will be limited to users who are of the selected type.\r\nIf no options are chosen then the Dataset is available to anyone of the type if they match the other criteria."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

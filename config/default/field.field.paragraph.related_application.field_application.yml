@@ -1,0 +1,28 @@
+uuid: f8f25306-8d48-4d8d-a0d4-256d6ea48ff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_application
+    - node.type.application
+    - paragraphs.paragraphs_type.related_application
+id: paragraph.related_application.field_application
+field_name: field_application
+entity_type: paragraph
+bundle: related_application
+label: Application
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      application: application
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

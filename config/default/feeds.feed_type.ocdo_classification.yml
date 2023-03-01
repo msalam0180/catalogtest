@@ -1,0 +1,63 @@
+uuid: 7aedbcb4-9d21-4724-a966-13cf9087bda9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_set.field_ocdo_classification
+    - node.type.data_set
+  module:
+    - node
+label: 'OCDO Classification'
+id: ocdo_classification
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: data_set
+  langcode: en
+  insert_new: 0
+  update_existing: 1
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 666
+custom_sources:
+  ocdo_classification:
+    value: 'OCDO Classification'
+    label: 'OCDO Classification'
+    machine_name: ocdo_classification
+    type: csv
+  node_id:
+    value: 'Node ID'
+    label: 'Node ID'
+    machine_name: node_id
+    type: csv
+mappings:
+  -
+    target: field_ocdo_classification
+    map:
+      target_id: ocdo_classification
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+  -
+    target: nid
+    map:
+      value: node_id
+    settings: {  }
+    unique:
+      value: '1'

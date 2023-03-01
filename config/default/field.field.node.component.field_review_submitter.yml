@@ -1,0 +1,29 @@
+uuid: 11a07ced-791f-4fdf-af6c-7e055b447f0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_submitter
+    - node.type.component
+id: node.component.field_review_submitter
+field_name: field_review_submitter
+entity_type: node
+bundle: component
+label: 'Review Submitter'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: 6fb25624-4754-4c7d-a74c-7bbf8ba9f66e
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: IAVSQxD5thuNcr6dIlYqHQGVEnBpGR4JBLkAZbZJKCY
+id: node.field_restricted_dataset
+field_name: field_restricted_dataset
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

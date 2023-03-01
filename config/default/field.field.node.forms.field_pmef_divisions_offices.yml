@@ -1,0 +1,29 @@
+uuid: 8fb11a4a-6257-461b-8f41-a58d0ea828e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pmef_divisions_offices
+    - node.type.forms
+    - taxonomy.vocabulary.division_office
+id: node.forms.field_pmef_divisions_offices
+field_name: field_pmef_divisions_offices
+entity_type: node
+bundle: forms
+label: 'PMEF Divisions/Offices'
+description: 'Divisions/Offices using this data and for which data has "High Criticality" / PMEF status'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

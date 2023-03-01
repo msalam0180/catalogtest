@@ -1,0 +1,31 @@
+uuid: 66356950-6e6c-47b8-a45e-665b38250fef
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_articles
+  module:
+    - views
+name: faq_s
+label: 'FAQ''s'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select FAQ''s'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  4e62bac0-98f0-4bd2-874b-01d70557fc77:
+    id: view
+    uuid: 4e62bac0-98f0-4bd2-874b-01d70557fc77
+    label: view
+    weight: 1
+    settings:
+      submit_text: 'Select FAQ''s'
+      auto_select: false
+      view: entity_browser_articles
+      view_display: entity_browser_2

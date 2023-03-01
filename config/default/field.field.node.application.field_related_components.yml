@@ -1,0 +1,28 @@
+uuid: c82bee73-2bf0-4288-ade8-054e9d12aba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_components
+    - node.type.application
+    - node.type.component
+id: node.application.field_related_components
+field_name: field_related_components
+entity_type: node
+bundle: application
+label: 'Related Software'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      component: component
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

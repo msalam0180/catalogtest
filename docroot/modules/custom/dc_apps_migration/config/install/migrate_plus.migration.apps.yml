@@ -1,0 +1,319 @@
+id: apps
+label: JSON import of Applications content
+migration_tags:
+  - apps
+source:
+  plugin: csv
+  path: public://migration/apps.csv
+  header_offset: 0
+  ids:
+    - id
+  fields:
+    0:
+      name: id
+      label: id
+    1:
+      name: title
+      label: 'Title'
+    2:
+      name: short_name
+      label: 'Short Name'
+    3:
+      name: short_description
+      label: 'Short Description'
+    4:
+      name: description
+      label: 'Detailed Description'
+    5:
+      name: technology_category
+      label: 'Technology Category'
+    6:
+      name: technology_subcategory
+      label: 'Technology SubCategory'
+    7:
+      name: version
+      label: 'Version'
+    8:
+      name: application_status
+      label: 'Status'
+    9:
+      name: application_type
+      label: 'Application Type'
+    10:
+      name: hosting_location
+      label: 'Hosting Location'
+    11:
+      name: application_link
+      label: 'Application Link'
+    12:
+      name: how_to_request_access
+      label: 'How to Request Access'
+    13:
+      name: owner
+      label: 'Owner'
+    14:
+      name: business_function
+      label: 'Business Function'
+    15:
+      name: number_of_sec_users
+      label: 'Number of SEC Users'
+    16:
+      name: what_divisions_offices_use_this_application
+      label: 'Divisons/Offices that use this'
+    17:
+      name: permissions_and_usage
+      label: 'Permissions and Usage'
+    18:
+      name: how_many_external_users
+      label: 'How many external users?'
+    19:
+      name: type_of_external_user
+      label: 'Type of External User?'
+    20:
+      name: integrations1
+      label: 'Integrations1'
+    21:
+      name:  description_of_integrations1
+      label: 'Description of Integrations1 (Sends data)'
+    22:
+      name: integrations2
+      label: 'Integrations2'
+    23:
+      name:  description_of_integrations2
+      label: 'Description of Integrations2 (Sends data)'
+    24:
+      name: related_platforms
+      label: 'Related Platforms'
+    25:
+      name: related_components
+      label: 'Related Components'
+    26:
+      name: related_datasets
+      label: 'Related Datasets'
+    27:
+      name: contact_guidance
+      label: 'Contact Guidance'
+    28:
+      name: search_keywords
+      label: search_keywords
+    29:
+      name: tags
+      label: tags
+    30:
+      name: reviewer
+      label: 'Reviewer'
+    31:
+      name: promoted_to_technology_standards
+      label: 'Promoted to Technology Standards'
+  constants:
+    delimiter: ','
+    reviewer: 'TechCatalog@sec.gov'
+
+process:
+  status:
+    plugin: default_value
+    default_value: 1
+  
+  moderation_state: published
+
+  type:
+    plugin: default_value
+    default_value: application
+
+  title: title
+
+  field_short_name: short_name
+
+  body: description
+
+  field_sync_description: short_description
+  field_summary: short_description
+
+  
+  field_app_status:
+    plugin: entity_lookup
+    source: application_status
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    access_check: 0
+    bundle: application_status
+
+  field_approved_version: version
+
+  field_application_type:
+    - plugin: callback
+      callable: trim
+      source: application_type
+    -
+      plugin: entity_lookup
+      ignore_case: true
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      access_check: 0
+      bundle: application_type
+    
+  field_hosting_location:
+    plugin: entity_lookup
+    source: hosting_location
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    access_check: 0
+    bundle: hosting_location
+
+  field_application_link/uri: application_link
+  field_application_link/title: 'Application Link'
+
+  field_how_to_request_access/uri: how_to_request_access
+  field_how_to_request_access/link : 'Request Access'
+  
+  field_owner:
+    plugin: entity_lookup      
+    source: owner
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    access_check: 0
+    bundle: division_office
+
+  field_number_of_users: number_of_sec_users
+  
+  field_division_office_multi:
+    - plugin: explode
+      source: what_divisions_offices_use_this_application
+      delimiter: '|'
+    - plugin: callback
+      callable: trim
+    - plugin: entity_lookup      
+      ignore_case: true
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      access_check: 0
+      bundle: division_office
+  
+  field_permissions_and_usage: permissions_and_usage
+
+  field_number_of_external_users: how_many_external_users
+
+  field_type_of_external_user:
+    plugin: entity_lookup
+    source: type_of_external_user
+    ignore_case: true
+    value_key: name
+    entity_type: taxonomy_term
+    bundle_key: vid
+    access_check: 0
+    bundle: dataset_registrant_type
+  
+  integrations1_pipeline:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: integrations1
+    - 
+      plugin: related_apps
+      desc: description_of_integrations1
+
+  integrations2_pipeline:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: integrations2
+    - 
+      plugin: related_apps
+      desc: description_of_integrations2
+  
+
+  field_related_platforms:
+    plugin: entity_lookup
+    source: related_platforms
+    entity_type: node
+    bundle_key: type
+    bundle: platform
+    value_key: title
+    access_check: 0
+    ignore_case: true
+
+  field_related_components:
+    plugin: migration_lookup
+    migration: asl
+    source: related_components
+
+  field_related_datasets_with_term:
+    - 
+      plugin: migration_lookup
+      migration: related_app_datasets
+      source: related_datasets
+    -
+      plugin: array_filter
+    -
+      plugin: sub_process
+      process:
+        target_id: '0'
+        target_revision_id: '1'
+
+  field_contact_guidance: contact_guidance
+
+  field_data_search_index: search_keywords
+  
+
+  field_tags: 
+    - plugin: explode
+      source: tags
+      delimiter: ','
+    - plugin: callback
+      callable: trim
+    - plugin: entity_generate      
+      ignore_case: true
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      bundle: tags
+      access_check: 0
+
+  field_reviewer:
+    plugin: user_lookup
+    source: constants/reviewer
+
+  field_promote_it_to_the_technolo:
+    plugin: static_map
+    source: application_status
+    map:
+      'In Development': TRUE
+      'Planning': TRUE
+      'Active': TRUE
+      'Retired': FALSE
+
+  field_sync_date:
+    plugin: current_date
+      
+destination:
+  plugin: entity:node
+  overwrite_properties:
+    - status
+    - moderation_state
+    - title
+    - field_short_name
+    - field_approved_version
+    - field_app_status
+    - field_application_type
+    - field_hosting_location
+    - field_owner
+    - field_number_of_users
+    - field_division_office_multi
+    - field_sync_description
+    - field_sync_date
+    - field_promote_it_to_the_technolo
+    - field_contact_guidance
+    - field_related_platforms
+    - field_related_components
+    - field_type_of_external_user
+    - field_number_of_external_users
+    - field_summary
+    - field_permissions_and_usage

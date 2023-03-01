@@ -1,0 +1,13 @@
+uuid: 724a6812-a671-4e11-af9d-2b1477a50293
+langcode: en
+status: true
+dependencies: {  }
+id: related_datasets_and_data_insights
+label: 'Related Datasets and Data Insights'
+enabled: true
+first_field: field_related_data_insights
+second_field: field_associated_datasets
+bundles:
+  node:
+    - data_insight
+    - data_set

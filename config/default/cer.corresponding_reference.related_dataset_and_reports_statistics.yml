@@ -1,0 +1,13 @@
+uuid: e3ada34c-b64b-4482-86f3-1b0aa669d9f8
+langcode: en
+status: true
+dependencies: {  }
+id: related_dataset_and_reports_statistics
+label: 'Related Data Set and Reports & Statistics'
+enabled: true
+first_field: field_associated_datasets
+second_field: field_related_reports_statistics
+bundles:
+  node:
+    - data_set
+    - statistics

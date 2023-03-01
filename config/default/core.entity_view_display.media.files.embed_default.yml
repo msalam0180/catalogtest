@@ -1,0 +1,40 @@
+uuid: 1d28018b-1ec1-4a04-b8f0-77de37bf9fd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embed_default
+    - field.field.media.files.field_description
+    - field.field.media.files.field_document_category
+    - field.field.media.files.field_media_file
+    - media.type.files
+  module:
+    - file
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: VjRCHir-lVq2MUkEF-Kus4pI7ml_yViSNfhkqj7kuv4
+id: media.files.embed_default
+targetEntityType: media
+bundle: files
+mode: embed_default
+content:
+  field_media_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_description: true
+  field_document_category: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

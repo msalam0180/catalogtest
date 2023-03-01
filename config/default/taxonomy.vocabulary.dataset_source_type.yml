@@ -1,0 +1,10 @@
+uuid: 71ac1f99-5031-4aee-acdf-b0084c9e1c42
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: msFXDVzRc_wUxmrcX0sK6Jo3Ymoqc-_eTHFK5UlcSV0
+name: Source
+vid: dataset_source_type
+description: 'Origin of the data'
+weight: 0

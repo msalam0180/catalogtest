@@ -1,0 +1,25 @@
+uuid: 8e239bed-1d90-4bfa-81b0-1e11ca031aae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.tool_types.field_faq_s
+    - field.field.taxonomy_term.tool_types.field_singular
+    - taxonomy.vocabulary.tool_types
+  module:
+    - text
+id: taxonomy_term.tool_types.default
+targetEntityType: taxonomy_term
+bundle: tool_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_faq_s: true
+  field_singular: true

@@ -1,0 +1,21 @@
+uuid: 1a6c48ae-d7c9-4b70-b0c6-05cc1b523084
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_type
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_submission_type
+field_name: field_submission_type
+entity_type: node
+bundle: data_set
+label: 'Submission Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

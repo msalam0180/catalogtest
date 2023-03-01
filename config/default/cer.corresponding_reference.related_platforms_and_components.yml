@@ -1,0 +1,13 @@
+uuid: 0dd05523-4eb0-4186-b234-6e9a1fe5bf9a
+langcode: en
+status: true
+dependencies: {  }
+id: related_platforms_and_components
+label: 'Related Platforms and Software'
+enabled: true
+first_field: field_related_platforms
+second_field: field_related_components
+bundles:
+  node:
+    - component
+    - platform

@@ -1,0 +1,26 @@
+uuid: 5783db19-830c-4386-b78f-10cb0e109147
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.component
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: node.component.field_summary
+field_name: field_summary
+entity_type: node
+bundle: component
+label: 'Short Description'
+description: 'Short Description text will show in search results and list pages'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

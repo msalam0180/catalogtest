@@ -1,0 +1,19 @@
+uuid: 419d7b98-47a3-46ef-93c1-f7a88a4b5d87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_name
+    - node.type.component
+id: node.component.field_short_name
+field_name: field_short_name
+entity_type: node
+bundle: component
+label: 'Short Name'
+description: 'Short name is the acronym or shortened version of the title'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

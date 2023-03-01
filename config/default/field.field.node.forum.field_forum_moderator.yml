@@ -1,0 +1,38 @@
+uuid: 687986d8-e88b-4239-ab24-1c8515d39b5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forum_moderator
+    - node.type.forum
+  content:
+    - 'user:user:aa9e5a13-565d-4a45-9d6a-6d9a5589c662'
+id: node.forum.field_forum_moderator
+field_name: field_forum_moderator
+entity_type: node
+bundle: forum
+label: 'Forum Moderator'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: aa9e5a13-565d-4a45-9d6a-6d9a5589c662
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        forum_moderator: forum_moderator
+        administrator: '0'
+        content_creator: '0'
+        content_approver: '0'
+        sitebuilder: '0'
+    include_anonymous: false
+field_type: entity_reference

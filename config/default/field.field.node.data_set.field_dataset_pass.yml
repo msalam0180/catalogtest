@@ -1,0 +1,21 @@
+uuid: a8b859bc-6e07-4325-bcbb-a2834e82071a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_pass
+    - node.type.data_set
+_core:
+  default_config_hash: lNMoKaUSjqT9fR10XSlSGyJYzHAGR2_qWt0lXUgYsO4
+id: node.data_set.field_dataset_pass
+field_name: field_dataset_pass
+entity_type: node
+bundle: data_set
+label: 'Vendor FTP Password'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

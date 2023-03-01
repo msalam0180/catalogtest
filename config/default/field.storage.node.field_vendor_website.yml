@@ -1,0 +1,23 @@
+uuid: 92738df0-513b-4074-ba25-054f12d58df3
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - link
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_vendor_website
+field_name: field_vendor_website
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

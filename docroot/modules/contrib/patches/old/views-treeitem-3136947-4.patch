@@ -1,0 +1,68 @@
+diff --git a/src/Plugin/EntityReferenceSelection/TreeViewsSelection.php b/src/Plugin/EntityReferenceSelection/TreeViewsSelection.php
+index b819e93..2f0a7b3 100644
+--- a/src/Plugin/EntityReferenceSelection/TreeViewsSelection.php
++++ b/src/Plugin/EntityReferenceSelection/TreeViewsSelection.php
+@@ -2,7 +2,7 @@
+ 
+ namespace Drupal\views_tree\Plugin\EntityReferenceSelection;
+ 
+-use Drupal\Core\Entity\EntityManagerInterface;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Session\AccountInterface;
+ use Drupal\views\Plugin\EntityReferenceSelection\ViewsSelection;
+@@ -47,7 +47,7 @@ class TreeViewsSelection extends ViewsSelection {
+    *   The plugin_id for the plugin instance.
+    * @param mixed $plugin_definition
+    *   The plugin implementation definition.
+-   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+    *   The entity manager service.
+    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+    *   The module handler service.
+@@ -58,8 +58,8 @@ class TreeViewsSelection extends ViewsSelection {
+    * @param \Drupal\views_tree\ViewsResultTreeValues $views_result_tree_values
+    *   The views result tree values service.
+    */
+-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_manager, ModuleHandlerInterface $module_handler, AccountInterface $current_user, TreeHelper $tree, ViewsResultTreeValues $views_result_tree_values) {
+-    parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_manager, $module_handler, $current_user);
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, AccountInterface $current_user, TreeHelper $tree, ViewsResultTreeValues $views_result_tree_values) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $module_handler, $current_user);
+ 
+     $this->tree = $tree;
+     $this->viewsResultTreeValues = $views_result_tree_values;
+@@ -73,7 +73,7 @@ class TreeViewsSelection extends ViewsSelection {
+       $configuration,
+       $plugin_id,
+       $plugin_definition,
+-      $container->get('entity.manager'),
++      $container->get('entity_type.manager'),
+       $container->get('module_handler'),
+       $container->get('current_user'),
+       $container->get('views_tree.tree'),
+diff --git a/tests/modules/views_tree_test/views_tree_test.info.yml b/tests/modules/views_tree_test/views_tree_test.info.yml
+index 8aa4e77..6d95603 100644
+--- a/tests/modules/views_tree_test/views_tree_test.info.yml
++++ b/tests/modules/views_tree_test/views_tree_test.info.yml
+@@ -2,7 +2,7 @@ name: 'Views tree test views'
+ type: module
+ description: 'Provides default views for views tree tests.'
+ package: Testing
+-# core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+  - drupal:views_tree
+ 
+diff --git a/views_tree.info.yml b/views_tree.info.yml
+index d4d2c4b..5c148ae 100644
+--- a/views_tree.info.yml
++++ b/views_tree.info.yml
+@@ -1,7 +1,7 @@
+ name: Views TreeItem
+ description: A Views style plugin to display a tree of elements using the adjacency model.
+ package: Views
+-# core: 8.x
++core_version_requirement: ^8 || ^9
+ type: module
+ dependencies:
+   - drupal:views

@@ -1,0 +1,94 @@
+uuid: da53c41f-44e1-4acb-9d6a-39a5eca06024
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contacts_with_roles.field_contact
+    - field.field.paragraph.contacts_with_roles.field_role
+    - paragraphs.paragraphs_type.contacts_with_roles
+  module:
+    - paragraphs
+label: 'Relate Contacts'
+id: add_existing_contact
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:paragraph'
+processor_configuration:
+  values:
+    type: contacts_with_roles
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  node_id:
+    value: 'Node ID'
+    label: 'Node ID'
+    machine_name: node_id
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  role:
+    value: Role
+    label: Role
+    machine_name: role
+    type: csv
+mappings:
+  -
+    target: parent_id
+    map:
+      value: node_id
+    settings: {  }
+    unique: {  }
+  -
+    target: parent_field_name
+    map:
+      value: 'parent:field_entity_field_name'
+    settings: {  }
+    unique: {  }
+  -
+    target: parent_type
+    map:
+      value: 'parent:field_entity_type'
+    settings: {  }
+    unique: {  }
+  -
+    target: field_contact
+    map:
+      target_id: title
+    settings:
+      language: ''
+      reference_by: title
+      feeds_item: guid
+      autocreate: 0
+  -
+    target: field_role
+    map:
+      target_id: role
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

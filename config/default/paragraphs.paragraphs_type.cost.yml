@@ -1,0 +1,10 @@
+uuid: 4e6641e4-ece3-4248-8618-14de1c21534c
+langcode: en
+status: true
+dependencies: {  }
+id: cost
+label: Cost
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

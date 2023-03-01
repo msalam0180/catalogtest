@@ -1,0 +1,28 @@
+uuid: 6e46e8da-a994-49c5-9be3-d7d49c538d6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_screenshots
+    - media.type.image
+    - node.type.application
+id: node.application.field_screenshots
+field_name: field_screenshots
+entity_type: node
+bundle: application
+label: Screenshots
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

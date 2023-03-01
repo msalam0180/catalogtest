@@ -1,0 +1,9 @@
+# environment:
+#   host: The hostname to use when connecting over SSH. Note that this can be different than the site's URI!
+#   user: The remote username that can connect to the host over SSH
+#   root: The path on the remote server to our site's docroot
+#   uri: The URL of the site we're managing.
+
+catalog:
+  root: /app/docroot
+  uri: catalog.lndo.site

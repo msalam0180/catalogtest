@@ -1,0 +1,7 @@
+name: Masquerade Overrides
+description: Updates to the Masquerade modules to allows content creators to preview pages as an authenticated user.
+type: module
+package: custom
+core: 8.x
+version: 8.x-1.0
+core_version_requirement: ^8 || ^9

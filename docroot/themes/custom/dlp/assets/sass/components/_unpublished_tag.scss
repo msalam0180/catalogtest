@@ -1,0 +1,40 @@
+
+/**
+ * Unpublished Tag
+ * 
+ * A visual indication if a referenced node entity is unpublished
+ */ 
+
+// Unpublished Entity References
+// Entity Reference Field - referencing a node - display rendered entity
+.field{
+  .node-published-false {
+    outline: 1px solid #af0b0b;
+    &:hover, &:focus{
+      outline: 1px solid #af0b0b;
+    }
+  }
+}
+
+// Entity Reference Field - referencing a node - display - entity_reference_label
+.item-published-false {
+  outline: 1px solid #af0b0b;
+  &:hover, &:focus{
+    outline: 1px solid #af0b0b;
+  }
+}
+.field{
+  // The unpublished Tag
+  .has-unpublished-tag{
+    position: relative;
+  }
+
+  .unpublished-tag{
+    font-size: 8px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: #af0b0b;
+    color: #fff;
+  }
+}

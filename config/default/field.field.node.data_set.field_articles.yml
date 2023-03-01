@@ -1,0 +1,31 @@
+uuid: 095dd20a-a744-42e7-8e2e-944785e23d5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_articles
+    - node.type.article
+    - node.type.data_set
+_core:
+  default_config_hash: qXhKRdeio3aa1cviMNaaNP1oRAcU4EL-u7lOAL-Q7l0
+id: node.data_set.field_articles
+field_name: field_articles
+entity_type: node
+bundle: data_set
+label: Articles
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

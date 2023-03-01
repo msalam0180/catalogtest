@@ -1,0 +1,63 @@
+uuid: 653e5a4f-7921-4c2e-9fcd-b5732cc5cdbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.data_set.field_dataset_source_type
+    - node.type.data_set
+  module:
+    - node
+label: 'Dataset - Source Update'
+id: dataset_source_update_use
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: data_set
+  langcode: en
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 666
+custom_sources:
+  nodeid:
+    value: NodeID
+    label: NodeID
+    machine_name: nodeid
+    type: csv
+  source:
+    value: Source
+    label: Source
+    machine_name: source
+    type: csv
+mappings:
+  -
+    target: nid
+    map:
+      value: nodeid
+    settings: {  }
+    unique:
+      value: '1'
+  -
+    target: field_dataset_source_type
+    map:
+      target_id: source
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

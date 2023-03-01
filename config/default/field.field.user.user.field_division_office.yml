@@ -1,0 +1,30 @@
+uuid: dc0fb2dd-5451-4af3-ad3b-0ee06c754b62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_division_office
+    - taxonomy.vocabulary.division_office
+  module:
+    - user
+id: user.user.field_division_office
+field_name: field_division_office
+entity_type: user
+bundle: user
+label: Division/Office
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

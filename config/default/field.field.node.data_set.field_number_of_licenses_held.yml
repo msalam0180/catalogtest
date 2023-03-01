@@ -1,0 +1,23 @@
+uuid: 67eae9fe-f8d8-48dc-9436-ea56b279aa91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_licenses_held
+    - node.type.data_set
+id: node.data_set.field_number_of_licenses_held
+field_name: field_number_of_licenses_held
+entity_type: node
+bundle: data_set
+label: 'Number of Licenses Held'
+description: 'What is the contractual limit to the number of users?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -1,0 +1,98 @@
+.region-masq{
+  color: white;
+  background: $primary-color;
+  padding: 20px;
+  font-size: 0.75em;
+
+  h2{
+    color: #fff;
+    margin: 0;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .form-item-required-help{
+    margin-bottom: 5px;
+  }
+
+  .form-inline{
+    margin-bottom: 0;
+  }
+
+  .form-inline{
+    display: flex;
+  }
+
+  .input-group-addon{
+    display: none;
+  }
+
+  .button {
+    padding: 7px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    text-transform: capitalize;
+    font-size: 1em;
+    background: #3575B9;
+    color: #ffffff;
+  }
+
+  
+  .form-text{
+    width: 100px;
+    font-size: 1em;
+    padding: 5px 8px;
+    height: 31px;
+  }
+
+  @media (min-width: 700px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    z-index: 200;
+  }
+
+  @media print {
+    display: none;
+  }
+
+
+  // Alternate display with field hidden
+  // if these alternate styles ned to be removed, then also change the button name back in "modules\custom\masquerade_overrides\masquerade_overrides.module" -  $form['autocomplete']['actions']['submit']['#value']
+  @media (min-width: 700px) {
+    width: auto;
+    max-width: 170px;
+    box-shadow: 0px 0px 4px rgba(74, 74, 74, 0.25);
+    border: 1px solid #adadad;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  // hide help text and form field - only display button
+  .form-item-required-help, .input-group{
+    display: none;
+  }
+
+  .form-actions{
+    width: 100%;
+
+    .button{
+      display: block;
+      border-radius: 3px !important;
+      width: 100%;
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+  .block-title{
+    display: none;
+  }
+}

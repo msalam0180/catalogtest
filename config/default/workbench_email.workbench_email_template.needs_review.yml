@@ -1,0 +1,29 @@
+uuid: 4bda1eca-0750-4dea-be13-276f32affbbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forum_moderator
+    - field.storage.node.field_reviewer
+id: needs_review
+label: 'Needs Review'
+subject: 'Content by [node:revision-user] is ready for review'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_reviewer'
+        - 'node:field_forum_moderator'
+bundles: {  }
+body:
+  value: "[node:title] is ready for review\r\n\r\n[node:url]/revisions\r\n\r\n[node:log]\r\n\r\nUpdated by: [node:revision-user]"
+  format: plain_text
+replyTo: ''

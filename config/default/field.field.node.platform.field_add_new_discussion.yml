@@ -1,0 +1,102 @@
+uuid: 654d48a7-c26e-4a83-a8db-6cd0d46c904e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_new_discussion
+    - node.type.platform
+    - views.view.create_new_discussion
+  module:
+    - viewfield
+id: node.platform.field_add_new_discussion
+field_name: field_add_new_discussion
+entity_type: node
+bundle: platform
+label: 'Add New Discussion'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 9068d42c-c9c4-416c-8426-c4f5f5e7eec6
+    display_id: block_1
+    arguments: ''
+    items_to_display: ''
+    token_help: ''
+default_value_callback: ''
+settings:
+  force_default: true
+  allowed_views:
+    create_new_discussion: create_new_discussion
+    abc: '0'
+    aggregator_rss_feed: '0'
+    aggregator_sources: '0'
+    applications: '0'
+    article_related_datasets: '0'
+    associated_data_sets: '0'
+    child_datasets: '0'
+    comment: '0'
+    component_categories: '0'
+    content: '0'
+    dataset_related_forums: '0'
+    csv_applications: '0'
+    csv_components: '0'
+    csv_platforms: '0'
+    block_content: '0'
+    data_catalog_data_export: '0'
+    data_insights: '0'
+    data_insights_term_list: '0'
+    data_search: '0'
+    data_search_index: '0'
+    dataset_related_articles: '0'
+    dataset_search: '0'
+    derived_datasets: '0'
+    discussion_moderation: '0'
+    discussions: '0'
+    entity_browser_articles: '0'
+    entity_browser_contacts: '0'
+    entity_browser_forum_related_content: '0'
+    entity_browser_tools: '0'
+    files: '0'
+    forum_related_content: '0'
+    frontpage: '0'
+    maillog_overview: '0'
+    media: '0'
+    media_entity_browser: '0'
+    media_browser_files: '0'
+    media_browser_images: '0'
+    moderated_content: '0'
+    user_admin_people: '0'
+    platforms: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    recent_content_test: '0'
+    edc_recently_created_datasets: '0'
+    edc_recently_updated_datasets: '0'
+    recently_updated_technology: '0'
+    redirect: '0'
+    related_data_dictionary: '0'
+    related_data_systems: '0'
+    reports_statistics_terms_list: '0'
+    search_forms: '0'
+    search_results: '0'
+    software_search: '0'
+    speaker_rest: '0'
+    taxonomy_term: '0'
+    component_categories_taxonomy_term: '0'
+    watchdog: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+  allowed_display_types:
+    block: block
+    attachment: '0'
+    data_export: '0'
+    entity_browser: '0'
+    entity_reference: '0'
+    feed: '0'
+    default: '0'
+    page: '0'
+    rest_export: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

@@ -1,0 +1,35 @@
+uuid: 6e24e5ac-ad37-4785-8d25-76fd978d0592
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.data_search
+    - views.view.data_search
+  module:
+    - views
+    - search_api_autocomplete
+id: data_search
+label: 'Data Search'
+index_id: data_search
+suggester_settings:
+  live_results:
+    fields:
+      - title
+    view_modes:
+      'entity:node':
+        data_set: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:data_search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: false

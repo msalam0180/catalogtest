@@ -1,0 +1,91 @@
+uuid: c64ce472-26cb-479a-97dc-a9f6cbebab36
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.media_item
+    - field.field.paragraph.licenses_held_by_division_office.field_division_office
+    - field.field.paragraph.licenses_held_by_division_office.field_license_notes
+    - field.field.paragraph.licenses_held_by_division_office.field_license_type
+    - field.field.paragraph.licenses_held_by_division_office.field_number_of_licenses_held
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+  module:
+    - field_group
+    - options
+third_party_settings:
+  field_group:
+    group_details:
+      children:
+        - field_number_of_licenses_held
+        - field_license_type
+        - field_license_notes
+      label: Details
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: Details
+        classes: 'media-details clearfix'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_title:
+      children:
+        - field_division_office
+      label: Title
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: Title
+        classes: media-title
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+id: paragraph.licenses_held_by_division_office.media_item
+targetEntityType: paragraph
+bundle: licenses_held_by_division_office
+mode: media_item
+content:
+  field_division_office:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_license_notes:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_license_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_number_of_licenses_held:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

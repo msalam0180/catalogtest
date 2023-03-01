@@ -1,0 +1,35 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/*
+ * Implements hook_ENTITY_TYPE_presave()
+ */
+function dc_asl_migration_node_presave(EntityInterface $entity) {
+  if ($entity->getType() == 'component') {
+
+     //if this node has a field_sync_date then its being migrated from Service Now
+     $field_sync_date = $entity->field_sync_date->value;
+     $field_technology_category = empty($entity->field_technology_category) ? null : $entity->field_technology_category->value;
+
+     if (!empty($field_sync_date) && empty($field_technology_category)) {
+
+      $category = \Drupal::database()->query('SELECT SW_Subcategory FROM {software_categories} WHERE Title = :software',[':software' => $entity->getTitle()])->fetchField();
+      if (!empty($category) ) {
+
+        //lookup the category term and tag this entity
+        $techCategory = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->loadByProperties([
+            'name' => $category, 
+            'vid' => 'component_category'
+        ]);
+        $techCategory = reset($techCategory);
+        if (!empty($techCategory)) {
+          $entity->set("field_component_category", $techCategory);
+        }
+      }      
+    }
+  }
+}

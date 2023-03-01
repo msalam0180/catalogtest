@@ -1,0 +1,29 @@
+uuid: 862240a6-0152-4fef-a7e8-c9123266bd9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_insights
+    - node.type.data_insight
+    - taxonomy.vocabulary.data_insight_type
+id: node.data_insight.field_data_insights
+field_name: field_data_insights
+entity_type: node
+bundle: data_insight
+label: 'Data Insight Categories'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_insight_type: data_insight_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+diff --git a/src/Entity/ResponseHeader.php b/src/Entity/ResponseHeader.php
+index 850277244..27f191cf6 100644
+--- a/src/Entity/ResponseHeader.php
++++ b/src/Entity/ResponseHeader.php
+@@ -25,6 +25,14 @@
+  *     "id" = "id",
+  *     "label" = "label",
+  *   },
++ *   config_export = {
++ *     "id",
++ *     "label",
++ *     "description",
++ *     "group",
++ *     "name",
++ *     "value",
++ *   },
+  *   links = {
+  *     "edit-form" = "/admin/config/system/response-headers/{header}",
+  *     "delete-form" = "/admin/config/system/response-headers/{header}/delete",

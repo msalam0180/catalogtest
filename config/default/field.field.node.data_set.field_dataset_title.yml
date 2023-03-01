@@ -1,0 +1,19 @@
+uuid: fc13d4ce-efd9-4f02-995f-0ac69cd21461
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_title
+    - node.type.data_set
+id: node.data_set.field_dataset_title
+field_name: field_dataset_title
+entity_type: node
+bundle: data_set
+label: Name
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

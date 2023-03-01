@@ -1,0 +1,8 @@
+uuid: c307a1d8-b0fa-4b6b-9cb4-f7742d6bca15
+langcode: en
+status: true
+dependencies: {  }
+name: 'Data Insights'
+vid: data_insight_type
+description: 'Type of Data Insight'
+weight: 0

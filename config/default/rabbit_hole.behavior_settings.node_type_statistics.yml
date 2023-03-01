@@ -1,0 +1,14 @@
+uuid: 76b6c146-f84f-426d-a225-f6ab4991cb46
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.statistics
+id: node_type_statistics
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

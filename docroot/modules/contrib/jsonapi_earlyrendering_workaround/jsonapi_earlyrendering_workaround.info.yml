@@ -1,0 +1,10 @@
+name: JSON:API Early Rendering Workaround
+decription: Decorates EarlyRenderdingControllerWrapperSubscriber to workaround leaked caching metadata issues.
+core: 8.x
+core_version_requirement: ^8 || ^9
+type: module
+
+# Information added by Drupal.org packaging script on 2021-09-22
+version: '8.x-1.0'
+project: 'jsonapi_earlyrendering_workaround'
+datestamp: 1632311809

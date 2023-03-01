@@ -1,0 +1,23 @@
+diff --git a/core/lib/Drupal/Core/Config/ConfigInstaller.php b/core/lib/Drupal/Core/Config/ConfigInstaller.php
+index 242d92097e..b0efc63f5a 100644
+--- a/core/lib/Drupal/Core/Config/ConfigInstaller.php
++++ b/core/lib/Drupal/Core/Config/ConfigInstaller.php
+@@ -324,7 +324,17 @@ protected function createConfiguration($collection, array $config_to_create) {
+           $entity = $entity_storage->updateFromStorageRecord($entity, $new_config->get());
+         }
+         else {
+-          $entity = $entity_storage->createFromStorageRecord($new_config->get());
++          // Consider the case of new config on existing entity
++          // @see https://www.drupal.org/project/drupal/issues/2941712
++          $values = $new_config->get();
++          $existing_entity = NULL;
++          if (count($values) > 0 && isset($values['id']))  $existing_entity = $entity_storage->load($values['id']);
++
++          if ($existing_entity) {
++            $entity = $entity_storage->updateFromStorageRecord($existing_entity, $values);
++          } else {
++            $entity = $entity_storage->createFromStorageRecord($values);
++          }
+         }
+         if ($entity->isInstallable()) {
+           $entity->trustData()->save();

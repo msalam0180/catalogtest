@@ -1,0 +1,33 @@
+uuid: 546b3711-809c-42a5-b825-e74ca980955b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file
+    - media.type.files
+  module:
+    - field_display_label
+    - file
+third_party_settings:
+  field_display_label:
+    display_label: Download
+_core:
+  default_config_hash: '-9PgdzOBujT-7w9G4Z3-OjQEubQWmoYNf7P_iYeI-4g'
+id: media.files.field_media_file
+field_name: field_media_file
+entity_type: media
+bundle: files
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx xls xlsx ppt pptx csv txt json avi wmv jpg dm1 msg zip sas db dbf mpeg mp3 wav'
+  max_filesize: 100MB
+  description_field: false
+field_type: file

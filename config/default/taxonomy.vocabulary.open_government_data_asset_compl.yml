@@ -1,0 +1,8 @@
+uuid: 451019ca-bcc7-4f13-8ebe-a1f662f9f7e7
+langcode: en
+status: true
+dependencies: {  }
+name: 'OPEN Government Data Asset Compliance'
+vid: open_government_data_asset_compl
+description: ''
+weight: 0

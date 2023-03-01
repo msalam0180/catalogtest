@@ -1,0 +1,51 @@
+uuid: 7871bd84-633e-48e8-b2e3-7371f763db84
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.global_search
+    - views.view.search_results
+    - core.entity_view_mode.node.autocomplete
+    - core.entity_view_mode.taxonomy_term.autocomplete
+  module:
+    - views
+    - search_api_autocomplete
+id: search_results
+label: 'Search Results'
+index_id: global_search
+suggester_settings:
+  live_results:
+    fields: {  }
+    highlight:
+      enabled: false
+      field: ''
+    view_modes:
+      'entity:node':
+        application: autocomplete
+        article: autocomplete
+        chart: autocomplete
+        component: autocomplete
+        data_insight: autocomplete
+        data_set: autocomplete
+        landing_page: autocomplete
+        page: autocomplete
+        platform: autocomplete
+        statistics: autocomplete
+        tools: autocomplete
+      'entity:taxonomy_term':
+        component_category: autocomplete
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:search_results':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: false

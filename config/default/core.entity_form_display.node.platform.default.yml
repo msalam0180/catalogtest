@@ -1,0 +1,466 @@
+uuid: 5bfc1ebb-fe97-43f2-aaa5-7ce8ee302245
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.quick
+    - field.field.node.platform.body
+    - field.field.node.platform.field_add_new_discussion
+    - field.field.node.platform.field_approved_version
+    - field.field.node.platform.field_component_category
+    - field.field.node.platform.field_contact_guidance
+    - field.field.node.platform.field_contacts
+    - field.field.node.platform.field_data_search_index
+    - field.field.node.platform.field_dataset_use
+    - field.field.node.platform.field_division_office_multi
+    - field.field.node.platform.field_documents
+    - field.field.node.platform.field_how_to_request_access
+    - field.field.node.platform.field_logo
+    - field.field.node.platform.field_manufacturer
+    - field.field.node.platform.field_platform_link
+    - field.field.node.platform.field_promote_it_to_the_technolo
+    - field.field.node.platform.field_related_apps
+    - field.field.node.platform.field_related_articles
+    - field.field.node.platform.field_related_components
+    - field.field.node.platform.field_related_datasets_with_term
+    - field.field.node.platform.field_related_discussions
+    - field.field.node.platform.field_review_submitter
+    - field.field.node.platform.field_reviewer
+    - field.field.node.platform.field_short_name
+    - field.field.node.platform.field_status_usage
+    - field.field.node.platform.field_summary
+    - field.field.node.platform.field_tags
+    - node.type.platform
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - cshs
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
+    - link
+    - paragraphs
+    - path
+    - text
+    - viewfield
+third_party_settings:
+  field_group:
+    group_fieldtabs:
+      children:
+        - group_general
+        - group_related_technologies
+        - group_contacts
+        - group_related_documentation
+      label: FieldTabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_general:
+      children:
+        - title
+        - field_short_name
+        - field_summary
+        - body
+        - field_component_category
+        - field_manufacturer
+        - field_approved_version
+        - field_status_usage
+        - field_platform_link
+        - field_how_to_request_access
+        - field_division_office_multi
+        - field_dataset_use
+        - field_logo
+        - field_data_search_index
+        - field_tags
+      label: General
+      region: content
+      parent_name: group_fieldtabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_related_technologies:
+      children:
+        - field_related_apps
+        - field_related_components
+        - field_related_datasets_with_term
+      label: 'Related Technologies'
+      region: content
+      parent_name: group_fieldtabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contacts:
+      children:
+        - field_contacts
+        - field_contact_guidance
+      label: Contacts
+      region: content
+      parent_name: group_fieldtabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_related_documentation:
+      children:
+        - field_related_articles
+        - field_documents
+      label: 'Related Documentation'
+      region: content
+      parent_name: group_fieldtabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.platform.default
+targetEntityType: node
+bundle: platform
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_add_new_discussion:
+    type: viewfield_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_approved_version:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_component_category:
+    type: cshs
+    weight: 5
+    region: content
+    settings:
+      force_deepest: true
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_contact_guidance:
+    type: string_textarea
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_contacts:
+    type: entity_reference_paragraphs
+    weight: 8
+    region: content
+    settings:
+      title: Contact
+      title_plural: Contacts
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_data_search_index:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_use:
+    type: cshs
+    weight: 12
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_division_office_multi:
+    type: cshs
+    weight: 11
+    region: content
+    settings:
+      force_deepest: false
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+  field_documents:
+    type: inline_entity_form_complex
+    weight: 12
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Document
+      label_plural: Documents
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: files
+  field_how_to_request_access:
+    type: link_default
+    weight: 10
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Request Access'
+    third_party_settings: {  }
+  field_logo:
+    type: inline_entity_form_complex
+    weight: 13
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Logo
+      label_plural: Logos
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: images
+  field_manufacturer:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_platform_link:
+    type: link_default
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_promote_it_to_the_technolo:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_related_apps:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_articles:
+    type: inline_entity_form_complex
+    weight: 10
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Article
+      label_plural: Articles
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: articles
+  field_related_components:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_datasets_with_term:
+    type: entity_reference_paragraphs
+    weight: 8
+    region: content
+    settings:
+      title: Dataset
+      title_plural: Dataset
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_related_discussions:
+    type: viewfield_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_reviewer:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_short_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_status_usage:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_summary:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_review_submitter: true

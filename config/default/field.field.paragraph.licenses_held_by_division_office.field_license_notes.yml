@@ -1,0 +1,24 @@
+uuid: 467c82ee-3cfa-4a4a-885d-32ed773f0a80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_license_notes
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: Notes
+id: paragraph.licenses_held_by_division_office.field_license_notes
+field_name: field_license_notes
+entity_type: paragraph
+bundle: licenses_held_by_division_office
+label: 'License Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

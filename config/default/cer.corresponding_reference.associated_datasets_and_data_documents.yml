@@ -1,0 +1,10 @@
+uuid: c10e6742-6f17-4d5f-b9b8-e9ecdc456137
+langcode: en
+status: true
+dependencies: {  }
+id: associated_datasets_and_data_documents
+label: 'Associated Datasets and Data Documents'
+enabled: false
+first_field: field_associated_datasets
+second_field: field_document_category
+bundles: {  }

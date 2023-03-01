@@ -1,0 +1,19 @@
+uuid: 6f7129ab-5498-45f1-b075-7317b2e2378a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_name_old
+    - node.type.data_set
+id: node.data_set.field_dataset_name_old
+field_name: field_dataset_name_old
+entity_type: node
+bundle: data_set
+label: 'Other Names Used'
+description: 'Is this dataset also referred to by another or legacy name(s)?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

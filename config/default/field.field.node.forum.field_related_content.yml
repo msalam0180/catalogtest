@@ -1,0 +1,30 @@
+uuid: 7c9ec154-b07a-4a76-ba64-7abbc4ab2f17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.forum
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: 'Related Content'
+id: node.forum.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: forum
+label: 'Add Catalog Content Related to this Discussion'
+description: 'Start typing to find other Catalog content (e.g., datasets, applications, and other discussions) to associate here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: forum_related_content
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

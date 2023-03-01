@@ -1,0 +1,34 @@
+uuid: e2f25866-44b7-48e1-9fa6-69d40b7e07f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_component_category
+    - node.type.platform
+    - taxonomy.vocabulary.component_category
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: Category
+id: node.platform.field_component_category
+field_name: field_component_category
+entity_type: node
+bundle: platform
+label: 'Technology Category'
+description: 'If you choose to add a Technology Category, you MUST always select a term from EACH new drop down that appears.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      component_category: component_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

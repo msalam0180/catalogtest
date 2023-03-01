@@ -1,0 +1,15 @@
+uuid: 16b0bf34-f3e5-426b-b67d-6873e8a6e20b
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.like_comment
+  module:
+    - flag
+id: flag_action.like_comment_flag
+label: Like
+type: comment
+plugin: 'flag_action:like_comment_flag'
+configuration:
+  flag_id: like_comment
+  flag_action: flag

@@ -1,0 +1,21 @@
+diff --git a/core/modules/media/src/Entity/Media.php b/core/modules/media/src/Entity/Media.php
+index 76739dbe48..96efcb3245 100644
+--- a/core/modules/media/src/Entity/Media.php
++++ b/core/modules/media/src/Entity/Media.php
+@@ -358,7 +358,6 @@ public function prepareSave() {
+     // brittle and should probably be handled by a queue, to avoid doing HTTP
+     // operations during entity save. See
+     // https://www.drupal.org/project/drupal/issues/2976875 for more.
+-
+     // In order for metadata to be mapped correctly, $this->original must be
+     // set. However, that is only set once parent::save() is called, so work
+     // around that by setting it here.
+@@ -377,7 +376,7 @@ public function prepareSave() {
+         foreach ($translation->bundle->entity->getFieldMap() as $metadata_attribute_name => $entity_field_name) {
+           // Only save value in the entity if the field is empty or if the
+           // source field changed.
+-          if ($translation->hasField($entity_field_name) && ($translation->get($entity_field_name)->isEmpty() || $translation->hasSourceFieldChanged())) {
++          if ($translation->hasField($entity_field_name) && ($translation->get($entity_field_name)->isEmpty() && $translation->hasSourceFieldChanged())) {
+             $translation->set($entity_field_name, $media_source->getMetadata($translation, $metadata_attribute_name));
+           }
+         }

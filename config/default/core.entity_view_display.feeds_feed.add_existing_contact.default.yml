@@ -1,0 +1,61 @@
+uuid: 0666da22-c480-46ea-9b94-27305f123a28
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.add_existing_contact
+    - field.field.feeds_feed.add_existing_contact.field_entity_field_name
+    - field.field.feeds_feed.add_existing_contact.field_entity_type
+  module:
+    - feeds
+    - user
+id: feeds_feed.add_existing_contact.default
+targetEntityType: feeds_feed
+bundle: add_existing_contact
+mode: default
+content:
+  field_entity_field_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_entity_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  imported:
+    type: timestamp_ago
+    label: inline
+    settings:
+      future_format: '@interval hence'
+      past_format: '@interval ago'
+      granularity: 2
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  next:
+    type: timestamp
+    label: inline
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  source:
+    type: feeds_uri_link
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: -3
+    region: content
+hidden:
+  search_api_excerpt: true

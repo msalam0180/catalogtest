@@ -1,0 +1,19 @@
+uuid: 7348c733-d2cd-4661-a6ee-ec51c001fa1f
+langcode: en
+status: true
+dependencies: {  }
+name: node_faq
+label: 'node faq validation'
+entity_type: node
+bundle: faq
+field_validation_rules:
+  ed28bc05-7cd9-4947-a3bb-44250c7016db:
+    id: regex_field_validation_rule
+    title: 'FAQ Answer Alpha Numeric Validation'
+    data:
+      setting: '/^[A-Za-z0-9\s?\(\)]+$/'
+    weight: 1
+    uuid: ed28bc05-7cd9-4947-a3bb-44250c7016db
+    field_name: field_faq_question
+    column: value
+    error_message: 'Your entry is invalid. You must enter either letters, numbers or the following special characters: (, ), ?'

@@ -1,0 +1,29 @@
+uuid: e81db32d-40ee-4177-8f58-83037ccf4d9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_documents
+    - media.type.files
+    - node.type.data_insight
+id: node.data_insight.field_documents
+field_name: field_documents
+entity_type: node
+bundle: data_insight
+label: 'Related Documents'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      files: files
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

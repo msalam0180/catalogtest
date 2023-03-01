@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'media',
+    'media--type-' ~ media.bundle()|clean_class,
+    not media.isPublished() ? 'media--unpublished',
+    view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<!-- if File URL and File Name and file description -->
+{% spaceless %}
+<div{{ attributes.addClass(classes, 'media-item', 'bordered-left', 'bgcolor-lt') }} }}>
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    <span class="file-icon media-figure"><span class="icon glyphicon glyphicon-file" aria-hidden="true"></span></span>
+    <div class="file-details media-body">
+      <a class="file-name media-title" target="_blank" href="{{file_url(content.field_media_file['#items'].entity.uri.value)}}">{{name}}</a>
+      {% if content.field_description|render|striptags %}
+        <div class="field field--name-field-description field--type-string-long field--label-hidden field--item">
+          {% set text = content.field_description|render|striptags|trim %}
+          {{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}
+        </div>
+      {% endif %}
+      {{ content|without('field_media_file', 'field_description')}}
+    </div>
+  {% endif %}
+</div>
+{% endspaceless %}

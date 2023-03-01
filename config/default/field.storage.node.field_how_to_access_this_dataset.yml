@@ -1,0 +1,23 @@
+uuid: d93f9094-c478-4baf-a64b-7180969462ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_how_to_access_this_dataset
+field_name: field_how_to_access_this_dataset
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

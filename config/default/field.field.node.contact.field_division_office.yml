@@ -1,0 +1,31 @@
+uuid: d83cbece-f6d9-48c9-ba8c-fd63cd7047ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_division_office
+    - node.type.contact
+    - taxonomy.vocabulary.division_office
+_core:
+  default_config_hash: kiNZ3nJmkboC3t55RyYqymQDyfErFtenc6R28TTksMg
+id: node.contact.field_division_office
+field_name: field_division_office
+entity_type: node
+bundle: contact
+label: Division/Office
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

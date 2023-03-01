@@ -1,0 +1,10 @@
+uuid: 946b69e8-6238-47ae-8b4d-a0fe1460d765
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: imVrMdgsRum8Hu7i_qPkpRqq45IDGcoUM8BDxHlCWco
+name: 'Asset Type'
+vid: dataset_asset_category
+description: 'The asset category of a dataset'
+weight: 0

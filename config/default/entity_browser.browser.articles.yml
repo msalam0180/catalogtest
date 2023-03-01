@@ -1,0 +1,31 @@
+uuid: e81cf542-7c73-4557-93ce-a5dfd4387ad4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_articles
+  module:
+    - views
+name: articles
+label: Articles
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select Articles'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  4e62bac0-98f0-4bd2-874b-01d70557fc77:
+    id: view
+    uuid: 4e62bac0-98f0-4bd2-874b-01d70557fc77
+    label: view
+    weight: 1
+    settings:
+      submit_text: 'Select Articles'
+      auto_select: false
+      view: entity_browser_articles
+      view_display: entity_browser_1

@@ -1,0 +1,17 @@
+uuid: 92bf0285-62b4-4617-8d63-9ad94bcc0ddb
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Dev
+description: 'Config for acquia dev environments'
+weight: 2
+folder: ../config/dev
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - environment_indicator.switcher.prod
+  - google_analytics.settings
+graylist_dependents: true
+graylist_skip_equal: true

@@ -1,0 +1,23 @@
+uuid: b4e16ad2-1510-4735-b64c-573eed5992ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_platform_link
+    - node.type.platform
+  module:
+    - link
+id: node.platform.field_platform_link
+field_name: field_platform_link
+entity_type: node
+bundle: platform
+label: 'Platform Link'
+description: 'If the platform has multiple links, please add them in the "Detailed Description" field.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

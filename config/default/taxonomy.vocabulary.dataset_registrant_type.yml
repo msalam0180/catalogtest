@@ -1,0 +1,10 @@
+uuid: 97acd63f-25e9-4330-b31f-9ab4e1d56395
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GaP_0vCWI4LTEt0z_IKI4qaceLhrpiCc4CuISxtQns0
+name: 'Entity Type'
+vid: dataset_registrant_type
+description: 'Who the data is about'
+weight: 0

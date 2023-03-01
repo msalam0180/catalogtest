@@ -1,0 +1,157 @@
+uuid: 3e1c6601-a0f3-41cd-bf6e-991300db8600
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_forum.default
+    - field.field.node.forum.body
+    - field.field.node.forum.comment_forum
+    - field.field.node.forum.field_forum_moderator
+    - field.field.node.forum.field_related_content
+    - field.field.node.forum.taxonomy_forums
+    - node.type.forum
+  module:
+    - comment
+    - field_group
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_column_01:
+      children:
+        - body
+        - flag_like_discussion
+      label: 'Column 01'
+      parent_name: group_r
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: 'col-lg-8 mainSection clearfix'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_02:
+      children:
+        - group_related_content
+      label: 'Column 02'
+      parent_name: group_r
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: 'col-lg-4 sideSection'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_r:
+      children:
+        - group_column_01
+        - group_column_02
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_related_content:
+      children:
+        - group_related_content_content
+      label: 'Related Content'
+      parent_name: group_column_02
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: side-grouping
+        id: ''
+        element: div
+        show_label: true
+        label_element: h2
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_related_content_content:
+      children:
+        - field_related_content
+      label: 'Related Content Content'
+      parent_name: group_related_content
+      region: content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: ' side-grouping-content'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+_core:
+  default_config_hash: TM_8DV1XKUAtF-wGxTBLOtg_GTtF5CX9WLrADxG7Xm4
+id: node.forum.default
+targetEntityType: node
+bundle: forum
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  comment_forum:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_related_content:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  flag_like_discussion:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_forum_moderator: true
+  links: true
+  search_api_excerpt: true
+  taxonomy_forums: true

@@ -1,0 +1,14 @@
+diff --git a/core/modules/quickedit/quickedit.module b/core/modules/quickedit/quickedit.module
+index 351ac6987..ed64c284d 100644
+--- a/core/modules/quickedit/quickedit.module
++++ b/core/modules/quickedit/quickedit.module
+@@ -133,6 +133,9 @@ function quickedit_preprocess_field(&$variables) {
+   $element = $variables['element'];
+   /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
+   $entity = $element['#object'];
++  if (empty($entity)){
++    return;
++  }
+ 
+   if (!\Drupal::currentUser()->hasPermission('access in-place editing') || ($entity instanceof RevisionableInterface && !$entity->isLatestRevision())) {
+     return;

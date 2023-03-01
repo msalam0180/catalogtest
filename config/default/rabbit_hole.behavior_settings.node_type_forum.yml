@@ -1,0 +1,14 @@
+uuid: b7732d8e-eb1c-4b0e-ac9b-253f3d1dbd2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forum
+id: node_type_forum
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

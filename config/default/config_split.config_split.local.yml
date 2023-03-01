@@ -1,0 +1,26 @@
+uuid: 9b5e836e-a784-4ece-a428-6b02f2ca9099
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: Local
+description: 'Config for local environment'
+weight: 1
+folder: ../config/local
+module:
+  dblog: 0
+  devel: 0
+  devel_generate: 0
+theme: {  }
+blacklist:
+  - dblog.settings
+  - devel.settings
+  - devel.toolbar.settings
+  - system.menu.devel
+  - views.view.watchdog
+graylist:
+  - environment_indicator.indicator
+  - environment_indicator.switcher.prod
+  - simple_oauth.settings
+graylist_dependents: true
+graylist_skip_equal: true

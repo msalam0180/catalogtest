@@ -1,0 +1,22 @@
+uuid: a2f6df9e-0786-43de-980b-135a776ff149
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+_core:
+  default_config_hash: A8dZeHyGoNbaetsr9iKUzDvOkTjU5jgkdZAQi6egA8c
+id: node.field_dataset_date_archive
+field_name: field_dataset_date_archive
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

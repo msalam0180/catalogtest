@@ -1,0 +1,36 @@
+uuid: b21dc183-fab4-46f3-822a-a6e682ed61a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_url
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_media_image
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.image.media_url
+targetEntityType: media
+bundle: image
+mode: media_url
+content:
+  field_media_image:
+    type: image_url
+    label: visually_hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_caption: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

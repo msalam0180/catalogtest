@@ -1,0 +1,32 @@
+uuid: e5256f2a-6ebe-4154-86e8-ae0dab93bfae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.applications_to_datasets.field_related_dataset
+    - field.field.paragraph.applications_to_datasets.field_technology_dataset_relatio
+    - paragraphs.paragraphs_type.applications_to_datasets
+id: paragraph.applications_to_datasets.default
+targetEntityType: paragraph
+bundle: applications_to_datasets
+mode: default
+content:
+  field_related_dataset:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_technology_dataset_relatio:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

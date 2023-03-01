@@ -1,0 +1,8 @@
+uuid: 5f790805-60ee-468f-a0ee-14e31c28118b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Data Category'
+vid: data_category
+description: ''
+weight: 0

@@ -1,0 +1,33 @@
+uuid: 59a299e8-fe72-4129-bdd9-714eda4bc734
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_contacts
+  module:
+    - views
+_core:
+  default_config_hash: 6JcVAnuSBQabb873fGVlDNdC2C5mHGXk_tR1htOMbzQ
+name: contacts
+label: Contacts
+display: modal
+display_configuration:
+  width: '800'
+  height: '600'
+  link_text: 'Select Contacts'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  4e62bac0-98f0-4bd2-874b-01d70557fc77:
+    id: view
+    uuid: 4e62bac0-98f0-4bd2-874b-01d70557fc77
+    label: view
+    weight: 1
+    settings:
+      submit_text: 'Select Contacts'
+      auto_select: false
+      view: entity_browser_contacts
+      view_display: entity_browser_1

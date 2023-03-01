@@ -1,0 +1,8 @@
+uuid: 6d141f84-a1eb-49a7-a201-3be5643d3436
+langcode: en
+status: true
+dependencies: {  }
+name: 'Annual Filings Type'
+vid: annual_filings_type
+description: ''
+weight: 0

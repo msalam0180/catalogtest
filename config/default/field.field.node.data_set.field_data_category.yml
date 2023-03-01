@@ -1,0 +1,29 @@
+uuid: e2affe16-b417-4145-b5d7-7916c2328787
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_category
+    - node.type.data_set
+    - taxonomy.vocabulary.data_category
+id: node.data_set.field_data_category
+field_name: field_data_category
+entity_type: node
+bundle: data_set
+label: 'Data Category for Landing Page Display'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_category: data_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: tg8H1qi0jhPJnm-vbGDssTymmrHvfw3orcA89lE3Wo8
+status: 1
+pattern: '[node:field_first_name] [node:field_last_name]'
+escape: false
+dependencies:
+  config:
+    - node.type.contact
+php: 0

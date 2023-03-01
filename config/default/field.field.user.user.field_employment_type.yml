@@ -1,0 +1,21 @@
+uuid: f9f9c2f3-527a-4ed5-a46e-1f86dc01c0fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_employment_type
+  module:
+    - options
+    - user
+id: user.user.field_employment_type
+field_name: field_employment_type
+entity_type: user
+bundle: user
+label: 'Employment Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

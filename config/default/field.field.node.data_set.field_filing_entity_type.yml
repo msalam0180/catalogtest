@@ -1,0 +1,21 @@
+uuid: 0cd954a8-0866-4ee2-aef8-d41861860cbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_filing_entity_type
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_filing_entity_type
+field_name: field_filing_entity_type
+entity_type: node
+bundle: data_set
+label: 'Filing Entity Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

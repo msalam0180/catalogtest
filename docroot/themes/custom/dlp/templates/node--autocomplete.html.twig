@@ -1,0 +1,10 @@
+
+<div class="search-api-autocomplete-suggestion">
+  {% set type = node.bundle %}
+  {% if type == 'component' %}
+    {% set type= 'software' %}
+  {% elseif type == 'data_set' %}
+    {% set type= 'dataset' %}
+  {% endif %}
+  {{ label }} <span class="autocompleteType">({{type|replace({'_': ' '})|title}})</span>
+</div>

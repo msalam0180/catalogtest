@@ -1,0 +1,10 @@
+uuid: a44df626-e24e-4bdf-899b-222713b6848c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2dzWC-TdjzWYUW1ZCchmFwOlNJ3ZBIL2s6nVIGUZLTA
+name: 'Article Type'
+vid: faq_category
+description: 'Types of articles'
+weight: 0

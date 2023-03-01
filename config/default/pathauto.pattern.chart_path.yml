@@ -1,0 +1,22 @@
+uuid: d16bb38c-0942-4b16-bce5-b30bb6d72c29
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: chart_path
+label: 'Chart path'
+type: 'canonical_entities:node'
+pattern: 'chart/[node:title]'
+selection_criteria:
+  779b20d3-acb8-4af3-9a27-c8ab48efdf0d:
+    id: node_type
+    negate: false
+    uuid: 779b20d3-acb8-4af3-9a27-c8ab48efdf0d
+    context_mapping:
+      node: node
+    bundles:
+      chart: chart
+selection_logic: and
+weight: -5
+relationships: {  }

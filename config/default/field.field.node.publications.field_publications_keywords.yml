@@ -1,0 +1,28 @@
+uuid: 11668199-31ec-4899-b8a6-f2ed7179086b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publications_keywords
+    - node.type.publications
+    - taxonomy.vocabulary.publications_keywords
+id: node.publications.field_publications_keywords
+field_name: field_publications_keywords
+entity_type: node
+bundle: publications
+label: 'Publication Keywords'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      publications_keywords: publications_keywords
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,27 @@
+uuid: 56c79374-9e59-4aaa-ab75-595d424667ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: GACS1QkeAnIFaNox1tbMYPMx7YWb6HWUxdTtJDGxxnI
+id: node.field_dataset_path
+field_name: field_dataset_path
+entity_type: node
+type: string
+settings:
+  max_length: 455
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

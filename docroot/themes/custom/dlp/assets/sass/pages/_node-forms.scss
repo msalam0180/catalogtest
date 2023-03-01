@@ -1,0 +1,23 @@
+//
+// Node: Forms
+// Applys to forms details pages
+// --------------------------------------------------
+
+.forms-details {
+  .field {
+    border-bottom: none;
+  }
+
+  .field--name-field-contact, .field--name-field-point-s-of-contact {
+    .media-item {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      .media-title {
+        font-weight: normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+uuid: f185a8ef-9a2b-4484-b962-d2d543dfc87c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: landing_page_path
+label: 'Landing Page Path'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  bf719f90-c4df-4783-a8fd-aef168eafa96:
+    id: node_type
+    negate: false
+    uuid: bf719f90-c4df-4783-a8fd-aef168eafa96
+    context_mapping:
+      node: node
+    bundles:
+      landing_page: landing_page
+selection_logic: and
+weight: -5
+relationships: {  }

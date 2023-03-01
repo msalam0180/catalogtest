@@ -1,0 +1,15 @@
+uuid: acb36977-8602-43c1-834c-e3efae815dfd
+langcode: en
+status: true
+dependencies: {  }
+name: node_main_full_width_image_medium
+label: 'Node Main Full Width Image - medium'
+effects:
+  ec832312-4567-46c7-a530-087ef8a8d68c:
+    uuid: ec832312-4567-46c7-a530-087ef8a8d68c
+    id: image_scale
+    weight: 1
+    data:
+      width: 1095
+      height: null
+      upscale: false

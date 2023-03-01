@@ -1,0 +1,47 @@
+.layout {
+  .layout__region {
+    padding-bottom: 11px;
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .layout {
+    .layout__region {
+      padding-right: 11px;
+    }
+
+    .layout__region:last-child {
+      padding-right: 0px;
+    }
+  }
+
+  .layout--twocol-section.layout--twocol-section--50-50>.layout__region--first,
+  .layout--twocol-section.layout--twocol-section--50-50>.layout__region--second {
+    flex: 0 1 50%;
+    max-width: 50%;
+  }
+
+  .layout--twocol-section.layout--twocol-section--33-67>.layout__region--first,
+  .layout--twocol-section.layout--twocol-section--67-33>.layout__region--second {
+    flex: 0 1 33%;
+    max-width: 33%;
+  }
+
+  .layout--twocol-section.layout--twocol-section--33-67>.layout__region--second,
+  .layout--twocol-section.layout--twocol-section--67-33>.layout__region--first {
+    flex: 0 1 67%;
+    max-width: 67%;
+  }
+
+  .layout--twocol-section.layout--twocol-section--25-75>.layout__region--first,
+  .layout--twocol-section.layout--twocol-section--75-25>.layout__region--second {
+    flex: 0 1 25%;
+    max-width: 25%;
+  }
+
+  .layout--twocol-section.layout--twocol-section--25-75>.layout__region--second,
+  .layout--twocol-section.layout--twocol-section--75-25>.layout__region--first {
+    flex: 0 1 75%;
+    max-width: 75%;
+  }
+}

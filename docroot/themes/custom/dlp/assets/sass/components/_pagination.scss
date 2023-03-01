@@ -1,0 +1,7 @@
+.pagination > li > a, .pagination > li > span{
+  border-right: none;
+}
+
+.pagination >li:last-of-type a{
+  border-right: 1px solid #ddd;
+}

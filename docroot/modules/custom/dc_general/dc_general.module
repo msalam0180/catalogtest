@@ -1,0 +1,802 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Render\Markup;
+use \Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * @file
+ * General small hooks for Data Catalog.
+ */
+
+
+/**
+ * Implements hook_field_widget_entity_reference_paragraphs_form_alter().
+ *
+ * Changing Visualization text label for data insights content type.
+ */
+function dc_general_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+  $form_name = $context["form"]["#attributes"]["class"][0];
+  if ($form_name == "node-data-insight-form" || $form_name == "node-data-insight-edit-form") {
+    $element["subform"]["field_visualization_text"]["widget"][0]["#title"] = "Key Message";
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Adding count of categories for data insights exposed filter.
+ */
+function dc_general_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    $view = ($form_state->getStorage("view"))["view"];
+    if ($view->id() == 'data_insights' && $view->current_display == 'page_1') {
+      $categories = $form["field_data_insights_target_id"]["#options"];
+      // Setting count string after tid name.
+      foreach ($categories as $tid => $category) {
+        // Skip string append if tid is All.
+        if ($tid != "All") {
+          $count = dc_general_get_term_count_by_content_type($tid);
+          $form["field_data_insights_target_id"]["#options"][$tid] .= " ({$count})";
+        }
+      }
+    }
+  }
+  // Update the Description field on the Component Category Tax
+  if ($form_id == 'taxonomy_term_component_category_form') {
+    $form['description']['widget'][0]['#title'] = 'Detailed Description';
+  }
+
+  //Add required help text to the contact forms
+  $forms_needs_required_help = FALSE;
+  $need_help = ["contact_"];
+  $forms_needs_required_help = strpos_arr($form_id, $need_help);
+
+  if ($forms_needs_required_help !== FALSE) {
+    $form['required-help'] = [
+      '#type' => 'item',
+      '#markup' => '<span class="required-help">' . t('*Fields marked with an asterisk(*) are required.') . '</span>',
+      '#weight' => 40,
+    ];
+  }
+
+  if ($form_id == 'node_contact_form') {
+    $form['#validate'][] = 'dc_general_validate_contact_email';
+  }
+}
+
+
+/**
+ * Getting count of categories from database via query.
+ *
+ * @param string $tid
+ *   Passing term ID for count.
+ *
+ * @return int
+ *   Returns count number.
+ */
+function dc_general_get_term_count_by_content_type($tid) {
+  $database = \Drupal::service('database');
+  $query = $database->select('node__field_data_insights', 'nfdi');
+  $query->join('node_field_data', 'nfd', 'nfdi.revision_id = nfd.vid');
+  $count = $query->condition('nfd.status', '1')
+    ->condition('nfdi.field_data_insights_target_id', $tid)
+    ->countQuery()
+    ->execute()
+    ->fetchField();
+  return $count;
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function dc_general_node_presave(NodeInterface $node) {
+  //handle field_review_submitter when node is submitted for review
+  if ($node->hasField("moderation_state")) {
+    $moderation_state = $node->get("moderation_state")->value;
+    if ($moderation_state == "review" && $node->hasField("field_review_submitter")) {
+      $node->set("field_review_submitter", \Drupal::currentUser()->id());
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function dc_general_entity_update(EntityInterface $entity) {
+  dc_general_corresponding_reference($entity, $update = TRUE);
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function dc_general_entity_insert(EntityInterface $entity) {
+  dc_general_corresponding_reference($entity);
+  dc_general_feedback_handler($entity);
+}
+
+function dc_general_feedback_handler(EntityInterface $entity) {
+  if ($entity->bundle() == "feedback") {
+    //grab the referer url because requestUri is the contact ajax popup url
+    $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
+    //validate the request url is from our site
+    $fake_request = Request::create($previousUrl);
+    $url_object = \Drupal::service('path.validator')
+      ->getUrlIfValid($fake_request->getRequestUri());
+    if ($url_object) {
+
+      //check for a related node on the url of feeback page
+      $relatedNodeId = $url_object->getRouteParameters()["node"];
+      if (!empty($relatedNodeId)) {
+        $relatedNode = Node::load($relatedNodeId);
+        if (!empty($relatedNode) && $relatedNode->hasField('field_reviewer')) {
+          //if the related node has reviewers (workflow) then use them as value for feedback reviewers
+          $fieldReviewers = $relatedNode->get('field_reviewer')
+            ->referencedEntities();
+          if (!empty($fieldReviewers) && $entity->hasField("field_feedback_reviewer")) {
+            $entity->set("field_feedback_reviewer", $fieldReviewers);
+          }
+        }
+      }
+      //set the field_url to the HTTP_REFERER value
+      //relative value is available at $fake_request->getRequestUri();
+      $entity->set('field_url', $previousUrl);
+      $entity->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function dc_general_mail_alter(&$message) {
+  // for website feedback, add the feedback_reviewers onto the notifications email
+  if (!empty($message['id']) && $message['id'] == 'contact_page_mail') {
+    if ($message["params"]["contact_message"]->hasField("field_feedback_reviewer")) {
+      //the message param has a reference the contact entity, which may have a field_feedback_reviewer value
+      $feedbackReviewers = $message["params"]["contact_message"]->get("field_feedback_reviewer")
+        ->referencedEntities();
+      if (!empty($feedbackReviewers)) {
+        $reviewerEmailFields = array_column($feedbackReviewers, 'mail');
+        if (!empty($reviewerEmailFields)) {
+          $reviewerEmails = array_column($reviewerEmailFields, 'value');
+          $message['headers']['Cc'] = implode(',', $reviewerEmails);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Helper method to dispatch an event.
+ *
+ * @param string $event_type
+ *   The event type.
+ * @param \Drupal\dc_general\Event\NodeEvent $event
+ *   The event to dispatch.
+ */
+function _entity_events_dispatch(string $event_type, NodeEvent $event) {
+  /** @var \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher */
+  $dispatcher = \Drupal::service('event_dispatcher');
+  $dispatcher->dispatch($event, $event_type);
+}
+
+
+/**
+ * handle the creation of corresponding references between paragraph entity
+ * fields
+ */
+function dc_general_corresponding_reference(EntityInterface $entity, $update = FALSE) {
+  if (!$entity) {
+    return;
+  }
+  switch ($entity->bundle()) {
+
+    case "application":
+      $thisNodeId = $entity->id();
+      // if this node is published
+      if ($entity->status->value) {
+
+        //handle related datasets
+        //grab related dataset entities
+        $thisRelatedDatasets = $entity->get('field_related_datasets_with_term')
+          ->referencedEntities();
+        //loop over each related dataset to find a corresponding relationship back to this node
+        foreach ($thisRelatedDatasets as $relatedDataset) {
+          //$datasetId represents the related dataset's ID
+          $datasetId = $relatedDataset->get('field_related_dataset')
+            ->getValue()[0]['target_id'];
+          $thisRelationshipTerm = $relatedDataset->get('field_technology_dataset_relatio')
+            ->getValue()[0]['target_id'];
+          if ($datasetId) {
+            //load the $dataset so we can loop over it's related applications searching for corresponding reference
+            $dataset = Node::load($datasetId);
+            //use $isAlreadyRelated to avoid repeating a reference
+            $isAlreadyRelated = FALSE;
+            $datasetRelatedApps = $dataset->get('field_related_apps_with_term')
+              ->referencedEntities();
+            //loop over each of the $otherNode's related applications
+            foreach ($datasetRelatedApps as $datasetRelatedApp) {
+              //$relatedAppTargetId would be the node being referenced in $otherNode's relationships
+              $relatedAppTargetId = $datasetRelatedApp->get('field_related_application')
+                ->getValue()[0]['target_id'];
+              //heres the main logic check
+              if ($relatedAppTargetId === $thisNodeId) {
+                //flip the $isAlreadyRelated flag because we found an existing relationship
+                $isAlreadyRelated = TRUE;
+                //but lets also update the relationship taxonomy term if they are not same
+                $datasetRelationshipTerm = $datasetRelatedApp->get('field_technology_dataset_relatio')
+                  ->getValue()[0]['target_id'];
+                if ($thisRelationshipTerm !== $datasetRelationshipTerm) {
+                  $datasetRelatedApp->set('field_technology_dataset_relatio', $thisRelationshipTerm);
+                  $datasetRelatedApp->save();
+                }
+                break;
+              }
+            }
+
+            if (!$isAlreadyRelated) {
+              // Create corresponding paragraph entity
+              $paragraph = Paragraph::create(['type' => 'datasets_to_applications']);
+              $paragraph->set('field_related_application', ['target_id' => $thisNodeId]);
+              $paragraph->set('field_technology_dataset_relatio', ['target_id' => $thisRelationshipTerm]);
+              $paragraph->setParentEntity($dataset, "field_related_apps_with_term");
+              $paragraph->save();
+
+              // Add existing values for the otherNode and append this new paragraph
+              $paragraphArray = $dataset->get('field_related_apps_with_term')
+                ->getValue();
+              $paragraphArray[] = [
+                'target_id' => $paragraph->id(),
+                'target_revision_id' => $paragraph->getRevisionId(),
+              ];
+              $dataset->set('field_related_apps_with_term', $paragraphArray);
+              $dataset->save();
+            }
+          }
+        }
+
+        // Handle related applications
+        // Add related application entities
+        $thisRelatedApps = $entity->get('field_related_applications')
+          ->referencedEntities();
+        // Loop over each related application to find a corresponding relationship back to this node
+        foreach ($thisRelatedApps as $relatedApp) {
+          // $otherNodeId represents the related application
+          $otherNodeId = $relatedApp->get('field_application')
+            ->getValue()[0]['target_id'];
+          $thisDescOfRelationship = $relatedApp->get('field_desc_of_relationship')
+            ->getValue()[0]['value'];
+          if ($otherNodeId) {
+            // Load the $otherNode so we can loop over it's related applications searching for corresponding reference
+            $otherNode = Node::load($otherNodeId);
+            //use $isAlreadyRelated to avoid repeating a reference
+            $isAlreadyRelated = FALSE;
+            $otherNodeRelatedApps = $otherNode->get('field_related_applications')
+              ->referencedEntities();
+            // Loop over each of the $otherNode's related applications
+            foreach ($otherNodeRelatedApps as $otherRelatedApp) {
+              // $relatedAppTargetId would be the node being referenced in $otherNode's relationships
+              $relatedAppTargetId = $otherRelatedApp->get('field_application')
+                ->getValue()[0]['target_id'];
+              // Here's the main logic check
+              if ($relatedAppTargetId === $thisNodeId) {
+                //flip the $isAlreadyRelated flag because we found an existing relationship
+                $isAlreadyRelated = TRUE;
+                //but lets also update the description if they are not same
+                $otherDescOfRelationship = $otherRelatedApp->get('field_desc_of_relationship')
+                  ->getValue()[0]['value'];
+                if ($thisDescOfRelationship !== $otherDescOfRelationship) {
+                  $otherRelatedApp->set('field_desc_of_relationship', [
+                    'value' => $thisDescOfRelationship,
+                    'format' => 'plain_text',
+                  ]);
+                  $otherRelatedApp->save();
+                }
+                break;
+              }
+            }
+
+            if (!$isAlreadyRelated) {
+              // Create corresponding paragraph entity
+              $paragraph = Paragraph::create(['type' => 'related_application']);
+              $paragraph->set('field_desc_of_relationship', [
+                'value' => $thisDescOfRelationship,
+                'format' => 'plain_text',
+              ]);
+              $paragraph->set('field_application', ['target_id' => $thisNodeId]);
+              $paragraph->setParentEntity($otherNode, "field_related_applications");
+              $paragraph->save();
+
+              // Add existing values for the otherNode and append this new paragraph
+              $paragraphArray = $otherNode->get('field_related_applications')
+                ->getValue();
+              $paragraphArray[] = [
+                'target_id' => $paragraph->id(),
+                'target_revision_id' => $paragraph->getRevisionId(),
+              ];
+              $otherNode->set('field_related_applications', $paragraphArray);
+              $otherNode->save();
+            }
+          }
+        }
+      }
+
+      break;
+    case "data_set":
+      $thisNodeId = $entity->id();
+      //if this node is published
+      if ($entity->status->value) {
+
+        // Handle removed related technologies
+        _handle_removed_related_technologies($entity, $update);
+
+        // Handle related applications
+        //grab related application entities
+        $thisRelatedApplications = $entity->get('field_related_apps_with_term')
+          ->referencedEntities();
+
+        // Loop over each related dataset to find a corresponding relationship back to this node
+        foreach ($thisRelatedApplications as $relatedApp) {
+          // $appId represents the related app's ID
+          $appId = $relatedApp->get('field_related_application')
+            ->getValue()[0]['target_id'];
+
+          if ($appId) {
+            // Load the $application so we can loop over it's related applications searching for corresponding reference
+            $application = Node::load($appId);
+            // Use $isAlreadyRelated to avoid repeating a reference
+            $isAlreadyRelated = FALSE;
+            $appRelatedDatasets = $application->get('field_related_datasets_with_term')
+              ->referencedEntities();
+            // Loop over each of the $otherNode's related datasets
+            foreach ($appRelatedDatasets as $appRelatedDataset) {
+              // $relatedDatasetTargetId would be the node being referenced in $otherNode's relationships
+              $relatedDatasetTargetId = $appRelatedDataset->get('field_related_dataset')
+                ->getValue()[0]['target_id'];
+              // Here's the main logic check
+              if ($relatedDatasetTargetId === $thisNodeId) {
+                // Flip the $isAlreadyRelated flag because we found an existing relationship
+                $isAlreadyRelated = TRUE;
+                // But lets also update the relationship taxonomy term if they are not same
+                if ($relatedApp->hasField('field_technology_dataset_relatio')) {
+                  $thisRelationshipTerm = $relatedApp->get('field_technology_dataset_relatio')
+                    ->getValue()[0]['target_id'];
+                  $appRelationshipTerm = NULL;
+                  if ($appRelatedDataset->hasField('field_technology_dataset_relatio')) {
+                    $appRelationshipTerm = $appRelatedDataset->get('field_technology_dataset_relatio')
+                      ->getValue()[0]['target_id'];
+                  }
+                  if ($thisRelationshipTerm !== $appRelationshipTerm) {
+                    $appRelatedDataset->set('field_technology_dataset_relatio', $thisRelationshipTerm);
+                    $appRelatedDataset->save();
+                  }
+                }
+                break;
+              }
+            }
+
+            if (!$isAlreadyRelated) {
+              foreach ($thisRelatedApplications as $relatedApplication) {
+                // Create corresponding paragraph entity
+                $paragraph = Paragraph::create(['type' => 'applications_to_datasets']);
+                $paragraph->set('field_related_dataset', ['target_id' => $thisNodeId]);
+                $paragraph->set('field_technology_dataset_relatio', ['target_id' => $relatedApplication->field_technology_dataset_relatio->target_id]);
+                $paragraph->setParentEntity($application, "field_related_datasets_with_term");
+                $paragraph->save();
+
+                // Add existing values for the otherNode and append this new paragraph
+                $paragraphArray = $application->get('field_related_datasets_with_term')
+                  ->getValue();
+                $paragraphArray[] = [
+                  'target_id' => $paragraph->id(),
+                  'target_revision_id' => $paragraph->getRevisionId(),
+                ];
+              }
+              $application->set('field_related_datasets_with_term', $paragraphArray);
+              $application->save();
+            }
+          }
+        }
+      }
+      break;
+  }
+
+  // Process syncing saved component and platform data saving to dataset/vice versa.
+  if ($entity->bundle() == 'component' || $entity->bundle() == 'platform') {
+    $thisNodeId = $entity->id();
+
+    // This will process removed Related Technologies for Dataset/Component/Platform content types.
+    // $update argument make sure this function happens only from hook_update.
+    _handle_removed_related_technologies($entity, $update);
+
+    $thisRelatedDatasets = $entity->get('field_related_datasets_with_term')
+      ->referencedEntities();
+
+    foreach ($thisRelatedDatasets as $relatedDataset) {
+      //$datasetId represents the related dataset's ID
+      $datasetId = $relatedDataset->get('field_related_dataset')
+        ->getValue()[0]['target_id'];
+      $thisRelationshipTerm = $relatedDataset->get('field_technology_dataset_relatio')
+        ->getValue()[0]['target_id'];
+      if ($datasetId) {
+        // Load the $dataset so we can loop over it's related applications searching for corresponding reference
+        $dataset = \drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($datasetId);
+        // Use $isAlreadyRelated to avoid repeating a reference
+        if (!$dataset) {
+          continue;
+        }
+        $isAlreadyRelated = FALSE;
+        $datasetRelatedApps = $dataset->get('field_related_apps_with_term')
+          ->referencedEntities();
+        // Loop over each of the $otherNode's related applications
+        foreach ($datasetRelatedApps as $datasetRelatedApp) {
+          //$relatedAppTargetId would be the node being referenced in $otherNode's relationships
+          $relatedAppTargetId = $datasetRelatedApp->get('field_related_application')
+            ->getValue()[0]['target_id'];
+          // Here's the main logic check
+          if ($relatedAppTargetId === $thisNodeId) {
+            //flip the $isAlreadyRelated flag because we found an existing relationship
+            $isAlreadyRelated = TRUE;
+            //but lets also update the relationship taxonomy term if they are not same
+            $datasetRelationshipTerm = $datasetRelatedApp->get('field_technology_dataset_relatio')
+              ->getValue()[0]['target_id'];
+            if ($thisRelationshipTerm !== $datasetRelationshipTerm) {
+              $datasetRelatedApp->set('field_technology_dataset_relatio', $thisRelationshipTerm);
+              $datasetRelatedApp->save();
+            }
+            break;
+          }
+        }
+
+        if (!$isAlreadyRelated && ($dataset->bundle() == 'data_set')) {
+          // Create corresponding paragraph entity
+          _update_entity_related_content($dataset, $thisNodeId, $thisRelationshipTerm);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Helper method to process paragraph datasets_to_applications content.
+ * For Dataset content type syncing to components/software and platform.
+ */
+function _update_entity_related_content($dataset, $relatedNodeId, $relatedTermId) {
+  $paragraph = Paragraph::create(['type' => 'datasets_to_applications']);
+  $paragraph->set('field_related_application', ['target_id' => $relatedNodeId]);
+  $paragraph->set('field_technology_dataset_relatio', ['target_id' => $relatedTermId]);
+  $paragraph->setParentEntity($dataset, "field_related_apps_with_term");
+  $paragraph->save();
+
+  $paragraphArray = $dataset->get('field_related_apps_with_term')->getValue();
+  $paragraphArray[] = [
+    'target_id' => $paragraph->id(),
+    'target_revision_id' => $paragraph->getRevisionId(),
+  ];
+  $dataset->set('field_related_apps_with_term', $paragraphArray);
+  $dataset->save();
+}
+
+/**
+ * This handles any deletion of Related content.
+ *
+ * @param $entity
+ * @param bool $update
+ *   We want hook_update ONLY to process this function, the REASON for this
+ *   argument.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _handle_removed_related_technologies($entity, bool $update = FALSE) {
+
+  if ($update == FALSE && (!in_array($entity->getType(), [
+      'data_set',
+      'component',
+      'platform',
+    ]))) {
+    return;
+  }
+  [
+    $dataset,
+    $ids,
+  ] = _helper_related_techonology_configs($entity, TRUE, $update);
+
+  // Get which ID has been removed.
+  if ($dataset && $ids && $ids['original_ids'] > $ids['current_ids']) {
+    // Below means you are deleting a paragraph item.
+    foreach ($ids['original_ids'] as $key => $value) {
+      // Loop thru IDs getting removed, to remove the node that is being referenced in the field.
+      if (!in_array($value, $ids['current_ids'])) {
+        // $value is the removed reference ID. Load this and find which nodes, we need to remove the link.
+
+        $paragraph_removed = \drupal::entityTypeManager()
+          ->getStorage('paragraph')
+          ->load($value);
+        // Add check here for field_related_application.
+        if (!is_null($paragraph_removed) && $paragraph_removed->hasField($dataset['parId'])) {
+          $par_id = $paragraph_removed->get($dataset['parId'])
+            ->getValue()[0]['target_id'];
+          // This is now the node where we want to unlink the reference to the page.
+
+          $rm_node = \drupal::entityTypeManager()
+            ->getStorage('node')
+            ->load($par_id);
+
+          if ($rm_node) {
+            [
+              $rn_config,
+              $rnIds,
+            ] = _helper_related_techonology_configs($rm_node, FALSE, TRUE);
+          } else {
+            continue;
+          }
+
+          // Check node reference that may contain reference to the paragraph that is being deleted.
+          if ($rn_config && $rm_node->hasField($rn_config['rm_node_phar_ids'])) {
+            $rm_node_phar_ids = $rm_node->get($rn_config['rm_node_phar_ids'])
+              ->referencedEntities();
+
+            if ($rm_node_phar_ids) {
+
+              $frdt_entities = [];
+
+              foreach ($rm_node_phar_ids as $rm_node_phar_id) {
+                // If syncing component or platform to dataset.
+                if ($rm_node_phar_id->getType() == 'datasets_to_applications') {
+                  $frd_node_id = $rm_node_phar_id->get('field_related_application')
+                    ->getValue()[0]['target_id'];
+                  if ($frd_node_id !== $entity->id()) {
+                    // Verified this is the node to remove reference.
+                    $frdt_entities = $rm_node_phar_id;
+                  }
+
+                  $rm_node->set('field_related_apps_with_term', $frdt_entities);
+                  $rm_node->save();
+                }
+                // If syncing dataset to component or platform.
+                if ($rm_node_phar_id->getType() == 'applications_to_datasets') {
+                  $frd_node_id = $rm_node_phar_id->get('field_related_dataset')
+                    ->getValue()[0]['target_id'];
+                  if ($frd_node_id !== $entity->id()) {
+                    // Verified this is the node to remove reference.
+                    $frdt_entities = $rm_node_phar_id;
+                  }
+                  $rm_node->set('field_related_datasets_with_term', $frdt_entities);
+                  $rm_node->save();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+/**
+ * This is to provide respective variable configs.
+ *
+ * @param $entity
+ * @param bool $ids
+ *   ID's are use to compare the old and new value.
+ * @param bool $update
+ *
+ * @return array[]|void
+ */
+function _helper_related_techonology_configs($entity, bool $ids = FALSE, bool $update = FALSE) {
+  $bundle = $entity->getType();
+  if ($update == FALSE or (!in_array($entity->getType(), [
+      'data_set',
+      'component',
+      'platform',
+    ]))) {
+    return;
+  }
+  $dataset = [];
+  $entity_ids = [];
+  if ($entity->bundle() == 'data_set') {
+    $dataset['parId'] = 'field_related_application';
+    $dataset['rm_node_phar_ids'] = 'field_related_apps_with_term';
+    if ($ids == TRUE) {
+      // When paragraphs are updated, this is how to get what was changed or deleted.
+      $entity_ids['current_ids'] = array_column($entity->field_related_apps_with_term->getValue(), 'target_id');
+      if (!$entity->isNew() && isset($entity->original)) {
+        $entity_ids['original_ids'] = array_column($entity->original->field_related_apps_with_term->getValue(), 'target_id');
+      }
+    }
+  }
+  if ($entity->bundle() == 'component' || $entity->bundle() == 'platform') {
+    $dataset['parId'] = 'field_related_dataset';
+    $dataset['rm_node_phar_ids'] = 'field_related_datasets_with_term';
+    if ($ids == TRUE) {
+      // When paragraphs are updated, this is how to get what was changed or deleted.
+      $entity_ids['current_ids'] = array_column($entity->field_related_datasets_with_term->getValue(), 'target_id');
+      if (!$entity->isNew() && isset($entity->original)) {
+        $entity_ids['original_ids'] = array_column($entity->original->field_related_datasets_with_term->getValue(), 'target_id');
+      }
+    }
+  }
+  return [$dataset, $entity_ids];
+}
+
+/* Implements hook_page_attachments().
+*
+* Adds the drupal.contextual-links library to the page for any user who has the
+* 'access contextual links' permission.
+*
+* @see contextual_preprocess()
+*/
+function dc_general_page_attachments(array &$page) {
+  if (count(\Drupal::currentUser()->getRoles()) > 1) {
+    $page['#attached']['library'][] = 'dc_general/env_indicator';
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function dc_general_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $view = $form_state->getStorage('view')['view'];
+  if ($view->id() == 'applications') {
+
+    $sql = "SELECT nid, title FROM node_field_data WHERE type = 'platform' and status = 1 ORDER BY title ASC";
+    $result = \Drupal::database()->query($sql);
+    $nodes = $result->fetchAll();
+    $options = ['' => t('- Any -')];
+    foreach ($nodes as $node) {
+      $options[$node->nid] = $node->title;
+    }
+
+    $form['field_related_platforms']['#type'] = "select";
+    $form['field_related_platforms']['#multiple'] = FALSE;
+    $form['field_related_platforms']['#size'] = 1;
+    $form['field_related_platforms']['#validated'] = TRUE;
+    $form['field_related_platforms']['#options'] = $options;
+  }
+
+  //workaround for https://www.drupal.org/project/better_exposed_filters/issues/3160568
+  if ($view->id() == "search_results" && $view->current_display == 'page_1') {
+    $form['term']['#attributes']['class'][] = 'form-autocomplete';
+    $form['term']['#attributes']['data-search-api-autocomplete-search'] = "search_results";
+    $form['term']['#attributes']['data-autocomplete-path'] = "/search_api_autocomplete/search_results?display=page_1&filter=term";
+  }
+
+  if ($view->id() == "dataset_search" && $view->current_display == 'block_1') {
+    $form['search_api_fulltext']['#attributes']['class'][] = 'form-autocomplete';
+    $form['search_api_fulltext']['#attributes']['data-search-api-autocomplete-search'] = "search_results";
+    $form['search_api_fulltext']['#attributes']['data-autocomplete-path'] = "/search_api_autocomplete/dataset_search?display=page_1&filter=search_api_fulltext";
+  }
+}
+
+/**
+ * Implements hook_multiple_field_remove_button_skip_widgets_alter().
+ */
+function dc_general_multiple_field_remove_button_skip_widgets_alter(array &$skipWidgets) {
+  // DSITE-6942 Added below to exclude from displaying Remove buttons.
+  $skipWidgets[] = 'inline_entity_form_complex';
+}
+
+/**
+ * Function for adding constraint.
+ *
+ * @param array $fields
+ *   The fields array.
+ * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+ *   The entity type.
+ */
+function _dc_general_add_constraint(array &$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'media' && !empty($fields['name'])) {
+    $fields['name']->addConstraint('MediaTitleConstraint', []);
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function dc_general_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  _dc_general_add_constraint($fields, $entity_type);
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function dc_general_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  _dc_general_add_constraint($fields, $entity_type);
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function dc_general_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
+  // Get current URL and check if user is on certain page.
+  $currentUrl = \Drupal::service('path.current')->getPath();
+  if ($currentUrl == '/admin/reports/users') {
+    // Allow access to Last Access field for a view.
+    if ($field_definition->getName() == 'access' && $operation == 'view') {
+      return AccessResult::allowed();
+    }
+  }
+  return AccessResult::neutral();
+}
+
+function dc_general_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $build_info = $form_state->getBuildInfo();
+  if (isset($element['#type']) && $element['#type'] == 'text_format' && $element['#entity_type'] && $element['#entity_type'] == 'node'
+    && $build_info['base_form_id'] && $build_info['base_form_id'] == 'node_form' &&
+    (empty($element['#allowed_formats']) || (!empty($element['#allowed_formats']) && in_array('full_html', $element['#allowed_formats'])))) {
+    $themeHandler = \Drupal::service('theme_handler');
+    $themePath = '/' . $themeHandler->getTheme($themeHandler->getDefault())
+        ->getPath() . '/js/third-party/highcharts/';
+    $filepath = '';
+    $files = [
+      'accessibility.js',
+      'annotations.js',
+      'coloraxis.js',
+      'data.js',
+      'drilldown.js',
+      'dumbbell.js',
+      'heatmap.js',
+      'highcharts.js',
+      'highcharts-3d.js',
+      'highcharts-more.js',
+      'highcharts-regression.js',
+      'lollipop.js',
+      'map.js',
+      'moment.min.js',
+      'networkgraph.js',
+      'sankey.js',
+      'series-label.js',
+      'streamgraph.js',
+      'treemap.js',
+      'wordcloud.js',
+    ];
+    foreach ($files as $file) {
+      $rel_link = $themePath . $file;
+      $filepath .= '<li>' . $file . " - " . '<a href="' . $rel_link . '">' . $rel_link . '</a></li>';
+    }
+    $element['#field_prefix'] = Markup::create('<div tabindex="0" class="chart-js-link">Click here to see JS files.</div>
+        <div class="chart-js-links-wrapper hidden"><ul>' . $filepath . '</ul></div>
+      ');
+    $element['#attached']['library'][] = 'dc_general/dc_general';
+  }
+}
+
+function dc_general_validate_contact_email(&$form, FormStateInterface $form_state) {
+  $email = $form_state->getValue('field_email');
+  if (isset($email[0]['value'])) {
+    $email = $email[0]['value'];
+    $existing_contacts = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties(['type' => 'contact', 'field_email' => $email]);
+    if (!empty($existing_contacts)) {
+      $contact = array_pop($existing_contacts);
+      $message = "A contact record with this email address already exists. Click <a href='{$contact->toUrl()->toString()}'>here</a> to see this contact record.";
+      $rendered_message = Markup::create($message);
+      $error_message = new TranslatableMarkup('@message', ['@message' => $rendered_message]);
+      $form_state->setErrorByName('field_email', $error_message);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dc_general_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+
+  // Added custom validation
+  if ($entity_form['#bundle'] == 'contact') {
+    $entity_form['#element_validate'][] = 'dc_general_validate_contact_email';
+  }
+}

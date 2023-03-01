@@ -1,0 +1,13 @@
+uuid: 34fa8950-9eef-42f3-a1f2-5f0bd85785ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - dc_forum
+_core:
+  default_config_hash: CYcNmztjngmE6Vw9ERzc3xfcXrXa0eroHsU4aD2WE10
+id: action_disable_comments_action
+label: 'Disable comments'
+type: node
+plugin: action_disable_comments_action
+configuration: {  }

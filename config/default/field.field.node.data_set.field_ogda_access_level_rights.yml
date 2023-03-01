@@ -1,0 +1,19 @@
+uuid: 0b25c123-6f5b-462a-9651-0534d1876bce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ogda_access_level_rights
+    - node.type.data_set
+id: node.data_set.field_ogda_access_level_rights
+field_name: field_ogda_access_level_rights
+entity_type: node
+bundle: data_set
+label: 'OPEN Government Data Act Access Level Rights'
+description: 'Required if Access Level value is “restricted public” or “non-public.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

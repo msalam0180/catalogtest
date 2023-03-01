@@ -1,0 +1,86 @@
+uuid: fe3c5d80-b6be-4ab3-bccd-89be32fc4356
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forum
+  module:
+    - content_moderation
+    - workbench_email
+  enforced:
+    config:
+      0: workbench_email.workbench_email_template.published
+      2: workbench_email.workbench_email_template.needs_revision
+      4: workbench_email.workbench_email_template.needs_review
+      6: workbench_email.workbench_email_template.published_discussions_comments
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      archive: {  }
+      restor_to_draft: {  }
+      restore_to_draft: {  }
+      restore: {  }
+      publish:
+        published: published
+        published_discussions_comments: published_discussions_comments
+      create_new_draft:
+        needs_review: needs_review
+id: forum_moderation
+label: 'Forum Moderation'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 2
+      published: true
+      default_revision: true
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 1
+      published: true
+      default_revision: true
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - archived
+        - draft
+        - published
+      to: archived
+      weight: 2
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - draft
+        - published
+      to: published
+      weight: 1
+    restore:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: 4
+    restore_to_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 3
+  entity_types:
+    node:
+      - forum
+  default_moderation_state: published

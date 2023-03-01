@@ -1,0 +1,41 @@
+diff --git a/src/Plugin/Field/FieldWidget/InlineEntityFormComplex.php b/src/Plugin/Field/FieldWidget/InlineEntityFormComplex.php
+index 0859058..4430c9c 100644
+--- a/src/Plugin/Field/FieldWidget/InlineEntityFormComplex.php
++++ b/src/Plugin/Field/FieldWidget/InlineEntityFormComplex.php
+@@ -14,6 +14,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\Core\Render\Element;
+ use Drupal\inline_entity_form\TranslationHelper;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
++use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+ /**
+  * Complex inline widget.
+@@ -514,6 +515,10 @@ class InlineEntityFormComplex extends InlineEntityFormBase implements ContainerF
+         $element['form'] += inline_entity_form_reference_form($element['form'], $form_state);
+       }
+
++      if ($element['#required']) {
++        $element['form']['#element_validate'][] = [get_class($this), 'requiredValidate'];
++      }
++
+       // Pre-opened forms can't be closed in order to force the user to
+       // add / reference an entity.
+       if ($hide_cancel) {
+@@ -537,6 +542,17 @@ class InlineEntityFormComplex extends InlineEntityFormBase implements ContainerF
+   }
+
+   /**
++   * Custom element_validate handler for inline_entity_form fields.
++   *
++   */
++  public static function requiredValidate($element, FormStateInterface $form_state, $form) {
++    if (!empty($element['entity_browser']) && empty($element['entity_browser']['#value']['entities']) && !empty($element['#ief_labels']['singular'])) {
++      $error_message = new TranslatableMarkup('@field_label field is required.', ['@field_label' => $element['#ief_labels']['singular']]);
++      $form_state->setError($element, $error_message);
++    }
++  }
++
++  /**
+    * {@inheritdoc}
+    */
+   public function extractFormValues(FieldItemListInterface $items, array $form, FormStateInterface $form_state) {

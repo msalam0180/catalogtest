@@ -1,0 +1,29 @@
+uuid: 547b8865-b1c5-4178-8f8f-571a62875ca3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timeliness_recency
+    - node.type.forms
+    - taxonomy.vocabulary.quality_timeliness_recency
+id: node.forms.field_timeliness_recency
+field_name: field_timeliness_recency
+entity_type: node
+bundle: forms
+label: Timeliness/Recency
+description: 'High: All desired use cases can be implemented without restrictions<br>Medium: Certain use cases cannot be implemented or use cases do not deliver their full desired value due to stale/outdated data<br>Low: Age / frequency of data updates prevents most desired use cases from delivering satisfactory value'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quality_timeliness_recency: quality_timeliness_recency
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

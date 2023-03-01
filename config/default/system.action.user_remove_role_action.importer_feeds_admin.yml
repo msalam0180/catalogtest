@@ -1,0 +1,14 @@
+uuid: ef42fee2-d34a-4756-bdfd-9d89809c4ca9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.importer_feeds_admin
+  module:
+    - user
+id: user_remove_role_action.importer_feeds_admin
+label: 'Remove the Importer (feeds) admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: importer_feeds_admin

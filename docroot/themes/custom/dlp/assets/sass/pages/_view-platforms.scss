@@ -1,0 +1,10 @@
+.view-platforms{
+  margin-top: $spacing-separation-above-line;
+  border-top: 1px solid $border-color;
+  .view-header {
+    padding-bottom: $spacing-separation-below-line - 20px;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 5px;
+  }
+}

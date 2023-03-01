@@ -1,0 +1,8 @@
+uuid: fd884db8-613b-48ff-a359-ab952e8b5957
+langcode: en
+status: true
+dependencies: {  }
+name: 'Approval Status'
+vid: status
+description: 'Approval status of technology'
+weight: 0

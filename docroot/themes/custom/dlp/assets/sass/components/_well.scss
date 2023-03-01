@@ -1,0 +1,45 @@
+//
+// Well
+// Updates to the bootstrap well
+// --------------------------------------------------
+
+.well{
+	border-radius: $well-border-radius;
+
+    a{
+    	color: darken($blue-medium, 5%);
+    	&:hover, &:focus{
+    		color:darken($blue-medium, 15%);
+    	}
+      
+    }
+}
+
+
+.well-group{
+	.well{
+		display: block;
+		color: #273A56;
+		.well-heading{
+		    font-size: 24px;
+			margin-top: 0;
+		}
+		.well-heading-icon{
+		    background-position: 0px 2px;
+		    background-repeat: no-repeat;
+		    background-color: transparent;
+		    background-size: 35px;
+		    padding-left: 40px;
+		    padding-bottom: 10px;
+		    padding-top: 5px;
+		}
+	}
+
+	a.well{
+		text-decoration: none;
+		&:hover, &:focus{
+			text-decoration: none;
+			background-color: #fdfdfd;
+		}
+	}
+}

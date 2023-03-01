@@ -1,0 +1,12 @@
+uuid: e6c404a9-52d9-4f3a-9e59-79a96bae37f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: 7-ZfGQeGygkJ40FLmqlJtZ8iMG1xerIk4G-d7e8S7u4
+id: media.quick
+label: Quick
+targetEntityType: media
+cache: true

@@ -1,0 +1,29 @@
+uuid: 6734e107-1c8d-4461-9157-063dc8475888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fips_category_justificatio
+    - node.type.data_set
+    - taxonomy.vocabulary.fips_category_justification
+id: node.data_set.field_fips_category_justificatio
+field_name: field_fips_category_justificatio
+entity_type: node
+bundle: data_set
+label: 'NIST Data Type'
+description: 'What is the justification for this classification?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      fips_category_justification: fips_category_justification
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

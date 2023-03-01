@@ -1,0 +1,10 @@
+uuid: 87ca5e17-55b5-41ab-9a90-354200532982
+langcode: en
+status: true
+dependencies: {  }
+machine: stage
+description: null
+name: Stage
+url: 'https://staging.catalog.sec.gov'
+fg_color: '#d0d0d0'
+bg_color: '#0d0d0d'

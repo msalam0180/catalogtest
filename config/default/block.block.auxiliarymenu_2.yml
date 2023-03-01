@@ -1,0 +1,25 @@
+uuid: 36e11f1c-6dfb-4747-9e27-51876388c2bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.auxiliary-menu
+  module:
+    - system
+  theme:
+    - dlp
+id: auxiliarymenu_2
+theme: dlp
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:auxiliary-menu'
+settings:
+  id: 'system_menu_block:auxiliary-menu'
+  label: Auxiliary
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

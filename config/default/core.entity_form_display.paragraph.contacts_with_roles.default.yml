@@ -1,0 +1,55 @@
+uuid: f9ed7888-c927-413e-9439-d35f5a560654
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.quick
+    - field.field.paragraph.contacts_with_roles.feeds_item
+    - field.field.paragraph.contacts_with_roles.field_contact
+    - field.field.paragraph.contacts_with_roles.field_role
+    - paragraphs.paragraphs_type.contacts_with_roles
+  module:
+    - cshs
+    - entity_browser_entity_form
+    - inline_entity_form
+id: paragraph.contacts_with_roles.default
+targetEntityType: paragraph
+bundle: contacts_with_roles
+mode: default
+content:
+  field_contact:
+    type: inline_entity_form_complex
+    weight: 0
+    region: content
+    settings:
+      form_mode: quick
+      override_labels: true
+      label_singular: Contact
+      label_plural: Contacts
+      allow_new: false
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: contacts
+  field_role:
+    type: cshs
+    weight: 1
+    region: content
+    settings:
+      force_deepest: true
+      parent: '0'
+      level_labels: ''
+      none_label: '- Please select -'
+      save_lineage: false
+      hierarchy_depth: 0
+      required_depth: 0
+    third_party_settings: {  }
+hidden:
+  created: true
+  feeds_item: true
+  status: true

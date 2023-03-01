@@ -1,0 +1,29 @@
+uuid: 2de2a715-1567-47d3-9291-d78108104ac8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_license_types
+    - node.type.data_set
+    - taxonomy.vocabulary.license_types
+id: node.data_set.field_license_types
+field_name: field_license_types
+entity_type: node
+bundle: data_set
+label: 'License Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      license_types: license_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

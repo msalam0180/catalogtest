@@ -1,0 +1,23 @@
+uuid: f93c634d-a39f-4fe4-aa15-d3b344ce8c84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository_link
+    - node.type.data_insight
+  module:
+    - link
+id: node.data_insight.field_repository_link
+field_name: field_repository_link
+entity_type: node
+bundle: data_insight
+label: 'GitLab Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 16
+field_type: link

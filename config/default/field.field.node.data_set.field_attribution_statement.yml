@@ -1,0 +1,19 @@
+uuid: f7b81f08-6264-4723-92da-8452a4ac2b34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attribution_statement
+    - node.type.data_set
+id: node.data_set.field_attribution_statement
+field_name: field_attribution_statement
+entity_type: node
+bundle: data_set
+label: 'Attribution Statement'
+description: 'Add the language ("Attribution Statement") that must be used when citing the vendor as a data source in publications'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

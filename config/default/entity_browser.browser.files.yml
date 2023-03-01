@@ -1,0 +1,33 @@
+uuid: 2711dc8a-1355-4881-b9e5-e06bff3ca512
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_browser_files
+  module:
+    - views
+_core:
+  default_config_hash: mtDfyN-jJNv3e6CizeNnE-a-iji6vkwSCz8oj6OSfwk
+name: files
+label: Files
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select Files'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  89a24c8b-2046-4c84-a9a9-80d8ea6a0788:
+    id: view
+    uuid: 89a24c8b-2046-4c84-a9a9-80d8ea6a0788
+    label: view
+    weight: 1
+    settings:
+      submit_text: 'Select Files'
+      auto_select: false
+      view: media_browser_files
+      view_display: entity_browser_2

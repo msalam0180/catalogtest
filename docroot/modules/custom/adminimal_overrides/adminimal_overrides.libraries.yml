@@ -1,0 +1,10 @@
+customizations:
+  version: 1.5
+  css:
+    theme:
+      css/adminimal_overrides.css: {}
+  js:
+    js/adminimal_overrides.js: {}
+  dependencies:
+    - core/jquery
+    - tippy_lib/base_config

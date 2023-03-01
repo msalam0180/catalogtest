@@ -1,0 +1,229 @@
+//
+// Node
+// these are the styles that apply to all nodes, not matter the content type
+// --------------------------------------------------
+
+.path-node .field {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+    &:last-of-type{
+		border-bottom: none;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.paragraph--type--website {
+  .field--type-link {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+// .extra-content-display-section{
+//   @extend .foux-subtle-panel;
+//   @extend .panel-bg-subtle;
+// }
+
+
+.field--type-text-with-summary, .field--type-text-long, .cke_editable_themed{
+  h2{
+    font-size: 1.7em;
+    font-weight: bold;
+  }
+  h3{
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  h4{
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}
+
+.paragraph--type--licenses-held-by-division-office .media-details{
+  color: #797676;
+  border-top: 1px solid $border-color;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px 0;
+  @media screen and (min-width: 600px){
+    float: none;
+    > .field {
+      border-bottom: none;
+      margin: 0;
+      padding: 0;
+      float: left;
+      width: 33%;
+    }
+  }
+}
+
+.created-or-updated-date{
+  margin-top: 10px;
+  color: #797676;
+  border-top: 1px solid $border-color;
+  font-size: 0.8em;
+  padding-top: 5px;
+}
+
+// inline comma separated fields
+.field--label-inline{
+  display: flex;
+  @media (max-width: 549px){
+    flex-wrap: wrap;
+  }
+  .field--label{
+    flex-shrink: 0;
+    @media (max-width: 549px){
+      float: none;
+    }
+  }
+}
+
+.field-delimiter{
+  .field--item{
+    display: inline;
+  }
+}
+
+.path-node .side-grouping-content .field--name-field-contact-guidance{
+  border-bottom: 0;
+  margin-bottom: 10px;
+  padding-bottom: 0;
+}
+
+.node-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px;
+  margin-top: 0;
+  img{
+    max-width: 280px;
+  }
+
+  @media (max-width: 1199px) and (min-width: 550px){
+    display: inline-block;
+    float: left;
+    margin: 5px 15px 5px 0;
+    img{
+      max-width: 330px;
+    }
+  }
+  @media (max-width: 549px){
+    img{
+      max-width: 100%;
+    }
+  }
+}
+
+//Screenshot Field
+.field--name-field-screenshots {
+  & > .field--item{
+    margin-bottom: 15px;
+      &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+.media.media--view-mode-node-main-full-width-image {
+  display: table;
+  margin: 0 auto;
+  .field{
+    margin: 0;
+    padding: 0;
+  }
+  .field--name-field-media-image > .field--item img {
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    padding: 3px;
+  }
+  .field--name-field-caption:last-of-type{
+    background: #ededed;
+    border: 1px solid #ddd;
+    padding: 11px 13px;
+    color: #646b73;
+    display: table-caption;
+    caption-side: bottom;
+  }
+
+  .field--name-field-media-image + .field--name-field-caption{
+    border-top: none;
+  }
+}
+
+.field--name-field-documents .contextual{
+  display: none !important;
+}
+
+
+.mainSection{
+  .field {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    &:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+  }
+  .mainSection-field-wrapper{
+    & > h2{
+      padding: 0 0 20px;
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+  }
+}
+
+.view-id-create_new_discussion {
+  text-align: center;
+
+  .btn{
+    text-transform: capitalize;
+    padding: 6px 12px;
+  }
+}
+
+.path-node .field.field--name-field-related-discussions {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.shortname {
+  font-size: 0.8em;
+  color: #636363;
+  // padding-left: 3px;
+  font-weight: normal;
+}
+
+
+
+
+//TEMPORARY STYLES!!!!!!
+// Unstyled content types overrides until we can get story points to clean up content types
+// Some content types were created with no styles at all those need to have styles added
+// these styles are added as a quick fix so stories can be completed
+.page-node-type-forms, .page-node-type-statistics, .page-node-type-data-insight{
+  .media-item.bgcolor-lt{
+    background-color: #f1f1f1;
+    font-size: 0.9em;
+    padding: 9px 12px;
+  }
+  .paragraph--type--contacts-with-roles{
+    .media-body .field{
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 1px solid #e3e3e3;
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+}

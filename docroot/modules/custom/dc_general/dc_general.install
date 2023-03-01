@@ -1,0 +1,233 @@
+<?php
+
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Deleting the depricated fields IDs from database.
+ */
+
+ function dc_general_update_9401() {
+  // create log file.
+  $logfile = fopen("/mnt/gfs/home/datacatalog01/DB-fields_update.log", "w") or die("Unable to open file!");
+  $results = array();
+  $records = "";
+  $tables = array(
+    "node__field_contract_officer_represent",
+    "node__field_technical_contact",
+    "node__point_of_contact",
+    "node__subject_matter_expert"
+  );
+
+  $connection = \Drupal::database();
+  foreach ($tables as $table) {
+    $records .= "\n Deleting IDs from " . $table . " table. \n";
+    $query = $connection->query("SELECT bundle, entity_id FROM {$table} WHERE bundle='data_set'");
+    //get bundle and entity_id from DB.
+    $results = $query->fetchAll();
+    foreach ($results as $result) {
+      $result->nid = $result->entity_id;
+      if ($result->nid) {
+        //delete all data from field table.
+        $sql = "DELETE FROM {$table} WHERE entity_id={$result->nid} AND bundle='data_set'";
+        $connection->query($sql);
+        // add records to the log file.
+        $records .= ". Deleted data of ". $table . " field from - " . "https://catalog.sec.gov/node/" . $result->nid . "\n";
+      }
+    }
+  }
+  fwrite($logfile, $records);
+  fclose($logfile);
+}
+
+/**
+ * Migrate Description fields to field_summary (Short Description)
+ */
+
+function dc_general_update_8003() {
+  _dc_general_migrate_textformatted_fields("data_set", "field_dataset_description", "field_summary");
+  _dc_general_migrate_textformatted_fields("chart", "body", "field_summary");
+  _dc_general_migrate_textformatted_fields("statistics", "body", "field_summary");
+  _dc_general_migrate_textformatted_fields("article", "field_article_summary", "field_summary");
+  _dc_general_migrate_textformatted_fields("data_insight", "body", "field_summary");
+}
+
+function _dc_general_migrate_textformatted_fields($bundle, $oldField, $newField) {
+  $database = \Drupal::database();
+
+  $fieldStorage = FieldStorageConfig::loadByName('node', $oldField);
+  if (!is_null($fieldStorage)) {
+    //get data from Database
+    $table = 'node__' . $oldField;
+    $currentRows = NULL;
+    // Get all current data from DB.
+    if ($database->schema()->tableExists($table)) {
+
+      $currentRows = $database->select($table, 'n')
+        ->fields('n')
+        ->condition('bundle', $bundle, '=')
+        ->execute()
+        ->fetchAll();
+
+      if (!is_null($currentRows)) {
+        foreach ($currentRows as $row) {
+          $node = Node::load($row->entity_id);
+          if ($node->hasField($newField)) {
+            $data = $node->get($oldField)->getValue()[0]['value'];
+            if ($bundle == "chart") {
+              $data = $node->get($oldField)->getValue()[0]['summary'];
+            }
+
+            //remove every script and style tag
+            $data = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $data);
+            $data = preg_replace('#<style(.*?)>(.*?)</style>#is', '', $data);
+
+            if ($bundle == "statistics") {
+              //attempt to extract description text (2nd p tag)
+              $dom = new DOMDocument;
+              $dom->loadHTML($data);
+              $paragraphs = $dom->getElementsByTagName('p');
+
+              if (!empty($paragraphs) && $paragraphs->length > 1) {
+                $desc = $paragraphs->item(0)->nodeValue;
+                if ($desc == "Description:") {
+                  $data = $paragraphs->item(1)->nodeValue;
+                }
+              }
+            }
+            //now remove any remaining html tags
+            $data = strip_tags($data);
+            //remove any html entities
+            $data = html_entity_decode($data);
+
+            $node->set($newField, $data);
+            $node->save();
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Migrate Division/Office contacts from field_business_owner to new field_division_office_multi
+ */
+function dc_general_update_8002() {
+  $database = \Drupal::database();
+
+  $oldFieldName = "field_business_owner";
+  $newFieldName = "field_division_office_multi";
+  $fieldStorage = FieldStorageConfig::loadByName('node', $oldFieldName);
+
+  if (!is_null($fieldStorage)) {
+    //get data from Database
+    $table = 'node__' . $oldFieldName;
+    $currentRows = NULL;
+    // Get all current data from DB.
+    if ($database->schema()->tableExists($table)) {
+
+      $currentRows = $database->select($table, 'n')
+        ->fields('n')
+        ->condition('bundle', 'data_set', '=')
+        ->execute()
+        ->fetchAll();
+    }
+
+    if (!is_null($currentRows)) {
+      foreach ($currentRows as $row) {
+        $node = Node::load($row->entity_id);
+        if ($node->hasField($newFieldName)) {
+          //grab the old contact record from this entity reference field
+          $oldContact = Node::Load($row->{$oldFieldName . "_target_id"});
+          //grab the division office taxonomy target value from the old contact
+          $oldDivisionOffice = $oldContact->get("field_division_office")->getValue();
+          //now add the old division office taxonomy value to the new field (multivalue)
+          if (!empty($oldDivisionOffice)) {
+            $oldDivisionOffice = reset($oldDivisionOffice);
+            $divisionOfficeArray = $node->get($newFieldName)->getValue();
+            $divisionOfficeArray[] = array(
+              'target_id' => $oldDivisionOffice['target_id']
+            );
+            $node->set($newFieldName, $divisionOfficeArray);
+            $node->save();
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Migrate contact entity references from various fields into contacts_with_roles paragraphs
+ */
+function dc_general_update_8001() {
+
+  _dc_general_migrate_contacts("field_contract_officer_represent", "Contract Officer Representative (COR)");
+  _dc_general_migrate_contacts("point_of_contact", "Point of Contact");
+  _dc_general_migrate_contacts("field_technical_contact", "Technical Contact");
+  _dc_general_migrate_contacts("subject_matter_expert", "Subject Matter Expert");
+  _dc_general_migrate_contacts("field_contact", "Form Contact");
+  _dc_general_migrate_contacts("field_point_s_of_contact", "Rulemaking Contact");
+}
+
+function _dc_general_migrate_contacts($fieldName, $termName) {
+  $database = \Drupal::database();
+
+  $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $termName, 'vid' => "roles"]);
+  $term = reset($term);
+
+  //handle special case for forms, data_insight, and statistics using same field (field_contact) for different roles
+  $altTerm = null;
+  if ($fieldName == "field_contact") {
+    $altTerm = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Editorial Point of Contact', 'vid' => "roles"]);
+    $altTerm = reset($altTerm);
+  }
+
+  $fieldStorage = FieldStorageConfig::loadByName('node', $fieldName);
+
+  if (!is_null($fieldStorage)) {
+    //get data from Database
+    $table = 'node__' . $fieldName;
+    $currentRows = NULL;
+    // Get all current data from DB.
+    if ($database->schema()->tableExists($table)) {
+      // The table data to restore after the update is completed.
+      $currentRows = $database->select($table, 'n')
+        ->fields('n')
+        ->execute()
+        ->fetchAll();
+    }
+
+    if (!is_null($currentRows)) {
+      foreach ($currentRows as $row) {
+        $thisNodeId = $row->entity_id;
+        $node = Node::load($thisNodeId);
+        if ($node->hasField('field_contacts')) {
+          // Create corresponding paragraph entity
+          $paragraph = Paragraph::create(['type' => 'contacts_with_roles']);
+
+          if ($node->bundle() == "statistics" || $node->bundle() == "data_insight") {
+            $paragraph->set('field_role', ['target_id' => $altTerm->id()]);
+          } else {
+            $paragraph->set('field_role', ['target_id' => $term->id()]);
+          }
+
+          $paragraph->set('field_contact', ['target_id' => $row->{$fieldName . "_target_id"}]);
+          $paragraph->setParentEntity($node, "field_contacts");
+          $paragraph->save();
+
+          // grab any existing values for the otherNode and append this new paragraph
+          $paragraphArray = $node->get('field_contacts')->getValue();
+          $paragraphArray[] = array(
+            'target_id' => $paragraph->id(),
+            'target_revision_id' => $paragraph->getRevisionId(),
+          );
+          $node->set('field_contacts', $paragraphArray);
+          $node->save();
+        }
+      }
+    }
+  }
+}

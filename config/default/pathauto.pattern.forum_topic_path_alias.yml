@@ -1,0 +1,22 @@
+uuid: f57086e5-1408-4d4f-be44-433d4990f74d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: forum_topic_path_alias
+label: 'Forum Topic Path Alias'
+type: 'canonical_entities:node'
+pattern: 'discussions/[node:title]'
+selection_criteria:
+  9165df73-0000-481b-9249-9a639eda73a5:
+    id: node_type
+    negate: false
+    uuid: 9165df73-0000-481b-9249-9a639eda73a5
+    context_mapping:
+      node: node
+    bundles:
+      forum: forum
+selection_logic: and
+weight: -5
+relationships: {  }

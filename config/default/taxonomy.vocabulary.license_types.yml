@@ -1,0 +1,8 @@
+uuid: 8774052b-793c-4b51-afe2-6c3f3b0193ac
+langcode: en
+status: true
+dependencies: {  }
+name: 'License Types'
+vid: license_types
+description: 'How the data set is licensed'
+weight: 0

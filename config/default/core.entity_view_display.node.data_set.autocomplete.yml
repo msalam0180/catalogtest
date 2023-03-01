@@ -1,0 +1,1230 @@
+uuid: fe75877b-34ab-4140-b15e-0a0613a4aea1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.autocomplete
+    - field.field.node.data_set.body
+    - field.field.node.data_set.feeds_item
+    - field.field.node.data_set.field_act
+    - field.field.node.data_set.field_add_new_discussion
+    - field.field.node.data_set.field_annual_burden
+    - field.field.node.data_set.field_articles
+    - field.field.node.data_set.field_associated_publications
+    - field.field.node.data_set.field_associated_related_dataset
+    - field.field.node.data_set.field_attribution_statement
+    - field.field.node.data_set.field_average_ingestion_volume
+    - field.field.node.data_set.field_business_owner
+    - field.field.node.data_set.field_child_data_type
+    - field.field.node.data_set.field_children_datasets
+    - field.field.node.data_set.field_completeness
+    - field.field.node.data_set.field_consistency
+    - field.field.node.data_set.field_contact_guidance
+    - field.field.node.data_set.field_contacts
+    - field.field.node.data_set.field_contract_officer_represent
+    - field.field.node.data_set.field_contract_status
+    - field.field.node.data_set.field_controlled_unclassified_in
+    - field.field.node.data_set.field_cost
+    - field.field.node.data_set.field_cost_category
+    - field.field.node.data_set.field_data_category
+    - field.field.node.data_set.field_data_collection_type
+    - field.field.node.data_set.field_data_dictionary
+    - field.field.node.data_set.field_data_search_index
+    - field.field.node.data_set.field_data_size_in_gb
+    - field.field.node.data_set.field_data_structure
+    - field.field.node.data_set.field_data_systems
+    - field.field.node.data_set.field_dataset_articles_ref
+    - field.field.node.data_set.field_dataset_asset_category
+    - field.field.node.data_set.field_dataset_categorization
+    - field.field.node.data_set.field_dataset_categorization_det
+    - field.field.node.data_set.field_dataset_category
+    - field.field.node.data_set.field_dataset_confluenceid_quest
+    - field.field.node.data_set.field_dataset_date_archive
+    - field.field.node.data_set.field_dataset_dba
+    - field.field.node.data_set.field_dataset_description
+    - field.field.node.data_set.field_dataset_last_load_time
+    - field.field.node.data_set.field_dataset_license_holder
+    - field.field.node.data_set.field_dataset_name_old
+    - field.field.node.data_set.field_dataset_pass
+    - field.field.node.data_set.field_dataset_path
+    - field.field.node.data_set.field_dataset_permission_type
+    - field.field.node.data_set.field_dataset_references
+    - field.field.node.data_set.field_dataset_registrant_type
+    - field.field.node.data_set.field_dataset_related_datasets
+    - field.field.node.data_set.field_dataset_sales_rep_name
+    - field.field.node.data_set.field_dataset_source_type
+    - field.field.node.data_set.field_dataset_title
+    - field.field.node.data_set.field_dataset_tool
+    - field.field.node.data_set.field_dataset_tools_ref
+    - field.field.node.data_set.field_dataset_use
+    - field.field.node.data_set.field_dataset_vendor_www
+    - field.field.node.data_set.field_date_acquired
+    - field.field.node.data_set.field_dauisp_audit_logs
+    - field.field.node.data_set.field_dauisp_data_policies
+    - field.field.node.data_set.field_delivery_frequency_to_sec
+    - field.field.node.data_set.field_delivery_method_to_sec
+    - field.field.node.data_set.field_derived_datasets
+    - field.field.node.data_set.field_derived_parent_dataset
+    - field.field.node.data_set.field_division_office_multi
+    - field.field.node.data_set.field_documents
+    - field.field.node.data_set.field_efile_contract_link
+    - field.field.node.data_set.field_exclude_dataset_search
+    - field.field.node.data_set.field_exclude_from_global_search
+    - field.field.node.data_set.field_externally_hosted
+    - field.field.node.data_set.field_filing_entity_type
+    - field.field.node.data_set.field_filing_format
+    - field.field.node.data_set.field_fips_category_justificatio
+    - field.field.node.data_set.field_fips_security_classificati
+    - field.field.node.data_set.field_how_to_access_this_dataset
+    - field.field.node.data_set.field_how_to_request_access
+    - field.field.node.data_set.field_insights
+    - field.field.node.data_set.field_license_required
+    - field.field.node.data_set.field_license_types
+    - field.field.node.data_set.field_licenses_held_by_division_
+    - field.field.node.data_set.field_market_sensitivity
+    - field.field.node.data_set.field_mission_criticality
+    - field.field.node.data_set.field_notes
+    - field.field.node.data_set.field_notes_regarding_permission
+    - field.field.node.data_set.field_number_of_active_internal_
+    - field.field.node.data_set.field_number_of_licenses_assigne
+    - field.field.node.data_set.field_number_of_licenses_held
+    - field.field.node.data_set.field_ocdo_classification
+    - field.field.node.data_set.field_ogda_access_level_rights
+    - field.field.node.data_set.field_ogda_determination_notes
+    - field.field.node.data_set.field_omb_number
+    - field.field.node.data_set.field_open_government_data_acces
+    - field.field.node.data_set.field_open_government_data_act_i
+    - field.field.node.data_set.field_open_government_data_asset
+    - field.field.node.data_set.field_open_government_data_class
+    - field.field.node.data_set.field_owner
+    - field.field.node.data_set.field_perm_division_office
+    - field.field.node.data_set.field_perm_employment_type
+    - field.field.node.data_set.field_perm_operand
+    - field.field.node.data_set.field_purchased
+    - field.field.node.data_set.field_related_apps_with_term
+    - field.field.node.data_set.field_related_data_insights
+    - field.field.node.data_set.field_related_discussions
+    - field.field.node.data_set.field_related_forums_view
+    - field.field.node.data_set.field_related_reports_statistics
+    - field.field.node.data_set.field_restricted_dataset
+    - field.field.node.data_set.field_retention_length
+    - field.field.node.data_set.field_review_submitter
+    - field.field.node.data_set.field_reviewer
+    - field.field.node.data_set.field_sales_rep_email_address
+    - field.field.node.data_set.field_sales_rep_phone_number
+    - field.field.node.data_set.field_sec_gov_node_id
+    - field.field.node.data_set.field_security_classification
+    - field.field.node.data_set.field_sensitive_data_category
+    - field.field.node.data_set.field_sensitive_pii
+    - field.field.node.data_set.field_sensitivity_classification
+    - field.field.node.data_set.field_source_type
+    - field.field.node.data_set.field_submission_type
+    - field.field.node.data_set.field_summary
+    - field.field.node.data_set.field_support_email_address
+    - field.field.node.data_set.field_support_phone_number
+    - field.field.node.data_set.field_tags
+    - field.field.node.data_set.field_technical_contact
+    - field.field.node.data_set.field_time_period_covered
+    - field.field.node.data_set.field_timeliness_recency
+    - field.field.node.data_set.field_tools
+    - field.field.node.data_set.field_total_annual_burden_hours
+    - field.field.node.data_set.field_total_annual_filings
+    - field.field.node.data_set.field_vendor_name
+    - field.field.node.data_set.field_vendor_website
+    - field.field.node.data_set.field_visit_dataset_link
+    - field.field.node.data_set.field_websites
+    - field.field.node.data_set.point_of_contact
+    - field.field.node.data_set.subject_matter_expert
+    - node.type.data_set
+  module:
+    - datetime
+    - entity_reference_revisions
+    - field_group
+    - fixed_text_link_formatter
+    - layout_builder
+    - link
+    - options
+    - paragraphs
+    - text
+    - user
+    - viewfield
+third_party_settings:
+  field_group:
+    group_main_content:
+      children:
+        - field_dataset_description
+        - field_insights
+        - field_time_period_covered
+        - field_data_dictionary
+        - field_owner
+        - field_division_office_multi
+        - field_dataset_source_type
+        - field_externally_hosted
+        - field_data_size_in_gb
+        - field_delivery_method_to_sec
+        - field_delivery_frequency_to_sec
+        - field_average_ingestion_volume
+        - field_dataset_last_load_time
+        - field_dataset_registrant_type
+        - field_dataset_asset_category
+        - field_dataset_category
+        - field_dataset_use
+        - field_associated_related_dataset
+        - field_derived_parent_dataset
+        - field_children_datasets
+        - field_derived_datasets
+        - field_dataset_related_datasets
+        - field_dataset_name_old
+        - field_date_acquired
+        - field_contract_status
+        - field_dataset_date_archive
+        - field_omb_number
+        - field_filing_format
+        - field_total_annual_filings
+        - field_annual_burden
+        - field_total_annual_burden_hours
+        - field_submission_type
+        - field_filing_entity_type
+        - field_act
+        - field_tags
+      label: 'Main Content'
+      parent_name: group_column_01
+      region: content
+      weight: 21
+      format_type: html_element
+      format_settings:
+        classes: 'main-content-display-section panel panel-default'
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_row_01:
+      children:
+        - group_column_01
+        - group_column_02
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: row
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_01:
+      children:
+        - group_main_content
+      label: 'Column 01'
+      parent_name: group_row_01
+      region: content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: col-lg-6
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_column_02:
+      children:
+        - group_tab_group
+      label: 'Column 02'
+      parent_name: group_row_01
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: 'col-lg-6 '
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+    group_tab_group:
+      children:
+        - group_how_to_access
+        - group_tools
+        - group_who_to_contact
+        - group_docs_links
+        - group_vendor_info
+        - group_licensing_usage
+        - group_related_discussions_tab
+        - group_load_times
+      label: 'Tab Group'
+      parent_name: group_column_02
+      region: content
+      weight: 20
+      format_type: tabs
+      format_settings:
+        classes: horizontal-tab-fix
+        id: ''
+        direction: vertical
+    group_how_to_access:
+      children:
+        - field_how_to_request_access
+        - field_sensitivity_classification
+        - field_how_to_access_this_dataset
+        - field_data_systems
+        - field_dataset_path
+        - field_notes_regarding_permission
+        - field_attribution_statement
+        - field_license_types
+        - field_number_of_licenses_held
+        - field_licenses_held_by_division_
+        - field_number_of_licenses_assigne
+      label: ' Access & Use'
+      parent_name: group_tab_group
+      region: content
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: how-to-access
+        id: how-to-access
+        formatter: closed
+        description: ''
+    group_who_to_contact:
+      children:
+        - field_contact_guidance
+        - field_contacts
+      label: Contacts
+      parent_name: group_tab_group
+      region: content
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: contacts
+        id: ''
+        formatter: closed
+        description: ''
+    group_docs_links:
+      children:
+        - field_documents
+        - field_articles
+        - field_dataset_articles_ref
+        - field_dataset_tools_ref
+      label: 'Related Documentation'
+      parent_name: group_tab_group
+      region: content
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: related-materials
+        id: ''
+        formatter: closed
+        description: ''
+    group_vendor_info:
+      children:
+        - field_vendor_name
+        - field_vendor_website
+        - field_support_phone_number
+        - field_support_email_address
+        - field_dataset_sales_rep_name
+        - field_sales_rep_phone_number
+        - field_sales_rep_email_address
+      label: Vendor
+      parent_name: group_tab_group
+      region: content
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: vendor
+        id: ''
+        formatter: closed
+        description: ''
+    group_load_times:
+      children: {  }
+      label: 'Load Times'
+      parent_name: group_tab_group
+      region: content
+      weight: 28
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+    group_licensing_usage:
+      children:
+        - field_dauisp_data_policies
+        - field_dauisp_audit_logs
+        - field_dataset_categorization_det
+        - field_open_government_data_class
+        - field_open_government_data_acces
+        - field_sensitive_data_category
+        - field_market_sensitivity
+        - field_sensitive_pii
+        - field_controlled_unclassified_in
+        - field_fips_category_justificatio
+        - field_mission_criticality
+        - field_data_structure
+        - field_cost_category
+        - field_purchased
+        - field_license_required
+        - field_efile_contract_link
+        - field_number_of_active_internal_
+        - field_completeness
+        - field_consistency
+        - field_timeliness_recency
+      label: Governance
+      parent_name: group_tab_group
+      region: content
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: licensing-usage
+        id: ''
+        formatter: closed
+        description: ''
+    group_tools:
+      children:
+        - field_tools
+        - field_related_apps_with_term
+        - field_related_data_insights
+      label: 'Related Content'
+      parent_name: group_tab_group
+      region: content
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: tools
+        id: ''
+        formatter: closed
+        description: ''
+    group_related_discussions_tab:
+      children:
+        - field_related_discussions
+        - field_add_new_discussion
+      label: 'Related Discussions'
+      parent_name: group_tab_group
+      region: content
+      weight: 27
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: o6uzOmi0uz8OPAkyBKgMYJMyN454eyfM1bZFuGg0mDY
+id: node.data_set.autocomplete
+targetEntityType: node
+bundle: data_set
+mode: autocomplete
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_act:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_add_new_discussion:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 62
+    region: content
+  field_annual_burden:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_articles:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 57
+    region: content
+  field_associated_related_dataset:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_attribution_statement:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 80
+    region: content
+  field_average_ingestion_volume:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_children_datasets:
+    type: viewfield_default
+    label: inline
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_completeness:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_consistency:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_contact_guidance:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 86
+    region: content
+  field_contacts:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: ''
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 87
+    region: content
+  field_contract_status:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_controlled_unclassified_in:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 97
+    region: content
+  field_cost_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_data_dictionary:
+    type: viewfield_default
+    label: inline
+    settings:
+      view_title: inline
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_data_size_in_gb:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 0
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_data_structure:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  field_data_systems:
+    type: viewfield_default
+    label: inline
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 77
+    region: content
+  field_dataset_articles_ref:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 58
+    region: content
+  field_dataset_asset_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_dataset_categorization_det:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 90
+    region: content
+  field_dataset_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_dataset_date_archive:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_dataset_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_dataset_last_load_time:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_dataset_name_old:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_dataset_path:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 78
+    region: content
+  field_dataset_registrant_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_dataset_related_datasets:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_dataset_sales_rep_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 62
+    region: content
+  field_dataset_source_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_dataset_tools_ref:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 59
+    region: content
+  field_dataset_use:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_date_acquired:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_dauisp_audit_logs:
+    type: fixed_text_link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'View Audit Logs'
+      link_class: ''
+      allow_override: false
+    third_party_settings: {  }
+    weight: 89
+    region: content
+  field_dauisp_data_policies:
+    type: fixed_text_link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'View Data Policies'
+      link_class: ''
+      allow_override: false
+    third_party_settings: {  }
+    weight: 88
+    region: content
+  field_delivery_frequency_to_sec:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_delivery_method_to_sec:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_derived_datasets:
+    type: viewfield_default
+    label: inline
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_derived_parent_dataset:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_division_office_multi:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 5
+    region: content
+  field_documents:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: file_and_description
+      link: false
+    third_party_settings: {  }
+    weight: 56
+    region: content
+  field_efile_contract_link:
+    type: fixed_text_link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'View eFile Contract'
+      link_class: contract-link
+      allow_override: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_externally_hosted:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_filing_entity_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_filing_format:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_fips_category_justificatio:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 98
+    region: content
+  field_how_to_access_this_dataset:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 76
+    region: content
+  field_how_to_request_access:
+    type: fixed_text_link
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'Request Access'
+      link_class: 'btn btn-primary'
+      allow_override: false
+    third_party_settings: {  }
+    weight: 74
+    region: content
+  field_insights:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_license_required:
+    type: boolean
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_license_types:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 81
+    region: content
+  field_licenses_held_by_division_:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: ''
+    third_party_settings: {  }
+    weight: 83
+    region: content
+  field_market_sensitivity:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 94
+    region: content
+  field_mission_criticality:
+    type: paragraph_summary
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 99
+    region: content
+  field_notes_regarding_permission:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 79
+    region: content
+  field_number_of_active_internal_:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_number_of_licenses_assigne:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 0
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 84
+    region: content
+  field_number_of_licenses_held:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ','
+      decimal_separator: .
+      scale: 0
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 82
+    region: content
+  field_omb_number:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_open_government_data_acces:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 92
+    region: content
+  field_open_government_data_class:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 91
+    region: content
+  field_owner:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_purchased:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_related_apps_with_term:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_related_data_insights:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 28
+    region: content
+  field_related_discussions:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 61
+    region: content
+  field_sales_rep_email_address:
+    type: email_mailto
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 64
+    region: content
+  field_sales_rep_phone_number:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 63
+    region: content
+  field_sensitive_data_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 93
+    region: content
+  field_sensitive_pii:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 95
+    region: content
+  field_sensitivity_classification:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 75
+    region: content
+  field_submission_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_support_email_address:
+    type: email_mailto
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 61
+    region: content
+  field_support_phone_number:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 60
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings:
+      field_delimiter:
+        delimiter: ', '
+    weight: 34
+    region: content
+  field_time_period_covered:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_timeliness_recency:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_tools:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_total_annual_burden_hours:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_total_annual_filings:
+    type: entity_reference_revisions_entity_view
+    label: inline
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_vendor_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 58
+    region: content
+  field_vendor_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 59
+    region: content
+hidden:
+  body: true
+  feeback: true
+  feeds_item: true
+  field_associated_publications: true
+  field_business_owner: true
+  field_child_data_type: true
+  field_contract_officer_represent: true
+  field_cost: true
+  field_data_category: true
+  field_data_collection_type: true
+  field_data_search_index: true
+  field_dataset_categorization: true
+  field_dataset_confluenceid_quest: true
+  field_dataset_dba: true
+  field_dataset_license_holder: true
+  field_dataset_pass: true
+  field_dataset_permission_type: true
+  field_dataset_references: true
+  field_dataset_title: true
+  field_dataset_tool: true
+  field_dataset_vendor_www: true
+  field_exclude_dataset_search: true
+  field_exclude_from_global_search: true
+  field_fips_security_classificati: true
+  field_notes: true
+  field_ocdo_classification: true
+  field_ogda_access_level_rights: true
+  field_ogda_determination_notes: true
+  field_open_government_data_act_i: true
+  field_open_government_data_asset: true
+  field_perm_division_office: true
+  field_perm_employment_type: true
+  field_perm_operand: true
+  field_related_forums_view: true
+  field_related_reports_statistics: true
+  field_restricted_dataset: true
+  field_retention_length: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_sec_gov_node_id: true
+  field_security_classification: true
+  field_source_type: true
+  field_summary: true
+  field_technical_contact: true
+  field_visit_dataset_link: true
+  field_websites: true
+  links: true
+  parent_dataset: true
+  point_of_contact: true
+  search_api_excerpt: true
+  subject_matter_expert: true

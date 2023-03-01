@@ -1,0 +1,23 @@
+uuid: d694d068-623f-40cd-93fd-4b9b3241374a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_licenses_assigne
+    - node.type.data_set
+id: node.data_set.field_number_of_licenses_assigne
+field_name: field_number_of_licenses_assigne
+entity_type: node
+bundle: data_set
+label: 'Number of Licenses Assigned'
+description: 'How many approved/assigned users are there currently?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

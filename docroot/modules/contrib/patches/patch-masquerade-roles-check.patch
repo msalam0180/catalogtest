@@ -1,0 +1,25 @@
+diff --git a/masquerade.module b/masquerade.module
+index dd67e670a..5b9c9790a 100644
+--- a/masquerade.module
++++ b/masquerade.module
+@@ -142,13 +142,16 @@ function masquerade_masquerade_access($user, UserInterface $target_account) {
+   // Permissions may be granted on a per-role basis.
+   $target_account_roles = $target_account->getRoles();
+   foreach ($target_account_roles as $role_id) {
+-    if (!$user->hasPermission("masquerade as $role_id")) {
+-      return NULL;
++    if ($user->hasPermission("masquerade as $role_id")) {
++      return TRUE;
+     }
+   }
+ 
+-  // Only allow masquerade if a user has access to all the target account roles.
+-  return TRUE;
++  // OLD COMMENT FROM BAD DEV: Only allow masquerade if a user has access to all the target account roles.
++  // NEW COMMENT: If user has perm to masquerade as one of roles that target account has, it should return TRUE.
++  // By forcing a check to see if user has access to all roles, it defeats the purpose of individual permissions
++  // and logic.
++  return NULL;
+ }
+ 
+ /**

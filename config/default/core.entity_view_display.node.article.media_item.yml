@@ -1,0 +1,59 @@
+uuid: b2ddde68-d2bd-4df0-9bfb-d1d73e5aac7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.media_item
+    - field.field.node.article.body
+    - field.field.node.article.field_add_new_discussion
+    - field.field.node.article.field_article_summary
+    - field.field.node.article.field_category
+    - field.field.node.article.field_dataset_related_datasets
+    - field.field.node.article.field_related_apps
+    - field.field.node.article.field_related_components
+    - field.field.node.article.field_related_datasets
+    - field.field.node.article.field_related_discussions
+    - field.field.node.article.field_related_platforms
+    - field.field.node.article.field_review_submitter
+    - field.field.node.article.field_reviewer
+    - field.field.node.article.field_summary
+    - node.type.article
+  module:
+    - text
+    - user
+id: node.article.media_item
+targetEntityType: node
+bundle: article
+mode: media_item
+content:
+  field_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_summary:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  field_add_new_discussion: true
+  field_article_summary: true
+  field_dataset_related_datasets: true
+  field_related_apps: true
+  field_related_components: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_related_platforms: true
+  field_review_submitter: true
+  field_reviewer: true
+  links: true
+  search_api_excerpt: true

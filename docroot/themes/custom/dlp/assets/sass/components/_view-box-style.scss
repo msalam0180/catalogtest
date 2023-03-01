@@ -1,0 +1,347 @@
+// Box Style Exposed Forms
+// Add class "views-exposed-form-box-style" to view to give it the box style
+// There are two COLOR variants to the Exposed Forms Box Style - light and dark (see below)
+// There are one SIZE variant to the Exposed Forms Box Style - wide (see below)
+// (a new version of this using different markup is below)
+
+.view-box-style {
+  .results-summary{
+    text-align: right;
+    font-style: italic;
+    color: #353535;
+    margin-top: 30px;
+  }
+
+  .view-filters{
+    margin-bottom: 30px;
+  }
+
+  .views-exposed-form {
+    padding: 2rem 1rem;
+    background-color: $border-color;
+    border: none;
+    @include clearfix;
+
+    .form-item,
+    .form-actions {
+      float: left;
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+
+      &:nth-child(4n+1) {
+        clear: both;
+      }
+
+      @media screen and (min-width: 1256px) {
+        width: 25%;
+      }
+
+      //TODO: Need Named Media Query
+      @media screen and (min-width: $screen-md) and (max-width: 1255px) {
+        width: 25%;
+      }
+
+      //TODO: Need Named Media Query (small I think)
+      @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+        width: 50%;
+      }
+    }
+
+    .view-filters .form-actions {
+      @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+        width: 100%;
+      }
+    }
+
+    // Buttons
+    .form-actions {
+      button {
+        margin: 26px 0 0 0;
+        color: #fff;
+        background-color: $accent-color-dk;
+        text-shadow: 0px 0px 3px #0e4158;
+        width: 100%;
+        flex: 1;
+      }
+
+      [data-drupal-selector="edit-submit-data-search-index"] {
+        @extend .btn;
+        @extend .btn-primary;
+        float: left;
+      }
+
+      [data-drupal-selector="edit-reset"] {
+        @extend .btn;
+        @extend .btn-reset;
+        margin-right: 0;
+        float: right;
+      }
+    }
+
+    .form-control:focus,
+    .simpler-select:focus {
+      border-color: #66afe9;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 1pt #00aeef, 0 0 8px 4px rgba(0, 174, 239, 0.20);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 1pt #00aeef, 0 0 8px 4px rgba(0, 174, 239, 0.20);
+    }
+  }
+
+  ///// variants on the views exposed "Box Style Exposed Forms" styles
+  // Dark Background
+  // Add class to view to make filter a dark background box
+  &.views-exposed-form-dk .views-exposed-form {
+    color: white;
+    padding: 1.5rem 0.5rem;
+    background-color: $primary-color;
+    border: none;
+    display: flex;
+
+    .form-group label {
+      font-weight: normal;
+    }
+    
+  }
+
+  // light Background
+  // Add class to view to make filter a light background box
+  &.views-exposed-form-lt .views-exposed-form {
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    border: 1px solid $border-color;
+  }
+
+  // Additional Views layouts
+  // Wide two columns (filters column on left, content column on right)
+  //Add class to view to create two columns on extra wide displays
+  &.views-wide-create-filters-col {
+    &.views-exposed-form-dk .views-exposed-form {
+      display: block;
+    }
+
+    //Wide Layout
+    @media screen and (min-width: $screen-md) {
+      .view-filters {
+        width: 25%;
+        float: left;
+
+        .form-group {
+          width: 100%;
+        }
+      }
+
+      .view-content,
+      .view-empty {
+        width: 75%;
+        float: left;
+        padding-left: 20px;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: stretch;
+
+      button {
+        margin-top: 0;
+        flex: 1;
+      }
+
+      .btn.btn-reset {
+        margin: 0;
+      }
+
+      button.btn+button.btn {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .views-row {
+    margin-bottom: 20px;
+  }
+
+  .views-field-title h2,
+  .view-box-style-title {
+    font-size: 22px;
+    margin-top: 0;
+
+    .icon {
+      font-size: .8em;
+    }
+  }
+
+  .view-box-style-description {
+    margin-bottom: 10px;
+  }
+
+  .view-metadata {
+    color: #797676;
+    font-size: .9em;
+
+    .views-label {
+      font-weight: bold;
+    }
+  }
+
+  ///// variants on the views content
+  &.accent-boxes {
+    .views-row {
+      border: 1px solid $border-color-alt;
+      padding: 15px 20px;
+      overflow-wrap: break-word;
+    }
+
+    .view-box-style-description-with-line {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  &.line-separation {
+    .views-row {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+
+  table {
+    tr {
+      @media screen and (min-width: $screen-md) {
+        th {
+          white-space: nowrap;
+        }
+      }
+
+      td {
+        overflow-wrap: break-word;
+      }
+    }
+  }
+}
+
+// No Results
+.view-box-style .view-empty .no-results {
+  text-align: center;
+  border: 1px solid $border-color;
+  padding: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+// Following CSS is for left-sidebar exposed filters and headers
+// Custom Template name: views-view--header-on-left-sidebar.html.twig
+// Currently covers /results and /data-insights-list page views
+.view-box-style {
+  .view-columns {
+    @media screen and (min-width: $screen-md) {
+      display: flex;
+    }
+
+    .view-side-area {
+      background-color: $primary-color;
+      padding-top: 1.5rem;
+      height: 100%;
+
+      @media screen and (min-width: $screen-md) {
+        flex: 0 25%;
+        margin-right: 20px;
+      }
+    }
+
+    .view-content,
+    .view-empty {
+      flex: 1;
+
+      @media screen and (max-width: $screen-md) {
+        margin-top: 30px;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: stretch;
+
+      button {
+        margin-top: 0;
+        color: #fff;
+        background-color: $accent-color-dk;
+        text-shadow: 0px 0px 3px #0e4158;
+        width: auto;
+        flex: 1;
+      }
+
+      .btn.btn-reset {
+        margin: 0;
+      }
+
+      button.btn+button.btn {
+        margin-left: 10px;
+      }
+    }
+
+    .view-filters {
+      margin-bottom: 0;
+    }
+
+    .views-exposed-form {
+      display: block;
+      margin-bottom: 0;
+      padding: 0 0.5rem 1.5rem;
+    }
+  }
+}
+
+
+// Style when using view template with header on left-sidebar
+.view-box-style.views-wide-create-filters-col {
+  .view-columns {
+
+    .view-content,
+    .view-empty {
+      padding-left: 0;
+      float: none;
+      width: auto;
+    }
+  }
+
+  .view-side-area {
+    .views-exposed-form {
+      float: none;
+      width: auto;
+    }
+  }
+}
+
+.view-box-style .views-exposed-form .form-item,
+.view-box-style .views-exposed-form .form-actions {
+  width: 100%;
+}
+
+// Global Search view page (/results)
+.view-box-style.view-id-search_results.view-display-id-page_1 {
+  .view-columns .view-content {
+    h3:first-child {
+      margin-top: 0px;
+    }
+  }
+}
+
+// Forms view page (/forms)
+.view-box-style.view-display-id-page_1 {
+  @media screen and (min-width: $screen-md) {
+    td.views-field-title {
+      min-width: 100px;
+    }
+  }
+}
+
+
+.view-box-style .action-button{
+  margin-top: 10px;
+}

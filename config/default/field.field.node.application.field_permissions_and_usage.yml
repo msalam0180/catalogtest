@@ -1,0 +1,29 @@
+uuid: ee366853-0fdb-4e69-84df-44f062270286
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_permissions_and_usage
+    - node.type.application
+  module:
+    - allowed_formats
+    - field_display_label
+    - text
+third_party_settings:
+  field_display_label:
+    display_label: Permissions
+  allowed_formats:
+    allowed_formats:
+      - linked_w_links
+id: node.application.field_permissions_and_usage
+field_name: field_permissions_and_usage
+entity_type: node
+bundle: application
+label: 'Permissions and Usage'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

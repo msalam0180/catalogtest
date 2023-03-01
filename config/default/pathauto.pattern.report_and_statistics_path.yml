@@ -1,0 +1,22 @@
+uuid: 45eb3535-5c80-4321-9a57-5cf16e1716c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: report_and_statistics_path
+label: 'Report and Statistics Path'
+type: 'canonical_entities:node'
+pattern: 'reports-statistics/[node:title]'
+selection_criteria:
+  dadd2de5-314f-42c4-aa33-c148d7a4c7bf:
+    id: node_type
+    negate: false
+    uuid: dadd2de5-314f-42c4-aa33-c148d7a4c7bf
+    context_mapping:
+      node: node
+    bundles:
+      statistics: statistics
+selection_logic: and
+weight: -5
+relationships: {  }

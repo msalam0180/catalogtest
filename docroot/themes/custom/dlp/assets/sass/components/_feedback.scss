@@ -1,0 +1,77 @@
+/**
+ * Feedback styles.
+ * These styles apply to the feedback modal and button
+ */
+
+// Feedback button that is all across the site
+.feedbackButton{
+  position: fixed;
+  bottom: 250px;
+  right: 0;
+  transform: rotate(270deg) translateY(10px);
+  transform-origin: 100% 100%;
+  background: #ffc425;
+  color: #133e5e;
+  padding: 4px 13px 16px;
+  transition: transform 300ms;
+  letter-spacing: .05em;
+  font-weight: 600;
+  font-size: 1.1em;
+  &:hover, &:focus{
+    color: #133e5e;
+    text-decoration: none;
+    transform: rotate(270deg) translateY(0px);
+  }
+  .modal-open &{
+    transform: rotate(270deg) translateY(0px);
+  }
+  .ajax-throbber{
+    margin-left: 7px;
+  }
+
+}//feedback button block style
+.block-feedbacklinkblock-block .contextual{
+  display: none;
+}
+
+// Feedback Modal
+.feedbackModal{
+
+  // .modal-body{
+  //   overflow: auto !important;
+  // }
+
+  .role-authenticated & .form-item-name{
+    display: none;
+  }
+
+  .role-authenticated & .form-item-mail label{
+    text-transform: capitalize;
+    &:after {
+      content: ":";
+    }
+  }
+}
+
+// Extra text above the feedback form
+.extra-field--text-above{
+  margin-bottom: 20px;
+}
+
+// Extra text on datasets about feedback
+.extra-field--feeback{
+  background: #f6f6f6;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+}
+
+//Required help text on feedback from
+.contact-form .form-item-required-help {
+  color: #940101;
+  font-size: .9em;
+  margin-bottom: 0;
+}
+
+.field--name-field-reviewer-notes{
+  display: none;
+}

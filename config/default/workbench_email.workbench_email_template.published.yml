@@ -1,0 +1,55 @@
+uuid: 7487888e-fbf0-4184-b342-f548f0384e5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_submitter
+    - node.type.application
+    - node.type.article
+    - node.type.chart
+    - node.type.component
+    - node.type.contact
+    - node.type.data_insight
+    - node.type.data_set
+    - node.type.forms
+    - node.type.landing_page
+    - node.type.page
+    - node.type.platform
+    - node.type.publications
+    - node.type.statistics
+    - node.type.tools
+id: published
+label: Published
+subject: 'Your content has been published'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_review_submitter'
+bundles:
+  'node:application': 'node:application'
+  'node:article': 'node:article'
+  'node:chart': 'node:chart'
+  'node:component': 'node:component'
+  'node:contact': 'node:contact'
+  'node:data_insight': 'node:data_insight'
+  'node:data_set': 'node:data_set'
+  'node:forms': 'node:forms'
+  'node:landing_page': 'node:landing_page'
+  'node:page': 'node:page'
+  'node:platform': 'node:platform'
+  'node:publications': 'node:publications'
+  'node:statistics': 'node:statistics'
+  'node:tools': 'node:tools'
+body:
+  value: "[node:log]\r\n[node:title]\r\n[node:url]"
+  format: plain_text
+replyTo: ''

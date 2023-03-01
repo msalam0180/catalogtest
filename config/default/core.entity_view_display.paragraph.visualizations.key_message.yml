@@ -1,0 +1,37 @@
+uuid: ff558b44-e0af-4ea0-86fe-8362719c0784
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.key_message
+    - field.field.paragraph.visualizations.field_visualization
+    - field.field.paragraph.visualizations.field_visualization_text
+    - paragraphs.paragraphs_type.visualizations
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.visualizations.key_message
+targetEntityType: paragraph
+bundle: visualizations
+mode: key_message
+content:
+  field_visualization:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_visualization_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

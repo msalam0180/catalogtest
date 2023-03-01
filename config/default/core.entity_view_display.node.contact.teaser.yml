@@ -1,0 +1,56 @@
+uuid: 4eacfb5d-3240-495d-980a-bb9aeb54dbf7
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.contact.body
+    - field.field.node.contact.feeds_item
+    - field.field.node.contact.field_associated_websites
+    - field.field.node.contact.field_division_office
+    - field.field.node.contact.field_email
+    - field.field.node.contact.field_first_name
+    - field.field.node.contact.field_helpful_information
+    - field.field.node.contact.field_image_upload
+    - field.field.node.contact.field_last_name
+    - field.field.node.contact.field_phone_number
+    - node.type.contact
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: YpMRt1xejo6GDIVTytIDhwDzP7rb0e55SZQC3UwZpb4
+id: node.contact.teaser
+targetEntityType: node
+bundle: contact
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_associated_websites: true
+  field_division_office: true
+  field_email: true
+  field_first_name: true
+  field_helpful_information: true
+  field_image_upload: true
+  field_last_name: true
+  field_phone_number: true
+  search_api_excerpt: true

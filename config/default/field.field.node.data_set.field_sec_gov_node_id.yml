@@ -1,0 +1,23 @@
+uuid: df1a4990-3329-4501-9ea6-b6f3a7fa92e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sec_gov_node_id
+    - node.type.data_set
+id: node.data_set.field_sec_gov_node_id
+field_name: field_sec_gov_node_id
+entity_type: node
+bundle: data_set
+label: 'SEC.gov Node ID'
+description: 'The value of this field should be the SEC.gov Article Node ID.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

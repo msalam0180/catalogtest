@@ -1,0 +1,21 @@
+uuid: eb9d2e3d-9fb6-4d7a-9833-4f4e7b93c90a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_year
+    - node.type.publications
+  module:
+    - options
+id: node.publications.field_publication_year
+field_name: field_publication_year
+entity_type: node
+bundle: publications
+label: 'Publication Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

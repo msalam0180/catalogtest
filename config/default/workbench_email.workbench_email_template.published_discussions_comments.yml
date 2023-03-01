@@ -1,0 +1,23 @@
+uuid: 1de07f13-aa89-427c-8fdd-7d53a9f88c58
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forum
+    - user.role.forum_moderator
+id: published_discussions_comments
+label: 'Published Discussions/Comments'
+subject: 'New discussions content has been published'
+recipient_types:
+  role:
+    id: role
+    provider: workbench_email
+    status: true
+    settings:
+      roles:
+        forum_moderator: forum_moderator
+bundles:
+  'node:forum': 'node:forum'
+body:
+  value: "[node:log]\r\n\r\n[node:title]\r\n\r\n[node:url]"
+  format: plain_text

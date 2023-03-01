@@ -1,0 +1,27 @@
+uuid: 601b0b10-3e49-4d9a-b7f5-cd3f22818b3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_description
+    - node.type.tools
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.tools.field_dataset_description
+field_name: field_dataset_description
+entity_type: node
+bundle: tools
+label: Description
+description: 'Briefly describe the tool, system, or application for the user. Only 300 characters will appear as a summary and 600 in search results.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

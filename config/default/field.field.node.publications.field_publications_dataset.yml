@@ -1,0 +1,29 @@
+uuid: 39785d72-aebe-45d7-8928-3a352e14e619
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publications_dataset
+    - node.type.data_set
+    - node.type.publications
+id: node.publications.field_publications_dataset
+field_name: field_publications_dataset
+entity_type: node
+bundle: publications
+label: 'Publications Dataset'
+description: 'Datasets that are associated with this Publication. Start typing the name of a Dataset and select the appropriate one from the pick list. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

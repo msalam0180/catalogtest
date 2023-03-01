@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Validation/Constraint/NodeTitleConstraintValidator.php b/src/Plugin/Validation/Constraint/NodeTitleConstraintValidator.php
+index 3fb9e391f..322f8553d 100644
+--- a/src/Plugin/Validation/Constraint/NodeTitleConstraintValidator.php
++++ b/src/Plugin/Validation/Constraint/NodeTitleConstraintValidator.php
+@@ -184,7 +184,7 @@ public function validate($items, Constraint $constraint) {
+           }
+           // Show error.
+           if (!empty($nodes)) {
+-            $message = $this->t("The title must be unique. Other content is already using this title: @title", ['@title' => $value_title]);
++            $message = $this->t("The title must be unique. Other content is already using this title: <a target='_blank' href='@nodeurl'>@title</a>", ['@nodeurl'=> reset($nodes)->toUrl()->toString(), '@title' => $value_title]);
+             $this->context->addViolation($message);
+           }
+         }

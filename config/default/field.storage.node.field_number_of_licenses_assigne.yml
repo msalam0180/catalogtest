@@ -1,0 +1,18 @@
+uuid: 4ed9fba8-d7b9-4adf-a36b-621cded5ab9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_number_of_licenses_assigne
+field_name: field_number_of_licenses_assigne
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

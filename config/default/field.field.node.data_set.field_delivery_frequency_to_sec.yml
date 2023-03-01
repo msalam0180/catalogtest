@@ -1,0 +1,29 @@
+uuid: f46ab3c9-703e-49f1-b66b-8229dadde760
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_delivery_frequency_to_sec
+    - node.type.data_set
+    - taxonomy.vocabulary.delivery_frequency_to_sec
+id: node.data_set.field_delivery_frequency_to_sec
+field_name: field_delivery_frequency_to_sec
+entity_type: node
+bundle: data_set
+label: 'Delivery Frequency to SEC'
+description: 'How often does the SEC receive this data?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      delivery_frequency_to_sec: delivery_frequency_to_sec
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

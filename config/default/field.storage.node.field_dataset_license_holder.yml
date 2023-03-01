@@ -1,0 +1,23 @@
+uuid: 58b70740-c669-49d2-8713-d5905701a81f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: fjBBlM7ZYR1KTXApQ7iptPaDeR33NqxYKcd4PX72PJk
+id: node.field_dataset_license_holder
+field_name: field_dataset_license_holder
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

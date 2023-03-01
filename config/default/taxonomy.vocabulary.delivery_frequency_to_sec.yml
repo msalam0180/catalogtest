@@ -1,0 +1,10 @@
+uuid: bacda6d4-b74f-4c83-bf75-65a9803cdb27
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1uZD5W9oPmT_3c6S0I83h8-i5f4q5dPj4aTYZFbwPqk
+name: 'Delivery Frequency to SEC'
+vid: delivery_frequency_to_sec
+description: 'Intervals that can be used to describe how often OIT receives updated data files'
+weight: 0

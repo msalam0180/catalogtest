@@ -1,0 +1,23 @@
+uuid: eafafefe-124d-457b-aead-e68090d35712
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - link
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_dauisp_audit_logs
+field_name: field_dauisp_audit_logs
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

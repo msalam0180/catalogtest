@@ -1,0 +1,25 @@
+uuid: 4e1ddff0-b0d1-49a5-a344-55cded2731b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-level-1
+  module:
+    - system
+  theme:
+    - dlp
+id: footerlevel1
+theme: dlp
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-level-1'
+settings:
+  id: 'system_menu_block:footer-level-1'
+  label: 'Footer Level 1'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

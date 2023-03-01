@@ -1,0 +1,8 @@
+dataset_dashboard:
+  css:
+    theme:
+      dist/css/dataset_dashboard.css: {}
+  js:
+    dist/js/dataset_dashboard.js: {}
+  dependencies:
+    - core/jquery.ui.autocomplete

@@ -1,0 +1,10 @@
+uuid: 742d2ded-e1e5-4251-b98c-410feb120d51
+langcode: en
+status: true
+dependencies: {  }
+id: website
+label: Website
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

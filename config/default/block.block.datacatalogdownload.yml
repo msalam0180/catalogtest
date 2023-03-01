@@ -1,0 +1,41 @@
+uuid: 23c29bbe-c608-45a1-a55b-aefce314813e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:502ac4c8-3679-4584-b898-dbbcab20bea2'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - adminimal_theme
+id: datacatalogdownload
+theme: adminimal_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: 'block_content:502ac4c8-3679-4584-b898-dbbcab20bea2'
+settings:
+  id: 'block_content:502ac4c8-3679-4584-b898-dbbcab20bea2'
+  label: 'Data Catalog Download'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /admin/content
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      content_approver: content_approver
+      sitebuilder: sitebuilder

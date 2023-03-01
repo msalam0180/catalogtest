@@ -1,0 +1,29 @@
+uuid: 20aeabb0-1f52-4521-bacc-46a9e2e4d1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_related_datasets
+    - node.type.data_set
+    - node.type.tools
+id: node.tools.field_dataset_related_datasets
+field_name: field_dataset_related_datasets
+entity_type: node
+bundle: tools
+label: 'Related Datasets'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

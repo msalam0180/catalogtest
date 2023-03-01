@@ -1,0 +1,10 @@
+uuid: d357a307-1514-4ed5-8ec3-cd4531f2c806
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: M_Bh81osDyUQ4wV0GgU_NdBNqkzM87sLxjaCdFj9mnw
+id: login
+label: Login
+description: 'Links related to the active user account'
+locked: true

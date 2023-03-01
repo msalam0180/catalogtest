@@ -1,0 +1,29 @@
+uuid: 854e46a5-e67d-40ef-b4d2-513a1c5fed3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_owner
+    - node.type.data_set
+    - taxonomy.vocabulary.division_office
+id: node.data_set.field_owner
+field_name: field_owner
+entity_type: node
+bundle: data_set
+label: Owner
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_office: division_office
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

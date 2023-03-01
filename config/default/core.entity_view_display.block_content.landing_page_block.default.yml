@@ -1,0 +1,23 @@
+uuid: b33f399e-7fdd-4d35-a4c9-7ab63ee82a7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.landing_page_block
+    - field.field.block_content.landing_page_block.body
+  module:
+    - text
+id: block_content.landing_page_block.default
+targetEntityType: block_content
+bundle: landing_page_block
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

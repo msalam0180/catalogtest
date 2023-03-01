@@ -1,0 +1,22 @@
+uuid: f4e182c1-a4bf-4092-ac11-f748927cce82
+langcode: en
+status: false
+dependencies: {  }
+id: acquia
+label: 'Acquia Cloud'
+description: 'Config for acquia environments'
+weight: 1
+folder: ../config/acquia
+module:
+  google_tag: 0
+  r4032login: 0
+  simplesamlphp_auth: 0
+theme: {  }
+blacklist:
+  - google_tag.container.gtm_manager
+  - google_tag.settings
+  - r4032login.settings
+  - simplesamlphp_auth.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

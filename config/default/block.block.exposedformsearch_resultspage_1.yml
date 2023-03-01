@@ -1,0 +1,23 @@
+uuid: 8df0d041-135d-4655-8ed9-c6bb96ce7059
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.search_results
+  module:
+    - views
+  theme:
+    - dlp
+id: exposedformsearch_resultspage_1
+theme: dlp
+region: header
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search_results-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_results-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

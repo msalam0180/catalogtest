@@ -1,0 +1,14 @@
+uuid: 68b603cd-b32e-4caf-bdea-41955a39c2ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+id: open_data_moderator
+label: 'OPEN Data Moderator'
+weight: 0
+is_admin: null
+permissions:
+  - 'use editorial transition public'

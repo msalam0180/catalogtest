@@ -1,0 +1,959 @@
+body.adminimal {
+  min-width: 560px;
+  color: #1A1A1A;
+}
+
+input[disabled], textarea[disabled], select[disabled], select[disabled]:hover {
+  opacity: .6;
+  background: #E2E2E2 !important;
+  color: #000 !important;
+  cursor: not-allowed;
+  /* https://sean-elliott.medium.com/a11y-tips-disabled-buttons-and-colour-contrast-f8824d5e9610 */
+}
+
+/* Fix Toolbar Tray Overlay */
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin-left: 0px;
+}
+
+/*Admin Theme Accessibility Fixes*/
+
+th>a:hover,
+th>a:focus,
+th.is-active>a:hover,
+th.is-active>a:focus {
+  color: #008ee6;
+  text-decoration: none;
+  display: block;
+}
+
+th>a:focus,
+th.is-active>a:focus {
+  color: #008ee6;
+  text-decoration: none;
+  outline: 1px dotted #71716e;
+  display: block;
+}
+
+.pager__item--next a:focus,
+.pager__item--last a:focus,
+.pager__item--first a:focus,
+.pager__item--previous a:focus {
+  outline: 1px dotted #71716e;
+}
+
+.adminimal-admin-toolbar .toolbar-tray-horizontal a:focus,
+.toolbar-lining button:focus,
+.adminimal .toolbar .toolbar-bar .toolbar-tab>.toolbar-item:focus {
+  box-shadow: inset 0 0 0 1px white;
+}
+
+/* Up the contrast ratio on links */
+body a,
+body .link {
+  color: #006DCC;
+}
+
+body a:hover,
+body .link:hover,
+body a:focus,
+body .link:focus {
+  color:#00478a;
+}
+
+
+/* Up the contrast ratio on Buttons */
+body.adminimal .action-links .button--primary {
+  color: #005cad;
+  border-color: #005cad;
+}
+
+/* Dropdown focus for promenent */
+.js body.adminimal .dropbutton-wrapper .dropbutton-widget .dropbutton-action a:focus,
+.js body.adminimal .dropbutton-wrapper .dropbutton-widget .dropbutton-action button:focus,
+.js body.adminimal .dropbutton-wrapper .dropbutton-widget .dropbutton-action input:focus,
+.js body.adminimal .dropbutton-wrapper .dropbutton-widget .dropbutton-toggle button:focus {
+  box-shadow: inset 0 0 0px 1px #68A3CF;
+}
+
+.adminimal table thead th {
+  color: #403f3f;
+}
+
+.adminimal input.button--primary:focus {
+  text-decoration: underline;
+}
+
+/* Checkboxes visual focus in all browsers */
+input[type=checkbox]:hover, input[type=checkbox]:focus,
+input[type=checkbox]:hover::-ms-check, input[type=checkbox]:focus::-ms-check,
+input[type=checkbox]:hover:checked, input[type=checkbox]:focus:checked,
+input[type=radio]:hover, input[type=radio]:focus,
+input[type=radio]:hover::-ms-check, input[type=radio]:focus::-ms-check,
+input[type=radio]:hover:checked, input[type=radio]:focus:checked{
+  box-shadow: 0 0 4px #0074bd;
+  border-color: #0074bd;
+}
+
+
+/*field--widget-link-default layout update*/
+
+@media screen and (min-width: 1150px) {
+  .field--widget-link-default .fieldset-wrapper>.form-item {
+    float: left;
+    width: 49%;
+    margin-right: 1%;
+  }
+
+  .field--widget-link-default .draggable .form-item {
+    float: left;
+    width: 49%;
+    margin-right: 1%;
+  }
+
+  .field--widget-link-default input[type="text"] {
+    width: 100%;
+  }
+}
+
+/*.field--widget-cshs "Client-side hierarchical select" fields layout update*/
+@media screen and (min-width: 800px) {
+  .field--widget-cshs {
+    position: relative;
+  }
+
+  .field--widget-cshs .tabledrag-toggle-weight-wrapper {
+    position: absolute;
+    right: 0px;
+    top: -20px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .field--widget-cshs .form-item {
+    margin: 0px 0 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .field--widget-cshs .select-wrapper {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .field--widget-cshs .select-wrapper select {
+    width: 100%;
+  }
+}
+
+.field--widget-cshs {
+  margin: 30px 0 20px;
+  border: 1px solid #e3e3e3;
+  padding: 5px 15px;
+}
+
+/* Paragraphs */
+
+@media screen and (min-width: 800px) {
+  .field--widget-entity-reference-paragraphs {
+    position: relative;
+  }
+
+  .field--widget-entity-reference-paragraphs .tabledrag-toggle-weight-wrapper {
+    position: absolute;
+    right: 0px;
+    top: -20px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .field--widget-entity-reference-paragraphs .form-item {
+    margin: 0px 0 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .field--widget-entity-reference-paragraphs .select-wrapper {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .field--widget-entity-reference-paragraphs .select-wrapper select {
+    width: 100%;
+  }
+}
+
+.field--widget-entity-reference-paragraphs {
+  margin: 30px 0 20px;
+  border: 1px solid #e3e3e3;
+  padding: 5px 15px;
+}
+
+.field--widget-entity-reference-paragraphs tr {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+/*Inline Entity Form*/
+.ief-form [data-drupal-selector="edit-field-files-form-entity-browser-entity-browser"] {
+  float: left;
+}
+
+/*Fix Draggable tables spacing when Showing Row Weights*/
+.touchevents .draggable td {
+  padding: 10px 10px;
+}
+
+
+/*Hide extra button when adding an existing uaing the media browser with ief*/
+.field--widget-inline-entity-form-complex .ief-form-bottom [data-drupal-selector$="-actions-ief-reference-save"] {
+  display: none;
+}
+
+.field--widget-inline-entity-form-complex .ief-form-bottom [data-drupal-selector$="-actions-ief-reference-cancel"] {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.field--widget-inline-entity-form-complex [id*=form-0-entity-browser-entity-browser] {
+  float: left;
+}
+
+.field--widget-inline-entity-form-complex [id*=form-0-entity-browser-entity-browser] .button {
+  margin: 0;
+}
+
+.field--widget-inline-entity-form-complex [data-drupal-selector$="-form-actions"] [data-drupal-selector$="-ief-add-save"].ief-entity-submit {
+  display: inline-block;
+}
+
+.field--widget-inline-entity-form-complex [data-drupal-selector$="-form-actions"] [data-drupal-selector$="-ief-edit-save"].ief-entity-submit {
+  display: inline-block;
+}
+
+.field--widget-inline-entity-form-complex [data-drupal-selector$="-form-entity-browser-entity-browser"] {
+  float: left;
+}
+
+.field--widget-inline-entity-form-complex [data-drupal-selector$="-form-entity-browser-entity-browser-open-modal"] {
+  margin-left: 0;
+}
+
+
+
+.ief-row-entity,
+.ief-row-form {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+}
+
+.ief-form-row .form-wrapper {
+  max-width: 400px;
+}
+
+.ief-form>[id*="form-inline-entity-form-entities"] {
+  max-width: 100%;
+}
+
+.ief-form-row .form-wrapper.field--widget-string-textarea {
+  max-width: 100%;
+}
+
+.ief-form-row input:not([type=button]):not([type=submit]):not([type=checkbox]),
+.ief-form-row select {
+  display: block;
+  width: 100%;
+}
+
+td.inline-entity-form-node-label {
+  width: 50%;
+}
+
+.ief-form-row>div>div {
+  margin-top: 10px;
+}
+
+/* fix overflow on form fields in inline-entity-form-complex */
+@media screen and (max-width: 1340px) {
+.adminimal .field--widget-inline-entity-form-complex input.form-autocomplete,
+.adminimal .field--widget-inline-entity-form-complex input.form-text,
+.adminimal .field--widget-inline-entity-form-complex input.form-tel,
+.adminimal .field--widget-inline-entity-form-complex input.form-email,
+.adminimal .field--widget-inline-entity-form-complex input.form-url,
+.adminimal .field--widget-inline-entity-form-complex input.form-search,
+.adminimal .field--widget-inline-entity-form-complex input.form-number,
+.adminimal .field--widget-inline-entity-form-complex input.form-color,
+.adminimal .field--widget-inline-entity-form-complex input.form-file,
+.adminimal .field--widget-inline-entity-form-complex input.form-date,
+.adminimal .field--widget-inline-entity-form-complex input.form-time,
+.adminimal .field--widget-inline-entity-form-complex textarea.form-textarea {
+    width: 100%;
+  }
+}
+
+/* Entity Browser modal popup styles*/
+.entity-browser-form table {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.entity-browser-form table td {
+  min-width: 80px;
+}
+
+/* Admin toolbar overlay content instead of making content smaller */
+.user-logged-in.toolbar-tray-open #addthis-icons {
+  bottom: 18px;
+}
+.user-logged-in .toolbar-tab .acquia-active-subscription {
+  display: none;
+}
+
+.adminimal table .button {
+  margin: auto 0 5px 0;
+}
+
+.form-item.form-item-required-help {
+  margin-top: 0;
+  color: #a51b00;
+}
+
+/*vertical-tabs - for example: field group on node form or block configuration visibility settings*/
+
+.adminimal .vertical-tabs__menu-item.is-selected a {
+  border-left: 5px solid #0071b8;
+}
+
+.adminimal .vertical-tabs .vertical-tabs__menu-item.is-selected a:focus {
+  background: #D2E7F4;
+  color: #004f80;
+}
+
+/*Add visual indication of focus to details accordions */
+.adminimal details [role="button"]:focus {
+  outline: 2px solid #C1E0FF;
+  outline-offset: 0px;
+  background: #f1eeee;
+}
+
+/*Hide the help page from content creators and content approvers */
+.role-content_creator .toolbar-icon-help-main,
+.role-content_approver .toolbar-icon-help-main {
+  display: none;
+}
+
+.role-sitebuilder .toolbar-icon-help-main,
+.role-admin .toolbar-icon-help-main {
+  display: block;
+}
+
+
+/*Title Tooltip*/
+.ui-tooltip-content {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  box-shadow: 1px 1px 2px #afadad;
+  border-radius: 2px;
+  padding: 5px 8px;
+}
+
+/*node-revision-table*/
+/* Fix overflow text in the node revision table */
+.node-revision-table tr td:last-child {
+  min-width: 200px;
+}
+
+p.revision-log {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Content admin page */
+#block-datacatalogdownload {
+  float: right;
+}
+
+/*//helper-popup - see js*/
+.helper-popup {
+  cursor: pointer;
+  display: inline-block;
+  background: url(/core/themes/stable/images/core/help.png) no-repeat;
+  height: 16px;
+  width: 16px;
+  margin-left: 3px;
+  text-indent: -9999px;
+}
+
+.has-helper-popup {
+  display: inline-block;
+}
+
+.field--name-field-dataset-last-load-time .fieldset-legend {
+  text-transform: initial;
+}
+
+
+/* Adjust the width of the form tabs */
+.vertical-tabs__menu {
+  width: 170px;
+}
+
+.vertical-tabs__panes {
+  margin: 0 0 0 170px;
+}
+
+/* Mkae the sidbar thinner so main content can take up more space */
+@media screen and (min-width: 900px), (min-device-height: 780px) and (orientation: landscape) {
+  .layout-region-node-secondary {
+      width: 25%;
+  }
+
+  .layout-region-node-main, .layout-region-node-footer {
+      width: 75%;
+      padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .adminimal .layout-container {
+      margin: 0 10px;
+  }
+}
+
+@media screen and (max-width: 899px){
+  .layout-region-node-main, .layout-region-node-footer {
+      width: 100%;
+      padding-right: 0;
+  }
+
+  .layout-region-node-secondary {
+      width: 100%;
+  }
+}
+
+
+
+/* make buttons larger on mobile */
+@media screen and (max-width: 1000px) {
+  .adminimal .button {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 5px;
+  }
+}
+
+/* make inline-entity-form buttons align correctly on mobile */
+.field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper,
+.field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.field--name-field-contact.field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.field--name-field-contact.field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline >  input {
+  margin-right: 10px !important;
+}
+
+.field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper > .button, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline > .button {
+  flex-grow: 1;
+
+  margin-right: 5px;
+  display: block;
+}
+
+.field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper > .button:last-child, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline > .button:last-child {
+  margin-right: 0
+}
+
+@media screen and (max-width: 1000px) {
+  .field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper > .button, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline > .button {
+      width: 100%;
+      margin: 5px 0;
+      margin-right: 0;
+  }
+  .field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper > .button:last-child, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline > .button:last-child {
+      margin-bottom: 0
+  }
+}
+
+
+@media screen and (min-width: 1001px) {
+  .field--widget-inline-entity-form-complex > div > div > fieldset > .fieldset-wrapper > .button, .field--widget-inline-entity-form-complex > div > fieldset > .fieldset-wrapper > .container-inline > .button {
+      max-width: 200px;
+  }
+}
+
+/* Fix paragraph form button falling out of form */
+.paragraph-type-top .paragraphs-dropbutton-wrapper .button {
+  width: auto;
+  display: inline-block;
+  padding: 5px 7px;
+}
+
+/* Fix auto completes from breaking out of the form container */
+.form-autocomplete.form-text.ui-autocomplete-input {
+  width: 100%;
+}
+
+/* Make Autocomplete fields look like the fields are grouped */
+.field--widget-entity-reference-autocomplete > div > .form-item {
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.field--widget-entity-reference-autocomplete .tabledrag-toggle-weight-wrapper {
+  position: absolute;
+  right: 0px;
+  top: -20px;
+}
+
+fieldset {
+  border: 1px solid #e3e3e3;
+}
+
+/* //Styles entity browser for images */
+
+
+.view-id-media_browser_images .view-content{
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.view-id-media_browser_images .view-content .views-row{
+  flex-basis: 25%;
+  max-width: 25%;
+  border: 1px solid #e3e3e3;
+  margin: 10px !important;
+  /* flex: 1; */
+  padding: 10px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* name */
+.view-id-media_browser_images .views-field-name {
+  /* flex: 1; */
+  justify-self: flex-end;
+  margin: auto;
+  text-align: center;
+}
+
+/* thumbnail */
+.view-id-media_browser_images .views-field-thumbnail__target-id {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 100px;
+}
+
+/* checkbox */
+.view-id-media_browser_images .views-field-entity-browser-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.view-id-media_browser_images .views-field-entity-browser-select .form-type-checkbox {
+  margin: 0.75em;
+}
+
+/* Adjust description lists */
+.description ul {
+  margin-left: 0;
+  padding-left: 15px;
+}
+
+/* hide field_sync_date description*/
+.field--name-field-sync-date .description{
+  display: none;
+}
+
+/* Rules of the road help text on Discussions */
+.text-and-help #edit-discussion-rules-of-the-road-help-text{
+  font-size: 0.85em;
+  line-height: 1.5em;
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1050px){
+
+  .text-and-help{
+    display: flex;
+  }
+  .text-and-help .field--type-text-long, .field--type-text-with-summary{
+    flex-grow: 1;
+  }
+  .text-and-help #edit-discussion-rules-of-the-road-help-text{
+    width: 380px;
+    border: 1px solid #e3e3e3;
+    font-size: 0.85em;
+    margin-top: 32px;
+    margin-left: 10px;
+    height: 284px;
+    margin-bottom: 0;
+  }
+}
+
+/* Hide delete help text from admin them */
+.extra-field--delete-help-text{
+  display: none;
+}
+
+/* //hide shadow copy stuff */
+.form-item-shadow{
+  display: none;
+}
+
+/* //hide "Rules of the Road" help text from delete pages */
+.comment-comment-forum-delete-form  .extra-field--discussion-rules-of-the-road-help-text,
+.node-forum-delete-form .extra-field--discussion-rules-of-the-road-help-text{
+  display: none;
+}
+
+
+
+/* make exposed filters appear on one line */
+.views-exposed-form .form--inline{
+  display: flex;
+  margin-bottom: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.views-exposed-form .form--inline > div{
+  margin-bottom: 0;
+  margin-right: 5px;
+}
+
+.views-exposed-form .form--inline .button{
+  margin: 0;
+  margin-right: 5px;
+}
+
+.views-exposed-form .form--inline .form-actions{
+  /* remove extra space between buttons */
+  display: flex;
+}
+
+.views-exposed-form {
+  border: 1px solid #e3e3e3;
+  padding: 8px 20px 12px 20px;
+  background: #f3f3f3;
+  margin-bottom: 10px;
+}
+
+.views-exposed-form .form--inline select{
+  min-width: 100%;
+}
+
+.views-exposed-form .form--inline .form-type-select label{
+  padding-right: 20px;
+}
+
+
+
+
+/* make bulk operations appear on one line */
+.views-form #edit-header > .form-wrapper{
+  display: flex;
+  margin-bottom: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.views-form #edit-header > .form-wrapper > div{
+  margin: 0;
+  margin-right: 5px;
+}
+
+
+
+.field--label-inline:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* button button--primary */
+
+/* Make the flag feedback flag look like a button */
+.flag-feedback-reviewed > a{
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 1.5em;
+  cursor: pointer;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.6);
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  border-color: #1e5c90;
+  background-color: #0071b8;
+  background-image: -webkit-linear-gradient(top, #007bc6, #0071b8);
+  background-image: linear-gradient(to bottom, #007bc6, #0071b8);
+  text-shadow: 0 1px hsla(0, 0%, 0%, 0.5);
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 10px;
+}
+
+.flag-feedback-reviewed > a:hover,
+.flag-feedback-reviewed > a:focus {
+  background-image: none;
+  background-color: #1f86c7;
+  border-color: #1f86c7;
+  box-shadow: none;
+  border-color: rgb(104, 163, 207);
+  outline: rgb(193, 224, 255) solid 2px;
+  text-decoration: none;
+}
+
+/* DSITE-6464: Fixes styling issues caused by multiple_fields_remove_button module  */
+.field--widget-cshs .field--widget-cshs {
+    margin: 0;
+    border: none;
+    padding: 0;
+    position: static;
+}
+
+/* DSITE-6784: Fix spacing bug on Taxonomy Manager */
+form.taxonomy-manager-vocabulary-terms-form{
+  display: block;
+}
+
+/* Custom ckeditor styles */
+[name="tableStyles"] .cke_dialog_ui_checkbox {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+[name="tableStyles"] .cke_dialog_ui_html {
+  padding-top: 20px;
+  display: block;
+}
+
+[name="tableStyles"] input.cke_dialog_ui_checkbox_input:focus,
+[name="tableStyles"] input.cke_dialog_ui_checkbox_input:active,
+[name="tableStyles"] input.cke_dialog_ui_radio_input:focus,
+[name="tableStyles"] input.cke_dialog_ui_radio_input:active {
+  border: 1px solid #b5b5b5;
+}
+
+.adminimal .cke_reset_all .cke_dialog_body{
+  background: #d4d4d4;
+}
+
+/* Syned Field Highlight Styles */
+.syncField {
+  --syncOutlineColor: #ffb9b9;
+  --syncBackgroundColor: #fff7f7;
+}
+.syncField input, .syncField textarea, .syncField select {
+  outline: 1px solid var(--syncOutlineColor);
+  background-color: var(--syncBackgroundColor) !important;
+}
+
+.syncField input[type="submit"].button {
+  background: var(--syncBackgroundColor) !important;
+}
+
+.syncField .cke_inner {
+  background:red;
+}
+
+.syncField .cke_contents {
+  opacity: .98;
+  outline: 1px solid var(--syncOutlineColor);
+}
+
+.syncLabel{
+  display: inline-block;
+  background-color: var(--syncBackgroundColor);
+  width: fit-content;
+  padding: 1px 2px;
+  font-size: 10px;
+  margin-left: 5px;
+  position: relative;
+  top: -2px;
+  outline: 1px solid var(--syncOutlineColor);
+  line-height: 1em;
+}
+
+
+/* Media Library */
+.media-library-add-form .form-item.form-item-required-help {
+  margin: 0 0 2px 0;
+}
+/* Add File */
+.media-library-add-form__input-wrapper {
+  padding: 7px 10px;
+}
+
+.media-library-add-form__input-wrapper div.description {
+  line-height: 1.3em;
+}
+
+/* Widget in popup (grid view) */
+.media-library-view--widget .views-exposed-form {
+  margin-top: 8px;
+  margin-bottom: 2px;
+  padding: 5px 8px;
+}
+
+.media-library-view--widget.view-display-id-widget_table .view-content {
+  margin-top: 7px;
+}
+
+.media-library-view--widget .views-exposed-form .form--inline > div {
+  margin-top: 0;
+}
+
+.media-library-view--widget .view-header {
+  margin: 0;
+}
+
+.media-library-views-form .form-item-required-help{
+  display: none;
+}
+
+/* Media Library View (/admin/content/media-grid) */
+.adminimal label.media-library-select-all {
+  margin: 1px 8px;
+}
+
+.media-library-item--grid .field--name-thumbnail img {
+  display: inline-block;
+}
+
+.media-library-add-form__media:first-child .media-library-add-form__remove-button[type="submit"] {
+  background-color: transparent;
+}
+
+/* Fix focus styles on "remove" button */
+.media-library-add-form__remove-button:hover,
+.media-library-add-form__remove-button.button:hover,
+.media-library-add-form__remove-button:focus,
+.media-library-add-form__remove-button.button:focus
+ {
+  color: #e00;
+  border: 0;
+  background: transparent url(../../../../../core/misc/icons/ee0000/ex.svg) right 2px no-repeat;
+}
+
+/* Remove popups in modal window - they are not needed and do not work properly */
+.media-library-add-form__added-media .helper-popup {
+  display: none;
+}
+
+/* Diabled ckeditor overlay */
+
+[disabled="disabled"] + .cke {
+  position: relative;
+}
+
+[disabled="disabled"] + .cke:after {
+  content: "";
+  background: #dddddd4d;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: not-allowed;
+}
+
+/* Diff table: add additional differentiation between links and text */
+.diff-revisions a{
+  font-weight: bold;
+}
+
+.form-display-tab-side-grouping legend {
+  display: contents;
+}
+
+.form-display-tab-side-grouping legend span.fieldset-legend {
+  font-size: 1.5em;
+  color: #403f3f;
+  text-transform: none;
+  border-bottom: 1px solid #e6e4df;
+  display: inline-block;
+  width:100%;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  color: #757575;
+}
+

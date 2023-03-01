@@ -1,0 +1,13 @@
+uuid: 6643d0a3-e808-48a2-a98d-9d7f15bb1bce
+langcode: en
+status: true
+dependencies: {  }
+id: associated_datasets_publications
+label: 'Associated Datasets and Publications'
+enabled: true
+first_field: field_associated_datasets
+second_field: field_associated_publications
+bundles:
+  node:
+    - data_set
+    - publications

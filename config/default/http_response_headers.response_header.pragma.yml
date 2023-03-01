@@ -1,0 +1,10 @@
+uuid: b913ef9f-b618-43cf-a377-da4d6c9e1d49
+langcode: en
+status: true
+dependencies: {  }
+id: pragma
+label: Pragma
+description: ''
+group: ''
+name: Pragma
+value: no-cache

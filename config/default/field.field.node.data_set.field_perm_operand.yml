@@ -1,0 +1,23 @@
+uuid: f3aa606c-cab3-451d-88c6-8c1569f62ffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_perm_operand
+    - node.type.data_set
+id: node.data_set.field_perm_operand
+field_name: field_perm_operand
+entity_type: node
+bundle: data_set
+label: 'Must Meet Conditions'
+description: "If the field is set to 'Any' then the user is authorized if they match any condition from any of the permission fields.\r\nIf the field is set to 'All' then the user is authorized only if their profile matches a setting from each of the permission fields.\r\nIf no option is set, the functionality defaults to 'Any'."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: All
+  off_label: Any
+field_type: boolean

@@ -1,0 +1,17 @@
+diff --git a/src/EventSubscriber/R4032LoginSubscriber.php b/src/EventSubscriber/R4032LoginSubscriber.php
+index 99e69a362d..490185cd05 100644
+--- a/src/EventSubscriber/R4032LoginSubscriber.php
++++ b/src/EventSubscriber/R4032LoginSubscriber.php
+@@ -131,11 +131,8 @@ public function on403(GetResponseForExceptionEvent $event) {
+             'absolute' => TRUE,
+           ])->toString();
+         }
+-        elseif ($currentPath == '/') {
+-          $destination = $currentPath;
+-        }
+         else {
+-          $destination = substr($currentPath, 1);
++          $destination = $currentPath;
+         }
+
+         if ($queryString = $request->getQueryString()) {

@@ -1,0 +1,28 @@
+uuid: e5969801-8d08-40f4-8d80-1e1d5bf4bab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_related_dataset
+    - node.type.data_set
+    - paragraphs.paragraphs_type.applications_to_datasets
+id: paragraph.applications_to_datasets.field_related_dataset
+field_name: field_related_dataset
+entity_type: paragraph
+bundle: applications_to_datasets
+label: 'Related Dataset'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

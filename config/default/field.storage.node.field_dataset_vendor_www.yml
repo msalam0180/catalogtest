@@ -1,0 +1,23 @@
+uuid: 629b0015-e0fe-4c18-b787-32ea74ae2661
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: h3vVuF4yFrbt0KuwL0xoAvwFi3HKjAATMaG4JWEPfiQ
+id: node.field_dataset_vendor_www
+field_name: field_dataset_vendor_www
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

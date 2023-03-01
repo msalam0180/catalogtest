@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ruleset name="SEC Ruleset" namespace="sec\cs">
+
+  <description>A custom coding standard ruleset for use with php codesniffer</description>
+
+  <!-- Exclude JS and CSS because those are checked by other tools -->
+  <exclude-pattern type="relative">^*.js</exclude-pattern>
+  <exclude-pattern type="relative">^*.css</exclude-pattern>
+
+  <!-- Setup exclusions of draconian rules -->
+  <rule ref="PEAR">
+    <exclude name="Squiz.Commenting" />
+    <exclude name="Generic.WhiteSpace" />
+    <exclude name="Generic.Files.LineLength.TooLong" />
+    <exclude name="Generic.Commenting.DocComment.MissingShort" />
+    <exclude name="Generic.Commenting.DocComment.TagValueIndent" />
+    <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags" />
+    <exclude name="Generic.Commenting.Todo.TaskFound" />
+
+    <exclude name="PEAR.Commenting.ClassComment.MissingPackageTag" />
+    <exclude name="PEAR.Commenting.ClassComment.MissingLicenseTag" />
+    <exclude name="PEAR.Commenting.ClassComment.MissingLinkTag" />
+    <exclude name="PEAR.Commenting.ClassComment.MissingAuthorTag" />
+    <exclude name="PEAR.Commenting.ClassComment.MissingCategoryTag" />
+
+    <exclude name="PEAR.Commenting.FileComment.MissingCategoryTag" />
+    <exclude name="PEAR.Commenting.FileComment.MissingPackageTag" />
+    <exclude name="PEAR.Commenting.FileComment.MissingLicenseTag" />
+    <exclude name="PEAR.Commenting.FileComment.MissingLinkTag" />
+    <exclude name="PEAR.Commenting.FileComment.MissingAuthorTag" />
+    <exclude name="PEAR.Commenting.FileComment.MissingVersion" />
+
+    <exclude name="PEAR.Commenting.FunctionComment.MissingParamTag" />
+    <exclude name="PEAR.Commenting.FunctionComment.MissingReturn" />
+    <exclude name="PEAR.Commenting.FunctionComment.MissingParamComment" />
+
+    <exclude name="Squiz.Commenting.DocCommentAlignment.SpaceBeforeStar" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+    <exclude name="PEAR.WhiteSpace.ScopeIndent.Incorrect" />
+    <exclude name="PEAR.WhiteSpace.ScopeIndent.IncorrectExact" />
+    <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent.Incorrect" />
+    <exclude name="PEAR.WhiteSpace.ScopeClosingBrace.Indent" />
+    <exclude name="PEAR.WhiteSpace.ScopeClosingBrace.Line" />
+    <exclude name="PEAR.WhiteSpace.ScopeClosingBrace.BreakIndent" />
+
+    <exclude name="Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma" />
+    <exclude name="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma" />
+
+    <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamType" />
+    <exclude name="PEAR.Commenting.FunctionComment.SpacingAfter" />
+
+    <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.OpeningIndent" />
+    <exclude name="PEAR.ControlStructures.MultiLineCondition.SpacingAfterOpenBrace" />
+    <exclude name="PEAR.ControlStructures.MultiLineCondition.SpaceBeforeOpenBrace" />
+
+    <exclude name="PEAR.Classes.ClassDeclaration.OpenBraceNewLine" />
+    <exclude name="PEAR.NamingConventions.ValidFunctionName.FunctionNoCapital" />
+    <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName" />
+    <exclude name="PEAR.Commenting.ClassComment.InvalidPackage" />
+  </rule>
+
+
+
+  <rule ref="Squiz.Commenting">
+    <type>warning</type>
+  </rule>
+  <rule ref="Generic.Commenting">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.Commenting">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.Commenting.FunctionComment.Missing">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.Commenting.FileComment.Missing">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.Commenting.ClassComment.Missing">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.WhiteSpace">
+    <type>warning</type>
+  </rule>
+  <rule ref="Generic.WhiteSpace">
+    <type>warning</type>
+  </rule>
+  <rule ref="Generic.PHP.LowerCaseConstant.Found">
+    <type>warning</type>
+  </rule>
+  <rule ref="Generic.Commenting.DocComment.NonParamGroup">
+    <type>warning</type>
+  </rule>
+  <rule ref="PEAR.ControlStructures.ControlSignature.Found">
+    <type>warning</type>
+  </rule>
+
+</ruleset>

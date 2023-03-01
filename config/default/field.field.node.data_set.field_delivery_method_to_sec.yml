@@ -1,0 +1,29 @@
+uuid: 6bd63070-cdb6-469b-83f5-c31cb4567150
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_delivery_method_to_sec
+    - node.type.data_set
+    - taxonomy.vocabulary.delivery_method_to_sec
+id: node.data_set.field_delivery_method_to_sec
+field_name: field_delivery_method_to_sec
+entity_type: node
+bundle: data_set
+label: 'Delivery Method to SEC'
+description: 'How does the SEC receive this dataset?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      delivery_method_to_sec: delivery_method_to_sec
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,12 @@
+--- field_delimiter.module.orig	2019-06-25 20:06:23 -0500
++++ field_delimiter.module	2019-06-25 19:52:38 -0500
+@@ -81,7 +81,8 @@
+   $render_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+   $field_display = $render_display->getComponent($field_name);
+ 
+-  if (!empty($delimiter = $field_display['third_party_settings']['field_delimiter']['delimiter'])) {
++  if (isset($field_display['third_party_settings']['field_delimiter'])) {
++    $delimiter = $field_display['third_party_settings']['field_delimiter']['delimiter'];
+ 
+     // Sanitize the delimiter, allow a few reasonable HTML elements.
+     $safe_delimiter = Xss::filter($delimiter, array('br', 'hr', 'span', 'img', 'wbr'));

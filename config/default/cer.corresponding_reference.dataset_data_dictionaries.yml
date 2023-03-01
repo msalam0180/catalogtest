@@ -1,0 +1,10 @@
+uuid: d888d1a0-291d-4949-8ccf-337e0c63cff3
+langcode: en
+status: true
+dependencies: {  }
+id: dataset_data_dictionaries
+label: 'Associated Datasets and Data Dictionaries'
+enabled: false
+first_field: field_associated_datasets
+second_field: field_document_category
+bundles: {  }

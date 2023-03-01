@@ -1,0 +1,8 @@
+uuid: 8b730615-e1ed-4021-b713-9fee72ccfe5d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Quality - Completeness'
+vid: quality_completeness
+description: ''
+weight: 0

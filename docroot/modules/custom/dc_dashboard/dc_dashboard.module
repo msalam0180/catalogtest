@@ -1,0 +1,12 @@
+<?php
+
+function dc_dashboard_theme($existing, $type, $theme, $path) {
+  $themes = [
+    'dataset_dashboard' => [
+      'variables' => ['content' => NULL, 'form' => NULL, 'can_publish' => NULL],
+      'path' => $path . '/templates',
+    ],
+  ];
+
+  return $themes;
+}

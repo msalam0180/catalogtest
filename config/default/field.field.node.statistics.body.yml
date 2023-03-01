@@ -1,0 +1,27 @@
+uuid: 342f1703-e21e-43ae-b7e2-a0d22960225e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.statistics
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.statistics.body
+field_name: body
+entity_type: node
+bundle: statistics
+label: Description
+description: 'Only 300 characters will appear as a summary and 600 in search results.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

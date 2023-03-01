@@ -1,0 +1,10 @@
+uuid: 725d2399-6d7c-4f0e-a833-75cb5080eadc
+langcode: en
+status: true
+dependencies: {  }
+machine: prod
+description: null
+name: Prod
+url: 'https://catalog.sec.gov'
+fg_color: '#d0d0d0'
+bg_color: '#0d0d0d'

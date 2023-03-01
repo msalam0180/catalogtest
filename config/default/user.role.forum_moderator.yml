@@ -1,0 +1,64 @@
+uuid: 7adf8f5d-ba01-4965-b22a-d0bd3d8e1940
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forum
+    - taxonomy.vocabulary.forums
+    - workflows.workflow.forum_moderation
+  module:
+    - comment
+    - comment_delete
+    - content_moderation
+    - contextual
+    - environment_indicator
+    - field_permissions
+    - forum
+    - masquerade
+    - node
+    - system
+    - taxonomy
+    - toolbar
+id: forum_moderator
+label: 'Forum Moderator'
+weight: -3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access environment indicator'
+  - 'access toolbar'
+  - 'administer comment delete'
+  - 'administer comments'
+  - 'administer forums'
+  - 'allow node forum comment_forum hard delete'
+  - 'allow node forum comment_forum soft delete'
+  - 'create field_forum_moderator'
+  - 'create terms in forums'
+  - 'delete any comment'
+  - 'delete any comment anytime'
+  - 'delete any forum content'
+  - 'delete comment replies'
+  - 'delete forum revisions'
+  - 'delete own forum content'
+  - 'delete terms in forums'
+  - 'edit any forum content'
+  - 'edit field_forum_moderator'
+  - 'edit own comments'
+  - 'edit own field_forum_moderator'
+  - 'edit own forum content'
+  - 'edit terms in forums'
+  - 'masquerade as enduser'
+  - 'move comment replies'
+  - 'revert forum revisions'
+  - 'skip comment approval'
+  - 'use forum_moderation transition archive'
+  - 'use forum_moderation transition create_new_draft'
+  - 'use forum_moderation transition publish'
+  - 'use forum_moderation transition restore'
+  - 'use forum_moderation transition restore_to_draft'
+  - 'view field_forum_moderator'
+  - 'view forum revisions'
+  - 'view own field_forum_moderator'
+  - 'view the administration theme'

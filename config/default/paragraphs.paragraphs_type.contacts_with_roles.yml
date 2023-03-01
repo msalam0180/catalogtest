@@ -1,0 +1,10 @@
+uuid: 6e6a4663-d66e-49a8-9c42-aaf6ffd4787f
+langcode: en
+status: true
+dependencies: {  }
+id: contacts_with_roles
+label: Contact
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

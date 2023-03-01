@@ -1,0 +1,8 @@
+uuid: fc2f218c-a01b-486e-8e42-dc7536526f8d
+langcode: en
+status: true
+dependencies: {  }
+name: 'FIPS Security Classification'
+vid: fips_security_classification
+description: 'Data classififcation according to FIPS'
+weight: 0

@@ -1,0 +1,10 @@
+uuid: 4ef49c30-2642-41d5-9f37-8628fcdf2238
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.media_item
+label: 'Media Item'
+targetEntityType: paragraph
+cache: true

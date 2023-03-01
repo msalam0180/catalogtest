@@ -1,0 +1,10 @@
+diff --git a/jsonapi_earlyrendering_workaround.info.yml b/jsonapi_earlyrendering_workaround.info.yml
+index 0db987e..b4519fb 100644
+--- a/jsonapi_earlyrendering_workaround.info.yml
++++ b/jsonapi_earlyrendering_workaround.info.yml
+@@ -1,4 +1,5 @@
+ name: JSON:API Early Rendering Workaround
+ decription: Decorates EarlyRenderdingControllerWrapperSubscriber to workaround leaked caching metadata issues.
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ type: module

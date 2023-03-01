@@ -1,0 +1,10 @@
+uuid: 348786e8-8d94-45dd-8787-9efa5bb5ca94
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: M_Bh81osDyUQ4wV0GgU_NdBNqkzM87sLxjaCdFj9mnw
+id: getting_started
+label: 'Getting Started'
+description: 'Links related to the active user account'
+locked: true

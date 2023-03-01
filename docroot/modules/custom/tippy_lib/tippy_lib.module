@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains tippy_lib.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tippy_lib_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.tippy_lib':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Tippy.js is the complete tooltip, popover, dropdown, and menu solution for the web, powered by Popper.') . '</p>';
+      $output .= '<p>' . t('For more information about the Tippy.js, see the  <a href=":documentation">documentation</a>', [':documentation' => 'https://atomiks.github.io/tippyjs']) . '</p>';
+      $output .= '<p>' . t('For more information on adding to modules or themes, see README') . '</p>';
+
+      return $output;
+  }
+}

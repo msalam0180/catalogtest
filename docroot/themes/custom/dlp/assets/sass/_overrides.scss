@@ -1,0 +1,119 @@
+// @todo these should be their own CSS files and only included when
+// specific Drupal libraries are used.
+@import "components/alert";
+@import "components/ajax";
+@import "components/field";
+@import "components/file";
+@import "components/filter";
+@import "components/form";
+@import "components/icon";
+@import "components/navbar";
+@import "components/node";
+@import "components/panels";
+@import "components/progress-bar";
+@import "components/table-drag";
+@import "components/tabs";
+@import "components/toolbar";
+@import "components/tables";
+@import "components/well";
+@import "components/pagination";
+
+
+// jQuery UI style overrides.
+@import "jquery-ui/autocomplete";
+
+ol, ul {
+  padding-left: 1.5em;
+  .popover &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Page header.
+.page-header {
+  margin-top: 0;
+}
+
+// Footer.
+.footer {
+  margin-top: 45px;
+  // padding-top: 35px;
+  // padding-bottom: 36px;
+  border-top: 1px solid #E5E5E5;
+}
+
+// Paragraphs.
+p:last-child,
+.form-group:last-child,
+.panel:last-child {
+  margin-bottom: 0;
+}
+
+// Help region.
+.region-help {
+  > .glyphicon {
+    font-size: $font-size-large;
+    float: left;
+    margin: -0.05em 0.5em 0 0;
+  }
+  .block {
+    overflow: hidden;
+  }
+}
+
+
+.help-block, .control-group .help-inline {
+  color: $gray-light;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+#comment-form .help-block, .control-group .help-inline {
+  color: #000000;
+}
+
+//Glossary A-Z
+.region-content section.block {
+  z-index: 1;
+
+  .help-text-rules-of-road {
+    display: block;
+    padding-bottom: 15px;
+  }
+}
+
+section.block-facet--glossaryaz {
+  text-align: center;
+  z-index: 0 !important;
+}
+
+section.block-facet--glossaryaz ul:not(.contextual-links) {
+  display: inline-block;
+  @media (min-width: $screen-lg-min) {
+    min-width: 1024px;
+  }
+}
+.block-facets .glossaryaz.yes-results {
+  background: #797676;
+}
+
+.block-facets .glossaryaz {
+  margin: 3px;
+  min-width: 2em;
+  min-height: .5em;
+  line-height: 2em;
+  font-size: 1em;
+  white-space: nowrap;
+  width: 2em;
+  max-width: 2em;
+}
+.block-facets .glossaryaz.is-active {
+  background: $brand-primary;
+}
+
+// DSITE-6855: IE11 scrollbar covers Feedback button (all content on right side of screen)
+@-ms-viewport { width: device-width; } @media (min-width: 992px) { @-ms-viewport { width: auto !important; } } 

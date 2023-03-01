@@ -1,0 +1,36 @@
+uuid: 331a1d20-71f3-407c-adcd-668aa661b4bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.node_main_full_width_image_medium
+    - image.style.node_main_full_width_image_small
+    - image.style.node_main_full_width_image_x_small
+    - image.style.node_main_full_width_image_xlarge
+  theme:
+    - dlp
+id: node_main_full_width_image_total_space
+label: 'Node Main Full Width Image - Total Space'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: node_main_full_width_image_xlarge
+    breakpoint_id: dlp.large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: node_main_full_width_image_medium
+    breakpoint_id: dlp.medium
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: node_main_full_width_image_small
+    breakpoint_id: dlp.small
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: node_main_full_width_image_x_small
+    breakpoint_id: dlp.xsmall
+    multiplier: 1x
+breakpoint_group: dlp
+fallback_image_style: node_main_full_width_image_medium

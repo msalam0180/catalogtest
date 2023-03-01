@@ -1,0 +1,10 @@
+uuid: c048a518-bab2-4b0b-9d1e-9885c3f47de0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: AlzeyytA8InBgxIG9H2UDJYs3CG98Zj6yRsDKmlbZwA
+id: short_date_no_time
+label: 'Short Date - No Time'
+locked: false
+pattern: m/d/Y

@@ -1,0 +1,332 @@
+uuid: 01b262ca-32da-4367-a592-30630ee03b30
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.autocomplete
+    - field.field.node.forms.body
+    - field.field.node.forms.field_act
+    - field.field.node.forms.field_annual_burden
+    - field.field.node.forms.field_average_ingestion_volume
+    - field.field.node.forms.field_completeness
+    - field.field.node.forms.field_consistency
+    - field.field.node.forms.field_contact
+    - field.field.node.forms.field_contacts
+    - field.field.node.forms.field_cost_category
+    - field.field.node.forms.field_data_structure
+    - field.field.node.forms.field_dataset_use
+    - field.field.node.forms.field_dauisp_audit_logs
+    - field.field.node.forms.field_dauisp_data_policies
+    - field.field.node.forms.field_division_office
+    - field.field.node.forms.field_electronic_size
+    - field.field.node.forms.field_filing_entity_type
+    - field.field.node.forms.field_filing_format
+    - field.field.node.forms.field_further_details
+    - field.field.node.forms.field_mission_criticality_mefs
+    - field.field.node.forms.field_number_of_active_internal_
+    - field.field.node.forms.field_paper_size
+    - field.field.node.forms.field_pmef_divisions_offices
+    - field.field.node.forms.field_point_s_of_contact
+    - field.field.node.forms.field_rulemaking_office
+    - field.field.node.forms.field_sensitivity
+    - field.field.node.forms.field_submission_type
+    - field.field.node.forms.field_timeliness_recency
+    - field.field.node.forms.field_total_annual_burden_hours
+    - field.field.node.forms.field_total_annual_responses
+    - node.type.forms
+  module:
+    - entity_reference_revisions
+    - field_delimiter
+    - field_group
+    - fixed_text_link_formatter
+    - layout_builder
+    - options
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_row_01:
+      children:
+        - body
+        - field_further_details
+        - field_division_office
+        - field_contacts
+        - field_rulemaking_office
+        - field_filing_format
+        - field_sensitivity
+        - field_annual_burden
+        - field_total_annual_burden_hours
+        - field_total_annual_responses
+        - field_submission_type
+        - field_filing_entity_type
+        - field_act
+        - field_dataset_use
+        - field_average_ingestion_volume
+        - field_dauisp_data_policies
+        - field_dauisp_audit_logs
+        - field_data_structure
+        - field_cost_category
+        - field_mission_criticality_mefs
+        - field_pmef_divisions_offices
+        - field_number_of_active_internal_
+        - field_completeness
+        - field_consistency
+        - field_timeliness_recency
+      label: 'Row 01'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: forms-details
+        id: forms-details
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.forms.autocomplete
+targetEntityType: node
+bundle: forms
+mode: autocomplete
+content:
+  body:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_act:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_annual_burden:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_average_ingestion_volume:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_completeness:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_consistency:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_contacts:
+    type: entity_reference_revisions_entity_view
+    label: inline
+    settings:
+      view_mode: media_item
+      link: ''
+    third_party_settings:
+      field_delimiter:
+        delimiter: ''
+    weight: 6
+    region: content
+  field_cost_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_data_structure:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_dataset_use:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_dauisp_audit_logs:
+    type: fixed_text_link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'View Audit Logs'
+      link_class: ''
+      allow_override: false
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_dauisp_data_policies:
+    type: fixed_text_link
+    label: inline
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+      link_text: 'View Data Policies'
+      link_class: ''
+      allow_override: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_division_office:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_filing_entity_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_filing_format:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_further_details:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_mission_criticality_mefs:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_number_of_active_internal_:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_pmef_divisions_offices:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_rulemaking_office:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_sensitivity:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_submission_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_timeliness_recency:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_total_annual_burden_hours:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_total_annual_responses:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_contact: true
+  field_electronic_size: true
+  field_paper_size: true
+  field_point_s_of_contact: true
+  search_api_excerpt: true

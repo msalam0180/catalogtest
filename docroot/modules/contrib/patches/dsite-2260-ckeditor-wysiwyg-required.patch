@@ -1,0 +1,12 @@
+diff --git a/core/modules/ckeditor/js/ckeditor.js b/core/modules/ckeditor/js/ckeditor.js
+index be798f0e0..f941b1a4c 100644
+--- a/core/modules/ckeditor/js/ckeditor.js
++++ b/core/modules/ckeditor/js/ckeditor.js
+@@ -14,6 +14,7 @@
+         format: format.format
+       };
+       var label = $("label[for=".concat(element.getAttribute('id'), "]")).html();
++      label += ($('label[for=' + element.getAttribute('id') + ']').hasClass('form-required') ? ' required' : '');
+       format.editorSettings.title = Drupal.t('Rich Text Editor, !label field', {
+         '!label': label
+       });

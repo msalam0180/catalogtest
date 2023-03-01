@@ -1,0 +1,22 @@
+uuid: 7048a13c-441d-49e9-8424-1ebaeef0f7b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: data_insight_path
+label: 'Data Insight path'
+type: 'canonical_entities:node'
+pattern: 'data-insights/[node:title]'
+selection_criteria:
+  4cdd3b86-4216-4412-9978-a6564d7e23f1:
+    id: node_type
+    negate: false
+    uuid: 4cdd3b86-4216-4412-9978-a6564d7e23f1
+    context_mapping:
+      node: node
+    bundles:
+      data_insight: data_insight
+selection_logic: and
+weight: -5
+relationships: {  }

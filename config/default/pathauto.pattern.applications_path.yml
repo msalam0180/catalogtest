@@ -1,0 +1,22 @@
+uuid: a61f11fd-e35b-4a70-95f7-1d9ba7caec0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: applications_path
+label: 'Applications Path'
+type: 'canonical_entities:node'
+pattern: 'applications/[node:title]'
+selection_criteria:
+  b7ecbc52-32cf-41b2-a215-918766576dca:
+    id: node_type
+    negate: false
+    uuid: b7ecbc52-32cf-41b2-a215-918766576dca
+    context_mapping:
+      node: node
+    bundles:
+      application: application
+selection_logic: and
+weight: -5
+relationships: {  }

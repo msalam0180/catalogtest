@@ -1,0 +1,11 @@
+name: Data Catalog General
+type: module
+description: General module that includes general simple hooks.
+core: 8.x
+package: Custom
+stylesheets:
+  all:
+    - css/env_indicator.css
+scripts:
+  - js/env_indicator.js
+core_version_requirement: ^8 || ^9

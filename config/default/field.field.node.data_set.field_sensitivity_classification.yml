@@ -1,0 +1,29 @@
+uuid: d7e3a291-9eb9-4d1a-a74c-35fa67eb7848
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sensitivity_classification
+    - node.type.data_set
+    - taxonomy.vocabulary.sensitivity_classification
+id: node.data_set.field_sensitivity_classification
+field_name: field_sensitivity_classification
+entity_type: node
+bundle: data_set
+label: 'Dataset Risk Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sensitivity_classification: sensitivity_classification
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

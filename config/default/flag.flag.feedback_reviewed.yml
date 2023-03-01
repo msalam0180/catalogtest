@@ -1,0 +1,29 @@
+uuid: 68f769d7-b223-4dae-bcec-4f09e45f4ec1
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+id: feedback_reviewed
+label: 'Feedback Reviewed'
+bundles:
+  - feedback
+entity_type: contact_message
+global: true
+flag_short: 'Mark as Reviewed'
+flag_long: 'Mark this Feedback as Reviewed'
+flag_message: 'This item has been marked as Reviewed'
+unflag_short: 'Mark as Needs Review'
+unflag_long: 'Mark this Feedback as Needs Review'
+unflag_message: 'This item has been marked as Needs Review'
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:contact_message'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: true
+  extra_permissions: {  }
+linkTypeConfig: {  }

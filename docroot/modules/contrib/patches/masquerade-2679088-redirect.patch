@@ -1,0 +1,17 @@
+diff --git a/src/Controller/SwitchController.php b/src/Controller/SwitchController.php
+index 0176e6a09..8ea6fc4ee 100644
+--- a/src/Controller/SwitchController.php
++++ b/src/Controller/SwitchController.php
+@@ -134,10 +134,8 @@ protected function getRedirectResponse(Request $request) {
+       // When Drupal is installed in a sub-directory, destination path have to
+       // cut off the baseUrl part.
+       $destination_path = preg_replace('/^' . preg_quote($request->getBaseUrl(), '/') . '/', '', $destination_path);
+-      // Try destination first.
+-      $url = Url::createFromRequest(Request::create($destination_path));
+     }
+-    elseif ($redirect_path = $request->server->get('HTTP_REFERER')) {
++    if ($redirect_path = $request->server->get('HTTP_REFERER')) {
+       // Parse referer to get route name if any.
+       $url = Url::createFromRequest(Request::create($redirect_path));
+     }
+

@@ -1,0 +1,21 @@
+uuid: dd2687b7-044b-4441-870e-9a9c604110f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_act
+    - node.type.data_set
+  module:
+    - options
+id: node.data_set.field_act
+field_name: field_act
+entity_type: node
+bundle: data_set
+label: Act
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,8 @@
+uuid: c23a57d9-ce60-4e70-ae64-3b8b2c50a334
+langcode: en
+status: true
+dependencies: {  }
+name: Manufacturer
+vid: manufacturer
+description: 'The Manufacturer of a technology'
+weight: 0

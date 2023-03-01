@@ -1,0 +1,29 @@
+uuid: faa15d90-2064-40ba-9712-4b4e6c1d832a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cost_category
+    - node.type.data_set
+    - taxonomy.vocabulary.cost_category
+id: node.data_set.field_cost_category
+field_name: field_cost_category
+entity_type: node
+bundle: data_set
+label: 'Cost Category'
+description: 'Qualitative description of primary cost related to owning/processing this data'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cost_category: cost_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

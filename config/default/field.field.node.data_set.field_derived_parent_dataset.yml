@@ -1,0 +1,32 @@
+uuid: 38fa9f63-88bc-4119-8ec1-d4cd25e78469
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_derived_parent_dataset
+    - node.type.data_set
+  module:
+    - field_display_label
+third_party_settings:
+  field_display_label:
+    display_label: 'Parent Dataset'
+id: node.data_set.field_derived_parent_dataset
+field_name: field_derived_parent_dataset
+entity_type: node
+bundle: data_set
+label: 'Parent Dataset(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      data_set: data_set
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

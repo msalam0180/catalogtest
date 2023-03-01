@@ -1,0 +1,34 @@
+{{ attach_library('dc_dashboard/dataset_dashboard') }}
+<div id="dataset-dashboard-container">
+  <div>{{ form }}</div>
+  <div class="mb-2 mt-4">
+    {% if not content.empty %}
+    <select class="dataset-dashboard-save-state">
+      <option value="review">Save and Review</option>
+      {% if can_publish %}
+      <option value="publish">Save and Publish</option>
+      {% endif %}
+    </select>
+    <button id="dataset-dashboard-save" class="button form-submit dataset-dashboard-save-button">Save Changes</button>
+    {% endif %}
+  </div>
+  <div>
+  <p>Rows (*) highlighted in red have an unpublished revision.<br/>
+  Rows (**) highlighted in blue are unpublished.</p>
+  {{ content.table }}
+  </div>
+  <div class="my-2">
+    {% if not content.empty %}
+    <select class="dataset-dashboard-save-state">
+      <option value="review">Save and Review</option>
+      {% if can_publish %}
+      <option value="publish">Save and Publish</option>
+      {% endif %}
+    </select>
+    <button id="dataset-dashboard-save-2" class="button form-submit dataset-dashboard-save-button">Save Changes</button>
+    {% endif %}
+  </div>
+  <div>
+  {{ content.pager }}
+  </div>
+</div>

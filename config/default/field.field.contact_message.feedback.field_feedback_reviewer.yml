@@ -1,0 +1,34 @@
+uuid: b229983b-a0a5-4a54-adfb-e5dcd02dbc1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_feedback_reviewer
+id: contact_message.feedback.field_feedback_reviewer
+field_name: field_feedback_reviewer
+entity_type: contact_message
+bundle: feedback
+label: 'Feedback Reviewer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        content_approver: content_approver
+        administrator: '0'
+        content_creator: '0'
+        sitebuilder: '0'
+        forum_moderator: '0'
+    include_anonymous: true
+field_type: entity_reference

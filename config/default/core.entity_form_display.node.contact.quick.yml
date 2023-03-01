@@ -1,0 +1,82 @@
+uuid: 75b17d51-a328-40d5-8120-830b79b2c796
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.quick
+    - field.field.node.contact.body
+    - field.field.node.contact.feeds_item
+    - field.field.node.contact.field_associated_websites
+    - field.field.node.contact.field_division_office
+    - field.field.node.contact.field_email
+    - field.field.node.contact.field_first_name
+    - field.field.node.contact.field_helpful_information
+    - field.field.node.contact.field_image_upload
+    - field.field.node.contact.field_last_name
+    - field.field.node.contact.field_phone_number
+    - node.type.contact
+    - workflows.workflow.contact_content_type_worklow
+  module:
+    - content_moderation
+_core:
+  default_config_hash: 7oqA7MxbeohOTlrJsF55w585C2uRzXHbJUVPkEwMrhM
+id: node.contact.quick
+targetEntityType: node
+bundle: contact
+mode: quick
+content:
+  field_division_office:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_first_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  feeds_item: true
+  field_associated_websites: true
+  field_helpful_information: true
+  field_image_upload: true
+  field_phone_number: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

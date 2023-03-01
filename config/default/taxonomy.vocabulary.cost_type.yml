@@ -1,0 +1,8 @@
+uuid: 1751c57f-dfe7-425f-b2fc-0dcccce1d117
+langcode: en
+status: true
+dependencies: {  }
+name: 'Cost Type'
+vid: cost_type
+description: ''
+weight: 0

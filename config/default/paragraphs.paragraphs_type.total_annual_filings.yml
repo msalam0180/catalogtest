@@ -1,0 +1,10 @@
+uuid: bf1e59f8-61cb-4c24-864c-e439c28ec26c
+langcode: en
+status: true
+dependencies: {  }
+id: total_annual_filings
+label: 'Total Annual Filings'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

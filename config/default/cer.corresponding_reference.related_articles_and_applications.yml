@@ -1,0 +1,13 @@
+uuid: 98211aca-88a7-4d1f-80e2-ff3c1e351d7f
+langcode: en
+status: true
+dependencies: {  }
+id: related_articles_and_applications
+label: 'Related Articles and Applications'
+enabled: true
+first_field: field_related_articles
+second_field: field_related_apps
+bundles:
+  node:
+    - application
+    - article

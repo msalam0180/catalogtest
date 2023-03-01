@@ -1,0 +1,29 @@
+uuid: cb749009-490c-4ff9-ab46-ea6eb5efde3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fips_security_classificati
+    - node.type.data_set
+    - taxonomy.vocabulary.fips_security_classification
+id: node.data_set.field_fips_security_classificati
+field_name: field_fips_security_classificati
+entity_type: node
+bundle: data_set
+label: 'FIPS Security Classification'
+description: 'What is the security classification for this dataset?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      fips_security_classification: fips_security_classification
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

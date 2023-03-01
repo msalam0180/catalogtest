@@ -1,0 +1,28 @@
+uuid: b6537cb1-69cc-4363-abc0-0aa3005ee93a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo
+    - media.type.image
+    - node.type.component
+id: node.component.field_logo
+field_name: field_logo
+entity_type: node
+bundle: component
+label: Logo
+description: "<ul>\r\n<li><strong>Horizontal Orientation</strong> instead of vertical orientation - some logos have multiple orientations - Horizontal is best.\r\n<li><strong>Height of 100px or Larger</strong>\r\n<li><strong>Transparent background</strong> is preferred, but  white background can be used if necessary\r\n<li><strong>Crop out extra space</strong> around the logo\r\n</ul>\r\n<a href=\"https://confluence.ad.sec.gov/x/J4DlB\" target=\"_blank\">Read more about Logo Optimization</a>"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

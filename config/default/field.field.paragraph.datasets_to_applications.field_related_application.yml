@@ -1,0 +1,33 @@
+uuid: 1dba8048-82c2-4929-968f-f2f11a8d2fa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_related_application
+    - node.type.application
+    - node.type.component
+    - node.type.platform
+    - paragraphs.paragraphs_type.datasets_to_applications
+id: paragraph.datasets_to_applications.field_related_application
+field_name: field_related_application
+entity_type: paragraph
+bundle: datasets_to_applications
+label: 'Related Technology'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      application: application
+      platform: platform
+      component: component
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: application
+field_type: entity_reference

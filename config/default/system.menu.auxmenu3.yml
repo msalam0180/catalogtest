@@ -1,0 +1,8 @@
+uuid: b8044abe-0329-41ce-88c2-2ea8ebc45e64
+langcode: en
+status: true
+dependencies: {  }
+id: auxmenu3
+label: auxmenu3
+description: 'Menu under the Global Search'
+locked: false

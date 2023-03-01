@@ -1,0 +1,124 @@
+uuid: a434cd5c-7739-4eaa-b906-76cb1d151520
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_filing_entity_type
+field_name: field_filing_entity_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Beneficial owner'
+      label: 'Beneficial owner'
+    -
+      value: Broker-Dealer
+      label: Broker-Dealer
+    -
+      value: Broker-Dealer-Foreign
+      label: Broker-Dealer-Foreign
+    -
+      value: Broker-Dealers
+      label: Broker-Dealers
+    -
+      value: 'Business Development Company'
+      label: 'Business Development Company'
+    -
+      value: 'Foreign Security'
+      label: 'Foreign Security'
+    -
+      value: 'Government Securities Dealer'
+      label: 'Government Securities Dealer'
+    -
+      value: 'Investment Adviser'
+      label: 'Investment Adviser'
+    -
+      value: 'Investment Companies'
+      label: 'Investment Companies'
+    -
+      value: 'Investment Company'
+      label: 'Investment Company'
+    -
+      value: Issuer
+      label: Issuer
+    -
+      value: 'Issuer-Business Development Company'
+      label: 'Issuer-Business Development Company'
+    -
+      value: 'Issuer-Foreign Private'
+      label: 'Issuer-Foreign Private'
+    -
+      value: 'Issuer-Investment Company'
+      label: 'Issuer-Investment Company'
+    -
+      value: 'Large Trader'
+      label: 'Large Trader'
+    -
+      value: 'Municipal Advisors'
+      label: 'Municipal Advisors'
+    -
+      value: 'Municipal Securities Dealer'
+      label: 'Municipal Securities Dealer'
+    -
+      value: 'Nationally Recognized Statistical Rating Agencies'
+      label: 'Nationally Recognized Statistical Rating Agencies'
+    -
+      value: Offering/Issuer
+      label: Offering/Issuer
+    -
+      value: 'Offering/Issuer-Unit Investment Trust'
+      label: 'Offering/Issuer-Unit Investment Trust'
+    -
+      value: 'Persons and entities subject to the requirements of the Securities Act of 1933'
+      label: 'Persons and entities subject to the requirements of the Securities Act of 1933'
+    -
+      value: 'Persons and entities subject to the requirements of the Securities Act of 1934'
+      label: 'Persons and entities subject to the requirements of the Securities Act of 1934'
+    -
+      value: 'Persons and entities subject to the requirements of the Trust Indenture Act'
+      label: 'Persons and entities subject to the requirements of the Trust Indenture Act'
+    -
+      value: 'Public Traded Company'
+      label: 'Public Traded Company'
+    -
+      value: 'Public Traded Company-Asset Backed'
+      label: 'Public Traded Company-Asset Backed'
+    -
+      value: 'Securities Act of 1933, Securities Exchange Act of 1934, EDGAR Filers'
+      label: 'Securities Act of 1933, Securities Exchange Act of 1934, EDGAR Filers'
+    -
+      value: Securitizer
+      label: Securitizer
+    -
+      value: 'Self-Regulatory Organization'
+      label: 'Self-Regulatory Organization'
+    -
+      value: 'Self-Regulatory Organization-Clearing Agency'
+      label: 'Self-Regulatory Organization-Clearing Agency'
+    -
+      value: 'Self-Regulatory Organization-Exchange'
+      label: 'Self-Regulatory Organization-Exchange'
+    -
+      value: 'Self-Regulatory Organizations'
+      label: 'Self-Regulatory Organizations'
+    -
+      value: 'Transfer Agent'
+      label: 'Transfer Agent'
+    -
+      value: 'Williams Act Filer'
+      label: 'Williams Act Filer'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

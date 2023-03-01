@@ -1,0 +1,12 @@
+uuid: 46eee91c-e405-4e66-9247-b00cdad4eeb0
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_contact
+entity_type_id: null
+entity_id: null
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301
+redirect_fallback_action: null

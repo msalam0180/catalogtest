@@ -1,0 +1,28 @@
+uuid: 8d22980c-44ec-4458-a14f-dc996e1c263e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_technical_owner
+    - node.type.contact
+    - node.type.tools
+id: node.tools.field_technical_owner
+field_name: field_technical_owner
+entity_type: node
+bundle: tools
+label: 'Technical Owner'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

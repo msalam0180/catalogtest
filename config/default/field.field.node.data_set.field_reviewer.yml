@@ -1,0 +1,33 @@
+uuid: f6a1e81a-6c49-4cbd-b53f-c93c9efd7d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reviewer
+    - node.type.data_set
+id: node.data_set.field_reviewer
+field_name: field_reviewer
+entity_type: node
+bundle: data_set
+label: Reviewer
+description: 'If you do not have an assigned reviewer, enter <strong>TechCatalog@sec.gov</strong> for tech-related content and enter <strong>DataCatalog@sec.gov</strong> for data-related content.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        content_approver: content_approver
+        administrator: '0'
+        content_creator: '0'
+        sitebuilder: '0'
+    include_anonymous: true
+field_type: entity_reference

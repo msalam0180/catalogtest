@@ -1,0 +1,34 @@
+uuid: 84adc2ed-9875-4937-923e-b8e30be470fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contacts_with_roles.feeds_item
+    - field.field.paragraph.contacts_with_roles.field_contact
+    - field.field.paragraph.contacts_with_roles.field_role
+    - paragraphs.paragraphs_type.contacts_with_roles
+id: paragraph.contacts_with_roles.default
+targetEntityType: paragraph
+bundle: contacts_with_roles
+mode: default
+content:
+  field_contact:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: media_item
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_role:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  feeds_item: true
+  search_api_excerpt: true

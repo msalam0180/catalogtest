@@ -1,0 +1,20 @@
+uuid: b0301aab-b733-446e-985b-0492bcb86c69
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dlp
+id: tabs
+theme: dlp
+region: tabs
+weight: -10
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: visible
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

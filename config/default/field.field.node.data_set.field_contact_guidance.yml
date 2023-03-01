@@ -1,0 +1,19 @@
+uuid: 524a5b75-841b-4968-adc0-624273a20d8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_guidance
+    - node.type.data_set
+id: node.data_set.field_contact_guidance
+field_name: field_contact_guidance
+entity_type: node
+bundle: data_set
+label: 'Contact Guidance'
+description: 'This field can be used to provide more specific guidance to users as to who to contact in Offices and Divisions, as needed'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

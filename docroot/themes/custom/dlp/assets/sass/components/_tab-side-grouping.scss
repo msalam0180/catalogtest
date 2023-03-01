@@ -1,0 +1,16 @@
+$sg-border-color: #ddd;
+$sg-padding: 20px;
+.tab-side-grouping {
+  border: 1px solid $sg-border-color;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  padding: $sg-padding;
+  background: #fcfcfa;
+
+  h2 {
+    font-size: 20px;
+    padding: $sg-padding/2 0px;
+    border-bottom: 1px solid shade($sg-border-color, 30%);
+    margin: 0 0 $sg-padding/2 0;
+  }
+}

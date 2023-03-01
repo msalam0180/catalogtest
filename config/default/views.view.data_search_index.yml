@@ -1,0 +1,2157 @@
+uuid: 73ea6357-8925-42d7-8a5f-f192a9ea5205
+langcode: en
+status: false
+dependencies:
+  config:
+    - field.storage.node.field_data_search_index
+    - field.storage.node.field_dataset_asset_category
+    - field.storage.node.field_dataset_category
+    - field.storage.node.field_dataset_description
+    - field.storage.node.field_dataset_registrant_type
+    - field.storage.node.field_dataset_source_type
+    - field.storage.node.field_dataset_use
+    - field.storage.node.field_documents
+    - field.storage.node.field_how_to_access_this_dataset
+    - field.storage.node.field_tags
+    - field.storage.node.field_tools
+    - search_api.index.data_search
+    - taxonomy.vocabulary.data
+    - taxonomy.vocabulary.dataset_asset_category
+    - taxonomy.vocabulary.dataset_category
+    - taxonomy.vocabulary.dataset_registrant_type
+    - taxonomy.vocabulary.dataset_source_type
+  module:
+    - hierarchical_term_formatter
+    - search_api
+    - text
+_core:
+  default_config_hash: yWOOU5yw66y_ok9kFl0B6BtvyMlpWEv_1oBWUJBqv7I
+id: data_search_index
+label: 'data Search Index'
+module: views
+description: 'Dataset Search view showing on the homepage'
+tag: ''
+base_table: search_api_index_data_search
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Dataset Search'
+      fields:
+        title_1:
+          id: title_1
+          table: search_api_index_data_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h2
+          element_class: view-box-style-title
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+        field_dataset_description_1:
+          id: field_dataset_description_1
+          table: search_api_index_data_search
+          field: field_dataset_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 600
+            word_boundary: true
+            ellipsis: true
+            more_link: true
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: 'view-box-style-description view-box-style-description-with-line'
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+        field_dataset_source_type:
+          id: field_dataset_source_type
+          table: search_api_datasource_data_search_entity_node
+          field: field_dataset_source_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: Source
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: span
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: view-metadata
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_dataset_use:
+          id: field_dataset_use
+          table: search_api_datasource_data_search_entity_node
+          field: field_dataset_use
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'Use Cases'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: hierarchical_term_formatter
+          settings:
+            display: all
+            link: false
+            wrap: span
+            separator: ''
+            reverse: false
+            relationship: none
+            field_rendering: 1
+            fieldsets:
+              - more
+              - admin_label
+            custom_label: 1
+            label: 'Use Cases'
+            element_label_colon: 0
+            exclude: 1
+            element_type_enable: 0
+            element_type: ''
+            element_class_enable: 0
+            element_class: ''
+            element_label_type_enable: 0
+            element_label_type: ''
+            element_label_class_enable: 0
+            element_label_class: ''
+            element_wrapper_type_enable: 0
+            element_wrapper_type: ''
+            element_wrapper_class_enable: 0
+            element_wrapper_class: ''
+            element_default_classes: 1
+            alter:
+              alter_text: 0
+              text: ''
+              make_link: 0
+              path: ''
+              absolute: 0
+              replace_spaces: 0
+              external: 0
+              path_case: none
+              link_class: ''
+              alt: ''
+              rel: ''
+              prefix: ''
+              suffix: ''
+              target: ''
+              trim: 0
+              max_length: '0'
+              word_boundary: 1
+              ellipsis: 1
+              more_link: 0
+              more_link_text: ''
+              more_link_path: ''
+              html: 0
+              strip_tags: 0
+              preserve_tags: ''
+              trim_whitespace: 0
+              nl2br: 0
+            empty: ''
+            empty_zero: 0
+            hide_empty: 0
+            hide_alter_empty: 1
+            group_rows: 1
+            multi_type: ul
+            delta_limit: '0'
+            delta_offset: '0'
+            delta_reversed: 0
+            delta_first_last: 0
+            click_sort_column: target_id
+            type: hierarchical_term_formatter
+            field_api_classes: 0
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_dataset_registrant_type:
+          id: field_dataset_registrant_type
+          table: search_api_datasource_data_search_entity_node
+          field: field_dataset_registrant_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'Entity Type'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_dataset_category:
+          id: field_dataset_category
+          table: search_api_datasource_data_search_entity_node
+          field: field_dataset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'Data type'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: hierarchical_term_formatter
+          settings:
+            display: all
+            link: false
+            wrap: none
+            separator: ' » '
+            reverse: false
+            relationship: none
+            field_rendering: 1
+            fieldsets:
+              - more
+              - admin_label
+            custom_label: 1
+            label: 'Data type'
+            element_label_colon: 0
+            exclude: 1
+            element_type_enable: 0
+            element_type: ''
+            element_class_enable: 0
+            element_class: ''
+            element_label_type_enable: 0
+            element_label_type: ''
+            element_label_class_enable: 0
+            element_label_class: ''
+            element_wrapper_type_enable: 0
+            element_wrapper_type: ''
+            element_wrapper_class_enable: 0
+            element_wrapper_class: ''
+            element_default_classes: 1
+            alter:
+              alter_text: 0
+              text: ''
+              make_link: 0
+              path: ''
+              absolute: 0
+              replace_spaces: 0
+              external: 0
+              path_case: none
+              link_class: ''
+              alt: ''
+              rel: ''
+              prefix: ''
+              suffix: ''
+              target: ''
+              trim: 0
+              max_length: '0'
+              word_boundary: 1
+              ellipsis: 1
+              more_link: 0
+              more_link_text: ''
+              more_link_path: ''
+              html: 0
+              strip_tags: 0
+              preserve_tags: ''
+              trim_whitespace: 0
+              nl2br: 0
+            empty: ''
+            empty_zero: 0
+            hide_empty: 0
+            hide_alter_empty: 1
+            group_rows: 1
+            multi_type: ul
+            delta_limit: '0'
+            delta_offset: '0'
+            delta_reversed: 0
+            delta_first_last: 0
+            click_sort_column: target_id
+            type: hierarchical_term_formatter
+            field_api_classes: 0
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: ul
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_dataset_asset_category:
+          id: field_dataset_asset_category
+          table: search_api_datasource_data_search_entity_node
+          field: field_dataset_asset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: hierarchical_term_formatter
+          settings:
+            display: all
+            link: true
+            wrap: none
+            separator: ' » '
+            reverse: false
+            relationship: none
+            field_rendering: 1
+            fieldsets:
+              - more
+              - admin_label
+            custom_label: 0
+            label: ''
+            element_label_colon: 0
+            exclude: 1
+            element_type_enable: 0
+            element_type: ''
+            element_class_enable: 0
+            element_class: ''
+            element_label_type_enable: 0
+            element_label_type: ''
+            element_label_class_enable: 0
+            element_label_class: ''
+            element_wrapper_type_enable: 0
+            element_wrapper_type: ''
+            element_wrapper_class_enable: 0
+            element_wrapper_class: ''
+            element_default_classes: 1
+            alter:
+              alter_text: 0
+              text: ''
+              make_link: 0
+              path: ''
+              absolute: 0
+              replace_spaces: 0
+              external: 0
+              path_case: none
+              link_class: ''
+              alt: ''
+              rel: ''
+              prefix: ''
+              suffix: ''
+              target: ''
+              trim: 0
+              max_length: '0'
+              word_boundary: 1
+              ellipsis: 1
+              more_link: 0
+              more_link_text: ''
+              more_link_path: ''
+              html: 0
+              strip_tags: 0
+              preserve_tags: ''
+              trim_whitespace: 0
+              nl2br: 0
+            empty: ''
+            empty_zero: 0
+            hide_empty: 0
+            hide_alter_empty: 1
+            group_rows: 1
+            multi_type: separator
+            delta_limit: '0'
+            delta_offset: '0'
+            delta_reversed: 0
+            delta_first_last: 0
+            click_sort_column: target_id
+            type: hierarchical_term_formatter
+            field_api_classes: 0
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: ul
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_tools:
+          id: field_tools
+          table: search_api_datasource_data_search_entity_node
+          field: field_tools
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'Data Systems'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: span
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: view-metadata
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              article:
+                display_method: label
+                view_mode: default
+              contact:
+                display_method: label
+                view_mode: default
+              data_set:
+                display_method: label
+                view_mode: default
+              page:
+                display_method: label
+                view_mode: default
+              publications:
+                display_method: label
+                view_mode: default
+              tools:
+                display_method: label
+                view_mode: default
+        field_documents:
+          id: field_documents
+          table: search_api_datasource_data_search_entity_node
+          field: field_documents
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'Data Dictionary'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: span
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: view-metadata
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              files:
+                display_method: label
+                view_mode: default
+        field_tags:
+          id: field_tags
+          table: search_api_datasource_data_search_entity_node
+          field: field_tags
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              contract_status:
+                display_method: label
+              data:
+                display_method: label
+              dataset_accesslevel:
+                display_method: label
+              dataset_asset_category:
+                display_method: label
+              dataset_category:
+                display_method: label
+              dataset_datastore:
+                display_method: label
+              dataset_registrant_type:
+                display_method: label
+              dataset_source_type:
+                display_method: label
+              delivery_frequency_to_sec:
+                display_method: label
+              delivery_method_to_sec:
+                display_method: label
+              division_office:
+                display_method: label
+              document_category:
+                display_method: label
+              faq_category:
+                display_method: label
+              fips_category_justification:
+                display_method: label
+              fips_security_classification:
+                display_method: label
+              license_types:
+                display_method: label
+              publication_category:
+                display_method: label
+              publications_keywords:
+                display_method: label
+              sensitive_data_category:
+                display_method: label
+              sensitivity_classification:
+                display_method: label
+              tags:
+                display_method: label
+              tool_types:
+                display_method: label
+                view_mode: default
+        field_data_search_index:
+          id: field_data_search_index
+          table: search_api_index_data_search
+          field: field_data_search_index
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+        field_how_to_access_this_dataset:
+          id: field_how_to_access_this_dataset
+          table: search_api_datasource_data_search_entity_node
+          field: field_how_to_access_this_dataset
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: 'How to Access this Dataset'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 300
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: true
+          element_type: span
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: view-metadata
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 20
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 5
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: search_api_tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: '<div class="no-results">Your Search Returned <strong>No Results</strong>. <br>You can adjust the filters or you can start the <a href="[view:url]">search again</a>.</div>'
+          tokenize: false
+      sorts:
+        title:
+          id: title
+          table: search_api_index_data_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: title
+          exposed: false
+      arguments: {  }
+      filters:
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: combine
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: 'Search Datasets'
+            description: ''
+            use_operator: false
+            operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            title_1: title_1
+            field_dataset_description_1: field_dataset_description_1
+            field_data_search_index: field_data_search_index
+        field_dataset_source_type:
+          id: field_dataset_source_type
+          table: search_api_index_data_search
+          field: field_dataset_source_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_source_type_op
+            label: 'Source Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_source_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_source_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_source_type
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_registrant_type:
+          id: field_dataset_registrant_type
+          table: search_api_index_data_search
+          field: field_dataset_registrant_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_registrant_type_op
+            label: 'Entity Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_registrant_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_registrant_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_registrant_type
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_asset_category:
+          id: field_dataset_asset_category
+          table: search_api_index_data_search
+          field: field_dataset_asset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_asset_category_op
+            label: 'Asset Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_asset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_asset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_asset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_category:
+          id: field_dataset_category
+          table: search_api_index_data_search
+          field: field_dataset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_category_op
+            label: 'Data Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_use:
+          id: field_dataset_use
+          table: search_api_index_data_search
+          field: field_dataset_use
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_use_op
+            label: 'Use Cases'
+            description: ''
+            use_operator: false
+            operator: field_dataset_use_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_use
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: data
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+      relationships: {  }
+      css_class: 'view-box-style views-wide-create-filters-col views-exposed-form-dk accent-boxes'
+      use_ajax: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+      tags:
+        - 'config:field.storage.node.field_data_search_index'
+        - 'config:field.storage.node.field_dataset_asset_category'
+        - 'config:field.storage.node.field_dataset_category'
+        - 'config:field.storage.node.field_dataset_description'
+        - 'config:field.storage.node.field_dataset_registrant_type'
+        - 'config:field.storage.node.field_dataset_source_type'
+        - 'config:field.storage.node.field_dataset_use'
+        - 'config:field.storage.node.field_documents'
+        - 'config:field.storage.node.field_how_to_access_this_dataset'
+        - 'config:field.storage.node.field_tags'
+        - 'config:field.storage.node.field_tools'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 2
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+      tags:
+        - 'config:field.storage.node.field_data_search_index'
+        - 'config:field.storage.node.field_dataset_asset_category'
+        - 'config:field.storage.node.field_dataset_category'
+        - 'config:field.storage.node.field_dataset_description'
+        - 'config:field.storage.node.field_dataset_registrant_type'
+        - 'config:field.storage.node.field_dataset_source_type'
+        - 'config:field.storage.node.field_dataset_use'
+        - 'config:field.storage.node.field_documents'
+        - 'config:field.storage.node.field_how_to_access_this_dataset'
+        - 'config:field.storage.node.field_tags'
+        - 'config:field.storage.node.field_tools'
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_data_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Dataset Search'
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - field_data_search_index
+            - field_dataset_description
+            - field_dataset_name_old
+            - name
+            - title
+        field_dataset_source_type:
+          id: field_dataset_source_type
+          table: search_api_index_data_search
+          field: field_dataset_source_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_source_type_op
+            label: Source
+            description: ''
+            use_operator: false
+            operator: field_dataset_source_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_source_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'Source Type'
+            description: null
+            identifier: field_dataset_source_type
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          reduce_duplicates: false
+          vid: dataset_source_type
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_registrant_type:
+          id: field_dataset_registrant_type
+          table: search_api_index_data_search
+          field: field_dataset_registrant_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_registrant_type_op
+            label: 'Entity Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_registrant_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_registrant_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_registrant_type
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_asset_category:
+          id: field_dataset_asset_category
+          table: search_api_index_data_search
+          field: field_dataset_asset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_asset_category_op
+            label: 'Asset Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_asset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_asset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_asset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_category:
+          id: field_dataset_category
+          table: search_api_index_data_search
+          field: field_dataset_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_category_op
+            label: 'Data Type'
+            description: ''
+            use_operator: false
+            operator: field_dataset_category_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_category
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: dataset_category
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_dataset_use:
+          id: field_dataset_use
+          table: search_api_index_data_search
+          field: field_dataset_use
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_dataset_use_op
+            label: 'Use Cases'
+            description: ''
+            use_operator: false
+            operator: field_dataset_use_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_dataset_use
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_creator: '0'
+              content_approver: '0'
+              sitebuilder: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: data
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_extenders: {  }
+      path: dataset-search
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+      tags:
+        - 'config:field.storage.node.field_data_search_index'
+        - 'config:field.storage.node.field_dataset_asset_category'
+        - 'config:field.storage.node.field_dataset_category'
+        - 'config:field.storage.node.field_dataset_description'
+        - 'config:field.storage.node.field_dataset_registrant_type'
+        - 'config:field.storage.node.field_dataset_source_type'
+        - 'config:field.storage.node.field_dataset_use'
+        - 'config:field.storage.node.field_documents'
+        - 'config:field.storage.node.field_how_to_access_this_dataset'
+        - 'config:field.storage.node.field_tags'
+        - 'config:field.storage.node.field_tools'

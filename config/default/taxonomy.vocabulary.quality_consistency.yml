@@ -1,0 +1,8 @@
+uuid: 7cc9179f-6d41-409c-ad0c-f6d191dc84cb
+langcode: en
+status: true
+dependencies: {  }
+name: 'Quality - Consistency'
+vid: quality_consistency
+description: ''
+weight: 0

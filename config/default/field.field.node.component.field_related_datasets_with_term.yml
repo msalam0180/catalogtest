@@ -1,0 +1,55 @@
+uuid: 10b9aa78-7460-4867-8f37-96a4ab64530f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_datasets_with_term
+    - node.type.component
+    - paragraphs.paragraphs_type.applications_to_datasets
+  module:
+    - entity_reference_revisions
+id: node.component.field_related_datasets_with_term
+field_name: field_related_datasets_with_term
+entity_type: node
+bundle: component
+label: 'Related Datasets'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      applications_to_datasets: applications_to_datasets
+    negate: 0
+    target_bundles_drag_drop:
+      applications_to_datasets:
+        weight: 10
+        enabled: true
+      contacts_with_roles:
+        weight: 11
+        enabled: false
+      cost:
+        weight: 12
+        enabled: false
+      datasets_to_applications:
+        weight: 13
+        enabled: false
+      licenses_held_by_division_office:
+        weight: 14
+        enabled: false
+      mission_criticality:
+        weight: 15
+        enabled: false
+      related_application:
+        weight: 16
+        enabled: false
+      total_annual_filings:
+        weight: 17
+        enabled: false
+      visualizations:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

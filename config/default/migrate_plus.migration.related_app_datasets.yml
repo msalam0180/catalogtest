@@ -1,0 +1,135 @@
+uuid: 295643a1-dc63-4422-98cb-18a7cf6f7fcc
+langcode: en
+status: true
+dependencies: {  }
+id: related_app_datasets
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - related_app_datasets
+migration_group: null
+label: 'JSON import of Applications - Related Datasets content'
+source:
+  plugin: csv
+  path: sites/default/files/migration/apps.csv
+  header_offset: 0
+  ids:
+    - id
+  fields:
+    -
+      name: id
+      label: id
+    -
+      name: title
+      label: Title
+    -
+      name: short_name
+      label: 'Short Name'
+    -
+      name: short_description
+      label: 'Short Description'
+    -
+      name: description
+      label: 'Detailed Description'
+    -
+      name: technology_category
+      label: 'Technology Category'
+    -
+      name: technology_subcategory
+      label: 'Technology SubCategory'
+    -
+      name: version
+      label: Version
+    -
+      name: application_status
+      label: Status
+    -
+      name: application_type
+      label: 'Application Type'
+    -
+      name: hosting_location
+      label: 'Hosting Location'
+    -
+      name: application_link
+      label: 'Application Link'
+    -
+      name: how_to_request_access
+      label: 'How to Request Access'
+    -
+      name: owner
+      label: Owner
+    -
+      name: business_function
+      label: 'Business Function'
+    -
+      name: number_of_sec_users
+      label: 'Number of SEC Users'
+    -
+      name: what_divisions_offices_use_this_application
+      label: 'Divisons/Offices that use this'
+    -
+      name: permissions_and_usage
+      label: 'Permissions and Usage'
+    -
+      name: how_many_external_users
+      label: 'How many external users?'
+    -
+      name: type_of_external_user
+      label: 'Type of External User?'
+    -
+      name: integrations1
+      label: Integrations1
+    -
+      name: description_of_integrations1
+      label: 'Description of Integrations1 (Sends data)'
+    -
+      name: integrations2
+      label: Integrations2
+    -
+      name: description_of_integrations2
+      label: 'Description of Integrations2 (Sends data)'
+    -
+      name: related_platforms
+      label: 'Related Platforms'
+    -
+      name: related_components
+      label: 'Related Software'
+    -
+      name: related_datasets
+      label: 'Related Datasets'
+    -
+      name: contact_guidance
+      label: 'Contact Guidance'
+    -
+      name: search_keywords
+      label: search_keywords
+    -
+      name: tags
+      label: tags
+    -
+      name: reviewer
+      label: Reviewer
+    -
+      name: promoted_to_technology_standards
+      label: 'Promoted to Technology Standards'
+process:
+  type:
+    plugin: default_value
+    default_value: applications_to_datasets
+  field_related_dataset:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: related_datasets
+    -
+      plugin: entity_lookup
+      entity_type: node
+      bundle_key: type
+      bundle: data_set
+      value_key: title
+      access_check: 0
+      ignore_case: true
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+migration_dependencies: null

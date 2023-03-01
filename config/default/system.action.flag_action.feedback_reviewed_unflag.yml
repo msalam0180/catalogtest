@@ -1,0 +1,15 @@
+uuid: 8db8cdae-72fc-4ac1-9d5a-f74a4e446d95
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.feedback_reviewed
+  module:
+    - flag
+id: flag_action.feedback_reviewed_unflag
+label: 'Mark as Needs Review'
+type: contact_message
+plugin: 'flag_action:feedback_reviewed_unflag'
+configuration:
+  flag_id: feedback_reviewed
+  flag_action: unflag

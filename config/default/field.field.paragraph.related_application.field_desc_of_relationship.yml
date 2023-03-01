@@ -1,0 +1,19 @@
+uuid: 81f582e5-f7e4-4ed4-a8bc-19368fe103a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_desc_of_relationship
+    - paragraphs.paragraphs_type.related_application
+id: paragraph.related_application.field_desc_of_relationship
+field_name: field_desc_of_relationship
+entity_type: paragraph
+bundle: related_application
+label: 'Description of Relationship'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

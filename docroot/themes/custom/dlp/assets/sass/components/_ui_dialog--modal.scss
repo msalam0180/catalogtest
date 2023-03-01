@@ -1,0 +1,55 @@
+/**
+ * jQuery UI Dialog -  Modal styling.
+ */ 
+
+// // remove doup close button
+// .ui-dialog-titlebar-close + .modal-title .ui-dialog-titlebar-close{
+//   display: none;
+// }
+
+.ui-dialog{
+  padding: 0;
+  z-index: 2000; //needs to be above all the toolbars
+
+  a{
+    color: $link-color;
+    &:hover, &:focus{
+      color: $link-hover-color;
+    }
+  }
+
+  .ui-dialog-titlebar{
+    padding: 0.6em 1.3em;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    border-bottom: 1px solid #e3e3e3;
+    background: #fbfbfb;
+  }
+  
+  .ui-dialog-titlebar-close {
+    right: 23px;
+  }
+
+  .ui-dialog-content {
+    padding: 1em 1.7em;
+  }
+
+  .ui-dialog-buttonpane{
+    padding: 11px 15px;
+    margin-top: 0;
+
+    button {
+      margin: 0;
+      padding: 5px 8px;
+      text-transform: capitalize;
+    }
+
+  }
+
+}
+
+.ui-widget-overlay {
+  z-index: 1990; // needs to be above everything except the popup
+} 

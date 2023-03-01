@@ -1,0 +1,14 @@
+uuid: 68596d60-2ddc-4405-95b7-e46c4fb13d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.enduser
+  module:
+    - user
+id: user_add_role_action.enduser
+label: 'Add the Enduser role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: enduser

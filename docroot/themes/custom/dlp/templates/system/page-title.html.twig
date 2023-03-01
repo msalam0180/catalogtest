@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - status: Assigned in dlp.theme - currently only on components
+ * - pageTitleAbove: Assigned in dlp.theme - What shows above the page title
+ * - pageTitleIcon: Assigned in dlp.theme - currently only on the Component Category Tax
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_page_title()
+ */
+#}
+
+<div class="page-title-container {{ (hideTitle and (hideTitle == 1)) ? 'hideTitle' : '' }}">
+  {% if pageTitleAbove %}
+    <div class="page-title-above">
+      {% if pageTitleAbove == "breadcrumbs" %}
+        {{ drupal_block('system_breadcrumb_block') }}
+      {% else %}
+        {{ pageTitleAbove }}
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="page-title-line">
+    <div class="page-title"><h1{{ title_attributes.addClass('page-header') }}>{% if pageTitleIcon %}{{pageTitleIcon}} {% endif %}{{ title }}{% if shortname %} <span class="shortname">({{ shortname }})</span>{% endif %}</h1></div>
+    
+    {% if status %}
+      <div class="page-title-line-after">
+        {{ include('@dlp/includes/status.html.twig', {'status': status, 'left_line': true}) }}
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+uuid: 0412bc03-941e-499e-8713-5c2e6f172ff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.application
+    - node.type.component
+    - node.type.platform
+  module:
+    - node
+id: migration_admin
+label: 'Migration Admin'
+weight: -2
+is_admin: null
+permissions:
+  - 'create application content'
+  - 'create component content'
+  - 'create platform content'

@@ -1,0 +1,19 @@
+uuid: 4650985c-042a-4f99-ac58-e267bdadc252
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+    - field.storage.contact_message.field_reviewer_notes
+id: contact_message.feedback.field_reviewer_notes
+field_name: field_reviewer_notes
+entity_type: contact_message
+bundle: feedback
+label: 'Reviewer Notes'
+description: 'Internal Notes on the user feedback'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

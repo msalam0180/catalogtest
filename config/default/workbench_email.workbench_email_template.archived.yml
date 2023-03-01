@@ -1,0 +1,27 @@
+uuid: 690b60b5-0b54-4c58-bf7a-82acac9d7cee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_submitter
+id: archived
+label: Archived
+subject: 'Your content has been archived'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_review_submitter'
+bundles: {  }
+body:
+  value: "[node:log]\r\n[node:title]\r\n[node:url]"
+  format: plain_text
+replyTo: ''

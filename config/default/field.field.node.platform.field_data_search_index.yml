@@ -1,0 +1,19 @@
+uuid: 86d2a29b-f059-41d8-9cdf-48bbfe835b4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_search_index
+    - node.type.platform
+id: node.platform.field_data_search_index
+field_name: field_data_search_index
+entity_type: node
+bundle: platform
+label: 'Search Keywords'
+description: 'Add search index terms to improve search results. Include spelling variations, common spelling errors, and high priority keywords.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

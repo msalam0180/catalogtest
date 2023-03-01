@@ -1,0 +1,10 @@
+uuid: ffbbc167-7993-481c-a9d3-da0496274914
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.file_and_description
+label: 'File and Description'
+targetEntityType: media
+cache: true

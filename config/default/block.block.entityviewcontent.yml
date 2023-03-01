@@ -1,0 +1,29 @@
+uuid: 5838179f-5e0a-496f-800d-207187881a24
+langcode: en
+status: false
+dependencies:
+  module:
+    - ctools
+    - system
+  theme:
+    - dlp
+id: entityviewcontent
+theme: dlp
+region: header
+weight: -6
+provider: null
+plugin: 'entity_view:node'
+settings:
+  id: 'entity_view:node'
+  label: 'Entity view (Content)'
+  label_display: visible
+  provider: ctools
+  view_mode: default
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

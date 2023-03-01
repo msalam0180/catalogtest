@@ -1,0 +1,8 @@
+uuid: 97b5f7db-2e78-4a09-a534-281c55594897
+langcode: en
+status: true
+dependencies: {  }
+name: 'Contact Roles'
+vid: roles
+description: 'A role that a contact can have when it is related to a content item'
+weight: 0

@@ -1,0 +1,8 @@
+uuid: 90ae9ded-3cc3-4eca-b037-0b4747f35c8e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Controlled Unclassified Information (CUI) Category'
+vid: controlled_unclassified_informat
+description: ''
+weight: 0

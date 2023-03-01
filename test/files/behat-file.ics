@@ -1,0 +1,399 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Eastern Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010311T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN="Forgo, Stephen [Booz Allen Hamilton]";RSVP=TRUE:mailto:stephen
+	.forgo@accenturefederal.com
+ATTENDEE;CN="Koulish, Jeremy [Bixal Solutions  Inc]";RSVP=TRUE:mailto:jerem
+	y.koulish@accenturefederal.com
+ATTENDEE;CN="Dawodu, Adebayo [Accenture]";RSVP=TRUE:mailto:adebayo.dawodu@a
+	ccenture.com
+ATTENDEE;CN="Virgil, Allison";RSVP=TRUE:mailto:allison.virgil@accenturefede
+	ral.com
+ATTENDEE;CN="Kersh, Megan";RSVP=TRUE:mailto:megan.kersh@accenturefederal.co
+	m
+ATTENDEE;CN="Kim, Vivian";RSVP=TRUE:mailto:vivian.kim@accenturefederal.com
+ATTENDEE;CN="Femath, Anna [Bixal Solutions  Inc]";RSVP=TRUE:mailto:anna.fem
+	ath@accenturefederal.com
+ATTENDEE;CN="Ferguson, McCarlas";RSVP=TRUE:mailto:fergusonm@SEC.GOV
+ATTENDEE;CN="Kersh, Megan (Contractor)";RSVP=TRUE:mailto:KershM@SEC.GOV
+ATTENDEE;CN="Dawodu, Adebayo";RSVP=TRUE:mailto:b-adebayo.dawodu@accenturefe
+	deral.com
+ATTENDEE;CN="Nguyen, Vivian (Contractor)";RSVP=TRUE:mailto:nguyenv@SEC.GOV
+ATTENDEE;CN="Femath, Anna (Contractor)";RSVP=TRUE:mailto:fematha@SEC.GOV
+ATTENDEE;CN="Virgil, Allison (Contractor)";RSVP=TRUE:mailto:VirgilA@SEC.GOV
+CLASS:PUBLIC
+CREATED:20171025T181545Z
+DESCRIPTION:Team retrospective after each sprint. Will update calendar with
+	 room location as needed. \n \n \n \n***DO NOT DELETE OR CHANGE ANY OF THE
+	 TEXT BELOW THIS LINE****************************************************\
+	nWebEx information for your meeting scheduled on https://meetings.sec.gov/
+	meetings will replace this section after you save and send this invitation
+	.\n***DO NOT DELETE OR CHANGE ANY OF THE TEXT BELOW THIS LINE***\n \nAdeba
+	yo Dawodu has scheduled this WebEx meeting.\n \nInsider Sprint Retrospecti
+	ve - Updating time\nHost: Adebayo Dawodu\n \nWhen it's time\, start or joi
+	n the WebEx meeting from here: \n \nhttps://meetings.sec.gov/orion/joinmee
+	ting.do?MTID=26e5ccc8aa7576aacf15e18b9474ed72\n \nAccess Information\n \nM
+	eeting Number: 991 295 802\nMeeting Password: This meeting does not requir
+	e a password. \n \nAudio Connection\n \n202-551-7000 (US/Canada)\n888-732-
+	8001 (US/Canada Toll-free)\n17000        (SEC Internal)\n \nAccess Code:\n
+	991 295 802\n \n \n \nHosts\, need your host access code or key? Go to the
+	 meeting information page: \nhttps://meetings.sec.gov/orion/meeting/meetin
+	gInfo?MTID=f70301279d5b51e69f2d8139817f1653\n \nDelivering the power of co
+	llaboration\nThe meetings.sec.gov team\n \n \n \n \n \n \n \n \n \n \n \n 
+	\n \n \n \n
+DTEND;TZID="Eastern Standard Time":20170830T144500
+DTSTAMP:20170914T162212Z
+DTSTART;TZID="Eastern Standard Time":20170830T140000
+LAST-MODIFIED:20171025T181545Z
+LOCATION:OPA Space - WebEx Online
+ORGANIZER;CN="Dawodu, Adebayo (Contractor)":mailto:dawodua@SEC.GOV
+PRIORITY:5
+RRULE:FREQ=WEEKLY;COUNT=7;INTERVAL=2;BYDAY=WE;WKST=SU
+SEQUENCE:8
+SUMMARY;LANGUAGE=en-us:[External] Insider Sprint Retrospective - Updating t
+	ime 
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000201570DE9912D301000000000000000
+	01000000091298238497168489097E21D9D1EEFBE
+X-ALT-DESC;FMTTYPE=text/html:<html><head><meta http-equiv="Content-Type" co
+	ntent="text/html\; charset=iso-8859-1"><meta name="Generator" content="Mic
+	rosoft Exchange Server"><!-- converted from rtf --><style><!-- .EmailQuote
+	 { margin-left: 1pt\; padding-left: 4pt\; border-left: #800000 2px solid\;
+	 } --></Style></Head><body><font face="Calibri" size="2"><span style="font
+	-size:11pt\;"><div>Team retrospective after each sprint. Will update calen
+	dar with room location as needed. </Div><div> </Div><div> </Div><div> </Di
+	v><div>*<a name="WBX21DC9"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT B
+	ELOW THIS LINE****************************************************</Div><d
+	iv>WebEx information for your meeting scheduled on <a href="https://na01.s
+	afelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.gov%2Fmeet
+	ings&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Ce9c704ab5061
+	4eb2dcbb08d4fb8cc5fc%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C63641002
+	9414879795&sdata=DNPI6OaL6MOVV5GuCYqJ4A159KxLLV9DN%2BSIy56N4Cw%3D&reserved
+	=0"><font color="blue"><u>https://meetings.sec.gov/meetings</U></Font></A>
+	 will replace this section after you save and send this invitation.</Div><
+	div>*<a name="WBX51646"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT BELO
+	W THIS LINE***</Div><div> </Div><div>Adebayo Dawodu has scheduled this Web
+	Ex meeting.</Div><div> </Div><div>Insider Sprint Retrospective - Updating 
+	time</Div><div>Host: Adebayo Dawodu</Div><div> </Div><div>When it's time\,
+	 start or join the WebEx meeting from here: </Div><div> </Div><div><a href
+	="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeeting
+	s.sec.gov%2Forion%2Fjoinmeeting.do%3FMTID%3D26e5ccc8aa7576aacf15e18b9474ed
+	72&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Ce9c704ab50614e
+	b2dcbb08d4fb8cc5fc%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C6364100294
+	14879795&sdata=sBeTqaTkC6097IoLftSTRoyHgSKnUBBgpJr%2F1VYWgm8%3D&reserved=0
+	"><font color="blue"><u>https://meetings.sec.gov/orion/joinmeeting.do?MTID
+	=26e5ccc8aa7576aacf15e18b9474ed72</U></Font></A></Div><div> </Div><div>Acc
+	ess Information</Div><div> </Div><div>Meeting Number: 991 295 802</Div><di
+	v>Meeting Password: This meeting does not require a password. </Div><div> 
+	</Div><div>Audio Connection</Div><div> </Div><div>202-551-7000 (US/Canada)
+	</Div><div>888-732-8001 (US/Canada Toll-free)</Div><div>17000        (SEC 
+	Internal)</Div><div> </Div><div>Access Code:</Div><div>991 295 802</Div><d
+	iv> </Div><div> </Div><div> </Div><div>Hosts\, need your host access code 
+	or key? Go to the meeting information page: </Div><div><a href="https://na
+	01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.gov%2F
+	orion%2Fmeeting%2FmeetingInfo%3FMTID%3Df70301279d5b51e69f2d8139817f1653&da
+	ta=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Ce9c704ab50614eb2dcb
+	b08d4fb8cc5fc%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C636410029414879
+	795&sdata=B9ECyqAFAf4IAro4CMCOqbZYbwWG6lrP%2F%2FL2XDBgbLo%3D&reserved=0"><
+	font color="blue"><u>https://meetings.sec.gov/orion/meeting/meetingInfo?MT
+	ID=f70301279d5b51e69f2d8139817f1653</U></Font></A></Div><div> </Div><div>D
+	elivering the power of collaboration</Div><div>The meetings.sec.gov t<a na
+	me="WBXMacOImailBodyEnd_3_1"></A>eam</Div><div> </Div><div> </Div><div> </
+	Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Di
+	v><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div>
+	</Span></Font></Body></Html>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20171025T181545Z
+DESCRIPTION:Team retrospective after each sprint. Will update calendar with
+	 room location as needed. \n \n \n \n***DO NOT DELETE OR CHANGE ANY OF THE
+	 TEXT BELOW THIS LINE****************************************************\
+	nWebEx information for your meeting scheduled on https://meetings.sec.gov/
+	meetings will replace this section after you save and send this invitation
+	.\n***DO NOT DELETE OR CHANGE ANY OF THE TEXT BELOW THIS LINE***\n \nAdeba
+	yo Dawodu has scheduled this WebEx meeting.\n \nInsider Sprint Retrospecti
+	ve - Updating time\nHost: Adebayo Dawodu\n \nWhen it's time\, start or joi
+	n the WebEx meeting from here: \n \nhttps://meetings.sec.gov/orion/joinmee
+	ting.do?MTID=a0ec7d129a9b4f805a5c14a724972de1\n \nAccess Information\n \nM
+	eeting Number: 993 500 723\nMeeting Password: This meeting does not requir
+	e a password. \n \nAudio Connection\n \n202-551-7000 (US/Canada)\n888-732-
+	8001 (US/Canada Toll-free)\n17000        (SEC Internal)\n \nAccess Code:\n
+	993 500 723\n \n \n \nHosts\, need your host access code or key? Go to the
+	 meeting information page: \nhttps://meetings.sec.gov/orion/meeting/meetin
+	gInfo?MTID=35a2b5e2769a5e07ae8113339d7252a2\n \nDelivering the power of co
+	llaboration\nThe meetings.sec.gov team\n \n \n \n \n \n \n \n \n \n \n \n 
+	\n \n \n \n \n \n \n \n \n \n
+DTEND:20170927T184500Z
+DTSTAMP:20170927T135409Z
+DTSTART:20170927T180000Z
+LAST-MODIFIED:20171025T181545Z
+LOCATION:CONF RM SP1 5004 Phone Small-18
+PRIORITY:5
+RECURRENCE-ID:20170927T180000Z
+SEQUENCE:10
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000201570DE9912D301000000000000000
+	01000000091298238497168489097E21D9D1EEFBE
+X-ALT-DESC;FMTTYPE=text/html:<html><head><meta http-equiv="Content-Type" co
+	ntent="text/html\; charset=iso-8859-1"><meta name="Generator" content="Mic
+	rosoft Exchange Server"><!-- converted from rtf --><style><!-- .EmailQuote
+	 { margin-left: 1pt\; padding-left: 4pt\; border-left: #800000 2px solid\;
+	 } --></Style></Head><body><font face="Calibri" size="2"><span style="font
+	-size:11pt\;"><div>Team retrospective after each sprint. Will update calen
+	dar with room location as needed. </Div><div> </Div><div> </Div><div> </Di
+	v><div>*<a name="WBX21DC9"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT B
+	ELOW THIS LINE****************************************************</Div><d
+	iv>WebEx information for your meeting scheduled on <a href="https://na01.s
+	afelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.gov%2Fmeet
+	ings&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Cb324039e7a48
+	4eaffecf08d505af3b6f%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C63642117
+	2532816441&sdata=PYO8PavCg2%2FIN30Fj5MwJal3MpZA2i5VOafpX20dxMI%3D&reserved
+	=0"><font color="blue"><u>https://meetings.sec.gov/meetings</U></Font></A>
+	 will replace this section after you save and send this invitation.</Div><
+	div>*<a name="WBX51646"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT BELO
+	W THIS LINE***</Div><div> </Div><div>Adebayo Dawodu has scheduled this Web
+	Ex meeting.</Div><div> </Div><div>Insider Sprint Retrospective - Updating 
+	time</Div><div>Host: Adebayo Dawodu</Div><div> </Div><div>When it's time\,
+	 start or join the WebEx meeting from here: </Div><div> </Div><div><a href
+	="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeeting
+	s.sec.gov%2Forion%2Fjoinmeeting.do%3FMTID%3Da0ec7d129a9b4f805a5c14a724972d
+	e1&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Cb324039e7a484e
+	affecf08d505af3b6f%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C6364211725
+	32816441&sdata=t4MDVLWPqhyfm40hthHMVkUd7YzL6OP71TaqnTf75Ps%3D&reserved=0">
+	<font color="blue"><u>https://meetings.sec.gov/orion/joinmeeting.do?MTID=a
+	0ec7d129a9b4f805a5c14a724972de1</U></Font></A></Div><div> </Div><div>Acces
+	s Information</Div><div> </Div><div>Meeting Number: 993 500 723</Div><div>
+	Meeting Password: This meeting does not require a password. </Div><div> </
+	Div><div>Audio Connection</Div><div> </Div><div>202-551-7000 (US/Canada)</
+	Div><div>888-732-8001 (US/Canada Toll-free)</Div><div>17000        (SEC In
+	ternal)</Div><div> </Div><div>Access Code:</Div><div>993 500 723</Div><div
+	> </Div><div> </Div><div> </Div><div>Hosts\, need your host access code or
+	 key? Go to the meeting information page: </Div><div><a href="https://na01
+	.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.gov%2For
+	ion%2Fmeeting%2FmeetingInfo%3FMTID%3D35a2b5e2769a5e07ae8113339d7252a2&data
+	=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7Cb324039e7a484eaffecf0
+	8d505af3b6f%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C63642117253281644
+	1&sdata=s0u2M1ogcxjJE%2B8g2X0Fd36FXuCbuBCMfWcDbkIx2uA%3D&reserved=0"><font
+	 color="blue"><u>https://meetings.sec.gov/orion/meeting/meetingInfo?MTID=3
+	5a2b5e2769a5e07ae8113339d7252a2</U></Font></A></Div><div> </Div><div>Deliv
+	ering the power of collaboration</Div><div>The meetings.sec.gov t<a name="
+	WBXMacOImailBodyEnd_3_1"></A>eam</Div><div> </Div><div> </Div><div> </Div>
+	<div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><d
+	iv> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div
+	> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div></Span
+	></Font></Body></Html>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20171025T181545Z
+DESCRIPTION:Team retrospective after each sprint. Will update calendar with
+	 room location as needed. \n \n \n \n***DO NOT DELETE OR CHANGE ANY OF THE
+	 TEXT BELOW THIS LINE****************************************************\
+	nWebEx information for your meeting scheduled on https://meetings.sec.gov/
+	meetings will replace this section after you save and send this invitation
+	.\n***DO NOT DELETE OR CHANGE ANY OF THE TEXT BELOW THIS LINE***\n \nAdeba
+	yo Dawodu has scheduled this WebEx meeting.\n \nInsider Sprint Retrospecti
+	ve - Updating time\nHost: Adebayo Dawodu\n \nWhen it's time\, start or joi
+	n the WebEx meeting from here: \n \nhttps://meetings.sec.gov/orion/joinmee
+	ting.do?MTID=759cdbb277931324aca51936d097ccab\n \nAccess Information\n \nM
+	eeting Number: 994 642 848\nMeeting Password: This meeting does not requir
+	e a password. \n \nAudio Connection\n \n202-551-7000 (US/Canada)\n888-732-
+	8001 (US/Canada Toll-free)\n17000        (SEC Internal)\n \nAccess Code:\n
+	994 642 848\n \n \n \nHosts\, need your host access code or key? Go to the
+	 meeting information page: \nhttps://meetings.sec.gov/orion/meeting/meetin
+	gInfo?MTID=bd5a17fee236a4a830643766c2eb4edd\n \nDelivering the power of co
+	llaboration\nThe meetings.sec.gov team\n \n \n \n \n \n \n \n \n \n \n \n 
+	\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n
+DTEND:20171011T183000Z
+DTSTAMP:20171011T175032Z
+DTSTART:20171011T180000Z
+LAST-MODIFIED:20171025T181545Z
+LOCATION:CONF RM*SP1 2523 VTC/WebEx Medium-15
+PRIORITY:5
+RECURRENCE-ID:20171011T180000Z
+SEQUENCE:13
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000201570DE9912D301000000000000000
+	01000000091298238497168489097E21D9D1EEFBE
+X-ALT-DESC;FMTTYPE=text/html:<html><head><meta http-equiv="Content-Type" co
+	ntent="text/html\; charset=iso-8859-1"><meta name="Generator" content="Mic
+	rosoft Exchange Server"><!-- converted from rtf --><style><!-- .EmailQuote
+	 { margin-left: 1pt\; padding-left: 4pt\; border-left: #800000 2px solid\;
+	 } --></Style></Head><body><font face="Calibri" size="2"><span style="font
+	-size:11pt\;"><div>Team retrospective after each sprint. Will update calen
+	dar with room location as needed. </Div><div> </Div><div> </Div><div> </Di
+	v><div>*<a name="WBX21DC9"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT B
+	ELOW THIS LINE****************************************************</Div><d
+	iv>WebEx information for your meeting scheduled on <a href="https://na01.s
+	afelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.gov%2Fmeet
+	ings&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7C949368297e61
+	43892a0508d510d09ccb%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C63643341
+	0533089828&sdata=uAW%2Fj6xfDHq8DowWzmCAxg8jDNODylIgpDQNTxjcb6E%3D&reserved
+	=0"><font color="blue"><u>https://meetings.sec.gov/meetings</U></Font></A>
+	 will replace this section after you save and send this invitation.</Div><
+	div>*<a name="WBX51646"></A>**DO NOT DELETE OR CHANGE ANY OF THE TEXT BELO
+	W THIS LINE***</Div><div> </Div><div>Adebayo Dawodu has scheduled this Web
+	Ex meeting.</Div><div> </Div><div>Insider Sprint Retrospective - Updating 
+	time</Div><div>Host: Adebayo Dawodu</Div><div> </Div><div>When it's time\,
+	 start or join the WebEx meeting from here: </Div><div> </Div><div><a href
+	="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeeting
+	s.sec.gov%2Forion%2Fjoinmeeting.do%3FMTID%3D759cdbb277931324aca51936d097cc
+	ab&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7C949368297e6143
+	892a0508d510d09ccb%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C6364334105
+	33089828&sdata=mxONQfiOp6%2B24cAmXf%2B5Qiq75Tz9G%2BNc3JNwBtnUSZ8%3D&reserv
+	ed=0"><font color="blue"><u>https://meetings.sec.gov/orion/joinmeeting.do?
+	MTID=759cdbb277931324aca51936d097ccab</U></Font></A></Div><div> </Div><div
+	>Access Information</Div><div> </Div><div>Meeting Number: 994 642 848</Div
+	><div>Meeting Password: This meeting does not require a password. </Div><d
+	iv> </Div><div>Audio Connection</Div><div> </Div><div>202-551-7000 (US/Can
+	ada)</Div><div>888-732-8001 (US/Canada Toll-free)</Div><div>17000        (
+	SEC Internal)</Div><div> </Div><div>Access Code:</Div><div>994 642 848</Di
+	v><div> </Div><div> </Div><div> </Div><div>Hosts\, need your host access c
+	ode or key? Go to the meeting information page: </Div><div><a href="https:
+	//na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeetings.sec.go
+	v%2Forion%2Fmeeting%2FmeetingInfo%3FMTID%3Dbd5a17fee236a4a830643766c2eb4ed
+	d&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.com%7C949368297e61438
+	92a0508d510d09ccb%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C0%7C0%7C63643341053
+	3089828&sdata=MiQfMPQoFqCSZbog74s6BpivunG3e1Pb4ZJM8TytrzI%3D&reserved=0"><
+	font color="blue"><u>https://meetings.sec.gov/orion/meeting/meetingInfo?MT
+	ID=bd5a17fee236a4a830643766c2eb4edd</U></Font></A></Div><div> </Div><div>D
+	elivering the power of collaboration</Div><div>The meetings.sec.gov t<a na
+	me="WBXMacOImailBodyEnd_3_1"></A>eam</Div><div> </Div><div> </Div><div> </
+	Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Di
+	v><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div>
+	<div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><d
+	iv> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div></Sp
+	an></Font></Body></Html>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20171025T181545Z
+DESCRIPTION:Room updated\nTeam retrospective after each sprint. Will update
+	 calendar with room location as needed. \n \n \n \n***DO NOT DELETE OR CHA
+	NGE ANY OF THE TEXT BELOW THIS LINE***************************************
+	*************\nWebEx information for your meeting scheduled on https://mee
+	tings.sec.gov/meetings will replace this section after you save and send t
+	his invitation.\n***DO NOT DELETE OR CHANGE ANY OF THE TEXT BELOW THIS LIN
+	E***\n \nAdebayo Dawodu has scheduled this WebEx meeting.\n \nInsider Spri
+	nt Retrospective - Updating time\nHost: Adebayo Dawodu\n \nWhen it's time\
+	, start or join the WebEx meeting from here: \n \nhttps://meetings.sec.gov
+	/orion/joinmeeting.do?MTID=3100ac1cbad54e8e7703a0b2b908ebdf\n \nAccess Inf
+	ormation\n \nMeeting Number: 991 927 758\nMeeting Password: This meeting d
+	oes not require a password. \n \nAudio Connection\n \n202-551-7000 (US/Can
+	ada)\n888-732-8001 (US/Canada Toll-free)\n17000        (SEC Internal)\n \n
+	Access Code:\n991 927 758\n \n \n \nHosts\, need your host access code or 
+	key? Go to the meeting information page: \nhttps://meetings.sec.gov/orion/
+	meeting/meetingInfo?MTID=4c16a0bd3b251dae3685c81fe2b7cfcb\n \nDelivering t
+	he power of collaboration\nThe meetings.sec.gov team\n \n \n \n \n \n \n \
+	n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n
+DTEND:20171025T184500Z
+DTSTAMP:20171024T171636Z
+DTSTART:20171025T180000Z
+LAST-MODIFIED:20171025T181545Z
+LOCATION:CONF RM*SP1 2523 VTC/WebEx Medium-15
+PRIORITY:5
+RECURRENCE-ID:20171025T180000Z
+SEQUENCE:15
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000201570DE9912D301000000000000000
+	01000000091298238497168489097E21D9D1EEFBE
+X-ALT-DESC;FMTTYPE=text/html:<html><head><meta http-equiv="Content-Type" co
+	ntent="text/html\; charset=iso-8859-1"><meta name="Generator" content="Mic
+	rosoft Exchange Server"><!-- converted from rtf --><style><!-- .EmailQuote
+	 { margin-left: 1pt\; padding-left: 4pt\; border-left: #800000 2px solid\;
+	 } --></Style></Head><body><font face="Calibri" size="2"><span style="font
+	-size:11pt\;"><div>Room updated</Div><div>Team retrospective after each sp
+	rint. Will update calendar with room location as needed. </Div><div> </Div
+	><div> </Div><div> </Div><div>*<a name="WBX21DC9"></A>**DO NOT DELETE OR C
+	HANGE ANY OF THE TEXT BELOW THIS LINE*************************************
+	***************</Div><div>WebEx information for your meeting scheduled on 
+	<a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2F
+	meetings.sec.gov%2Fmeetings&data=02%7C01%7Cb-adebayo.dawodu%40accenturefed
+	eral.com%7C1fa06bb9075f4422beba08d51b02fcab%7C0ee6c63b4eab4748b74ad1dc22fc
+	1a24%7C0%7C0%7C636444622008724719&sdata=O6gZBvfoC379ywPRo2ZafwcsOoZAS8jcyY
+	E3ke2lDP8%3D&reserved=0"><font color="blue"><u>https://meetings.sec.gov/me
+	etings</U></Font></A> will replace this section after you save and send th
+	is invitation.</Div><div>*<a name="WBX51646"></A>**DO NOT DELETE OR CHANGE
+	 ANY OF THE TEXT BELOW THIS LINE***</Div><div> </Div><div>Adebayo Dawodu h
+	as scheduled this WebEx meeting.</Div><div> </Div><div>Insider Sprint Retr
+	ospective - Updating time</Div><div>Host: Adebayo Dawodu</Div><div> </Div>
+	<div>When it's time\, start or join the WebEx meeting from here: </Div><di
+	v> </Div><div><a href="https://na01.safelinks.protection.outlook.com/?url=
+	https%3A%2F%2Fmeetings.sec.gov%2Forion%2Fjoinmeeting.do%3FMTID%3D3100ac1cb
+	ad54e8e7703a0b2b908ebdf&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal
+	.com%7C1fa06bb9075f4422beba08d51b02fcab%7C0ee6c63b4eab4748b74ad1dc22fc1a24
+	%7C0%7C0%7C636444622008724719&sdata=12DyTUCktka3pz%2BoyXDfmCpfA4xItmdQ%2B7
+	R0Fc4vYvY%3D&reserved=0"><font color="blue"><u>https://meetings.sec.gov/or
+	ion/joinmeeting.do?MTID=3100ac1cbad54e8e7703a0b2b908ebdf</U></Font></A></D
+	iv><div> </Div><div>Access Information</Div><div> </Div><div>Meeting Numbe
+	r: 991 927 758</Div><div>Meeting Password: This meeting does not require a
+	 password. </Div><div> </Div><div>Audio Connection</Div><div> </Div><div>2
+	02-551-7000 (US/Canada)</Div><div>888-732-8001 (US/Canada Toll-free)</Div>
+	<div>17000        (SEC Internal)</Div><div> </Div><div>Access Code:</Div><
+	div>991 927 758</Div><div> </Div><div> </Div><div> </Div><div>Hosts\, need
+	 your host access code or key? Go to the meeting information page: </Div><
+	div><a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2
+	F%2Fmeetings.sec.gov%2Forion%2Fmeeting%2FmeetingInfo%3FMTID%3D4c16a0bd3b25
+	1dae3685c81fe2b7cfcb&data=02%7C01%7Cb-adebayo.dawodu%40accenturefederal.co
+	m%7C1fa06bb9075f4422beba08d51b02fcab%7C0ee6c63b4eab4748b74ad1dc22fc1a24%7C
+	0%7C0%7C636444622008724719&sdata=v8jfe9ciY6ofCaLplmr4v8OYXITx3Ew1ir01G0rHg
+	3I%3D&reserved=0"><font color="blue"><u>https://meetings.sec.gov/orion/mee
+	ting/meetingInfo?MTID=4c16a0bd3b251dae3685c81fe2b7cfcb</U></Font></A></Div
+	><div> </Div><div>Delivering the power of collaboration</Div><div>The meet
+	ings.sec.gov t<a name="WBXMacOImailBodyEnd_3_1"></A>eam</Div><div> </Div><
+	div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><di
+	v> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div>
+	 </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div><div> <
+	/Div><div> </Div><div> </Div><div> </Div><div> </Div><div> </Div></Span></
+	Font></Body></Html>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

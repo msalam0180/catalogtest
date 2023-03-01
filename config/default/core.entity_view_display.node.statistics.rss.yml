@@ -1,0 +1,66 @@
+uuid: 17c18f15-0e12-461a-a19c-abe170380f30
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.rss
+    - field.field.node.statistics.body
+    - field.field.node.statistics.field_articles
+    - field.field.node.statistics.field_associated_datasets
+    - field.field.node.statistics.field_author
+    - field.field.node.statistics.field_contact
+    - field.field.node.statistics.field_data_search_index
+    - field.field.node.statistics.field_documents
+    - field.field.node.statistics.field_footnotes
+    - field.field.node.statistics.field_published_date
+    - field.field.node.statistics.field_r_and_s_category
+    - field.field.node.statistics.field_related_datasets
+    - field.field.node.statistics.field_reports_statistics_menu
+    - field.field.node.statistics.field_repository_link
+    - field.field.node.statistics.field_reviewer
+    - field.field.node.statistics.field_tags
+    - field.field.node.statistics.field_visualization_paragraph
+    - node.type.statistics
+  module:
+    - user
+_core:
+  default_config_hash: hkJIlt2a7P8lgjWqom8-YMbSV8Qukjun3ps6b6qO_z0
+id: node.statistics.rss
+targetEntityType: node
+bundle: statistics
+mode: rss
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_add_new_discussion: true
+  field_articles: true
+  field_associated_datasets: true
+  field_author: true
+  field_contact: true
+  field_contacts: true
+  field_data_search_index: true
+  field_documents: true
+  field_footnotes: true
+  field_published_date: true
+  field_r_and_s_category: true
+  field_related_data_insights: true
+  field_related_datasets: true
+  field_related_discussions: true
+  field_reports_statistics_menu: true
+  field_repository_link: true
+  field_review_submitter: true
+  field_reviewer: true
+  field_summary: true
+  field_tags: true
+  field_visualization_paragraph: true
+  search_api_excerpt: true

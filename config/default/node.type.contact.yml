@@ -1,0 +1,20 @@
+uuid: 30630184-bcc2-41ec-9a3c-e91a06083bee
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+name: Contact
+type: contact
+description: 'A person that can be contacted for more information about a dataset.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

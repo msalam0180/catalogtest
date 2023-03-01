@@ -1,0 +1,7 @@
+name: Plotly.js
+description: "Integrates plotly.js charting library with Drupal."
+type: module
+package: Field types
+core: '8.x'
+configure: plotly_js.admin_settings
+core_version_requirement: ^8 || ^9

@@ -1,0 +1,82 @@
+diff --git a/core/lib/Drupal/Core/Condition/ConditionPluginBase.php b/core/lib/Drupal/Core/Condition/ConditionPluginBase.php
+index 48d6cc6..6ab0b9e 100644
+--- a/core/lib/Drupal/Core/Condition/ConditionPluginBase.php
++++ b/core/lib/Drupal/Core/Condition/ConditionPluginBase.php
+@@ -65,6 +65,10 @@ public function buildConfigurationForm(array $form, FormStateInterface $form_sta
+    * {@inheritdoc}
+    */
+   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
++    // In the config schema, 'negate' is a boolean. However, some form elements
++    // such as checkbox return the value as 0/1. Cast here to ensure the data is
++    // in the expected type.
++    $form_state->setValue('negate', (bool) $form_state->getValue('negate'));
+   }
+ 
+   /**
+diff --git a/core/modules/block/src/BlockForm.php b/core/modules/block/src/BlockForm.php
+index 8f33017..ca0d8a1 100644
+--- a/core/modules/block/src/BlockForm.php
++++ b/core/modules/block/src/BlockForm.php
+@@ -316,13 +316,6 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
+   protected function validateVisibility(array $form, FormStateInterface $form_state) {
+     // Validate visibility condition settings.
+     foreach ($form_state->getValue('visibility') as $condition_id => $values) {
+-      // All condition plugins use 'negate' as a Boolean in their schema.
+-      // However, certain form elements may return it as 0/1. Cast here to
+-      // ensure the data is in the expected type.
+-      if (array_key_exists('negate', $values)) {
+-        $form_state->setValue(['visibility', $condition_id, 'negate'], (bool) $values['negate']);
+-      }
+-
+       // Allow the condition to validate the form.
+       $condition = $form_state->get(['conditions', $condition_id]);
+       $condition->validateConfigurationForm($form['visibility'][$condition_id], SubformState::createForSubform($form['visibility'][$condition_id], $form, $form_state));
+diff --git a/core/tests/Drupal/Tests/Core/Condition/ConditionPluginBaseTest.php b/core/tests/Drupal/Tests/Core/Condition/ConditionPluginBaseTest.php
+new file mode 100644
+index 0000000..60f8a8a
+--- /dev/null
++++ b/core/tests/Drupal/Tests/Core/Condition/ConditionPluginBaseTest.php
+@@ -0,0 +1,43 @@
++<?php
++
++namespace Drupal\Tests\Core\Condition;
++
++use Drupal\Core\Form\FormState;
++use Drupal\Tests\UnitTestCase;
++
++/**
++ * @coversDefaultClass \Drupal\Core\Condition\ConditionPluginBase
++ * @group Condition
++ */
++class ConditionPluginBaseTest extends UnitTestCase {
++
++  /**
++   * @covers ::validateConfigurationForm
++   */
++  public function testValidateConfigurationForm() {
++    $form_validator = $this->getMockBuilder('Drupal\Core\Condition\ConditionPluginBase')
++      ->setConstructorArgs([[], '', ''])
++      ->setMethods(['evaluate', 'summary'])
++      ->getMock();
++
++    $form = [];
++    $form_state = new FormState();
++
++    $form_state->setValue('negate', 0);
++    $form_validator->validateConfigurationForm($form, $form_state);
++    $this->assertIsBool($form_state->getValue('negate'));
++
++    $form_state->setValue('negate', 1);
++    $form_validator->validateConfigurationForm($form, $form_state);
++    $this->assertIsBool($form_state->getValue('negate'));
++
++    $form_state->setValue('negate', FALSE);
++    $form_validator->validateConfigurationForm($form, $form_state);
++    $this->assertIsBool($form_state->getValue('negate'));
++
++    $form_state->setValue('negate', TRUE);
++    $form_validator->validateConfigurationForm($form, $form_state);
++    $this->assertIsBool($form_state->getValue('negate'));
++  }
++
++}

@@ -1,0 +1,19 @@
+uuid: 297386dc-6442-4711-8ca3-4a950adc6f13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_omb_number
+    - node.type.data_set
+id: node.data_set.field_omb_number
+field_name: field_omb_number
+entity_type: node
+bundle: data_set
+label: 'OMB Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

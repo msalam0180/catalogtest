@@ -1,0 +1,25 @@
+uuid: 464a3f1f-6aa6-48e3-9542-b4be6ad44112
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_license_type
+    - paragraphs.paragraphs_type.licenses_held_by_division_office
+  module:
+    - field_display_label
+    - options
+third_party_settings:
+  field_display_label:
+    display_label: Type
+id: paragraph.licenses_held_by_division_office.field_license_type
+field_name: field_license_type
+entity_type: paragraph
+bundle: licenses_held_by_division_office
+label: 'License Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

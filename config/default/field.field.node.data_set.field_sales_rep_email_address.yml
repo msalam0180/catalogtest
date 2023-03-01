@@ -1,0 +1,19 @@
+uuid: 6f02b2c3-c968-42ab-ab7f-98ca55da7cbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sales_rep_email_address
+    - node.type.data_set
+id: node.data_set.field_sales_rep_email_address
+field_name: field_sales_rep_email_address
+entity_type: node
+bundle: data_set
+label: 'Sales Rep Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

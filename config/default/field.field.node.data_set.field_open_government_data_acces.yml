@@ -1,0 +1,29 @@
+uuid: 6bc6a9da-fd94-40ad-a578-848539964a6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_government_data_acces
+    - node.type.data_set
+    - taxonomy.vocabulary.open_government_data_act_access
+id: node.data_set.field_open_government_data_acces
+field_name: field_open_government_data_acces
+entity_type: node
+bundle: data_set
+label: 'OPEN Government Data Act Access Level'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      open_government_data_act_access: open_government_data_act_access
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

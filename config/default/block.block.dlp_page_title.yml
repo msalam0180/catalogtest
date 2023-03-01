@@ -1,0 +1,27 @@
+uuid: 478fad43-09b9-4d74-a414-b923bd5a0a1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dlp
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: dlp_page_title
+theme: dlp
+region: content
+weight: -9
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/data-insights\r\n/data-insights-featured"

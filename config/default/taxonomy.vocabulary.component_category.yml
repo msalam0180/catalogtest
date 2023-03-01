@@ -1,0 +1,8 @@
+uuid: 70844a51-599e-4506-85d7-536e582b6860
+langcode: en
+status: true
+dependencies: {  }
+name: 'Technology Category'
+vid: component_category
+description: 'A grouping for Software'
+weight: 0

@@ -1,0 +1,25 @@
+uuid: 1c540181-fcae-4280-969d-8cfdd330d5f7
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:45ee6583-7859-412f-b787-80d4af934613'
+  module:
+    - block_content
+  theme:
+    - dlp
+id: platformssoftwareandtools
+theme: dlp
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:45ee6583-7859-412f-b787-80d4af934613'
+settings:
+  id: 'block_content:45ee6583-7859-412f-b787-80d4af934613'
+  label: 'Platforms, Software, and Tools'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

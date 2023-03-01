@@ -1,0 +1,215 @@
+// Base Styles for status
+.status{
+  $fallback-status-bg-color: #585757;
+  $fallback-status-icon-color: #fff;
+  $fallback-status-text-color: $fallback-status-bg-color;
+  $status-fs: 0.55em;
+  $status-padding: 1em - $status-fs;
+  display: inline-flex;
+  align-items: stretch;
+  font-size: $status-fs;
+  font-weight: bold;
+  margin: 0 1em;
+  text-decoration: none;
+
+  .status-icon{
+    font-size: 1.8em;
+    padding: .2em;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: $fallback-status-bg-color;
+    color: $fallback-status-icon-color;
+  }
+
+  .status-text{
+    font-size: 1.5em;
+    padding: .3em .3em .3em .3em;
+    line-height: .6em;
+    color: $fallback-status-text-color;    
+    white-space: nowrap;
+  }
+
+  &.status--boxed{
+    border: 1px solid $fallback-status-bg-color;
+    padding: 0.3em 0.4em;
+  }
+}
+
+.status--left-line{
+  border-left: 1px solid #b3b3b3;
+  margin-left: 1.3em;
+  padding-left: 1.3em;
+}
+
+// Status color mixin
+@mixin status($status-bg-color: red, $status-icon-color: white, $status-text-color: red, $status-hover-color: orange) {
+  $status-padding-top-bottom: .05em;
+  $status-padding-left-right: .3em;
+
+  //set colors
+  & .status-icon{
+    background: $status-bg-color;
+    color: $status-icon-color;
+    transition: all .5s;
+  }
+  
+  & .status-text{
+    color: $status-text-color;
+    transition: all .25s;
+  }
+  
+  &.status--boxed{
+    border: 1px solid $status-bg-color;
+    padding: 0.3em 0.4em;
+  }
+  
+  &.status--link:hover, &.status--link:focus{
+    color: $status-hover-color;
+    // @debug $status-hover-color;
+
+    .status-text{
+      color: $status-hover-color;
+    }
+    .status-icon{
+      background-color: $status-hover-color;
+    }
+  }
+
+
+  // use: @include status($status-bg-color: red, $status-icon-color: white, $status-text-color: red)
+}
+
+//temp status button layout
+.field--name-field-related-components .field--item {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.side-grouping{
+  .field--name-field-related-apps, .field--name-field-related-platforms{
+    .field--item{
+      display: inline-block;
+      margin-bottom: 5px;
+      .btn{
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+// status-color - Here are all the color options built into status
+$status-color--red: #AF2525;
+$status-color--orange: #C43E00;
+$status-color--gold: #EAAD23;
+$status-color--green: #00695C;
+$status-color--turquoise: #00838F;
+$status-color--blue: #436BC3;
+$status-color--purple: #862CCA;
+$status-color--grey: #585757;
+//#AF2525, #C43E00, #EAAD23, #00695C, #00838F, #436BC3, #862CCA, #585757
+
+$statusColor: (
+  "red": (
+    "classString": str-replace('' + $status-color--red, '#', ''),
+    "primary": $status-color--red,
+    "status-hover-color": shade($status-color--red, 25%),
+    "status-bg-color": $status-color--red,
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--red,
+    "btn-text-color": white,
+  ),
+  "orange": (
+    "classString": str-replace('' + $status-color--orange, '#', ''),
+    "primary": $status-color--orange,
+    "status-hover-color": shade($status-color--orange, 25%),
+    "status-bg-color": $status-color--orange,
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--orange,
+    "btn-text-color": white,
+  ),
+  "gold": (
+    "classString": str-replace('' + $status-color--gold, '#', ''),
+    "primary": $status-color--gold,
+    "status-hover-color": shade($status-color--gold, 35%),
+    "status-bg-color": shade($status-color--gold, 35%),
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--gold,
+    "btn-text-color": black,
+  ),
+  "green": (
+    "classString": str-replace('' + $status-color--green, '#', ''),
+    "primary": $status-color--green,
+    "status-hover-color": shade($status-color--green, 45%),
+    "status-bg-color": $status-color--green,
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--green,
+    "btn-text-color": white,
+  ),
+  "turquoise": (
+    "classString": str-replace('' + $status-color--turquoise, '#', ''),
+    "primary": $status-color--turquoise,
+    "status-hover-color": shade($status-color--turquoise, 35%),
+    "status-bg-color": shade($status-color--turquoise, 25%),
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--turquoise,
+    "btn-text-color": white,
+    ),
+  "blue":(
+    "classString": str-replace('' + $status-color--blue, '#', ''),
+    "primary": $status-color--blue,
+    "status-hover-color": shade($status-color--blue, 25%),
+    "status-bg-color": $status-color--blue,
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--blue,
+    "btn-text-color": white,
+    ),
+  "purple": (
+    "classString": str-replace('' + $status-color--purple, '#', ''),
+    "primary": $status-color--purple,
+    "status-hover-color": shade($status-color--purple, 35%),
+    "status-bg-color": shade($status-color--purple, 10%),
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--purple,
+    "btn-text-color": white,
+  ),
+  "grey": (
+    "classString": str-replace('' + $status-color--grey, '#', ''),
+    "primary": $status-color--grey,
+    "status-hover-color": shade($status-color--grey, 25%),
+    "status-bg-color": shade($status-color--grey, 10%),
+    "status-icon-color": white,
+    "btn-bg-color": $status-color--grey,
+    "btn-text-color": white,
+  ),
+) !default;
+
+@each $name, $colors in $statusColor {
+  &.status-color--#{map-get($colors, classString)} {
+    @include status(
+      $status-bg-color: map-get($colors, primary),
+      $status-icon-color: map-get($colors, status-icon-color),
+      $status-text-color: map-get($colors, status-bg-color),
+      $status-hover-color: map-get($colors, status-hover-color),
+    )
+  }
+}
+
+
+
+// icons buttons with status
+@each $name, $colors in $statusColor {
+  &.btn-status--#{map-get($colors, classString)} {
+    @include button-variant(map-get($colors, btn-text-color), map-get($colors, btn-bg-color), map-get($colors, btn-bg-color));
+    text-transform: capitalize;
+    .icon-in-btn{
+      margin-right: 3px;
+    }
+  }
+}
+
+
+

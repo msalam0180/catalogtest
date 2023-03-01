@@ -1,0 +1,23 @@
+uuid: cdc2538a-2498-439a-b720-fd03c46fd390
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: component_category_tax
+label: 'Technology Category Tax'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/technology-standards/[term:parents:join-path]/[term:name]'
+selection_criteria:
+  93d0b4ee-c22e-4715-97bc-edcf299e434b:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 93d0b4ee-c22e-4715-97bc-edcf299e434b
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      component_category: component_category
+selection_logic: and
+weight: -5
+relationships: {  }

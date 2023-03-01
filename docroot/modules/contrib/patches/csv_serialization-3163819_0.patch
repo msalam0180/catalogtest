@@ -1,0 +1,13 @@
+diff --git a/src/Encoder/CsvEncoder.php b/src/Encoder/CsvEncoder.php
+index 425d683..8f64210 100644
+--- a/src/Encoder/CsvEncoder.php
++++ b/src/Encoder/CsvEncoder.php
+@@ -251,7 +251,7 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
+ 
+       $cell_value = "";
+       foreach ($data as $item) {
+-        $cell_value .= '|' . $this->flattenCell($item);
++        $cell_value .= '|' . (is_array($item) ? $this->flattenCell($item) : $item);
+       }
+ 
+       return trim($cell_value, '|');

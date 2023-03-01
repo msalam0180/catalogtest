@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+
+/*
+ * Implements hook_ENTITY_TYPE_presave()
+ */
+function dc_apps_migration_node_presave(EntityInterface $entity) {
+  if ($entity->getType() == 'application') {
+
+    //if this node has a field_sync_date then its being migrated
+    $field_sync_date = $entity->field_sync_date->value;
+    $field_technology_category = $entity->field_technology_category->value;
+     if (!empty($field_sync_date) && empty($field_technology_category) ) {
+      //set default values
+
+      $appName = $entity->getTitle() . " " . $entity->field_approved_version->value;
+      $category = \Drupal::database()->query('SELECT SW_Subcategory FROM {software_categories} WHERE Title = :software',[':software' => $appName])->fetchField();
+      if (!empty($category) ) {
+        //lookup the category term and tag this entity
+        $techCategory = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->loadByProperties([
+            'name' => $category, 
+            'vid' => 'component_category'
+        ]);
+        $techCategory = reset($techCategory);
+        if (!empty($techCategory)) {
+          $entity->set("field_technology_category", $techCategory);
+        }
+      }
+    }
+  }
+}
